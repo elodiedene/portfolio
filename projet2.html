@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 2 — Elodie Dené</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:         #FFFFFF;
+            --bg-card:    #FFFFFF;
+            --bg-soft:    #F2EDE3;
+            --text:       #1A1A1A;
+            --text-muted: #6B6660;
+            --border:     #E8E2D5;
+            --primary:        #2E2A5C;
+            --primary-soft:   #E8E4F0;
+            --primary-light:  #7165C8;
+            --accent:       #E8614A;
+            --accent-soft:  #FBE4DE;
+            --orange:    var(--primary);
+            --orange-bg: var(--primary-soft);
+            --green:     var(--primary);
+            --green-bg:  var(--primary-soft);
+            --yellow:    var(--accent);
+            --peach:     var(--bg-soft);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 4rem;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-available {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: #E8F1EA;
+            color: #2F6B43;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-available-dot {
+            width: 7px;
+            height: 7px;
+            background: #3A9E5F;
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.3; }
+        }
+
+        /* ── Case Study Header ── */
+        .case-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 4rem 4rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 3rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--orange); }
+
+        .case-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--orange);
+            background: var(--orange-bg);
+            padding: 0.3rem 0.85rem;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        .case-header h1 {
+            font-size: clamp(1.75rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        /* ── Hero image ── */
+        .case-hero-image {
+            max-width: 1100px;
+            margin: 0 auto 5rem;
+            padding: 0 4rem;
+        }
+
+        .img-block {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-block img {
+            width: 100%;
+            display: block;
+        }
+
+        /* ── Content ── */
+        .case-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 4rem 8rem;
+        }
+
+        /* ── Meta ── */
+        .case-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 4rem;
+        }
+
+        .meta-item label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+
+        .meta-item p {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* ── Sections ── */
+        .case-section {
+            margin-bottom: 4rem;
+        }
+
+        .case-section h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .case-section h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .case-section p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .case-section p:last-child { margin-bottom: 0; }
+
+        .subsection-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        /* ── Grille d'objectifs ── */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .objective-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .objective-number {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--text);
+        }
+
+        .objective-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* ── Pills ── */
+        .pills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin: 1rem 0 2rem;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            background: var(--primary-soft);
+            color: var(--text);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.65rem 1rem;
+            border-radius: 10px;
+            line-height: 1.5;
+        }
+
+        .pill-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 0.05rem; }
+
+        /* ── Image blocks ── */
+        .img-placeholder-block {
+            overflow: hidden;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .img-placeholder-block img {
+            width: 100%;
+            display: block;
+        }
+
+        /* ── Footer ── */
+        footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 4rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p { font-size: 0.85rem; color: var(--text-muted); }
+
+        .footer-links { display: flex; gap: 1.5rem; }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--orange); }
+
+        /* ── Back to top ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s, background 0.2s;
+            z-index: 99;
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover { background: var(--primary-light); }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-available { display: none; }
+            .case-header { padding: 4rem 1.5rem 2rem; }
+            .case-hero-image { padding: 0 1.5rem; margin-bottom: 3rem; }
+            .case-content { padding: 0 1.5rem 5rem; }
+            .case-meta { grid-template-columns: 1fr 1fr; }
+            .objectives-grid { grid-template-columns: 1fr 1fr; }
+            footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">Elodie Dené</a>
+        <ul class="nav-links">
+            <li>
+                <span class="nav-available">
+                    <span class="nav-available-dot"></span>
+                    Disponible
+                </span>
+            </li>
+            <li><a href="index.html#work">Projets</a></li>
+            <li><a href="about.html">À propos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="case-header">
+        <a href="index.html" class="back-link">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Retour aux projets
+        </a>
+        <div class="case-tags">
+            <span class="tag">Product Design</span>
+            <span class="tag">UX Research</span>
+        </div>
+        <h1>Titre du projet</h1>
+    </header>
+
+    <!-- Hero image -->
+    <div class="case-hero-image">
+        <div class="img-block">
+            <!-- <img src="images/projet2-hero.jpg" alt="Aperçu du projet"> -->
+        </div>
+    </div>
+
+    <!-- Content -->
+    <article class="case-content">
+
+        <!-- Meta -->
+        <div class="case-meta">
+            <div class="meta-item">
+                <label>Entreprise</label>
+                <p>Entreprise</p>
+            </div>
+            <div class="meta-item">
+                <label>Rôle</label>
+                <p>Product Designer</p>
+            </div>
+            <div class="meta-item">
+                <label>Année</label>
+                <p>2024</p>
+            </div>
+        </div>
+
+        <!-- ════ Contexte & Objectifs ════ -->
+        <div class="case-section">
+            <h2>Contexte &amp; Objectifs</h2>
+            <p>Description du contexte du projet.</p>
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <span class="objective-number">01</span>
+                    <p class="objective-text">Objectif 1</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">02</span>
+                    <p class="objective-text">Objectif 2</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">03</span>
+                    <p class="objective-text">Objectif 3</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════ Section 2 ════ -->
+        <div class="case-section">
+            <h2>Section</h2>
+            <h3>Sous-section</h3>
+            <p>Contenu.</p>
+        </div>
+
+    </article>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Elodie Dené</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/elodiedene/" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Remonter en haut">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 11L8 5L13 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <script>
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            btn.classList.toggle('visible', window.scrollY > 300);
+        });
+    </script>
+
+</body>
+</html>
