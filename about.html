@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos — Elodie Dené</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:         #FFFFFF;
+            --bg-card:    #FFFFFF;
+            --bg-soft:    #F2EDE3;
+            --text:       #1A1A1A;
+            --text-muted: #6B6660;
+            --border:     #E8E2D5;
+            --primary:        #2E2A5C;
+            --primary-soft:   #E8E4F0;
+            --primary-light:  #7165C8;
+            --accent:       #E8614A;
+            --accent-soft:  #FBE4DE;
+            --orange:    var(--primary);
+            --orange-bg: var(--primary-soft);
+            --green:     var(--primary);
+            --green-bg:  var(--primary-soft);
+            --yellow:    var(--accent);
+            --peach:     var(--bg-soft);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 4rem;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-available {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: #E8F1EA;
+            color: #2F6B43;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-available-dot {
+            width: 7px;
+            height: 7px;
+            background: #3A9E5F;
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.3; }
+        }
+
+        /* ── Contenu centré ── */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 4rem 5rem;
+        }
+
+        /* ── Intro ── */
+        .about-intro h1 {
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-intro p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.85;
+            margin-bottom: 1.1rem;
+        }
+
+        .about-intro p:last-of-type { margin-bottom: 1.75rem; }
+
+        .cv-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        .cv-link:hover { color: var(--accent); }
+
+        /* ── Séparateur de section ── */
+        .about-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 4rem 5rem;
+        }
+
+        .about-section h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── Grille principes ── */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .principle-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .principle-number {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .principle-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        .principle-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* ── Liste fun ── */
+        .fun-list {
+            list-style: disc;
+            padding-left: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .fun-list li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ── Photo ── */
+        .about-photo {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 4rem 5rem;
+            overflow: hidden;
+        }
+
+        .about-photo img {
+            width: 100%;
+            display: block;
+        }
+
+        /* ── Footer ── */
+        footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 4rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p { font-size: 0.85rem; color: var(--text-muted); }
+
+        .footer-links { display: flex; gap: 1.5rem; }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--orange); }
+
+        /* ── Back to top ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s, background 0.2s;
+            z-index: 99;
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover { background: var(--primary-light); }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-available { display: none; }
+            .about-content { padding: 4rem 1.5rem 3rem; }
+            .about-section { padding: 0 1.5rem 3rem; }
+            .principles-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-photo { padding: 0 1.5rem 3rem; }
+            footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">Elodie Dené</a>
+        <ul class="nav-links">
+            <li>
+                <span class="nav-available">
+                    <span class="nav-available-dot"></span>
+                    Disponible
+                </span>
+            </li>
+            <li><a href="index.html#work">Projets</a></li>
+            <li><a href="about.html">À propos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Intro -->
+    <section class="about-content about-intro">
+        <h1>Je suis motivée par l'exploration, l'apprentissage et la création d'expériences significatives</h1>
+
+        <p>Je suis devenue <strong>Product Designer</strong> car ce métier me permet d'apporter des réponses à des problématiques quotidiennes. Chaque problème est pour moi une opportunité de proposer une solution et de créer un réel bénéfice.</p>
+
+        <p>Couplées à ma formation en <strong>Product Design et Stratégie Digitale</strong>, mes études en <strong>Sciences Humaines et Sociales</strong> me donnent une perspective unique lorsque je travaille sur des projets où l'utilisateur est au centre de la stratégie.</p>
+
+        <p>J'ai une sensibilité particulière pour les causes environnementales et animales et, idéalement, mon objectif est de réussir à aligner ma carrière à ces causes.</p>
+
+        <p>Par ailleurs, ayant dans mon entourage des personnes handicapées, j'ai suivi la formation <strong>Opquast</strong> pour mieux concevoir des solutions pour ce type d'utilisateur.</p>
+
+        <a href="#" class="cv-link">
+            Télécharger mon CV
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </section>
+
+    <!-- Principes -->
+    <section class="about-section">
+        <h2>Des principes comme leitmotiv</h2>
+        <div class="principles-grid">
+            <div class="principle-item">
+                <span class="principle-number">01</span>
+                <span class="principle-title">People over Product</span>
+                <p class="principle-desc">Traiter les gens avec respect et bienveillance pour créer les meilleures expériences</p>
+            </div>
+            <div class="principle-item">
+                <span class="principle-number">02</span>
+                <span class="principle-title">Right over Easy</span>
+                <p class="principle-desc">Faire les choses de la bonne manière, même si ce n'est pas la plus simple</p>
+            </div>
+            <div class="principle-item">
+                <span class="principle-number">03</span>
+                <span class="principle-title">Communication</span>
+                <p class="principle-desc">Donner et savoir recevoir du feedback pour grandir et faire grandir</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quand je ne travaille pas -->
+    <section class="about-section">
+        <h2>Quand je ne travaille pas</h2>
+        <ul class="fun-list">
+            <li>je joue à des jeux vidéo d'horreur (Outlast, Until Dawn, The Quarry)</li>
+            <li>je mange de délicieux plats végétariens (grâce au houmous et au pain à l'ail)</li>
+            <li>je m'occupe de mon chien et de mes chats (dites bonjour à Nuka, Marlon, Nala et Yuki)</li>
+            <li>je m'évade dans des séries fantastiques (Shadow and Bone, Stranger Things, See)</li>
+        </ul>
+    </section>
+
+    <!-- Photo -->
+    <div class="about-photo">
+        <img src="images/moodboard.png" alt="Elodie Dené">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Elodie Dené</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/elodiedene/" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Remonter en haut">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 11L8 5L13 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <script>
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            btn.classList.toggle('visible', window.scrollY > 300);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace privé babysitters — Elodie Dené</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:         #FFFFFF;
+            --bg-card:    #FFFFFF;
+            --bg-soft:    #F2EDE3;
+            --text:       #1A1A1A;
+            --text-muted: #6B6660;
+            --border:     #E8E2D5;
+            --primary:        #2E2A5C;
+            --primary-soft:   #E8E4F0;
+            --primary-light:  #7165C8;
+            --accent:       #E8614A;
+            --accent-soft:  #FBE4DE;
+            --orange:    var(--primary);
+            --orange-bg: var(--primary-soft);
+            --green:     var(--primary);
+            --green-bg:  var(--primary-soft);
+            --yellow:    var(--accent);
+            --peach:     var(--bg-soft);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 4rem;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-available {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: #E8F1EA;
+            color: #2F6B43;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-available-dot {
+            width: 7px;
+            height: 7px;
+            background: #3A9E5F;
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.3; }
+        }
+
+        /* ── Case Study Header ── */
+        .case-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 4rem 4rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 3rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--orange); }
+
+        .case-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--orange);
+            background: var(--orange-bg);
+            padding: 0.3rem 0.85rem;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+
+        .case-header h1 {
+            font-size: clamp(1.75rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── Hero image ── */
+        .case-hero-image {
+            max-width: 1100px;
+            margin: 0 auto 5rem;
+            padding: 0 4rem;
+        }
+
+        .img-block {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-block::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 25% 75%, var(--primary-soft) 0%, var(--primary) 55%, #1E1A3C 100%);
+            opacity: 0.4;
+        }
+
+        .img-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Content ── */
+        .case-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 4rem 8rem;
+        }
+
+        /* ── Meta ── */
+        .case-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 4rem;
+        }
+
+        .meta-item label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+
+        .meta-item p {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* ── Sections ── */
+        .case-section {
+            margin-bottom: 4rem;
+        }
+
+        .case-section h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .case-section h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-top: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-section p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .subsection-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        /* ── Grille d'objectifs ── */
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .objective-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .objective-number {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--text);
+        }
+
+        .objective-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* ── Pills ── */
+        .pills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin: 1rem 0 2rem;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            background: var(--primary-soft);
+            color: var(--text);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.65rem 1rem;
+            border-radius: 10px;
+            line-height: 1.5;
+        }
+
+        .pill-icon {
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 0.05rem;
+        }
+
+        /* ── Table benchmark ── */
+        .benchmark-table-wrap {
+            overflow-x: auto;
+            margin: 1rem 0 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .benchmark-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            min-width: 720px;
+        }
+
+        .benchmark-table th {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.7rem 0.9rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .benchmark-table td {
+            background: var(--primary-soft);
+            color: var(--text);
+            padding: 0.75rem 0.9rem;
+            vertical-align: top;
+            line-height: 1.55;
+            border-top: 1px solid rgba(46, 42, 92, 0.1);
+        }
+
+        .benchmark-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        /* ── Image blocks ── */
+        .img-placeholder-block {
+            overflow: hidden;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .img-placeholder-block img {
+            width: 100%;
+            display: block;
+        }
+
+        .caption {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            opacity: 0.6;
+            font-style: italic;
+        }
+
+        /* Grille personas */
+        .personas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .personas-grid .img-placeholder-block {
+            margin: 0;
+        }
+
+        /* ── Lien prototype ── */
+        /* ── Figma embed ── */
+        .figma-embed-wrap {
+            position: relative;
+            width: 100%;
+            padding-bottom: 65%;
+            margin: 1.5rem 0 0.75rem;
+            border: 1px solid var(--border);
+            background: var(--bg-soft);
+        }
+
+        .figma-embed-wrap iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ── Footer ── */
+        footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 4rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p { font-size: 0.85rem; color: var(--text-muted); }
+
+        .footer-links { display: flex; gap: 1.5rem; }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--orange); }
+
+        /* ── Back to top ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s, background 0.2s;
+            z-index: 99;
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover { background: var(--primary-light); }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-available { display: none; }
+            .case-header { padding: 4rem 1.5rem 2rem; }
+            .case-hero-image { padding: 0 1.5rem; margin-bottom: 3rem; }
+            .case-content { padding: 0 1.5rem 5rem; }
+            .case-meta { grid-template-columns: 1fr 1fr; }
+            .objectives-grid { grid-template-columns: 1fr 1fr; }
+            .personas-grid { grid-template-columns: 1fr; }
+            footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo">Elodie Dené</a>
+        <ul class="nav-links">
+            <li>
+                <span class="nav-available">
+                    <span class="nav-available-dot"></span>
+                    Disponible
+                </span>
+            </li>
+            <li><a href="index.html#work">Projets</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="case-header">
+        <a href="index.html" class="back-link">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Retour aux projets
+        </a>
+        <div class="case-tags">
+            <span class="tag">Product Design</span>
+            <span class="tag">UX Research</span>
+            <span class="tag">Web App</span>
+        </div>
+        <h1>Un espace privé pour les babysitters</h1>
+    </header>
+
+    <!-- Hero image -->
+    <div class="case-hero-image">
+        <div class="img-block">
+            <!-- <img src="images/momji-hero.jpg" alt="Aperçu du projet Mômji"> -->
+        </div>
+    </div>
+
+    <!-- Content -->
+    <article class="case-content">
+
+        <!-- Meta -->
+        <div class="case-meta">
+            <div class="meta-item">
+                <label>Entreprise</label>
+                <p>Mômji</p>
+            </div>
+            <div class="meta-item">
+                <label>Rôle</label>
+                <p>Product Designer</p>
+            </div>
+            <div class="meta-item">
+                <label>Année</label>
+                <p>2024</p>
+            </div>
+        </div>
+
+        <!-- ════ Contexte & Objectifs ════ -->
+        <div class="case-section">
+            <h2>Contexte &amp; Objectifs</h2>
+
+            <p>Mômji met en relation des parents ayant des enfants à garder avec des nounous. Les nounous ont accès à un espace privé qui leur permet de gérer leur recherche d'emploi, leur donne accès à des informations et des ressources, et leur permet de fournir ou récupérer des documents nécessaires à leur embauche. Cependant, nous savons grâce aux retours utilisateurs que l'espace privé n'est pas assez intuitif et performant.</p>
+
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <span class="objective-number">01</span>
+                    <p class="objective-text">Permettre aux candidats de naviguer sur leur espace depuis leur smartphone</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">02</span>
+                    <p class="objective-text">Mettre à jour les fonctionnalités vieillissantes (signature en ligne, carte interactive des offres)</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">03</span>
+                    <p class="objective-text">Améliorer les parcours qui ne sont plus cohérents avec l'évolution des services et des besoins fonctionnels</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">04</span>
+                    <p class="objective-text">Améliorer le taux de transformation (en augmentant le nombre de candidatures) et le taux de matching</p>
+                </div>
+            </div>
+
+            <p>Cette présentation a pour but de montrer le résultat global de l'espace privé des babysitters, qui lui-même adresse beaucoup de parcours différents qui ne sont pas tous détaillés ici.</p>
+        </div>
+
+        <!-- ════ Discovery ════ -->
+        <div class="case-section">
+            <h2>Discovery</h2>
+
+            <h3>Questionnaire en ligne</h3>
+            <p class="subsection-desc">Envoi d'un formulaire en ligne adressé aux candidats et aux salariés pour en apprendre plus sur leur usage et leur appréciation de l'espace privé</p>
+            <div class="pills-list">
+                <span class="pill"><span class="pill-icon">💡</span>Navigation sur smartphone pas optimisée</span>
+                <span class="pill"><span class="pill-icon">💡</span>Les candidats souhaitent plus d'informations sur le parcours qui les attend</span>
+                <span class="pill"><span class="pill-icon">💡</span>Les informations communiquées sont parfois obsolètes</span>
+                <span class="pill"><span class="pill-icon">💡</span>Certaines actions sont difficiles à réaliser, il y a des bugs</span>
+                <span class="pill"><span class="pill-icon">💡</span>Dans la vue où sont accessibles les offres, les tris et filtres disponibles ne sont pas adaptés ou suffisants</span>
+                <span class="pill"><span class="pill-icon">💡</span>Les deux critères les plus importants pour les candidats qui cherchent une offre sont le salaire et la distance</span>
+                <span class="pill"><span class="pill-icon">💡</span>85% des répondants salariés préfèrent une vue liste à une vue carte des offres d'emplois</span>
+            </div>
+
+            <h3>Observation contextuelle</h3>
+            <p class="subsection-desc">Observation de plusieurs sessions de Matching on the spot (MOTS) : présentation de l'espace privé faite par un recruteur à un candidat</p>
+            <div class="pills-list">
+                <span class="pill"><span class="pill-icon">💡</span>Le MOTS met l'accent sur la rubrique "Nos offres" et "Mes offres"</span>
+                <span class="pill"><span class="pill-icon">💡</span>Les candidats veulent savoir où trouver leurs fiches de paie</span>
+            </div>
+
+            <h3>Personas</h3>
+            <div class="personas-grid">
+                <div class="img-placeholder-block">
+                    <img src="images/persona-alexia.png" alt="Persona Alexia Ruller">
+                </div>
+                <div class="img-placeholder-block">
+                    <img src="images/persona-anna.png" alt="Persona Anna Gueppoid">
+                </div>
+            </div>
+
+            <h3>Experience journey map</h3>
+            <p class="subsection-desc">Modélisation de la customer journey map de Alexia</p>
+            <div class="img-placeholder-block">
+                <img src="images/experience-journey-map.png" alt="Customer journey map Alexia">
+            </div>
+
+        </div>
+
+        <!-- ════ Idéation ════ -->
+        <div class="case-section">
+            <h2>Idéation</h2>
+
+            <h3>How might we</h3>
+            <p class="subsection-desc">Définition des énoncés HMW avec l'équipe, basée sur les informations que nous avons recueillies</p>
+            <div class="pills-list">
+                <span class="pill"><span class="pill-icon">🔑</span>Comment pourrions-nous rendre le parcours d'un candidat cohérent et pratique dans son espace privé ?</span>
+                <span class="pill"><span class="pill-icon">🔑</span>Comment pourrions-nous permettre aux candidats d'accéder aux infos dont ils ont besoin au sein de l'espace privé ?</span>
+            </div>
+
+            <h3>Benchmark fonctionnel</h3>
+            <p class="subsection-desc">Auprès de sites concurrents et non concurrents pour trouver des idées</p>
+            <div class="benchmark-table-wrap">
+                <table class="benchmark-table">
+                    <thead>
+                        <tr>
+                            <th>Page d'accueil</th>
+                            <th>Inscription</th>
+                            <th>Espace candidat</th>
+                            <th>Accès aux offres</th>
+                            <th>Emails</th>
+                            <th>Fiches de paie</th>
+                            <th>Documents légaux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CTA "Trouvez votre baby sitter" très visible. "Voir les jobs disponibles" moins visible. Connexion / Inscription présents dans la nav</td>
+                            <td>Très explicite "inscription 100% gratuite". Même formulaire pour client / intervenant. Adresse, Prénom, Nom, Téléphone, Email, Mot de passe, Parrainage</td>
+                            <td>Existe, sous forme de tableau de bord. Agence, Profil, Jobs, Favoris, Parrainages, Paramètres, Aide</td>
+                            <td>Juste après l'inscription, accès au tableau de bord et on peut se rendre dans la partie "Jobs". Liste + Map (pa interactive). Type d'offre, age enfant, planning, type de garde, récence, distance</td>
+                            <td>Juste après l'inscription : "compte créé" + CTA espace personnel</td>
+                            <td>Partie visible, mais inaccessible si pas de contrat</td>
+                            <td>Partie visible, inaccessible si pas de contrat</td>
+                        </tr>
+                        <tr>
+                            <td>Dédiée aux clients. Lien "Je cherche un emploi". Puis choix du service</td>
+                            <td>Assez explicite, mais TROP longue. Enormément de champs à remplir. Mot de passe choisi par le candidat</td>
+                            <td>Tableau de bord, réservation, boite de réception, mes annonces, mon compte, mes récapitulatifs, jobs favoris</td>
+                            <td>Juste après l'inscription, on accède aux offres. Liste. Pour modifier sa recherche (les filtres) il faut repasser par le questionnaire d'inscription</td>
+                            <td>2 emails — "bienvenue" avec steps à faire — confirmer votre inscription via un CTA</td>
+                            <td>Pas trouvé</td>
+                            <td>Pas trouvé / CNI</td>
+                        </tr>
+                        <tr>
+                            <td>Page d'accueil dédiée aux candidats. Champs de recherche : metier + région</td>
+                            <td>Email. Mot de passe. Télécharger le CV. Si pas de CV : infos perso, tel, postes, profil</td>
+                            <td>Pas d'accès tant que l'inscription n'est pas finalisée avec le CV</td>
+                            <td>Direct après avoir utilisé la recherche. Liste. Avant de pouvoir postuler, il faut s'inscrire et avoir upload un CV ou remplir les champs d'expériences</td>
+                            <td>/</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Prio sur client, avec zone de recherche pour eux. CTA pour candidats quand même "Postuler". CTA "Jobs emplois" en haut à droite</td>
+                            <td>Pas explicite. "Je postule". Peu de questions donc c'est agréable</td>
+                            <td>L'espace candidat n'est pas accessible tant que le profil n'a pas été validé (passé entretien etc)</td>
+                            <td>On peut accéder aux offres avant d'être inscrit. Liste. "Jobs emplois" → Code postal puis "Trouver". Avant de pouvoir postuler, il faut s'inscrire</td>
+                            <td>2 mails très ressemblants : candidature enregistrée (alors que c'est pas une candidature, mais une inscription ?) + CTA espace</td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="benchmark-label">Quelques idées :</p>
+            <div class="pills-list">
+                <span class="pill"><span class="pill-icon">🔑</span>Proposer un onboarding décrivant les points importants du parcours en quelques étapes</span>
+                <span class="pill"><span class="pill-icon">🔑</span>Parrainage accessible depuis l'espace privé</span>
+                <span class="pill"><span class="pill-icon">🔑</span>FAQ avec possibilité de contacter un conseiller via un chat</span>
+            </div>
+
+            <h3>Arborescence</h3>
+            <div class="img-placeholder-block">
+                <img src="images/arborescence.png" alt="Arborescence du projet">
+            </div>
+        </div>
+
+        <!-- ════ Design ════ -->
+        <div class="case-section">
+            <h2>Design</h2>
+
+            <h3>Prototype high-fidelity</h3>
+            <div class="figma-embed-wrap">
+                <!-- Remplace le lien ci-dessous par ton URL Figma :
+                     Dans Figma → Share → Copy link, puis colle-le ici -->
+                <iframe
+                    src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/B72WrQXLnSca7gBPuwuRWl?embed_host=share&kind=file&node-id=0%3A1&viewer=1&fuid=1159424460230308615"
+                    allowfullscreen
+                    loading="lazy"
+                    title="Prototype Mômji — espace privé babysitters">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- ════ Livraison et évaluation ════ -->
+        <div class="case-section">
+            <h2>Livraison et évaluation</h2>
+
+            <h3>Spécifications fonctionnelles</h3>
+            <p class="subsection-desc">Rédaction de spécifications fonctionnelles destinées aux développeurs</p>
+
+            <h3>Tests fonctionnels</h3>
+            <p class="subsection-desc">Test d'une feature dès qu'elle est développée pour vérifier qu'elle correspond bien à ce qui a été spécifié, visuellement et fonctionnellement</p>
+
+            <h3>Analytics</h3>
+            <p class="subsection-desc">Implémentation de Google Analytics pour monitorer les taux de candidature, les taux de transformation et les taux de matching</p>
+        </div>
+
+    </article>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Elodie Dené</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/elodiedene/" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Remonter en haut">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 11L8 5L13 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <script>
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            btn.classList.toggle('visible', window.scrollY > 300);
+        });
+    </script>
+
+</body>
+</html>

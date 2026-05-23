@@ -1,0 +1,1223 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Elodie Dené — Product Designer</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+            rel="stylesheet" />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                /* ─── Neutres ─── */
+                --bg:         #FFFFFF;
+                --bg-card:    #FFFFFF;
+                --bg-soft:    #F2EDE3;
+                --text:       #1A1A1A;
+                --text-muted: #6B6660;
+                --border:     #E8E2D5;
+
+                /* ─── Primaire (violet profond) ─── */
+                --primary:        #2E2A5C;
+                --primary-soft:   #E8E4F0;
+                --primary-light:  #7165C8;
+
+                /* ─── Accent (corail) — usage parcimonieux ─── */
+                --accent:       #E8614A;
+                --accent-soft:  #FBE4DE;
+
+                /* ─── Alias rétro-compatibles ─── */
+                --orange:    var(--primary);
+                --orange-bg: var(--primary-soft);
+                --green:     var(--primary);
+                --green-bg:  var(--primary-soft);
+                --yellow:    var(--accent);
+                --peach:     var(--bg-soft);
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: "Plus Jakarta Sans", sans-serif;
+                background-color: var(--bg);
+                background-image: radial-gradient(rgba(26, 26, 46, 0.05) 1.5px, transparent 1.5px);
+                background-size: 24px 24px;
+                color: var(--text);
+                line-height: 1.6;
+            }
+
+            /* ════════════════════════════════
+           NAV
+        ════════════════════════════════ */
+            nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1.25rem 4rem;
+                background: rgba(255, 255, 255, 0.92);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-logo {
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--text);
+                text-decoration: none;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 1.5rem;
+                list-style: none;
+                align-items: center;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+                color: var(--text-muted);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.2s;
+            }
+
+            .nav-links a:hover {
+                color: var(--text);
+            }
+
+            /* Tag "Disponible" */
+            .nav-available {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.45rem;
+                background: #E8F1EA;
+                color: #2F6B43;
+                font-size: 0.75rem;
+                font-weight: 700;
+                padding: 0.35rem 0.85rem;
+                border-radius: 100px;
+                letter-spacing: 0.02em;
+            }
+
+            .nav-available-dot {
+                width: 7px;
+                height: 7px;
+                background: #3A9E5F;
+                border-radius: 50%;
+                animation: blink 2s ease-in-out infinite;
+            }
+
+            @keyframes blink {
+                0%,
+                100% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.3;
+                }
+            }
+
+            /* LinkedIn pill */
+            .nav-cta {
+                background: var(--orange) !important;
+                color: #fff !important;
+                padding: 0.45rem 1.1rem !important;
+                border-radius: 100px !important;
+                font-weight: 600 !important;
+                transition:
+                    transform 0.2s,
+                    box-shadow 0.2s !important;
+            }
+
+            .nav-cta:hover {
+                transform: translateY(-1px) !important;
+                box-shadow: 0 4px 16px rgba(46, 42, 92, 0.3) !important;
+            }
+
+            /* ════════════════════════════════
+           HERO
+        ════════════════════════════════ */
+            .hero {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 3rem 4rem;
+            }
+
+            .hero-content {
+                position: relative;
+            }
+
+            /* Étoiles décoratives */
+            .star {
+                position: absolute;
+                pointer-events: none;
+                animation: float 4s ease-in-out infinite;
+            }
+
+            .star-1 {
+                top: -1.5rem;
+                right: -1rem;
+                animation-delay: 0s;
+            }
+            .star-2 {
+                top: 3.5rem;
+                right: 2rem;
+                animation-delay: 1.2s;
+            }
+            .star-3 {
+                bottom: 2rem;
+                left: -1rem;
+                animation-delay: 0.7s;
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0px);
+                }
+                50% {
+                    transform: translateY(-8px);
+                }
+            }
+
+            .hero-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: var(--orange-bg);
+                color: var(--orange);
+                font-size: 0.8rem;
+                font-weight: 700;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                padding: 0.4rem 1rem;
+                border-radius: 100px;
+                margin-bottom: 2rem;
+            }
+
+            .hero-badge-dot {
+                width: 7px;
+                height: 7px;
+                background: var(--orange);
+                border-radius: 50%;
+                animation: blink 2s ease-in-out infinite;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+                font-weight: 400;
+                line-height: 1.15;
+                letter-spacing: -0.025em;
+                max-width: 900px;
+            }
+
+            .hero h1 em {
+                font-style: italic;
+                font-weight: 300;
+                color: var(--orange);
+            }
+
+            /* Boutons hero */
+            .hero-actions {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                margin-top: 2rem;
+            }
+
+            .btn-primary {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: var(--orange);
+                color: #fff;
+                padding: 0.85rem 1.75rem;
+                border-radius: 100px;
+                text-decoration: none;
+                font-size: 0.95rem;
+                font-weight: 600;
+                transition:
+                    transform 0.2s,
+                    box-shadow 0.2s;
+            }
+
+            .btn-primary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 28px rgba(46, 42, 92, 0.32);
+            }
+
+            .btn-secondary {
+                font-size: 0.95rem;
+                color: var(--text-muted);
+                text-decoration: none;
+                font-weight: 500;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: color 0.2s;
+            }
+
+            .btn-secondary:hover {
+                color: var(--text);
+            }
+
+            /* ════════════════════════════════
+           SECTION HEADER (commun)
+        ════════════════════════════════ */
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 0.78rem;
+                font-weight: 700;
+                color: var(--text-muted);
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+            }
+
+            /* ════════════════════════════════
+           SELECTED WORK
+        ════════════════════════════════ */
+            .projects {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 3rem 4rem;
+                position: relative;
+            }
+
+            /* ════════════════════════════════
+           BENTO GRID
+        ════════════════════════════════ */
+            .bento-grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 1rem;
+            }
+
+            .bento-card {
+                position: relative;
+                border-radius: 20px;
+                overflow: hidden;
+                text-decoration: none;
+                display: block;
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease;
+            }
+
+            /* Ligne 1 : 1/2 + 1/2 */
+            .bento-card:nth-child(1),
+            .bento-card:nth-child(2) {
+                grid-column: span 3;
+                min-height: 200px;
+            }
+
+            /* Ligne 2 : 1/3 + 1/3 + 1/3 */
+            .bento-card:nth-child(3),
+            .bento-card:nth-child(4),
+            .bento-card:nth-child(5) {
+                grid-column: span 2;
+                min-height: 160px;
+            }
+
+            .bento-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
+            }
+
+            /* ── Couleurs de fond (visibles tant qu'il n'y a pas d'image) ── */
+            .bento-c1 {
+                background-color: var(--primary);
+            }
+            .bento-c2 {
+                background-color: var(--bg-soft);
+            }
+            .bento-c3 {
+                background-color: var(--accent);
+            }
+            .bento-c4 {
+                background-color: var(--text);
+            }
+            .bento-c5 {
+                background-color: var(--primary-light);
+            }
+
+            /* ── Image pleine carte ── */
+            .bento-card img {
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* ── Overlay hover ── */
+            .bento-overlay {
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 1.75rem;
+                opacity: 0;
+                transition: none;
+            }
+
+            .bento-card:hover .bento-overlay {
+                opacity: 1;
+            }
+
+            .bento-c1 .bento-overlay {
+                background: var(--primary);
+            }
+            .bento-c2 .bento-overlay {
+                background: var(--bg-soft);
+            }
+            .bento-c3 .bento-overlay {
+                background: var(--accent);
+            }
+            .bento-c4 .bento-overlay {
+                background: var(--text);
+            }
+            .bento-c5 .bento-overlay {
+                background: var(--primary-light);
+            }
+
+            .bento-overlay-tags {
+                display: flex;
+                gap: 0.4rem;
+                flex-wrap: wrap;
+                transform: translateY(-8px);
+                transition: transform 0.35s ease 0s;
+            }
+
+            .bento-card:hover .bento-overlay-tags {
+                transform: translateY(0);
+            }
+
+            .bento-overlay-bottom {
+                display: flex;
+                flex-direction: column;
+                gap: 1.25rem;
+                transform: translateY(8px);
+                transition: transform 0.35s ease 0.05s;
+            }
+
+            .bento-card:hover .bento-overlay-bottom {
+                transform: translateY(0);
+            }
+
+            .bento-overlay-tag {
+                font-size: 0.6rem;
+                font-weight: 700;
+                letter-spacing: 0.09em;
+                text-transform: uppercase;
+                padding: 0.25rem 0.7rem;
+                border-radius: 100px;
+                color: rgba(255, 255, 255, 0.9);
+                background: rgba(255, 255, 255, 0.22);
+            }
+
+            .bento-c2 .bento-overlay-tag {
+                color: rgba(26, 26, 26, 0.72);
+                background: rgba(26, 26, 26, 0.08);
+            }
+
+            .bento-overlay-desc {
+                font-size: 0.95rem;
+                font-weight: 500;
+                color: #fff;
+                line-height: 1.65;
+            }
+
+            .bento-c2 .bento-overlay-desc {
+                color: rgba(26, 26, 26, 0.88);
+            }
+
+            .bento-overlay-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.45rem;
+                background: #fff;
+                color: var(--text);
+                font-size: 0.8rem;
+                font-weight: 700;
+                padding: 0.55rem 1.2rem;
+                border-radius: 100px;
+                width: fit-content;
+            }
+
+            /* ════════════════════════════════
+           ABOUT
+        ════════════════════════════════ */
+            .about {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 3rem 4rem;
+                position: relative;
+            }
+
+            .about-content {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 4rem;
+                align-items: start;
+                margin-top: 2.5rem;
+            }
+
+            .about-photo {
+                width: 300px;
+                height: 300px;
+                flex-shrink: 0;
+                background: var(--peach);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .about-photo::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(ellipse at 30% 70%, var(--primary-soft), var(--primary));
+                opacity: 0.35;
+            }
+
+            .about-photo span {
+                position: relative;
+                z-index: 1;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: var(--text-muted);
+                opacity: 0.7;
+            }
+
+            .about-photo img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: relative;
+                z-index: 1;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+                font-weight: 500;
+                letter-spacing: -0.02em;
+                margin-bottom: 1.25rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+                color: var(--text-muted);
+                line-height: 1.8;
+                margin-bottom: 1rem;
+            }
+
+            /* about-text : hauteur fixée à celle de la photo */
+            .about-text {
+                height: 300px;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            /* Fade : s'étire pour remplir l'espace restant */
+            .about-fade-wrap {
+                position: relative;
+                flex: 1;
+                min-height: 0;
+                overflow: hidden;
+            }
+
+            .about-fade-wrap::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 140px;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--bg) 100%);
+                pointer-events: none;
+            }
+
+            /* ════════════════════════════════
+           SOCIALS
+        ════════════════════════════════ */
+            .socials {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 3rem 4rem;
+                position: relative;
+            }
+
+            .socials-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.25rem;
+                margin-top: 2.5rem;
+            }
+
+            .social-card {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 1.25rem 1.75rem;
+                border-radius: 20px;
+                text-decoration: none;
+                color: #fff;
+                position: relative;
+                overflow: hidden;
+                transition:
+                    transform 0.25s,
+                    box-shadow 0.25s;
+            }
+
+            .social-card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: repeating-linear-gradient(
+                    45deg,
+                    rgba(0, 0, 0, 0.07) 0px,
+                    rgba(0, 0, 0, 0.07) 2px,
+                    transparent 2px,
+                    transparent 14px
+                );
+                pointer-events: none;
+            }
+
+            .social-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
+            }
+
+            .social-bottom {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                position: relative;
+                z-index: 1;
+            }
+
+            .social-name {
+                font-size: 1.2rem;
+                font-weight: 600;
+                letter-spacing: -0.01em;
+            }
+
+            .social-arrow {
+                font-size: 1.3rem;
+                transition: transform 0.2s;
+            }
+
+            .social-card:hover .social-arrow {
+                transform: translate(3px, -3px);
+            }
+
+            /* ════════════════════════════════
+           TESTIMONIALS
+        ════════════════════════════════ */
+            .testimonials {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 3rem 4rem;
+                position: relative;
+            }
+
+            .testimonials-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                margin-top: 2.5rem;
+            }
+
+            .testimonial-card {
+                background: #fff;
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1.25rem;
+            }
+
+            .testimonial-quote-mark {
+                font-size: 2.8rem;
+                line-height: 1;
+                color: var(--accent);
+                font-weight: 700;
+            }
+
+            .testimonial-quote {
+                font-size: 0.95rem;
+                color: var(--text-muted);
+                line-height: 1.8;
+                flex: 1;
+            }
+
+            .testimonial-author {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                border-top: 1px solid var(--border);
+                padding-top: 1.25rem;
+            }
+
+            .testimonial-avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: var(--orange-bg);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.78rem;
+                font-weight: 700;
+                color: var(--orange);
+                flex-shrink: 0;
+            }
+
+            .testimonial-name {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: var(--text);
+            }
+
+            .testimonial-role {
+                font-size: 0.78rem;
+                color: var(--text-muted);
+                margin-top: 0.1rem;
+            }
+
+            /* ════════════════════════════════
+           FOOTER
+        ════════════════════════════════ */
+            footer {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 2.5rem 4rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            footer p {
+                font-size: 0.85rem;
+                color: var(--text-muted);
+            }
+
+            /* ════════════════════════════════
+           RESPONSIVE
+        ════════════════════════════════ */
+            @media (max-width: 900px) {
+                .socials-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .testimonials-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .bento-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+                .bento-card:nth-child(1),
+                .bento-card:nth-child(2),
+                .bento-card:nth-child(3),
+                .bento-card:nth-child(4),
+                .bento-card:nth-child(5) {
+                    grid-column: span 1;
+                }
+            }
+
+            @media (max-width: 768px) {
+                nav {
+                    padding: 1rem 1.5rem;
+                }
+                .nav-available {
+                    display: none;
+                }
+
+                .hero {
+                    padding: 3rem 1.5rem;
+                }
+                .star {
+                    display: none;
+                }
+
+                .projects,
+                .about,
+                .socials,
+                .testimonials {
+                    padding: 3rem 1.5rem;
+                }
+
+                .bento-grid {
+                    grid-template-columns: 1fr;
+                }
+                .bento-card:nth-child(1),
+                .bento-card:nth-child(2),
+                .bento-card:nth-child(3),
+                .bento-card:nth-child(4),
+                .bento-card:nth-child(5) {
+                    grid-column: span 1;
+                }
+
+                .testimonials-grid {
+                    grid-template-columns: 1fr;
+                }
+                .socials-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1rem;
+                }
+
+                .about-content {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+                .about-photo {
+                    width: 100%;
+                    height: 280px;
+                }
+
+                footer {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    padding: 2rem 1.5rem;
+                    text-align: center;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .socials-grid {
+                    grid-template-columns: 1fr;
+                }
+                .bento-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- ════════════ NAV ════════════ -->
+        <nav>
+            <a href="index.html" class="nav-logo">Elodie Dené</a>
+            <ul class="nav-links">
+                <li>
+                    <span class="nav-available">
+                        <span class="nav-available-dot"></span>
+                        Disponible
+                    </span>
+                </li>
+                <li><a href="#about">À propos</a></li>
+            </ul>
+        </nav>
+
+        <!-- ════════════ HERO ════════════ -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="star star-1">
+                    <svg width="32" height="32" viewBox="0 0 34 34" fill="none">
+                        <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#E8614A" />
+                    </svg>
+                </div>
+                <div class="star star-2">
+                    <svg width="22" height="22" viewBox="0 0 34 34" fill="none">
+                        <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#2E2A5C" />
+                    </svg>
+                </div>
+                <div class="star star-3">
+                    <svg width="18" height="18" viewBox="0 0 34 34" fill="none">
+                        <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#E8614A" />
+                    </svg>
+                </div>
+
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    Product designer - spÉcialisÉe en saas
+                </div>
+
+                <h1>
+                    De la formation en ligne à l'éducation canine, depuis&nbsp;<em
+                        >10&nbsp;ans</em
+                    >, je transforme des <em style="color:var(--accent);">idées complexes</em> en produits
+                    <em>SaaS</em> qui font revenir.
+                </h1>
+
+                <div class="hero-actions">
+                    <a href="https://www.linkedin.com/in/elodiedene/" target="_blank" class="btn-primary"
+                        >Me contacter<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path
+                                d="M2 12L12 2M12 2H5M12 2V9"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                    <a href="#work" class="btn-secondary"
+                        >Voir mon travail<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path
+                                d="M7 2V12M7 12L3 8M7 12L11 8"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ PROJETS ════════════ -->
+        <section class="projects" id="work">
+            <div class="star" style="top: 1.5rem; right: 1.5rem; animation-delay: 0.4s">
+                <svg width="24" height="24" viewBox="0 0 34 34" fill="none">
+                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#2E2A5C" />
+                </svg>
+            </div>
+            <div class="star" style="bottom: 4rem; left: 1rem; animation-delay: 1.9s">
+                <svg width="15" height="15" viewBox="0 0 34 34" fill="none">
+                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#E8614A" />
+                </svg>
+            </div>
+            <div class="section-header">
+                <span class="section-title">MES PROJETS</span>
+            </div>
+            <!-- ════════════════════════════════════════════════════
+             BENTO GRID — 1/2 + 1/2 puis 1/3 + 1/3 + 1/3
+             Remplace href="#" par le lien de ton case study
+             Remplace les src d'image par tes visuels
+        ════════════════════════════════════════════════════ -->
+            <div class="bento-grid">
+                <!-- ░ Carte 1 — 1/2 · export Figma : 1320 × 640 px ░ -->
+                <a href="#" class="bento-card bento-c1">
+                    <img src="images/appy-cover.png" alt="Projet APPY" />
+                    <div class="bento-overlay">
+                        <div class="bento-overlay-tags">
+                            <span class="bento-overlay-tag">Web</span>
+                            <span class="bento-overlay-tag">SaaS</span>
+                        </div>
+                        <div class="bento-overlay-bottom">
+                            <p class="bento-overlay-desc">
+                                Description courte et percutante du projet en une ou deux phrases.
+                            </p>
+                            <span class="bento-overlay-btn"
+                                >Voir le projet
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+                                    <path
+                                        d="M2 12L12 2M12 2H5M12 2V9"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" /></svg
+                            ></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ░ Carte 2 — 1/2 · export Figma : 1320 × 640 px ░ -->
+                <a href="#" class="bento-card bento-c2">
+                    <!-- <img src="images/card-projet2.png" alt="Nom du projet"> -->
+                    <div class="bento-overlay">
+                        <div class="bento-overlay-tags">
+                            <span class="bento-overlay-tag">Mobile</span>
+                            <span class="bento-overlay-tag">iOS</span>
+                        </div>
+                        <div class="bento-overlay-bottom">
+                            <p class="bento-overlay-desc">
+                                Description courte et percutante du projet en une ou deux phrases.
+                            </p>
+                            <span class="bento-overlay-btn"
+                                >Voir le projet
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+                                    <path
+                                        d="M2 12L12 2M12 2H5M12 2V9"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" /></svg
+                            ></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ░ Carte 3 — 1/3 · export Figma : 880 × 500 px ░ -->
+                <a href="projet3.html" class="bento-card bento-c3">
+                    <img src="images/card-projet3.png" alt="Espace intervenant" />
+                    <div class="bento-overlay">
+                        <div class="bento-overlay-tags">
+                            <span class="bento-overlay-tag">Mobile</span>
+                            <span class="bento-overlay-tag">Refonte</span>
+                            <span class="bento-overlay-tag">2020</span>
+                        </div>
+                        <div class="bento-overlay-bottom">
+                            <p class="bento-overlay-desc">Refonte d'un espace privé client pour le rendre plus intuitif, mobile-first et cohérent avec l'évolution des services.</p>
+                            <span class="bento-overlay-btn"
+                                >Voir le projet
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+                                    <path
+                                        d="M2 12L12 2M12 2H5M12 2V9"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" /></svg
+                            ></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ░ Carte 4 — 1/3 · export Figma : 880 × 500 px ░ -->
+                <a href="projet4.html" class="bento-card bento-c4">
+                    <img src="images/card-projet4.png" alt="Appy" />
+                    <div class="bento-overlay">
+                        <div class="bento-overlay-tags">
+                            <span class="bento-overlay-tag">Web App</span>
+                            <span class="bento-overlay-tag">B2B SaaS</span>
+                            <span class="bento-overlay-tag">2020</span>
+                        </div>
+                        <div class="bento-overlay-bottom">
+                            <p class="bento-overlay-desc">Conception d'une app web qui guide les recruteurs pour évaluer les babysitters plus vite et plus justement.</p>
+                            <span class="bento-overlay-btn"
+                                >Voir le projet
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+                                    <path
+                                        d="M2 12L12 2M12 2H5M12 2V9"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" /></svg
+                            ></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ░ Carte 5 — 1/3 · export Figma : 880 × 500 px ░ -->
+                <a href="projet5.html" class="bento-card bento-c5">
+                    <img src="images/card-projet5.png" alt="Recherche utilisateurs" />
+                    <div class="bento-overlay">
+                        <div class="bento-overlay-tags">
+                            <span class="bento-overlay-tag">B2B</span>
+                            <span class="bento-overlay-tag">SaaS</span>
+                        </div>
+                        <div class="bento-overlay-bottom">
+                            <p class="bento-overlay-desc">Description courte et percutante du projet.</p>
+                            <span class="bento-overlay-btn"
+                                >Voir le projet
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+                                    <path
+                                        d="M2 12L12 2M12 2H5M12 2V9"
+                                        stroke="currentColor"
+                                        stroke-width="1.8"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round" /></svg
+                            ></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ════════════ ABOUT ════════════ -->
+        <section class="about" id="about">
+            <div class="star" style="top: 1.5rem; right: 0.5rem; animation-delay: 0.9s">
+                <svg width="20" height="20" viewBox="0 0 34 34" fill="none">
+                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#E8614A" />
+                </svg>
+            </div>
+            <div class="section-header"><span class="section-title">À PROPOS</span></div>
+            <div class="about-content">
+                <div class="about-photo">
+                    <img src="images/photo2.png" alt="Elodie Dené">
+                    
+                </div>
+                <div class="about-text">
+                    <h2>Je suis Elodie</h2>
+                    <div class="about-fade-wrap">
+                        <p>
+                            Passionnée de design depuis toujours, j'ai plus de 10 ans d'expérience dans des startups
+                            Edtech où je me suis spécialisée en product design. À l'aise aussi bien en solo qu'en
+                            équipe, ce qui me motive c'est de concevoir des expériences qui ont du sens, à
+                            l'intersection du design et de l'intelligence artificielle.
+                        </p>
+                        <p>
+                            Mon parcours a démarré par le design visuel avant de basculer vers la dimension stratégique
+                            : comprendre pourquoi les utilisateurs font ce qu'ils font, et transformer ces insights en
+                            produits qui améliorent vraiment leur quotidien. Aujourd'hui, c'est l'intersection du design
+                            et de l'IA qui m'attire le plus — là où les possibilités créatives semblent vraiment
+                            infinies.
+                        </p>
+                        <p>
+                            J'aime les environnements collaboratifs où la curiosité est bienvenue et les bonnes
+                            questions sont autant valorisées que les bonnes réponses. Que ce soit lors d'un atelier de
+                            discovery ou dans la dernière ligne droite d'un prototype, j'apporte la même énergie et la
+                            même attention aux détails.
+                        </p>
+                    </div>
+                    <a
+                        href="about.html"
+                        class="btn-primary"
+                        style="margin-top: 1.5rem; width: fit-content; align-self: center">
+                        En savoir plus
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path
+                                d="M2 12L12 2M12 2H5M12 2V9"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ TESTIMONIALS ════════════ -->
+        <section class="testimonials">
+            <div class="star" style="top: 1rem; right: 3rem; animation-delay: 0.7s">
+                <svg width="20" height="20" viewBox="0 0 34 34" fill="none">
+                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#2E2A5C" />
+                </svg>
+            </div>
+            <div class="section-header">
+                <span class="section-title">TÉMOIGNAGES</span>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-mark">"</div>
+                    <p class="testimonial-quote">
+                        Elodie a su transformer un brief complexe en une expérience utilisateur fluide et impactante. Sa
+                        capacité à jongler entre recherche, stratégie et design est rare.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MR</div>
+                        <div>
+                            <div class="testimonial-name">Marie Renaud</div>
+                            <div class="testimonial-role">Head of Product · Startup Edtech</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-mark">"</div>
+                    <p class="testimonial-quote">
+                        Travailler avec Elodie, c'est avoir quelqu'un qui comprend autant les enjeux business que les
+                        besoins utilisateurs. Les itérations sont rapides et toujours pertinentes.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">TL</div>
+                        <div>
+                            <div class="testimonial-name">Thomas Leblanc</div>
+                            <div class="testimonial-role">CEO · SaaS B2B</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-mark">"</div>
+                    <p class="testimonial-quote">
+                        Une vraie partenaire de conception. Elodie pose les bonnes questions dès le départ et livre des
+                        interfaces qui parlent vraiment aux utilisateurs finaux.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SB</div>
+                        <div>
+                            <div class="testimonial-name">Sophie Bernard</div>
+                            <div class="testimonial-role">Product Manager · Scale-up</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════ SOCIALS ════════════ -->
+        <section class="socials" id="socials">
+            <div class="star" style="top: 1.5rem; right: 2rem; animation-delay: 1.5s">
+                <svg width="26" height="26" viewBox="0 0 34 34" fill="none">
+                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#2E2A5C" />
+                </svg>
+            </div>
+            <div class="star" style="bottom: 2.5rem; left: 1.5rem; animation-delay: 0.3s">
+                <svg width="15" height="15" viewBox="0 0 34 34" fill="none">
+                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#E8614A" />
+                </svg>
+            </div>
+            <div class="section-header">
+                <span class="section-title">MES RÉSEAUX</span>
+            </div>
+            <div class="socials-grid">
+                <!-- Dribbble -->
+                <a
+                    href="https://dribbble.com/elodiedene"
+                    target="_blank"
+                    class="social-card"
+                    style="background:var(--accent);">
+                    <div class="social-bottom">
+                        <span class="social-name">Dribbble</span>
+                        <span class="social-arrow">↗</span>
+                    </div>
+                </a>
+
+                <!-- Behance -->
+                <a
+                    href="https://www.behance.net/elodiedene"
+                    target="_blank"
+                    class="social-card"
+                    style="background:var(--primary);">
+                    <div class="social-bottom">
+                        <span class="social-name">Behance</span>
+                        <span class="social-arrow">↗</span>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a
+                    href="https://www.linkedin.com/in/elodiedene/"
+                    target="_blank"
+                    class="social-card"
+                    style="background:var(--bg-soft); color:var(--text);">
+                    <div class="social-bottom">
+                        <span class="social-name">LinkedIn</span>
+                        <span class="social-arrow">↗</span>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:elodie.dene@gmail.com" class="social-card" style="background:var(--primary-light);">
+                    <div class="social-bottom">
+                        <span class="social-name">Email</span>
+                        <span class="social-arrow">↗</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- ════════════ FOOTER ════════════ -->
+        <footer>
+            <p>© 2025 Elodie Dené</p>
+            <p style="font-size: 0.8rem; color: var(--text-muted); opacity: 0.6">
+                Product designer spécialisée en SaaS
+            </p>
+        </footer>
+    </body>
+</html>
