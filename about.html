@@ -110,13 +110,49 @@
             padding: 6rem 4rem 5rem;
         }
 
+        /* ── Back link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 3rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--orange); }
+
         /* ── Intro ── */
+        .about-intro b {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .about-quote-wrap {
+            background: var(--bg-soft);
+            border-radius: 20px;
+            padding: 2rem 2.5rem 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-quote-mark {
+            display: block;
+            font-size: 5rem;
+            line-height: 0.8;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
         .about-intro h1 {
             font-size: clamp(1.9rem, 4vw, 3rem);
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: -0.025em;
-            margin-bottom: 2.5rem;
+            margin-bottom: 0;
         }
 
         .about-intro p {
@@ -131,16 +167,26 @@
         .cv-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            color: var(--primary);
+            gap: 0.5rem;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.85rem 1.75rem;
+            border-radius: 100px;
+            text-decoration: none;
             font-size: 0.95rem;
             font-weight: 600;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            transition: color 0.2s;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
         }
 
-        .cv-link:hover { color: var(--accent); }
+        .cv-link svg { transition: transform 0.2s; }
+
+        .cv-link:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(46, 42, 92, 0.32);
+        }
+
+        .cv-link:hover svg { transform: translate(2px, -2px); }
 
         /* ── Séparateur de section ── */
         .about-section {
@@ -160,21 +206,40 @@
         .principles-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
-        .principle-item {
+        .principle-card {
+            background: var(--bg-soft);
+            border-radius: 20px;
+            padding: 1.75rem 1.75rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 1.25rem;
         }
 
-        .principle-number {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            color: var(--text);
-            margin-bottom: 0.25rem;
+        .principle-visual {
+            position: relative;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+        }
+
+        .principle-big-num {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            user-select: none;
+        }
+
+.principle-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
         }
 
         .principle-title {
@@ -182,27 +247,43 @@
             font-weight: 700;
             color: var(--text);
             letter-spacing: -0.01em;
+            line-height: 1.4;
         }
 
         .principle-desc {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.65;
         }
 
         /* ── Liste fun ── */
         .fun-list {
-            list-style: disc;
-            padding-left: 1.25rem;
+            list-style: none;
+            padding-left: 0;
             display: flex;
             flex-direction: column;
-            gap: 0.6rem;
+            gap: 0.75rem;
         }
 
         .fun-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
             font-size: 0.95rem;
             color: var(--text-muted);
             line-height: 1.6;
+        }
+
+        .fun-list li::before {
+            content: '';
+            display: block;
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cpath d='M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z' fill='%232E2A5C'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         /* ── Photo ── */
@@ -216,6 +297,36 @@
         .about-photo img {
             width: 100%;
             display: block;
+        }
+
+        /* ── CTA bloc ── */
+        .about-cta {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 4rem 5rem;
+        }
+
+        .about-cta-inner {
+            background: var(--primary-soft);
+            border-radius: 20px;
+            padding: 1.75rem 2.5rem;
+        }
+
+        .about-cta h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-cta h2 em {
+            font-style: italic;
+            font-weight: 300;
+            color: var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            .about-cta { padding: 0 1.5rem 3rem; }
         }
 
         /* ── Footer ── */
@@ -260,7 +371,7 @@
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.3s, transform 0.3s, background 0.2s;
-            z-index: 99;
+            z-index: 9999;
             pointer-events: none;
         }
 
@@ -278,7 +389,7 @@
             .nav-available { display: none; }
             .about-content { padding: 4rem 1.5rem 3rem; }
             .about-section { padding: 0 1.5rem 3rem; }
-            .principles-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .principles-grid { grid-template-columns: 1fr; }
             .about-photo { padding: 0 1.5rem 3rem; }
             footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
         }
@@ -296,22 +407,28 @@
                     Disponible
                 </span>
             </li>
-            <li><a href="index.html#work">Projets</a></li>
             <li><a href="about.html">À propos</a></li>
         </ul>
     </nav>
 
     <!-- Intro -->
     <section class="about-content about-intro">
-        <h1>Je suis motivée par l'exploration, l'apprentissage et la création d'expériences significatives</h1>
+        <a href="index.html" class="back-link">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Retour
+        </a>
+        <div class="about-quote-wrap">
+            <span class="about-quote-mark">"</span>
+            <h1>Formée à comprendre les humains, devenue Product Designer pour les servir.</h1>
+        </div>
 
-        <p>Je suis devenue <strong>Product Designer</strong> car ce métier me permet d'apporter des réponses à des problématiques quotidiennes. Chaque problème est pour moi une opportunité de proposer une solution et de créer un réel bénéfice.</p>
+        <p>Je suis devenue <b>Product Designer</b> parce que ce métier transforme les frictions du quotidien en opportunités. Là où d'autres voient un problème, je vois une réponse à imaginer et un bénéfice concret à créer pour l'utilisateur.</p>
 
-        <p>Couplées à ma formation en <strong>Product Design et Stratégie Digitale</strong>, mes études en <strong>Sciences Humaines et Sociales</strong> me donnent une perspective unique lorsque je travaille sur des projets où l'utilisateur est au centre de la stratégie.</p>
+        <p>Ma double formation en<b> Product Design et Stratégie Digitale</b>, adossée à mon parcours en <b>Sciences Humaines et Sociales</b>, me donne une perspective particulière sur les projets centrés utilisateur : je m'intéresse autant aux <b>comportements et aux besoins</b> qu'à la solution elle-même.</p>
 
-        <p>J'ai une sensibilité particulière pour les causes environnementales et animales et, idéalement, mon objectif est de réussir à aligner ma carrière à ces causes.</p>
+        <p>J'ai aussi une sensibilité forte pour les <b>causes environnementales et animales</b>, et mon ambition est d'aligner progressivement ma carrière sur ces engagements.</p>
 
-        <p>Par ailleurs, ayant dans mon entourage des personnes handicapées, j'ai suivi la formation <strong>Opquast</strong> pour mieux concevoir des solutions pour ce type d'utilisateur.</p>
+        <p></p>
 
         <a href="#" class="cv-link">
             Télécharger mon CV
@@ -321,23 +438,42 @@
 
     <!-- Principes -->
     <section class="about-section">
-        <h2>Des principes comme leitmotiv</h2>
+        <h2>Mon approche</h2>
         <div class="principles-grid">
-            <div class="principle-item">
-                <span class="principle-number">01</span>
-                <span class="principle-title">People over Product</span>
-                <p class="principle-desc">Traiter les gens avec respect et bienveillance pour créer les meilleures expériences</p>
+
+            <!-- Card 01 -->
+            <div class="principle-card">
+                <div class="principle-visual">
+                    <span class="principle-big-num">01</span>
+                </div>
+                <div class="principle-body">
+                    <p class="principle-title">Empathie</p>
+                    <p class="principle-desc">Avant de concevoir, je prends le temps de comprendre les utilisateurs : leurs objectifs, leurs frustrations et leur contexte.&nbsp;</p>
+                </div>
             </div>
-            <div class="principle-item">
-                <span class="principle-number">02</span>
-                <span class="principle-title">Right over Easy</span>
-                <p class="principle-desc">Faire les choses de la bonne manière, même si ce n'est pas la plus simple</p>
+
+            <!-- Card 02 -->
+            <div class="principle-card">
+                <div class="principle-visual">
+                    <span class="principle-big-num">02</span>
+                </div>
+                <div class="principle-body">
+                    <p class="principle-title">Intention</p>
+                    <p class="principle-desc">Chaque choix de conception a une raison d'être. Je relie les choix visuels aux besoins des utilisateurs et aux objectifs de l'entreprise.&nbsp;</p>
+                </div>
             </div>
-            <div class="principle-item">
-                <span class="principle-number">03</span>
-                <span class="principle-title">Communication</span>
-                <p class="principle-desc">Donner et savoir recevoir du feedback pour grandir et faire grandir</p>
+
+            <!-- Card 03 -->
+            <div class="principle-card">
+                <div class="principle-visual">
+                    <span class="principle-big-num">03</span>
+                </div>
+                <div class="principle-body">
+                    <p class="principle-title">Curiosité</p>
+                    <p class="principle-desc">La première idée est rarement la meilleure. Je considère les feedbacks, les tests et les itérations comme des étapes naturelles du processus.&nbsp;</p>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -345,10 +481,10 @@
     <section class="about-section">
         <h2>Quand je ne travaille pas</h2>
         <ul class="fun-list">
-            <li>je joue à des jeux vidéo d'horreur (Outlast, Until Dawn, The Quarry)</li>
+            <li>je fais des activités en tout genre avec ma fille Mia</li>
             <li>je mange de délicieux plats végétariens (grâce au houmous et au pain à l'ail)</li>
             <li>je m'occupe de mon chien et de mes chats (dites bonjour à Nuka, Marlon, Nala et Yuki)</li>
-            <li>je m'évade dans des séries fantastiques (Shadow and Bone, Stranger Things, See)</li>
+            <li><span style="font-size: 15.2px;">je joue à des jeux vidéo d'horreur (Resident Evil, Outlast, Until Dawn, The Quarry)</span></li>
         </ul>
     </section>
 
@@ -357,13 +493,14 @@
         <img src="images/moodboard.png" alt="Elodie Dené">
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Elodie Dené</p>
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/elodiedene/" target="_blank">LinkedIn</a>
+    <!-- CTA -->
+    <section class="about-cta">
+        <div class="about-cta-inner">
+        <h2>Prêt à construire quelque chose<br><em>ensemble ?</em></h2>
+        <a href="https://www.linkedin.com/in/elodiedene/" target="_blank" class="cv-link">Me contacter<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
         </div>
-    </footer>
+    </section>
 
     <!-- Back to top -->
     <a href="#" class="back-to-top" id="backToTop" aria-label="Remonter en haut">
@@ -375,6 +512,11 @@
             btn.classList.toggle('visible', window.scrollY > 300);
         });
     </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Elodie Dené</p>
+    </footer>
 
 </body>
 </html>

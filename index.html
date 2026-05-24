@@ -253,13 +253,23 @@
                 font-size: 0.95rem;
                 font-weight: 600;
                 transition:
+                    background 0.2s,
                     transform 0.2s,
                     box-shadow 0.2s;
             }
 
+            .btn-primary svg {
+                transition: transform 0.2s;
+            }
+
             .btn-primary:hover {
+                background: var(--primary-light);
                 transform: translateY(-2px);
                 box-shadow: 0 10px 28px rgba(46, 42, 92, 0.32);
+            }
+
+            .btn-primary:hover svg {
+                transform: translate(2px, -2px);
             }
 
             .btn-secondary {
@@ -464,6 +474,134 @@
                 border-radius: 100px;
                 width: fit-content;
             }
+
+            /* ── Showcase card (nouvelle style card projet) ── */
+            .showcase-card {
+                display: flex !important;
+                flex-direction: column;
+                background: #fff;
+                min-height: unset !important;
+                border-radius: 20px;
+                overflow: hidden;
+                border: 1px solid var(--border);
+            }
+
+            .showcase-top {
+                position: relative;
+                background-color: var(--accent);
+                flex: 1;
+                min-height: 240px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .showcase-logo {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                background: #fff;
+                color: var(--text);
+                font-size: 0.65rem;
+                font-weight: 800;
+                letter-spacing: 0.06em;
+                padding: 0.3rem 0.75rem;
+                border-radius: 100px;
+                text-transform: uppercase;
+                z-index: 2;
+            }
+
+            .showcase-top img {
+                max-height: 100%;
+                width: auto;
+                max-width: 70%;
+                object-fit: contain;
+                position: relative;
+                z-index: 1;
+            }
+
+            .showcase-bottom {
+                background: #fff;
+                padding: 1.25rem 1.5rem 1.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+
+            .showcase-tags {
+                display: flex;
+                gap: 0.4rem;
+                flex-wrap: wrap;
+                margin-bottom: 0.2rem;
+            }
+
+            .showcase-tag {
+                font-size: 0.62rem;
+                font-weight: 700;
+                color: var(--accent);
+                background: var(--accent-soft);
+                padding: 0.25rem 0.65rem;
+                border-radius: 100px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+
+            .showcase-title {
+                font-size: 1.15rem;
+                font-weight: 500;
+                letter-spacing: -0.02em;
+                line-height: 1.25;
+                color: var(--text);
+            }
+
+            .showcase-title em {
+                font-style: italic;
+                color: var(--accent);
+            }
+
+            .showcase-desc {
+                font-size: 0.83rem;
+                color: var(--text-muted);
+                line-height: 1.6;
+            }
+
+            .showcase-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 0.9rem;
+                margin-top: 0.25rem;
+                border-top: 1px solid var(--border);
+            }
+
+            .showcase-meta {
+                font-size: 0.78rem;
+                color: var(--text-muted);
+                font-weight: 500;
+            }
+
+            .showcase-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                background: var(--primary);
+                color: #fff;
+                font-size: 0.78rem;
+                font-weight: 600;
+                padding: 0.55rem 1rem;
+                border-radius: 100px;
+                white-space: nowrap;
+                transition: background 0.2s;
+            }
+
+            .showcase-btn svg {
+                transition: transform 0.2s;
+            }
+
+            .showcase-card:hover .showcase-btn { background: var(--primary-light); }
+            .showcase-card:hover .showcase-btn svg { transform: translate(2px, -2px); }
+            .showcase-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.18); }
 
             /* ════════════════════════════════
            ABOUT
@@ -829,7 +967,7 @@
                         Disponible
                     </span>
                 </li>
-                <li><a href="#about">À propos</a></li>
+                <li><a href="about.html">À propos</a></li>
             </ul>
         </nav>
 
@@ -910,128 +1048,117 @@
              Remplace les src d'image par tes visuels
         ════════════════════════════════════════════════════ -->
             <div class="bento-grid">
-                <!-- ░ Carte 1 — 1/2 · export Figma : 1320 × 640 px ░ -->
-                <a href="#" class="bento-card bento-c1">
-                    <img src="images/appy-cover.png" alt="Projet APPY" />
-                    <div class="bento-overlay">
-                        <div class="bento-overlay-tags">
-                            <span class="bento-overlay-tag">Web</span>
-                            <span class="bento-overlay-tag">SaaS</span>
+                <!-- ░ Carte 1 — 1/2 ░ -->
+                <a href="projet1.html" class="bento-card showcase-card">
+                    <div class="showcase-top" style="background-color: var(--primary);">
+                        <span class="showcase-logo">Japper</span>
+                        <!-- <img src="images/..." alt="..."> -->
+                    </div>
+                    <div class="showcase-bottom">
+                        <div class="showcase-tags">
+                            <span class="showcase-tag">web app</span>
+                            <span class="showcase-tag">saas b2b</span>
                         </div>
-                        <div class="bento-overlay-bottom">
-                            <p class="bento-overlay-desc">
-                                Description courte et percutante du projet en une ou deux phrases.
-                            </p>
-                            <span class="bento-overlay-btn"
-                                >Voir le projet
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                                    <path
-                                        d="M2 12L12 2M12 2H5M12 2V9"
-                                        stroke="currentColor"
-                                        stroke-width="1.8"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round" /></svg
-                            ></span>
+                        <h3 class="showcase-title">Un CRM destiné aux éducateurs canins</h3>
+                        <p class="showcase-desc"></p>
+                        <div class="showcase-footer">
+                            <span class="showcase-meta">2025</span>
+                            <span class="showcase-btn">
+                                Voir l'étude
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
                         </div>
                     </div>
                 </a>
 
-                <!-- ░ Carte 2 — 1/2 · export Figma : 1320 × 640 px ░ -->
-                <a href="#" class="bento-card bento-c2">
-                    <!-- <img src="images/card-projet2.png" alt="Nom du projet"> -->
-                    <div class="bento-overlay">
-                        <div class="bento-overlay-tags">
-                            <span class="bento-overlay-tag">Mobile</span>
-                            <span class="bento-overlay-tag">iOS</span>
+                <!-- ░ Carte 2 — 1/2 ░ -->
+                <a href="projet2.html" class="bento-card showcase-card">
+                    <div class="showcase-top" style="background-color: var(--bg-soft);">
+                        <span class="showcase-logo">Fifty</span>
+                        <!-- <img src="images/..." alt="..."> -->
+                    </div>
+                    <div class="showcase-bottom">
+                        <div class="showcase-tags">
+                            <span class="showcase-tag">ia</span>
+                            <span class="showcase-tag">saas B2B</span>
                         </div>
-                        <div class="bento-overlay-bottom">
-                            <p class="bento-overlay-desc">
-                                Description courte et percutante du projet en une ou deux phrases.
-                            </p>
-                            <span class="bento-overlay-btn"
-                                >Voir le projet
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                                    <path
-                                        d="M2 12L12 2M12 2H5M12 2V9"
-                                        stroke="currentColor"
-                                        stroke-width="1.8"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round" /></svg
-                            ></span>
+                        <h3 class="showcase-title">Un titre de projet que je n'ai pas encore trouvé</h3>
+                        <p class="showcase-desc"></p>
+                        <div class="showcase-footer">
+                            <span class="showcase-meta">2023</span>
+                            <span class="showcase-btn">
+                                Voir l'étude
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
                         </div>
                     </div>
                 </a>
 
-                <!-- ░ Carte 3 — 1/3 · export Figma : 880 × 500 px ░ -->
-                <a href="projet3.html" class="bento-card bento-c3">
-                    <img src="images/card-projet3.png" alt="Espace intervenant" />
-                    <div class="bento-overlay">
-                        <div class="bento-overlay-tags">
-                            <span class="bento-overlay-tag">Mobile</span>
-                            <span class="bento-overlay-tag">Refonte</span>
-                            <span class="bento-overlay-tag">2020</span>
+                <!-- ░ Carte 3 — showcase card ░ -->
+                <a href="projet3.html" class="bento-card showcase-card">
+                    <div class="showcase-top" style="background-color: var(--accent);">
+                        <span class="showcase-logo">Mômji</span>
+                        <img src="images/card-projet3.png" alt="Espace intervenant" />
+                    </div>
+                    <div class="showcase-bottom">
+                        <div class="showcase-tags">
+                            <span class="showcase-tag">Mobile</span>
+                            <span class="showcase-tag">Refonte</span>
                         </div>
-                        <div class="bento-overlay-bottom">
-                            <p class="bento-overlay-desc">Refonte d'un espace privé client pour le rendre plus intuitif, mobile-first et cohérent avec l'évolution des services.</p>
-                            <span class="bento-overlay-btn"
-                                >Voir le projet
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                                    <path
-                                        d="M2 12L12 2M12 2H5M12 2V9"
-                                        stroke="currentColor"
-                                        stroke-width="1.8"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round" /></svg
-                            ></span>
+                        <h3 class="showcase-title">Un espace privé pour les <em>babysitters</em></h3>
+                        <p class="showcase-desc">Refonte d'un espace privé client pour le rendre plus intuitif, mobile-first et cohérent avec l'évolution des services.</p>
+                        <div class="showcase-footer">
+                            <span class="showcase-meta">2021</span>
+                            <span class="showcase-btn">
+                                Voir l'étude
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
                         </div>
                     </div>
                 </a>
 
-                <!-- ░ Carte 4 — 1/3 · export Figma : 880 × 500 px ░ -->
-                <a href="projet4.html" class="bento-card bento-c4">
-                    <img src="images/card-projet4.png" alt="Appy" />
-                    <div class="bento-overlay">
-                        <div class="bento-overlay-tags">
-                            <span class="bento-overlay-tag">Web App</span>
-                            <span class="bento-overlay-tag">B2B SaaS</span>
-                            <span class="bento-overlay-tag">2020</span>
+                <!-- ░ Carte 4 — showcase card ░ -->
+                <a href="projet4.html" class="bento-card showcase-card">
+                    <div class="showcase-top" style="background-color: var(--text);">
+                        <span class="showcase-logo">Mômji</span>
+                        <img src="images/card-projet4.png" alt="Appy" />
+                    </div>
+                    <div class="showcase-bottom">
+                        <div class="showcase-tags">
+                            <span class="showcase-tag" style="color: var(--text); background: rgba(26,26,26,0.07);">Web App</span>
+                            <span class="showcase-tag" style="color: var(--text); background: rgba(26,26,26,0.07);">B2B SaaS</span>
                         </div>
-                        <div class="bento-overlay-bottom">
-                            <p class="bento-overlay-desc">Conception d'une app web qui guide les recruteurs pour évaluer les babysitters plus vite et plus justement.</p>
-                            <span class="bento-overlay-btn"
-                                >Voir le projet
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                                    <path
-                                        d="M2 12L12 2M12 2H5M12 2V9"
-                                        stroke="currentColor"
-                                        stroke-width="1.8"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round" /></svg
-                            ></span>
+                        <h3 class="showcase-title">Améliorer le <em style="color: var(--text);">recrutement</em> en garde d'enfants</h3>
+                        <p class="showcase-desc">Conception d'une app web qui guide les recruteurs pour évaluer les babysitters plus vite et plus justement.</p>
+                        <div class="showcase-footer">
+                            <span class="showcase-meta">2020</span>
+                            <span class="showcase-btn">
+                                Voir l'étude
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
                         </div>
                     </div>
                 </a>
 
-                <!-- ░ Carte 5 — 1/3 · export Figma : 880 × 500 px ░ -->
-                <a href="projet5.html" class="bento-card bento-c5">
-                    <img src="images/card-projet5.png" alt="Recherche utilisateurs" />
-                    <div class="bento-overlay">
-                        <div class="bento-overlay-tags">
-                            <span class="bento-overlay-tag">B2B</span>
-                            <span class="bento-overlay-tag">SaaS</span>
+                <!-- ░ Carte 5 — showcase card ░ -->
+                <a href="projet5.html" class="bento-card showcase-card">
+                    <div class="showcase-top" style="background-color: var(--primary-light);">
+                        <span class="showcase-logo">Gutenberg Technology</span>
+                        <img src="images/projet5.svg" alt="Aperçu de l'app Mônji">
+                    </div>
+                    <div class="showcase-bottom">
+                        <div class="showcase-tags">
+                            <span class="showcase-tag" style="color: var(--primary-light); background: var(--primary-soft);">ux research</span>
+                            <span class="showcase-tag" style="color: var(--primary-light); background: var(--primary-soft);">tests utilisateurs</span>
                         </div>
-                        <div class="bento-overlay-bottom">
-                            <p class="bento-overlay-desc">Description courte et percutante du projet.</p>
-                            <span class="bento-overlay-btn"
-                                >Voir le projet
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                                    <path
-                                        d="M2 12L12 2M12 2H5M12 2V9"
-                                        stroke="currentColor"
-                                        stroke-width="1.8"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round" /></svg
-                            ></span>
+                        <h3 class="showcase-title"> Concevoir et piloter une&nbsp;<em style="color: var(--primary-light);">session de tests</em><span style="font-size: 1.15rem; letter-spacing: -0.02em;">&nbsp;utilisateurs</span><br></h3>
+                        <p class="showcase-desc">De l'organisation à l'analyse des retours : tests utilisateurs pour valider la cohérence d'un outil SaaS en pleine évolution. </p>
+                        <div class="showcase-footer">
+                            <span class="showcase-meta">2018</span>
+                            <span class="showcase-btn">
+                                Voir l'étude
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
                         </div>
                     </div>
                 </a>
@@ -1214,10 +1341,7 @@
 
         <!-- ════════════ FOOTER ════════════ -->
         <footer>
-            <p>© 2025 Elodie Dené</p>
-            <p style="font-size: 0.8rem; color: var(--text-muted); opacity: 0.6">
-                Product designer spécialisée en SaaS
-            </p>
+            <p>© 2026 Elodie Dené</p>
         </footer>
     </body>
 </html>
