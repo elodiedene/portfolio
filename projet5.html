@@ -107,7 +107,7 @@
         .case-header {
             max-width: 800px;
             margin: 0 auto;
-            padding: 6rem 4rem 4rem;
+            padding: 6rem 4rem 0;
         }
 
         .back-link {
@@ -159,18 +159,27 @@
         .case-meta {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            padding: 2.5rem 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            gap: 0;
+            padding: 1.75rem 2rem;
+            background: var(--primary-soft);
+            border-radius: 16px;
+            margin-top: 2rem;
             margin-bottom: 4rem;
         }
+
+        .meta-item {
+            padding: 0 1.75rem;
+            border-right: 1px solid rgba(46, 42, 92, 0.12);
+        }
+
+        .meta-item:first-child { padding-left: 0; }
+        .meta-item:last-child { border-right: none; }
 
         .meta-item label {
             display: block;
             font-size: 0.72rem;
             font-weight: 700;
-            color: var(--text-muted);
+            color: var(--primary);
             letter-spacing: 0.1em;
             text-transform: uppercase;
             margin-bottom: 0.4rem;
@@ -179,6 +188,7 @@
         .meta-item p {
             font-size: 0.95rem;
             font-weight: 500;
+            color: var(--text);
         }
 
         /* ── Sections ── */
@@ -329,8 +339,8 @@
             Retour
         </a>
         <div class="case-tags">
-            <span class="tag">ux research</span>
-            <span class="tag">tests utilisateurs</span>
+            <span class="tag">UX RESEARCH</span>
+            <span class="tag">TESTS UTILISATEURS</span>
         </div>
         <h1>Organiser une session de tests utilisateurs</h1>
     </header>
@@ -346,11 +356,11 @@
             </div>
             <div class="meta-item">
                 <label>Rôle</label>
-                <p>Product Designer</p>
+                <p>UX &amp; UI Designer</p>
             </div>
             <div class="meta-item">
                 <label>Année</label>
-                <p>2023</p>
+                <p>2020</p>
             </div>
         </div>
 

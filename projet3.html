@@ -107,7 +107,7 @@
         .case-header {
             max-width: 800px;
             margin: 0 auto;
-            padding: 6rem 4rem 4rem;
+            padding: 6rem 4rem 0;
         }
 
         .back-link {
@@ -146,7 +146,6 @@
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
         }
 
         /* ── Hero image ── */
@@ -158,23 +157,13 @@
 
         .img-block {
             overflow: hidden;
+            border-radius: 16px;
             position: relative;
-        }
-
-        .img-block::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 25% 75%, var(--primary-soft) 0%, var(--primary) 55%, #1E1A3C 100%);
-            opacity: 0.4;
         }
 
         .img-block img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: relative;
-            z-index: 1;
+            display: block;
         }
 
         /* ── Content ── */
@@ -188,18 +177,27 @@
         .case-meta {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            padding: 2.5rem 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            gap: 0;
+            padding: 1.75rem 2rem;
+            background: var(--primary-soft);
+            border-radius: 16px;
+            margin-top: 2rem;
             margin-bottom: 4rem;
         }
+
+        .meta-item {
+            padding: 0 1.75rem;
+            border-right: 1px solid rgba(46, 42, 92, 0.12);
+        }
+
+        .meta-item:first-child { padding-left: 0; }
+        .meta-item:last-child { border-right: none; }
 
         .meta-item label {
             display: block;
             font-size: 0.72rem;
             font-weight: 700;
-            color: var(--text-muted);
+            color: var(--primary);
             letter-spacing: 0.1em;
             text-transform: uppercase;
             margin-bottom: 0.4rem;
@@ -208,6 +206,7 @@
         .meta-item p {
             font-size: 0.95rem;
             font-weight: 500;
+            color: var(--text);
         }
 
         /* ── Sections ── */
@@ -304,36 +303,48 @@
         /* ── Table benchmark ── */
         .benchmark-table-wrap {
             overflow-x: auto;
-            margin: 1rem 0 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            margin-top: 1.25rem;
         }
 
         .benchmark-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.8rem;
+            font-size: 0.92rem;
             min-width: 720px;
         }
 
+        .benchmark-table thead tr {
+            border-bottom: 2px solid var(--border);
+        }
+
         .benchmark-table th {
-            background: var(--primary);
-            color: #fff;
-            padding: 0.7rem 0.9rem;
             text-align: left;
-            font-weight: 600;
-            font-size: 0.75rem;
-            letter-spacing: 0.02em;
-            white-space: nowrap;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0 0 0.75rem;
+        }
+
+        .benchmark-table th + th,
+        .benchmark-table td + td {
+            padding-left: 2rem;
+        }
+
+        .benchmark-table tbody tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .benchmark-table tbody tr:last-child {
+            border-bottom: none;
         }
 
         .benchmark-table td {
-            background: var(--primary-soft);
-            color: var(--text);
-            padding: 0.75rem 0.9rem;
+            padding: 1rem 0;
+            color: var(--text-muted);
+            line-height: 1.6;
             vertical-align: top;
-            line-height: 1.55;
-            border-top: 1px solid rgba(46, 42, 92, 0.1);
         }
 
         .benchmark-label {
@@ -437,7 +448,7 @@
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.3s, transform 0.3s, background 0.2s;
-            z-index: 99;
+            z-index: 9999;
             pointer-events: none;
         }
 
@@ -486,23 +497,10 @@
             Retour
         </a>
         <div class="case-tags">
-            <span class="tag">Mobile</span>
-            <span class="tag">Refonte</span>
+            <span class="tag">MOBILE</span>
+            <span class="tag">REFONTE</span>
         </div>
         <h1>Un espace privé pour les babysitters</h1>
-    </header>
-
-    <!-- Hero image -->
-    <div class="case-hero-image">
-        <div class="img-block">
-            <!-- <img src="images/momji-hero.jpg" alt="Aperçu du projet Mômji"> -->
-        </div>
-    </div>
-
-    <!-- Content -->
-    <article class="case-content">
-
-        <!-- Meta -->
         <div class="case-meta">
             <div class="meta-item">
                 <label>Entreprise</label>
@@ -514,9 +512,13 @@
             </div>
             <div class="meta-item">
                 <label>Année</label>
-                <p>2024</p>
+                <p>2023</p>
             </div>
         </div>
+    </header>
+
+    <!-- Content -->
+    <article class="case-content">
 
         <!-- ════ Contexte & Objectifs ════ -->
         <div class="case-section">

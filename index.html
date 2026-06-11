@@ -218,6 +218,8 @@
                 animation: blink 2s ease-in-out infinite;
             }
 
+            .badge-short { display: none; }
+
             .hero h1 {
                 font-size: clamp(2.4rem, 4.5vw, 4.2rem);
                 font-weight: 400;
@@ -889,6 +891,9 @@
             }
 
             @media (max-width: 768px) {
+                .badge-full { display: none; }
+                .badge-short { display: inline; }
+
                 nav {
                     padding: 1rem 1.5rem;
                 }
@@ -992,7 +997,8 @@
 
                 <div class="hero-badge">
                     <span class="hero-badge-dot"></span>
-                    Product designer - spÉcialisÉe en saas
+                    <span class="badge-full">Product designer - spécialisée en saas</span>
+                    <span class="badge-short">Product designer - saas</span>
                 </div>
 
                 <h1>
@@ -1056,8 +1062,8 @@
                     </div>
                     <div class="showcase-bottom">
                         <div class="showcase-tags">
-                            <span class="showcase-tag">web app</span>
-                            <span class="showcase-tag">saas b2b</span>
+                            <span class="showcase-tag" style="color: var(--primary-light); background: var(--primary-soft);">web app</span>
+                            <span class="showcase-tag" style="color: var(--primary-light); background: var(--primary-soft);">saas b2b</span>
                         </div>
                         <h3 class="showcase-title">Un CRM destiné aux éducateurs canins</h3>
                         <p class="showcase-desc"></p>
@@ -1079,10 +1085,10 @@
                     </div>
                     <div class="showcase-bottom">
                         <div class="showcase-tags">
-                            <span class="showcase-tag">ia</span>
-                            <span class="showcase-tag">saas B2B</span>
+                            <span class="showcase-tag" style="color: var(--text); background: rgba(26,26,26,0.07);">ia</span>
+                            <span class="showcase-tag" style="color: var(--text); background: rgba(26,26,26,0.07);">saas B2B</span>
                         </div>
-                        <h3 class="showcase-title">Un titre de projet que je n'ai pas encore trouvé</h3>
+                        <h3 class="showcase-title">Repenser l'onboarding grâce aux données produit</h3>
                         <p class="showcase-desc"></p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2023</span>
@@ -1182,23 +1188,13 @@
                     <h2>Je suis Elodie</h2>
                     <div class="about-fade-wrap">
                         <p>
-                            Passionnée de design depuis toujours, j'ai plus de 10 ans d'expérience dans des startups
-                            Edtech où je me suis spécialisée en product design. À l'aise aussi bien en solo qu'en
-                            équipe, ce qui me motive c'est de concevoir des expériences qui ont du sens, à
-                            l'intersection du design et de l'intelligence artificielle.
+                            Je suis devenue Product Designer parce que ce métier transforme les frictions du quotidien en opportunités. Là où d'autres voient un problème, je vois une réponse à imaginer et un bénéfice concret à créer pour l'utilisateur.
                         </p>
                         <p>
-                            Mon parcours a démarré par le design visuel avant de basculer vers la dimension stratégique
-                            : comprendre pourquoi les utilisateurs font ce qu'ils font, et transformer ces insights en
-                            produits qui améliorent vraiment leur quotidien. Aujourd'hui, c'est l'intersection du design
-                            et de l'IA qui m'attire le plus — là où les possibilités créatives semblent vraiment
-                            infinies.
+                            Ma double formation en Product Design et Stratégie Digitale, adossée à mon parcours en Sciences Humaines et Sociales, me donne une perspective particulière sur les projets centrés utilisateur : je m'intéresse autant aux comportements et aux besoins qu'à la solution elle-même.
                         </p>
                         <p>
-                            J'aime les environnements collaboratifs où la curiosité est bienvenue et les bonnes
-                            questions sont autant valorisées que les bonnes réponses. Que ce soit lors d'un atelier de
-                            discovery ou dans la dernière ligne droite d'un prototype, j'apporte la même énergie et la
-                            même attention aux détails.
+                            J'ai aussi une sensibilité forte pour les causes environnementales et animales, et mon ambition est d'aligner progressivement ma carrière sur ces engagements.
                         </p>
                     </div>
                     <a
