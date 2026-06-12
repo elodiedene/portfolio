@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet 2 — Elodie Dené</title>
+    <title>Repenser l'onboarding — Elodie Dené</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
 
         :root {
             --bg:         #FFFFFF;
-            --bg-card:    #FFFFFF;
             --bg-soft:    #F2EDE3;
             --text:       #1A1A1A;
             --text-muted: #6B6660;
@@ -21,13 +20,8 @@
             --primary-soft:   #E8E4F0;
             --primary-light:  #7165C8;
             --accent:       #E8614A;
-            --accent-soft:  #FBE4DE;
             --orange:    var(--primary);
             --orange-bg: var(--primary-soft);
-            --green:     var(--primary);
-            --green-bg:  var(--primary-soft);
-            --yellow:    var(--accent);
-            --peach:     var(--bg-soft);
         }
 
         html { scroll-behavior: smooth; }
@@ -139,6 +133,7 @@
             padding: 0.3rem 0.85rem;
             border-radius: 100px;
             letter-spacing: 0.02em;
+            text-transform: uppercase;
         }
 
         .case-header h1 {
@@ -146,23 +141,6 @@
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: -0.02em;
-        }
-
-        /* ── Hero image ── */
-        .case-hero-image {
-            max-width: 1100px;
-            margin: 0 auto 5rem;
-            padding: 0 4rem;
-        }
-
-        .img-block {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .img-block img {
-            width: 100%;
-            display: block;
         }
 
         /* ── Content ── */
@@ -181,7 +159,7 @@
             background: var(--primary-soft);
             border-radius: 16px;
             margin-top: 2rem;
-            margin-bottom: 0;
+            margin-bottom: 4rem;
         }
 
         .meta-item {
@@ -192,7 +170,7 @@
         .meta-item:first-child { padding-left: 0; }
         .meta-item:last-child { border-right: none; }
 
-        .meta-item label {
+        .meta-label {
             display: block;
             font-size: 0.72rem;
             font-weight: 700;
@@ -210,7 +188,7 @@
 
         /* ── Sections ── */
         .case-section {
-            margin-bottom: 3.5rem;
+            margin-bottom: 4rem;
         }
 
         .case-section h2 {
@@ -227,7 +205,8 @@
             font-size: 1.05rem;
             font-weight: 600;
             letter-spacing: -0.01em;
-            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
         /* éléments dans une sous-section */
@@ -239,13 +218,6 @@
         }
 
         .case-section p:last-child { margin-bottom: 0; }
-
-        .subsection-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 1.75rem;
-        }
 
         /* ── Grille d'objectifs ── */
         .objectives-grid {
@@ -275,98 +247,41 @@
             margin-bottom: 0;
         }
 
-        /* ── Pills ── */
-        .pills-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin-bottom: 1.75rem;
-        }
-
-        .pill {
-            display: inline-flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            background: var(--primary-soft);
-            color: var(--text);
-            font-size: 0.88rem;
-            font-weight: 500;
-            padding: 0.65rem 1rem;
-            border-radius: 10px;
-            line-height: 1.5;
-        }
-
-        .pill-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 0.05rem; }
-
-        /* ── Image blocks ── */
-        .img-placeholder-block {
-            overflow: hidden;
-            margin-bottom: 1.75rem;
-        }
-
-        .img-placeholder-block img {
-            width: 100%;
-            display: block;
-        }
-
         /* ── Décisions ── */
         .decisions-list {
             display: flex;
             flex-direction: column;
-            margin: 1.5rem 0 2rem;
+            gap: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
         }
-
         .decision-block {
-            padding: 2rem 0;
-        }
-
-        .decision-before {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--bg-soft);
-            border-radius: 12px;
-            padding: 0.9rem 1.25rem;
-            margin-bottom: 1.75rem;
-        }
-
-        .decision-before-label {
-            font-size: 0.68rem;
-            font-weight: 800;
-            color: var(--accent);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-
-        .decision-fields {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 0.5rem;
         }
-
-        .decision-field-label {
-            display: block;
-            font-size: 0.68rem;
-            font-weight: 800;
-            color: var(--text);
-            letter-spacing: 0.1em;
+        .decision-row {
+            display: grid;
+            grid-template-columns: 95px 1fr;
+            gap: 0.75rem;
+            align-items: baseline;
+        }
+        .decision-row-label {
+            font-size: 0.72rem;
+            font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 0.4rem;
-        }
-
-        .decision-field-text {
-            font-size: 0.95rem;
+            letter-spacing: 0.08em;
             color: var(--text-muted);
-            line-height: 1.75;
-            margin-bottom: 0;
         }
-
+        .decision-row-label--avant { color: var(--accent); }
+        .decision-row-text {
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
         .decision-divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 0;
+            height: 1px;
+            background: var(--border);
+            margin: 0.25rem 0;
         }
 
         /* ── Footer ── */
@@ -381,18 +296,6 @@
         }
 
         footer p { font-size: 0.85rem; color: var(--text-muted); }
-
-        .footer-links { display: flex; gap: 1.5rem; }
-
-        .footer-links a {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover { color: var(--orange); }
 
         /* ── Back to top ── */
         .back-to-top {
@@ -411,7 +314,7 @@
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.3s, transform 0.3s, background 0.2s;
-            z-index: 99;
+            z-index: 9999;
             pointer-events: none;
         }
 
@@ -616,22 +519,22 @@
         }
 
         /* ── Tableau ── */
-        .case-table-wrap {
+        .data-table-wrap {
             overflow-x: auto;
             margin-bottom: 1.75rem;
         }
 
-        .case-table {
+        .data-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.92rem;
         }
 
-        .case-table thead tr {
+        .data-table thead tr {
             border-bottom: 2px solid var(--border);
         }
 
-        .case-table th {
+        .data-table th {
             text-align: left;
             font-size: 0.72rem;
             font-weight: 700;
@@ -641,20 +544,20 @@
             padding: 0 0 0.75rem;
         }
 
-        .case-table th + th,
-        .case-table td + td {
+        .data-table th + th,
+        .data-table td + td {
             padding-left: 2rem;
         }
 
-        .case-table tbody tr {
+        .data-table tbody tr {
             border-bottom: 1px solid var(--border);
         }
 
-        .case-table tbody tr:last-child {
+        .data-table tbody tr:last-child {
             border-bottom: none;
         }
 
-        .case-table td {
+        .data-table td {
             padding: 1rem 0;
             color: var(--text-muted);
             line-height: 1.6;
@@ -666,7 +569,6 @@
             nav { padding: 1rem 1.5rem; }
             .nav-available { display: none; }
             .case-header { padding: 4rem 1.5rem 2rem; }
-            .case-hero-image { padding: 0 1.5rem; margin-bottom: 3rem; }
             .case-content { padding: 0 1.5rem 5rem; }
             .case-meta { grid-template-columns: 1fr; }
             .meta-item { padding: 0.75rem 0; border-right: none; border-bottom: 1px solid rgba(46, 42, 92, 0.12); }
@@ -720,24 +622,19 @@
         <h1>Repenser l'onboarding grâce aux données produit</h1>
         <div class="case-meta">
             <div class="meta-item">
-                <label>Entreprise</label>
+                <span class="meta-label">Entreprise</span>
                 <p>Fifty</p>
             </div>
             <div class="meta-item">
-                <label>Rôle</label>
+                <span class="meta-label">Rôle</span>
                 <p>Product Designer</p>
             </div>
             <div class="meta-item">
-                <label>Année</label>
-                <p>2024</p>
+                <span class="meta-label">Année</span>
+                <p>2023</p>
             </div>
         </div>
     </header>
-
-    <!-- Hero image -->
-    <div class="case-hero-image">
-        <div class="img-block"></div>
-    </div>
 
     <!-- Content -->
     <article class="case-content">
@@ -782,8 +679,8 @@
                 </div>
             </div>
             <p>L'analyse du funnel a mis en évidence plusieurs points de friction.&nbsp;</p>
-            <div class="case-table-wrap">
-            <table class="case-table">
+            <div class="data-table-wrap">
+            <table class="data-table">
                 <thead>
                     <tr>
                         <th>Étape</th>
@@ -936,125 +833,82 @@
             </div>
             <h3>Décisions clés</h3>
             <div class="decisions-list">
-
-                <!-- ░ Décision 1 ░ -->
                 <div class="decision-block">
-                    <div class="decision-before">
-                        <span class="decision-before-label">Avant : l'arrivée sur fifty se fait trop brutalement</span>
-
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">l'arrivée sur Fifty se fait trop brutalement</span>
                     </div>
-                    <div class="decision-fields">
-                        <div class="decision-field">
-                            <span class="decision-field-label">Problème</span>
-                            <p class="decision-field-text">La première étape de l'onboarding n'est pas assez explicite concernant le lien entre l'entreprise cliente et Fifty.&nbsp;</p>
-                        </div>
-                        <div class="decision-field decision-field--decision">
-                            <span class="decision-field-label">Décision</span>
-                            <p class="decision-field-text">Donner plus de contexte aux utilisateurs sur leur arrivée sur Fifty pour qu'ils comprennent plus facilement pourquoi ils se retrouvent sur cet outil.</p>
-                        </div>
-                        <div class="decision-field">
-                            <span class="decision-field-label">Impact attendu</span>
-                            <p class="decision-field-text">Améliorer la transition entre la communication de l'entreprise et l'expérience produit et ainsi renforcer la confiance des utilisateurs dès les premières secondes.</p>
-                        </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">La première étape de l'onboarding n'est pas assez explicite concernant le lien entre l'entreprise cliente et Fifty.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Donner plus de contexte aux utilisateurs sur leur arrivée sur Fifty pour qu'ils comprennent plus facilement pourquoi ils se retrouvent sur cet outil.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Améliorer la transition entre la communication de l'entreprise et l'expérience produit et ainsi renforcer la confiance des utilisateurs dès les premières secondes.</span>
                     </div>
                 </div>
+                <div class="decision-divider"></div>
 
-                <hr class="decision-divider">
-
-                <!-- ░ Décision 2 ░ -->
                 <div class="decision-block">
-                    <div class="decision-before">
-                        <span class="decision-before-label">Avant : le concept de fifty est expliqué de manière abstraite</span>
-
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">le concept de Fifty est expliqué de manière abstraite</span>
                     </div>
-                    <div class="decision-fields">
-                        <div class="decision-field">
-                            <span class="decision-field-label">Problème</span>
-                            <p class="decision-field-text">Il n'y a qu'une étape dédiée au concept de Fifty, ce qui n'est pas assez pour que l'utilisateur comprenne concrètement de quoi il s'agit.</p>
-                        </div>
-                        <div class="decision-field decision-field--decision">
-                            <span class="decision-field-label">Décision</span>
-                            <p class="decision-field-text">Ajouter des étapes pour expliquer à l'utilisateur à quoi va lui servir l'outil, comment ça fonctionne et les bénéfices qu'il va en tirer.</p>
-                        </div>
-                        <div class="decision-field">
-                            <span class="decision-field-label">Impact attendu</span>
-                            <p class="decision-field-text">Réduire les abandons avant même d'atteindre le premier choix à faire de l'utilisateur.</p>
-                        </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">Il n'y a qu'une étape dédiée au concept de Fifty, ce qui n'est pas assez pour que l'utilisateur comprenne concrètement de quoi il s'agit.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Ajouter des étapes pour expliquer à l'utilisateur à quoi va lui servir l'outil, comment ça fonctionne et les bénéfices qu'il va en tirer.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Réduire les abandons avant même d'atteindre le premier choix à faire de l'utilisateur.</span>
                     </div>
                 </div>
-                
-                <hr class="decision-divider">
-
-                <!-- ░ Décision 3 ░ -->
+                <div class="decision-divider"></div>
                 <div class="decision-block">
-                    <div class="decision-before">
-                        <span class="decision-before-label">Avant : le concept de fifty est expliqué de manière abstraite</span>
-
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">le "choix" du thème n'est pas clair</span>
                     </div>
-                    <div class="decision-fields">
-                        <div class="decision-field">
-                            <span class="decision-field-label">Problème</span>
-                            <p class="decision-field-text">Il n'y a qu'une étape dédiée au concept de Fifty, ce qui n'est pas assez pour que l'utilisateur comprenne concrètement de quoi il s'agit.</p>
-                        </div>
-                        <div class="decision-field decision-field--decision">
-                            <span class="decision-field-label">Décision</span>
-                            <p class="decision-field-text">Ajouter des étapes pour expliquer à l'utilisateur à quoi va lui servir l'outil, comment ça fonctionne et les bénéfices qu'il va en tirer.</p>
-                        </div>
-                        <div class="decision-field">
-                            <span class="decision-field-label">Impact attendu</span>
-                            <p class="decision-field-text">Réduire les abandons avant même d'atteindre le premier choix à faire de l'utilisateur.</p>
-                        </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">L'utilisateur ne choisit pas vraiment un thème, il les priorise, ce qui fera plus ou moins ressortir des actions. Cet effet n'est pas explicité.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Faire faire un vrai choix à l'utilisateur concernant un thème, en lui expliquant que les autres thèmes seront vus les semaines suivantes.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Réduire les incompréhensions et augmenter la confiance de l'utilisateur.</span>
                     </div>
                 </div>
-                
-                <hr class="decision-divider">
-
-                <!-- ░ Décision 4 ░ -->
+                <div class="decision-divider"></div>
                 <div class="decision-block">
-                    <div class="decision-before">
-                        <span class="decision-before-label">Avant : le "choix" du thème n'est pas clair</span>
-
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">aucune action n'est choisie lors de l'onboarding</span>
                     </div>
-                    <div class="decision-fields">
-                        <div class="decision-field">
-                            <span class="decision-field-label">Problème</span>
-                            <p class="decision-field-text">L'utilisateur ne choisit pas vraiment un thème, il les priorise, ce qui fera plus ou moins ressortir des actions. Cet effet n'est pas explicité.&nbsp;</p>
-                        </div>
-                        <div class="decision-field decision-field--decision">
-                            <span class="decision-field-label">Décision</span>
-                            <p class="decision-field-text">Faire faire un vrai choix à l'utilisateur concernant un thème, en lui expliquant que les autres thèmes seront vus les semaines suivantes.</p>
-                        </div>
-                        <div class="decision-field">
-                            <span class="decision-field-label">Impact attendu</span>
-                            <p class="decision-field-text">Réduire les incompréhensions et augmenter la confiance de l'utilisateur.</p>
-                        </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">On ne pousse pas l'utilisateur à choisir une action, ce qui ne lui permet pas de finaliser la compréhension du produit.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Ajouter une étape où l'utilisateur peut visualiser différentes actions et choisir celles qu'il souhaite réaliser.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Augmenter l'activation et l'engagement des utilisateurs en les encourageant à sélectionner des actions et à réaliser pendant la semaine en cours.</span>
                     </div>
                 </div>
-                
-                <hr class="decision-divider">
-
-                <!-- ░ Décision 5 ░ -->
-                <div class="decision-block">
-                    <div class="decision-before">
-                        <span class="decision-before-label">Avant : AUCUNE ACTION N'est choisie lors de l'onboarding</span>
-
-                    </div>
-                    <div class="decision-fields">
-                        <div class="decision-field">
-                            <span class="decision-field-label">Problème</span>
-                            <p class="decision-field-text">On ne pousse pas l'utilisateur à choisir une action, ce qui ne lui permet pas de finaliser la compréhension du produit.</p>
-                        </div>
-                        <div class="decision-field decision-field--decision">
-                            <span class="decision-field-label">Décision</span>
-                            <p class="decision-field-text">Ajouter une étape où l'utilisateur peut visualiser différentes actions et choisir celles qu'il souhaite réaliser.</p>
-                        </div>
-                        <div class="decision-field">
-                            <span class="decision-field-label">Impact attendu</span>
-                            <p class="decision-field-text">Augmenter l'activation et l'engagement des utilisateurs en les encourageant à sélectionner des actions et à réaliser pendant la semaine en cours.</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
             <div class="carousel" id="carousel-flow-2">
                 <div class="carousel-track-wrap">

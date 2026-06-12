@@ -12,22 +12,14 @@
 
         :root {
             --bg:         #FFFFFF;
-            --bg-card:    #FFFFFF;
-            --bg-soft:    #F2EDE3;
             --text:       #1A1A1A;
             --text-muted: #6B6660;
             --border:     #E8E2D5;
             --primary:        #2E2A5C;
             --primary-soft:   #E8E4F0;
             --primary-light:  #7165C8;
-            --accent:       #E8614A;
-            --accent-soft:  #FBE4DE;
             --orange:    var(--primary);
             --orange-bg: var(--primary-soft);
-            --green:     var(--primary);
-            --green-bg:  var(--primary-soft);
-            --yellow:    var(--accent);
-            --peach:     var(--bg-soft);
         }
 
         html { scroll-behavior: smooth; }
@@ -139,6 +131,7 @@
             padding: 0.3rem 0.85rem;
             border-radius: 100px;
             letter-spacing: 0.02em;
+            text-transform: uppercase;
         }
 
         .case-header h1 {
@@ -175,7 +168,7 @@
         .meta-item:first-child { padding-left: 0; }
         .meta-item:last-child { border-right: none; }
 
-        .meta-item label {
+        .meta-label {
             display: block;
             font-size: 0.72rem;
             font-weight: 700;
@@ -210,7 +203,7 @@
             font-weight: 600;
             letter-spacing: -0.01em;
             margin-top: 2.5rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .case-section p {
@@ -263,18 +256,6 @@
 
         footer p { font-size: 0.85rem; color: var(--text-muted); }
 
-        .footer-links { display: flex; gap: 1.5rem; }
-
-        .footer-links a {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover { color: var(--orange); }
-
         /* ── Back to top ── */
         .back-to-top {
             position: fixed;
@@ -292,7 +273,7 @@
             opacity: 0;
             transform: translateY(10px);
             transition: opacity 0.3s, transform 0.3s, background 0.2s;
-            z-index: 99;
+            z-index: 9999;
             pointer-events: none;
         }
 
@@ -342,30 +323,28 @@
             Retour
         </a>
         <div class="case-tags">
-            <span class="tag">web app</span>
-            <span class="tag">saas b2b</span>
+            <span class="tag">WEB APP</span>
+            <span class="tag">SAAS B2B</span>
         </div>
         <h1>Organiser une session de tests utilisateurs</h1>
+        <div class="case-meta">
+            <div class="meta-item">
+                <span class="meta-label">Entreprise</span>
+                <p>Gutenberg Technology</p>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Rôle</span>
+                <p>Product Designer</p>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Année</span>
+                <p>2023</p>
+            </div>
+        </div>
     </header>
 
     <!-- Content -->
     <article class="case-content">
-
-        <!-- Meta -->
-        <div class="case-meta">
-            <div class="meta-item">
-                <label>Entreprise</label>
-                <p>Gutenberg Technology</p>
-            </div>
-            <div class="meta-item">
-                <label>Rôle</label>
-                <p>Product Designer</p>
-            </div>
-            <div class="meta-item">
-                <label>Année</label>
-                <p>2023</p>
-            </div>
-        </div>
 
         <!-- ════ Contexte & Objectifs ════ -->
         <div class="case-section">

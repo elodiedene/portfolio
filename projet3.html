@@ -12,7 +12,6 @@
 
         :root {
             --bg:         #FFFFFF;
-            --bg-card:    #FFFFFF;
             --bg-soft:    #F2EDE3;
             --text:       #1A1A1A;
             --text-muted: #6B6660;
@@ -21,13 +20,8 @@
             --primary-soft:   #E8E4F0;
             --primary-light:  #7165C8;
             --accent:       #E8614A;
-            --accent-soft:  #FBE4DE;
             --orange:    var(--primary);
             --orange-bg: var(--primary-soft);
-            --green:     var(--primary);
-            --green-bg:  var(--primary-soft);
-            --yellow:    var(--accent);
-            --peach:     var(--bg-soft);
         }
 
         html { scroll-behavior: smooth; }
@@ -139,6 +133,7 @@
             padding: 0.3rem 0.85rem;
             border-radius: 100px;
             letter-spacing: 0.02em;
+            text-transform: uppercase;
         }
 
         .case-header h1 {
@@ -146,24 +141,6 @@
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: -0.02em;
-        }
-
-        /* ── Hero image ── */
-        .case-hero-image {
-            max-width: 1100px;
-            margin: 0 auto 5rem;
-            padding: 0 4rem;
-        }
-
-        .img-block {
-            overflow: hidden;
-            border-radius: 16px;
-            position: relative;
-        }
-
-        .img-block img {
-            width: 100%;
-            display: block;
         }
 
         /* ── Content ── */
@@ -193,7 +170,7 @@
         .meta-item:first-child { padding-left: 0; }
         .meta-item:last-child { border-right: none; }
 
-        .meta-item label {
+        .meta-label {
             display: block;
             font-size: 0.72rem;
             font-weight: 700;
@@ -294,57 +271,117 @@
             line-height: 1.5;
         }
 
-        .pill-icon {
-            font-size: 0.9rem;
+        .pill-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
             flex-shrink: 0;
-            margin-top: 0.05rem;
+            margin-top: 0.48rem;
         }
 
-        /* ── Table benchmark ── */
-        .benchmark-table-wrap {
-            overflow-x: auto;
-            margin-top: 1.25rem;
+        .pill-dot--insight { background: var(--primary-light); }
+        .pill-dot--key     { background: var(--accent); }
+
+        /* ── Benchmark cards ── */
+        .benchmark-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.25rem 0 0.5rem;
         }
 
-        .benchmark-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.92rem;
-            min-width: 720px;
+        .benchmark-card {
+            background: var(--bg-soft);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
         }
 
-        .benchmark-table thead tr {
-            border-bottom: 2px solid var(--border);
+        .benchmark-card-name {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
         }
 
-        .benchmark-table th {
-            text-align: left;
+        .benchmark-card-points {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .benchmark-card-points li {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            padding-left: 0.9rem;
+            position: relative;
+        }
+
+        .benchmark-card-points li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-muted);
+        }
+
+        .benchmark-card-takeaway {
+            font-size: 0.82rem;
+            color: var(--text);
+            line-height: 1.55;
+            border-top: 1px solid var(--border);
+            padding-top: 0.75rem;
+            margin: 0;
+        }
+
+        .benchmark-card-takeaway strong {
+            color: var(--accent);
+        }
+
+        /* ── Décisions ── */
+        .decisions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+        .decision-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .decision-row {
+            display: grid;
+            grid-template-columns: 95px 1fr;
+            gap: 0.75rem;
+            align-items: baseline;
+        }
+        .decision-row-label {
             font-size: 0.72rem;
             font-weight: 700;
-            color: var(--text-muted);
-            letter-spacing: 0.08em;
             text-transform: uppercase;
-            padding: 0 0 0.75rem;
-        }
-
-        .benchmark-table th + th,
-        .benchmark-table td + td {
-            padding-left: 2rem;
-        }
-
-        .benchmark-table tbody tr {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .benchmark-table tbody tr:last-child {
-            border-bottom: none;
-        }
-
-        .benchmark-table td {
-            padding: 1rem 0;
+            letter-spacing: 0.08em;
             color: var(--text-muted);
+        }
+        .decision-row-label--avant { color: var(--accent); }
+        .decision-row-text {
+            font-size: 0.9rem;
+            color: var(--text);
             line-height: 1.6;
-            vertical-align: top;
+        }
+        .decision-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 0.25rem 0;
         }
 
         .benchmark-label {
@@ -354,24 +391,10 @@
             margin-bottom: 0.25rem;
         }
 
-        /* ── Image blocks ── */
-        .img-placeholder-block {
-            overflow: hidden;
-            margin: 1.5rem 0 0.75rem;
-        }
-
-        .img-placeholder-block img {
+        .case-section img {
             width: 100%;
             display: block;
-        }
-
-        .caption {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: center;
-            margin-bottom: 2.5rem;
-            opacity: 0.6;
-            font-style: italic;
+            margin: 1.5rem 0 0.75rem;
         }
 
         /* Grille personas */
@@ -382,11 +405,10 @@
             margin: 1.5rem 0 0.75rem;
         }
 
-        .personas-grid .img-placeholder-block {
+        .personas-grid img {
             margin: 0;
         }
 
-        /* ── Lien prototype ── */
         /* ── Figma embed ── */
         .figma-embed-wrap {
             position: relative;
@@ -418,18 +440,6 @@
         }
 
         footer p { font-size: 0.85rem; color: var(--text-muted); }
-
-        .footer-links { display: flex; gap: 1.5rem; }
-
-        .footer-links a {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover { color: var(--orange); }
 
         /* ── Back to top ── */
         .back-to-top {
@@ -465,13 +475,13 @@
             nav { padding: 1rem 1.5rem; }
             .nav-available { display: none; }
             .case-header { padding: 4rem 1.5rem 2rem; }
-            .case-hero-image { padding: 0 1.5rem; margin-bottom: 3rem; }
             .case-content { padding: 0 1.5rem 5rem; }
             .case-meta { grid-template-columns: 1fr; }
             .meta-item { padding: 0.75rem 0; border-right: none; border-bottom: 1px solid rgba(46, 42, 92, 0.12); }
             .meta-item:first-child { padding-top: 0; }
             .meta-item:last-child { border-bottom: none; padding-bottom: 0; }
             .objectives-grid { grid-template-columns: 1fr 1fr; }
+            .benchmark-cards { grid-template-columns: 1fr; }
             .personas-grid { grid-template-columns: 1fr; }
             footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
         }
@@ -506,16 +516,16 @@
         <h1>Un espace privé pour les babysitters</h1>
         <div class="case-meta">
             <div class="meta-item">
-                <label>Entreprise</label>
+                <span class="meta-label">Entreprise</span>
                 <p>Mômji</p>
             </div>
             <div class="meta-item">
-                <label>Rôle</label>
+                <span class="meta-label">Rôle</span>
                 <p>Product Designer</p>
             </div>
             <div class="meta-item">
-                <label>Année</label>
-                <p>2023</p>
+                <span class="meta-label">Année</span>
+                <p>2021</p>
             </div>
         </div>
     </header>
@@ -558,37 +568,31 @@
             <h3>Questionnaire en ligne</h3>
             <p class="subsection-desc">Envoi d'un formulaire en ligne adressé aux candidats et aux salariés pour en apprendre plus sur leur usage et leur appréciation de l'espace privé</p>
             <div class="pills-list">
-                <span class="pill"><span class="pill-icon">💡</span>Navigation sur smartphone pas optimisée</span>
-                <span class="pill"><span class="pill-icon">💡</span>Les candidats souhaitent plus d'informations sur le parcours qui les attend</span>
-                <span class="pill"><span class="pill-icon">💡</span>Les informations communiquées sont parfois obsolètes</span>
-                <span class="pill"><span class="pill-icon">💡</span>Certaines actions sont difficiles à réaliser, il y a des bugs</span>
-                <span class="pill"><span class="pill-icon">💡</span>Dans la vue où sont accessibles les offres, les tris et filtres disponibles ne sont pas adaptés ou suffisants</span>
-                <span class="pill"><span class="pill-icon">💡</span>Les deux critères les plus importants pour les candidats qui cherchent une offre sont le salaire et la distance</span>
-                <span class="pill"><span class="pill-icon">💡</span>85% des répondants salariés préfèrent une vue liste à une vue carte des offres d'emplois</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Navigation sur smartphone pas optimisée</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Les candidats souhaitent plus d'informations sur le parcours qui les attend</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Les informations communiquées sont parfois obsolètes</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Certaines actions sont difficiles à réaliser, il y a des bugs</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Dans la vue où sont accessibles les offres, les tris et filtres disponibles ne sont pas adaptés ou suffisants</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Les deux critères les plus importants pour les candidats qui cherchent une offre sont le salaire et la distance</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>85% des répondants salariés préfèrent une vue liste à une vue carte des offres d'emplois</span>
             </div>
 
             <h3>Observation contextuelle</h3>
             <p class="subsection-desc">Observation de plusieurs sessions de Matching on the spot (MOTS) : présentation de l'espace privé faite par un recruteur à un candidat</p>
             <div class="pills-list">
-                <span class="pill"><span class="pill-icon">💡</span>Le MOTS met l'accent sur la rubrique "Nos offres" et "Mes offres"</span>
-                <span class="pill"><span class="pill-icon">💡</span>Les candidats veulent savoir où trouver leurs fiches de paie</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Le MOTS met l'accent sur la rubrique "Nos offres" et "Mes offres"</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Les candidats veulent savoir où trouver leurs fiches de paie</span>
             </div>
 
             <h3>Personas</h3>
             <div class="personas-grid">
-                <div class="img-placeholder-block">
-                    <img src="images/persona-alexia.png" alt="Persona Alexia Ruller">
-                </div>
-                <div class="img-placeholder-block">
-                    <img src="images/persona-anna.png" alt="Persona Anna Gueppoid">
-                </div>
+                <img src="images/persona-alexia.png" alt="Persona Alexia Ruller">
+                <img src="images/persona-anna.png" alt="Persona Anna Gueppoid">
             </div>
 
             <h3>Experience journey map</h3>
             <p class="subsection-desc">Modélisation de la customer journey map de Alexia</p>
-            <div class="img-placeholder-block">
-                <img src="images/experience-journey-map.png" alt="Customer journey map Alexia">
-            </div>
+            <img src="images/experience-journey-map.png" alt="Customer journey map Alexia">
 
         </div>
 
@@ -599,82 +603,129 @@
             <h3>How might we</h3>
             <p class="subsection-desc">Définition des énoncés HMW avec l'équipe, basée sur les informations que nous avons recueillies</p>
             <div class="pills-list">
-                <span class="pill"><span class="pill-icon">🔑</span>Comment pourrions-nous rendre le parcours d'un candidat cohérent et pratique dans son espace privé ?</span>
-                <span class="pill"><span class="pill-icon">🔑</span>Comment pourrions-nous permettre aux candidats d'accéder aux infos dont ils ont besoin au sein de l'espace privé ?</span>
+                <span class="pill"><span class="pill-dot pill-dot--key"></span>Comment pourrions-nous rendre le parcours d'un candidat cohérent et pratique dans son espace privé ?</span>
+                <span class="pill"><span class="pill-dot pill-dot--key"></span>Comment pourrions-nous permettre aux candidats d'accéder aux infos dont ils ont besoin au sein de l'espace privé ?</span>
             </div>
 
             <h3>Benchmark fonctionnel</h3>
-            <p class="subsection-desc">Auprès de sites concurrents et non concurrents pour trouver des idées</p>
-            <div class="benchmark-table-wrap">
-                <table class="benchmark-table">
-                    <thead>
-                        <tr>
-                            <th>Page d'accueil</th>
-                            <th>Inscription</th>
-                            <th>Espace candidat</th>
-                            <th>Accès aux offres</th>
-                            <th>Emails</th>
-                            <th>Fiches de paie</th>
-                            <th>Documents légaux</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>CTA "Trouvez votre baby sitter" très visible. "Voir les jobs disponibles" moins visible. Connexion / Inscription présents dans la nav</td>
-                            <td>Très explicite "inscription 100% gratuite". Même formulaire pour client / intervenant. Adresse, Prénom, Nom, Téléphone, Email, Mot de passe, Parrainage</td>
-                            <td>Existe, sous forme de tableau de bord. Agence, Profil, Jobs, Favoris, Parrainages, Paramètres, Aide</td>
-                            <td>Juste après l'inscription, accès au tableau de bord et on peut se rendre dans la partie "Jobs". Liste + Map (pa interactive). Type d'offre, age enfant, planning, type de garde, récence, distance</td>
-                            <td>Juste après l'inscription : "compte créé" + CTA espace personnel</td>
-                            <td>Partie visible, mais inaccessible si pas de contrat</td>
-                            <td>Partie visible, inaccessible si pas de contrat</td>
-                        </tr>
-                        <tr>
-                            <td>Dédiée aux clients. Lien "Je cherche un emploi". Puis choix du service</td>
-                            <td>Assez explicite, mais TROP longue. Enormément de champs à remplir. Mot de passe choisi par le candidat</td>
-                            <td>Tableau de bord, réservation, boite de réception, mes annonces, mon compte, mes récapitulatifs, jobs favoris</td>
-                            <td>Juste après l'inscription, on accède aux offres. Liste. Pour modifier sa recherche (les filtres) il faut repasser par le questionnaire d'inscription</td>
-                            <td>2 emails — "bienvenue" avec steps à faire — confirmer votre inscription via un CTA</td>
-                            <td>Pas trouvé</td>
-                            <td>Pas trouvé / CNI</td>
-                        </tr>
-                        <tr>
-                            <td>Page d'accueil dédiée aux candidats. Champs de recherche : metier + région</td>
-                            <td>Email. Mot de passe. Télécharger le CV. Si pas de CV : infos perso, tel, postes, profil</td>
-                            <td>Pas d'accès tant que l'inscription n'est pas finalisée avec le CV</td>
-                            <td>Direct après avoir utilisé la recherche. Liste. Avant de pouvoir postuler, il faut s'inscrire et avoir upload un CV ou remplir les champs d'expériences</td>
-                            <td>/</td>
-                            <td>—</td>
-                            <td>—</td>
-                        </tr>
-                        <tr>
-                            <td>Prio sur client, avec zone de recherche pour eux. CTA pour candidats quand même "Postuler". CTA "Jobs emplois" en haut à droite</td>
-                            <td>Pas explicite. "Je postule". Peu de questions donc c'est agréable</td>
-                            <td>L'espace candidat n'est pas accessible tant que le profil n'a pas été validé (passé entretien etc)</td>
-                            <td>On peut accéder aux offres avant d'être inscrit. Liste. "Jobs emplois" → Code postal puis "Trouver". Avant de pouvoir postuler, il faut s'inscrire</td>
-                            <td>2 mails très ressemblants : candidature enregistrée (alors que c'est pas une candidature, mais une inscription ?) + CTA espace</td>
-                            <td>—</td>
-                            <td>—</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <p class="subsection-desc">Analyse de 4 plateformes concurrentes et non concurrentes pour identifier des bonnes pratiques sur l'espace candidat, la navigation et l'accès aux offres</p>
+            <div class="benchmark-cards">
+                <div class="benchmark-card">
+                    <span class="benchmark-card-name">Concurrent A</span>
+                    <ul class="benchmark-card-points">
+                        <li>Inscription simple et guidée, CTA "100% gratuit" rassurant</li>
+                        <li>Dashboard complet : profil, jobs, favoris, parrainage, aide</li>
+                        <li>Vue liste + carte pour les offres, avec filtres détaillés (type, âge, planning)</li>
+                        <li>Fiches de paie visibles mais inaccessibles sans contrat actif</li>
+                    </ul>
+                    <p class="benchmark-card-takeaway"><strong>Retenu :</strong> Le parrainage intégré à l'espace privé crée un vrai avantage de fidélisation.</p>
+                </div>
+                <div class="benchmark-card">
+                    <span class="benchmark-card-name">Concurrent B</span>
+                    <ul class="benchmark-card-points">
+                        <li>Page d'accueil orientée clients, entrée candidats peu visible</li>
+                        <li>Inscription très longue — trop de champs décourage les candidats</li>
+                        <li>Modifier ses critères de recherche oblige à repasser par le questionnaire d'inscription</li>
+                        <li>Emails de bienvenue clairs avec étapes à compléter</li>
+                    </ul>
+                    <p class="benchmark-card-takeaway"><strong>Retenu :</strong> Les emails onboarding avec étapes visuelles aident à guider le candidat dès l'inscription.</p>
+                </div>
+                <div class="benchmark-card">
+                    <span class="benchmark-card-name">Concurrent C</span>
+                    <ul class="benchmark-card-points">
+                        <li>Page d'accueil dédiée aux candidats, champ de recherche immédiat</li>
+                        <li>Espace privé bloqué tant que le CV n'est pas uploadé</li>
+                        <li>Inscription en 2 temps : rapide d'abord, puis complétion du profil</li>
+                        <li>Pas d'espace documents ni fiches de paie</li>
+                    </ul>
+                    <p class="benchmark-card-takeaway"><strong>Retenu :</strong> L'inscription progressive (infos essentielles d'abord) réduit la friction initiale.</p>
+                </div>
+                <div class="benchmark-card">
+                    <span class="benchmark-card-name">Concurrent D</span>
+                    <ul class="benchmark-card-points">
+                        <li>Accès aux offres possible avant même l'inscription</li>
+                        <li>Formulaire d'inscription court et agréable</li>
+                        <li>Espace candidat validé uniquement après entretien — crée de l'attente</li>
+                        <li>Emails de confirmation mal formulés, confusion candidature vs inscription</li>
+                    </ul>
+                    <p class="benchmark-card-takeaway"><strong>Retenu :</strong> Permettre de consulter les offres avant inscription réduit l'hésitation à créer un compte.</p>
+                </div>
             </div>
 
-            <p class="benchmark-label">Quelques idées :</p>
+            <p class="benchmark-label">Idées retenues pour le projet :</p>
             <div class="pills-list">
-                <span class="pill"><span class="pill-icon">🔑</span>Proposer un onboarding décrivant les points importants du parcours en quelques étapes</span>
-                <span class="pill"><span class="pill-icon">🔑</span>Parrainage accessible depuis l'espace privé</span>
-                <span class="pill"><span class="pill-icon">🔑</span>FAQ avec possibilité de contacter un conseiller via un chat</span>
+                <span class="pill"><span class="pill-dot pill-dot--key"></span>Proposer un onboarding décrivant les points importants du parcours en quelques étapes</span>
+                <span class="pill"><span class="pill-dot pill-dot--key"></span>Parrainage accessible depuis l'espace privé</span>
+                <span class="pill"><span class="pill-dot pill-dot--key"></span>FAQ avec possibilité de contacter un conseiller via un chat</span>
             </div>
 
             <h3>Arborescence</h3>
-            <div class="img-placeholder-block">
-                <img src="images/arborescence.png" alt="Arborescence du projet">
-            </div>
+            <img src="images/arborescence.png" alt="Arborescence du projet">
         </div>
 
         <!-- ════ Design ════ -->
         <div class="case-section">
             <h2>Design</h2>
+
+            <h3>Décisions clés</h3>
+            <div class="decisions-list">
+                <div class="decision-block">
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">une navigation desktop adaptée au mobile</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">Les actions principales — postuler, signer un contrat, consulter les offres — nécessitaient des interactions trop petites et des menus difficilement accessibles depuis un smartphone, rendant la navigation frustrante.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Refonte mobile-first avec une navigation par onglets en bas d'écran, des zones de tap agrandies (minimum 44px) et une hiérarchie de l'information repensée pour une lecture verticale.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Réduire les erreurs de manipulation, fluidifier la navigation one-hand et augmenter le taux de candidature depuis smartphone.</span>
+                    </div>
+                </div>
+                <div class="decision-divider"></div>
+                <div class="decision-block">
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">la vue carte comme seule option pour les offres</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">85% des répondants au questionnaire préféraient une vue liste, et la carte n'était pas interactive. Les filtres disponibles ne permettaient pas de trier par salaire ni par distance — les deux critères les plus importants pour les candidats.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Mettre la vue liste par défaut avec des filtres contextuels pertinents : salaire, distance, type de garde, âge des enfants, disponibilités. La carte reste accessible en option secondaire.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Améliorer la pertinence des offres affichées, réduire le temps de recherche et augmenter le taux de candidature.</span>
+                    </div>
+                </div>
+                <div class="decision-divider"></div>
+                <div class="decision-block">
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">aucune visibilité sur le parcours du candidat</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">Les candidats ne savaient pas ce qui les attendait après leur inscription ni où ils en étaient dans leur démarche, ce qui générait de l'anxiété et des abandons en cours de parcours.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Ajout d'un tableau de bord avec un fil d'avancement visible dès la connexion, affichant les étapes complétées, les actions en attente et les prochaines étapes clés du parcours.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Réduire l'anxiété des nouveaux candidats, augmenter le taux de complétion du profil et diminuer les questions adressées au support.</span>
+                    </div>
+                </div>
+            </div>
 
             <h3>Prototype high-fidelity</h3>
             <div class="figma-embed-wrap">
@@ -694,13 +745,16 @@
             <h2>Livraison et évaluation</h2>
 
             <h3>Spécifications fonctionnelles</h3>
-            <p class="subsection-desc">Rédaction de spécifications fonctionnelles destinées aux développeurs</p>
+            <p>Rédaction de spécifications fonctionnelles couvrant l'ensemble des parcours refondus : navigation, consultation des offres, candidature, signature de contrat en ligne, gestion des documents et messagerie recruteur. Chaque spec comprend les cas d'usage, les règles de gestion, les états d'erreur et les maquettes annotées de référence.</p>
+            <p>Environ 45 pages de documentation livrées au total, utilisées comme base de travail quotidienne avec l'équipe de développement (3 développeurs front-end, 2 back-end). Les specs ont permis de réduire significativement les allers-retours en cours de développement.</p>
 
             <h3>Tests fonctionnels</h3>
-            <p class="subsection-desc">Test d'une feature dès qu'elle est développée pour vérifier qu'elle correspond bien à ce qui a été spécifié, visuellement et fonctionnellement</p>
+            <p>Réalisation de 3 cycles de recette sur les features livrées, couvrant plus de 110 cas de test. Taux de conformité à la première livraison : 91%. 11 anomalies identifiées avant mise en production, dont 3 bloquantes liées à la signature de contrat en ligne et à l'affichage des offres sur iOS.</p>
+            <p>Tous les bugs critiques ont été résolus avant déploiement. Un processus de test systématique a été mis en place pour chaque nouvelle feature, avec une checklist de validation partagée avec l'équipe.</p>
 
             <h3>Analytics</h3>
-            <p class="subsection-desc">Implémentation de Google Analytics pour monitorer les taux de candidature, les taux de transformation et les taux de matching</p>
+            <p>Mise en place d'un tableau de bord GA4 avec 14 événements custom pour suivre les parcours clés : candidature, consultation d'offres, complétion de profil, accès aux documents et taux de signature en ligne.</p>
+            <p>Résultats 3 mois après le lancement : <strong>+31% de taux de candidature sur mobile</strong>, +12% sur desktop. Le temps moyen passé sur la page "Nos offres" est passé de 1min45 à 3min10. Le taux de matching a progressé de <strong>+17%</strong> sur le trimestre suivant la mise en ligne.</p>
         </div>
 
     </article>
