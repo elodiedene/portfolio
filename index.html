@@ -35,9 +35,10 @@
                 --accent:       #E8614A;
                 --accent-soft:  #FBE4DE;
 
-                /* ─── Alias rétro-compatibles ─── */
+                /* ─── Alias ─── */
                 --orange:    var(--primary);
                 --orange-bg: var(--primary-soft);
+                --peach:     var(--bg-soft);
             }
 
             html {
@@ -126,6 +127,7 @@
                     opacity: 0.3;
                 }
             }
+
 
             /* ════════════════════════════════
            HERO
@@ -306,6 +308,7 @@
                 border-radius: 20px;
                 overflow: hidden;
                 text-decoration: none;
+                display: block;
                 transition:
                     transform 0.3s ease,
                     box-shadow 0.3s ease;
@@ -315,6 +318,7 @@
             .bento-card:nth-child(1),
             .bento-card:nth-child(2) {
                 grid-column: span 3;
+                min-height: 200px;
             }
 
             /* Ligne 2 : 1/3 + 1/3 + 1/3 */
@@ -322,6 +326,135 @@
             .bento-card:nth-child(4),
             .bento-card:nth-child(5) {
                 grid-column: span 2;
+                min-height: 160px;
+            }
+
+            .bento-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
+            }
+
+            /* ── Couleurs de fond (visibles tant qu'il n'y a pas d'image) ── */
+            .bento-c1 {
+                background-color: var(--primary);
+            }
+            .bento-c2 {
+                background-color: var(--bg-soft);
+            }
+            .bento-c3 {
+                background-color: var(--accent);
+            }
+            .bento-c4 {
+                background-color: var(--text);
+            }
+            .bento-c5 {
+                background-color: var(--primary-light);
+            }
+
+            /* ── Image pleine carte ── */
+            .bento-card img {
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* ── Overlay hover ── */
+            .bento-overlay {
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 1.75rem;
+                opacity: 0;
+                transition: none;
+            }
+
+            .bento-card:hover .bento-overlay {
+                opacity: 1;
+            }
+
+            .bento-c1 .bento-overlay {
+                background: var(--primary);
+            }
+            .bento-c2 .bento-overlay {
+                background: var(--bg-soft);
+            }
+            .bento-c3 .bento-overlay {
+                background: var(--accent);
+            }
+            .bento-c4 .bento-overlay {
+                background: var(--text);
+            }
+            .bento-c5 .bento-overlay {
+                background: var(--primary-light);
+            }
+
+            .bento-overlay-tags {
+                display: flex;
+                gap: 0.4rem;
+                flex-wrap: wrap;
+                transform: translateY(-8px);
+                transition: transform 0.35s ease 0s;
+            }
+
+            .bento-card:hover .bento-overlay-tags {
+                transform: translateY(0);
+            }
+
+            .bento-overlay-bottom {
+                display: flex;
+                flex-direction: column;
+                gap: 1.25rem;
+                transform: translateY(8px);
+                transition: transform 0.35s ease 0.05s;
+            }
+
+            .bento-card:hover .bento-overlay-bottom {
+                transform: translateY(0);
+            }
+
+            .bento-overlay-tag {
+                font-size: 0.6rem;
+                font-weight: 700;
+                letter-spacing: 0.09em;
+                text-transform: uppercase;
+                padding: 0.25rem 0.7rem;
+                border-radius: 100px;
+                color: rgba(255, 255, 255, 0.9);
+                background: rgba(255, 255, 255, 0.22);
+            }
+
+            .bento-c2 .bento-overlay-tag {
+                color: rgba(26, 26, 26, 0.72);
+                background: rgba(26, 26, 26, 0.08);
+            }
+
+            .bento-overlay-desc {
+                font-size: 0.95rem;
+                font-weight: 500;
+                color: #fff;
+                line-height: 1.65;
+            }
+
+            .bento-c2 .bento-overlay-desc {
+                color: rgba(26, 26, 26, 0.88);
+            }
+
+            .bento-overlay-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.45rem;
+                background: #fff;
+                color: var(--text);
+                font-size: 0.8rem;
+                font-weight: 700;
+                padding: 0.55rem 1.2rem;
+                border-radius: 100px;
+                width: fit-content;
             }
 
             /* ── Showcase card (nouvelle style card projet) ── */
@@ -329,6 +462,7 @@
                 display: flex;
                 flex-direction: column;
                 background: #fff;
+                min-height: unset !important;
                 border-radius: 20px;
                 overflow: hidden;
                 border: 1px solid var(--border);
@@ -336,13 +470,15 @@
 
             .showcase-top {
                 position: relative;
-                background-color: var(--accent);
+                background-color: var(--bg-soft);
                 flex: 1;
                 min-height: 240px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 overflow: hidden;
+                border-radius: 20px 20px 0 0;
+                transform: translateZ(0);
             }
 
             .showcase-logo {
@@ -387,8 +523,8 @@
             .showcase-tag {
                 font-size: 0.62rem;
                 font-weight: 700;
-                color: var(--accent);
-                background: var(--accent-soft);
+                color: var(--text);
+                background: var(--bg-soft);
                 padding: 0.25rem 0.65rem;
                 border-radius: 100px;
                 letter-spacing: 0.05em;
@@ -405,7 +541,7 @@
 
             .showcase-title em {
                 font-style: italic;
-                color: var(--accent);
+                color: var(--text);
             }
 
             .showcase-desc {
@@ -473,7 +609,7 @@
                 width: 300px;
                 height: 300px;
                 flex-shrink: 0;
-                background: var(--bg-soft);
+                background: var(--peach);
                 border-radius: 20px;
                 display: flex;
                 align-items: center;
@@ -488,6 +624,15 @@
                 inset: 0;
                 background: radial-gradient(ellipse at 30% 70%, var(--primary-soft), var(--primary));
                 opacity: 0.35;
+            }
+
+            .about-photo span {
+                position: relative;
+                z-index: 1;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: var(--text-muted);
+                opacity: 0.7;
             }
 
             .about-photo img {
@@ -698,7 +843,6 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                border-top: 1px solid var(--border);
             }
 
             footer p {
@@ -793,6 +937,9 @@
                 .socials-grid {
                     grid-template-columns: 1fr;
                 }
+                .bento-grid {
+                    grid-template-columns: 1fr;
+                }
             }
         </style>
     </head>
@@ -832,8 +979,8 @@
 
                 <div class="hero-badge">
                     <span class="hero-badge-dot"></span>
-                    <span class="badge-full">Product designer - spécialisée en saas</span>
-                    <span class="badge-short">Product designer - saas</span>
+                    <span class="badge-full">Product designer - saas, edtech</span>
+                    <span class="badge-short">Product designer - saas, edtech</span>
                 </div>
 
                 <h1>
@@ -883,19 +1030,23 @@
             <div class="section-header">
                 <span class="section-title">MES PROJETS</span>
             </div>
+            <!-- ════════════════════════════════════════════════════
+             BENTO GRID — 1/2 + 1/2 puis 1/3 + 1/3 + 1/3
+             Remplace href="#" par le lien de ton case study
+             Remplace les src d'image par tes visuels
+        ════════════════════════════════════════════════════ -->
             <div class="bento-grid">
                 <!-- ░ Carte 1 — 1/2 ░ -->
                 <a href="projet1.html" class="bento-card showcase-card">
-                    <div class="showcase-top" style="background-color: var(--primary);">
-                        <span class="showcase-logo">Japper</span>
-                        <!-- <img src="images/..." alt="..."> -->
+                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet1.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
                     </div>
                     <div class="showcase-bottom">
                         <div class="showcase-tags">
-                            <span class="showcase-tag" style="color: var(--primary-light); background: var(--primary-soft);">web app</span>
-                            <span class="showcase-tag" style="color: var(--primary-light); background: var(--primary-soft);">saas b2b</span>
+                            <span class="showcase-tag">IA</span>
+                            <span class="showcase-tag">saas b2b</span>
                         </div>
-                        <h3 class="showcase-title">Un CRM destiné aux éducateurs canins</h3>
+                        <h3 class="showcase-title">Donner plus de liberté aux&nbsp;<em>éducateurs canins</em></h3>
+                        <p class="showcase-desc">Conception d'un CRM enrichi par l'IA pour simplifier la gestion du quotidien des éducateurs canins indépendants.</p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2025</span>
                             <span class="showcase-btn">
@@ -908,16 +1059,15 @@
 
                 <!-- ░ Carte 2 — 1/2 ░ -->
                 <a href="projet2.html" class="bento-card showcase-card">
-                    <div class="showcase-top" style="background-color: var(--bg-soft);">
-                        <span class="showcase-logo">Fifty</span>
-                        <!-- <img src="images/..." alt="..."> -->
+                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet2.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
                     </div>
                     <div class="showcase-bottom">
                         <div class="showcase-tags">
-                            <span class="showcase-tag" style="color: var(--text); background: rgba(26,26,26,0.07);">ia</span>
-                            <span class="showcase-tag" style="color: var(--text); background: rgba(26,26,26,0.07);">saas b2b</span>
+                            <span class="showcase-tag">webapp</span>
+                            <span class="showcase-tag">saas B2B</span>
                         </div>
-                        <h3 class="showcase-title">Repenser l'onboarding grâce aux données produit</h3>
+                        <h3 class="showcase-title">Repenser l'onboarding grâce aux <em>données produit</em></h3>
+                        <p class="showcase-desc">Refonte de l'onboarding d'une plateforme SaaS B2B pour clarifier la promesse produit et réduire les abandons dès les premières secondes.</p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2023</span>
                             <span class="showcase-btn">
@@ -930,17 +1080,15 @@
 
                 <!-- ░ Carte 3 — showcase card ░ -->
                 <a href="projet3.html" class="bento-card showcase-card">
-                    <div class="showcase-top" style="background-color: var(--accent);">
-                        <span class="showcase-logo">Mômji</span>
-                        <img src="images/card-projet3.png" alt="Espace intervenant" />
+                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet3.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
                     </div>
                     <div class="showcase-bottom">
                         <div class="showcase-tags">
-                            <span class="showcase-tag">mobile</span>
-                            <span class="showcase-tag">refonte</span>
+                            <span class="showcase-tag">Mobile</span>
+                            <span class="showcase-tag">Refonte</span>
                         </div>
-                        <h3 class="showcase-title">Un espace privé pour les <em>babysitters</em></h3>
-                        <p class="showcase-desc">Refonte d'un espace privé client pour le rendre plus intuitif, mobile-first et cohérent avec l'évolution des services.</p>
+                        <h3 class="showcase-title">Faciliter les démarches des&nbsp;<em>babysitters</em></h3>
+                        <p class="showcase-desc">Refonte d'un espace privé pour le rendre plus intuitif, mobile-first et cohérent avec l'évolution des services.</p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2021</span>
                             <span class="showcase-btn">
@@ -953,16 +1101,14 @@
 
                 <!-- ░ Carte 4 — showcase card ░ -->
                 <a href="projet4.html" class="bento-card showcase-card">
-                    <div class="showcase-top" style="background-color: var(--text);">
-                        <span class="showcase-logo">Mômji</span>
-                        <img src="images/card-projet4.png" alt="Appy" />
+                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet4.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
                     </div>
                     <div class="showcase-bottom">
                         <div class="showcase-tags">
-                            <span class="showcase-tag" style="color: var(--text); background: rgba(26,26,26,0.07);">web app</span>
-                            <span class="showcase-tag" style="color: var(--text); background: rgba(26,26,26,0.07);">b2b saas</span>
+                            <span class="showcase-tag">Web App</span>
+                            <span class="showcase-tag">SAAS B2B</span>
                         </div>
-                        <h3 class="showcase-title">Améliorer le recrutement en garde d'enfants</h3>
+                        <h3 class="showcase-title">Améliorer le <em>recrutement</em> en garde d'enfants</h3>
                         <p class="showcase-desc">Conception d'une app web qui guide les recruteurs pour évaluer les babysitters plus vite et plus justement.</p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2020</span>
@@ -976,16 +1122,15 @@
 
                 <!-- ░ Carte 5 — showcase card ░ -->
                 <a href="projet5.html" class="bento-card showcase-card">
-                    <div class="showcase-top" style="background-color: var(--primary-light);">
-                        <span class="showcase-logo">Gutenberg Technology</span>
+                    <div class="showcase-top" style="background-color: var(--bg-soft);">
                         <img src="images/projet5.svg" alt="Aperçu de l'app Mônji">
                     </div>
                     <div class="showcase-bottom">
                         <div class="showcase-tags">
-                            <span class="showcase-tag" style="color: var(--primary-light); background: var(--primary-soft);">ux research</span>
-                            <span class="showcase-tag" style="color: var(--primary-light); background: var(--primary-soft);">tests utilisateurs</span>
+                            <span class="showcase-tag">ux research</span>
+                            <span class="showcase-tag">tests utilisateurs</span>
                         </div>
-                        <h3 class="showcase-title">Concevoir et piloter une&nbsp;<em style="color: var(--primary-light);">session de tests</em>&nbsp;utilisateurs</h3>
+                        <h3 class="showcase-title">Concevoir et piloter une&nbsp;<em>session de tests utilisateurs</em></h3>
                         <p class="showcase-desc">De l'organisation à l'analyse des retours : tests utilisateurs pour valider la cohérence d'un outil SaaS en pleine évolution. </p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2018</span>
@@ -1057,14 +1202,12 @@
                 <div class="testimonial-card">
                     <div class="testimonial-quote-mark">"</div>
                     <p class="testimonial-quote">
-                        Elodie a su transformer un brief complexe en une expérience utilisateur fluide et impactante. Sa
-                        capacité à jongler entre recherche, stratégie et design est rare.
-                    </p>
+                        Elodie est une designer à l'écoute, pragmatique et orientée solutions, qui sait parfaitement concilier expérience utilisateur et contraintes opérationnelles.</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">MR</div>
+                        <div class="testimonial-avatar">SN</div>
                         <div>
-                            <div class="testimonial-name">Marie Renaud</div>
-                            <div class="testimonial-role">Head of Product · Startup Edtech</div>
+                            <div class="testimonial-name">Sacha Nacouz</div>
+                            <div class="testimonial-role">Senior Business Analyst</div>
                         </div>
                     </div>
                 </div>
@@ -1072,14 +1215,12 @@
                 <div class="testimonial-card">
                     <div class="testimonial-quote-mark">"</div>
                     <p class="testimonial-quote">
-                        Travailler avec Elodie, c'est avoir quelqu'un qui comprend autant les enjeux business que les
-                        besoins utilisateurs. Les itérations sont rapides et toujours pertinentes.
-                    </p>
+                        Le travail d'Elodie nous a permis de mieux comprendre les besoins en alignement aux objectifs stratégiques de l'entreprise.</p>
                     <div class="testimonial-author">
-                        <div class="testimonial-avatar">TL</div>
+                        <div class="testimonial-avatar">SR</div>
                         <div>
-                            <div class="testimonial-name">Thomas Leblanc</div>
-                            <div class="testimonial-role">CEO · SaaS B2B</div>
+                            <div class="testimonial-name">Sabina Ro</div>
+                            <div class="testimonial-role">Talent Acquisition Manager</div>
                         </div>
                     </div>
                 </div>

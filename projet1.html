@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session de tests utilisateurs — Elodie Dené</title>
+    <title>Japper — Elodie Dené</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
@@ -11,13 +11,15 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --bg:         #FFFFFF;
-            --text:       #1A1A1A;
-            --text-muted: #6B6660;
-            --border:     #E8E2D5;
+            --bg:             #FFFFFF;
+            --bg-soft:        #F2EDE3;
+            --text:           #1A1A1A;
+            --text-muted:     #6B6660;
+            --border:         #E8E2D5;
             --primary:        #2E2A5C;
             --primary-soft:   #E8E4F0;
             --primary-light:  #7165C8;
+            --accent:         #E8614A;
             --orange:    var(--primary);
             --orange-bg: var(--primary-soft);
         }
@@ -210,7 +212,7 @@
             font-size: 1rem;
             color: var(--text-muted);
             line-height: 1.8;
-            margin-bottom: 1rem;
+            margin-bottom: 1.75rem;
         }
 
         .case-section p:last-child { margin-bottom: 0; }
@@ -220,7 +222,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            margin: 1.5rem 0 2rem;
+            margin-bottom: 1.75rem;
         }
 
         .objective-item {
@@ -241,6 +243,237 @@
             color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 0;
+        }
+
+        /* ── Décisions ── */
+        .decisions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .decision-block {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .decision-row {
+            display: grid;
+            grid-template-columns: 95px 1fr;
+            gap: 0.75rem;
+            align-items: baseline;
+        }
+
+        .decision-row-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+
+        .decision-row-label--avant { color: var(--accent); }
+
+        .decision-row-text {
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .decision-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 0.25rem 0;
+        }
+
+        /* ── Stats grid ── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .stat-card {
+            background: var(--bg-soft);
+            border-radius: 20px;
+            padding: 1.75rem 1.75rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .stat-big-num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            letter-spacing: -0.05em;
+        }
+
+        .stat-label {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ── Insights list ── */
+        .insights-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-bottom: 1.75rem;
+        }
+
+        .insight-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .insight-item:first-child { border-top: 1px solid var(--border); }
+
+        .insight-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -0.03em;
+            line-height: 1;
+            padding-top: 0.1rem;
+            flex-shrink: 0;
+            width: 2.5rem;
+        }
+
+        .insight-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .insight-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        .insight-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* ── Carrousel ── */
+        .carousel {
+            position: relative;
+            margin-bottom: 1.75rem;
+            user-select: none;
+        }
+
+        .carousel-track-wrap {
+            overflow: hidden;
+            border-radius: 16px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 420px;
+            display: block;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .carousel-caption {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            min-width: 0;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .carousel-caption-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            overflow-wrap: break-word;
+        }
+
+        .carousel-caption-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            overflow-wrap: break-word;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: calc(50% - 30px);
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, box-shadow 0.2s;
+            z-index: 2;
+        }
+
+        .carousel-btn:hover {
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .carousel-btn--prev { left: 0.75rem; }
+        .carousel-btn--next { right: 0.75rem; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .carousel-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--border);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .carousel-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
         }
 
         /* ── Footer ── */
@@ -297,6 +530,9 @@
             .meta-item:last-child { border-bottom: none; padding-bottom: 0; }
             .objectives-grid { grid-template-columns: 1fr 1fr; }
             footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+            .carousel-slide img { height: 280px; object-position: center center; }
+            .carousel-btn { width: 34px; height: 34px; }
+            .carousel-caption { padding: 1rem 1.25rem 1.25rem; }
         }
     </style>
 </head>
@@ -323,14 +559,14 @@
             Retour
         </a>
         <div class="case-tags">
-            <span class="tag">WEB APP</span>
-            <span class="tag">SAAS B2B</span>
+            <span class="tag">IA</span>
+            <span class="tag">SaaS B2B</span>
         </div>
-        <h1>Organiser une session de tests utilisateurs</h1>
+        <h1>Donner plus de liberté aux éducateurs canins</h1>
         <div class="case-meta">
             <div class="meta-item">
-                <span class="meta-label">Entreprise</span>
-                <p>Gutenberg Technology</p>
+                <span class="meta-label">Projet</span>
+                <p>Japper</p>
             </div>
             <div class="meta-item">
                 <span class="meta-label">Rôle</span>
@@ -338,7 +574,7 @@
             </div>
             <div class="meta-item">
                 <span class="meta-label">Année</span>
-                <p>2023</p>
+                <p>2025</p>
             </div>
         </div>
     </header>
@@ -349,79 +585,252 @@
         <!-- ════ Contexte & Objectifs ════ -->
         <div class="case-section">
             <h2>Contexte &amp; Objectifs</h2>
-
-            <p>Gutenberg Technology propose un outil SAAS qui permet de créer, personnaliser et distribuer des contenus via différents types de canal. Les améliorations de cet outil sont continues et de nouvelles features sont souvent déployées. Nous avons eu pour projet d'organiser une grosse session de tests qui permette de vérifier la cohérence entre les dernières features déployées et l'ensemble de l'outil.</p>
-
+            <p>Caroline est éducatrice canine indépendante. Elle jongle entre ses séances sur le terrain, le suivi de ses élèves, la relance des impayés et la gestion de ses factures — le tout avec un carnet, WhatsApp et un tableau Excel. Japper est un CRM SaaS conçu pour centraliser toute cette gestion et lui rendre du temps.</p>
             <div class="objectives-grid">
                 <div class="objective-item">
                     <span class="objective-number">01</span>
-                    <p class="objective-text">Vérifier la cohérence de l'outil au global</p>
+                    <p class="objective-text">Centraliser les informations élèves et propriétaires</p>
                 </div>
                 <div class="objective-item">
                     <span class="objective-number">02</span>
-                    <p class="objective-text">Tester à nouveau les différentes features</p>
+                    <p class="objective-text">Faciliter le suivi des paiements et des impayés</p>
                 </div>
                 <div class="objective-item">
                     <span class="objective-number">03</span>
-                    <p class="objective-text">Avoir des retours utilisateurs sur les parcours</p>
+                    <p class="objective-text">Réduire le temps consacré à l'administration</p>
                 </div>
             </div>
         </div>
 
-        <!-- ════ Préparation ════ -->
+        <!-- ════ Discovery ════ -->
         <div class="case-section">
-            <h2>Préparation</h2>
-
-            <h3>Recrutement des participants</h3>
-            <p>Notre PO, de part son expérience dans le monde de l'édition, avait plusieurs connaissances qui travaillaient dans ce domaine.</p>
-            <p>Une fois la première prise de contact effectuée, il a fallu se mettre d'accord sur une date, en sachant que la session aurait lieu en soirée, après la journée de travail de chacun.</p>
-            <p>En contre-partie de leur venue, on proposait aux participants des chèques Kadéos d'une valeur de 200€ par personne.</p>
-            <p>Nous avons recruté 5 personnes pour ces tests : des éditeurs, des rédacteurs, des traducteurs et des relecteurs.</p>
-
-            <h3>Protocole de test</h3>
-            <p>Avec le PO, nous avons rédigé le protocole de test afin de lister tout le déroulé de la session, de l'arrivée des participants à leurs départ, une fois la session finie.</p>
-            <p>Ce document nous a accompagné en amont et le jour J pour ne pas oublier des étapes primordiales comme la signature des autorisations de droits à l'image ou encore la distribution des chèques à la fin de la séance.</p>
-
-            <h3>Guide de test</h3>
-            <p>Le guide de test comportait tous les scénarios de test par lesquels les participants allaient passer. Il décrivait les critères de réussite et d'échec des tâches ainsi que nos hypothèses. Nous avions également ajouté des éléments de relance afin d'aider les observateurs à communiquer avec le testeur de la manière la plus neutre possible.</p>
-            <p>Pour superviser les tests, nous avons décidé d'être 2 par testeurs, il nous fallait donc être 10 observateurs pour que la session se déroule correctement.</p>
-
-            <h3>Mise en place</h3>
-            <p>Nous avons donc recruté en interne des personnes intéressées pour participer à la session. Nous les avons formé au rôle d'observateur et nous avons ensuite créé des binômes.</p>
-            <p>Nous avons réservé des salles de réunions pour chacun des participants, puis avons rédigé tous les documents légaux nécessaires avec l'aide de la directrice financière.</p>
+            <h2>Discovery</h2>
+            <h3>État des lieux</h3>
+            <p>Des entretiens menés avec plusieurs éducatrices canines indépendantes ont mis en lumière un quotidien morcelé : l'information est partout, et nulle part à la fois.</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-big-num">3+</span>
+                    <p class="stat-label">Outils utilisés en parallèle (WhatsApp, Excel, papier)</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-big-num">~2h</span>
+                    <p class="stat-label">Par semaine consacrées à la gestion administrative</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-big-num">1/2</span>
+                    <p class="stat-label">Déclarent avoir des impayés non suivis régulièrement</p>
+                </div>
+            </div>
+            <h3>Insights</h3>
+            <div class="insights-list">
+                <div class="insight-item">
+                    <span class="insight-num">01</span>
+                    <div class="insight-body">
+                        <p class="insight-title">L'information sur un élève est introuvable en moins de 30 secondes</p>
+                        <p class="insight-desc">Retrouver l'historique d'un chien, son propriétaire ou sa dernière facture nécessite de fouiller dans plusieurs supports, ce qui génère une perte de temps et un risque d'erreur à chaque séance.</p>
+                    </div>
+                </div>
+                <div class="insight-item">
+                    <span class="insight-num">02</span>
+                    <div class="insight-body">
+                        <p class="insight-title">Les impayés sont une source de gêne et d'oubli</p>
+                        <p class="insight-desc">Sans système de suivi dédié, relancer un propriétaire pour un règlement est inconfortable et souvent oublié. Les impayés s'accumulent silencieusement.</p>
+                    </div>
+                </div>
+                <div class="insight-item">
+                    <span class="insight-num">03</span>
+                    <div class="insight-body">
+                        <p class="insight-title">Le manque de visibilité sur le planning crée des oublis</p>
+                        <p class="insight-desc">Sans vue consolidée des cours à venir, les éducatrices s'appuient sur leur mémoire ou des notifications WhatsApp — un système fragile dès que l'activité s'intensifie.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- ════ Exécution ════ -->
+        <!-- ════ Idéation ════ -->
         <div class="case-section">
-            <h2>Exécution</h2>
+            <h2>Idéation</h2>
+            <h3>Objectifs produit</h3>
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <span class="objective-number">01</span>
+                    <p class="objective-text">Une source de vérité unique pour chaque élève</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">02</span>
+                    <p class="objective-text">Rendre l'urgence du quotidien immédiatement visible</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">03</span>
+                    <p class="objective-text">Zéro friction pour enregistrer une séance ou une facture</p>
+                </div>
+            </div>
+            <h3>Objectifs business</h3>
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <span class="objective-number">01</span>
+                    <p class="objective-text">Convaincre des indépendants sans budget IT</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">02</span>
+                    <p class="objective-text">Valeur perçue dès la première session</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">03</span>
+                    <p class="objective-text">Poser les bases d'un modèle freemium / abonnement mensuel</p>
+                </div>
+            </div>
+            <h3>Décisions clés</h3>
+            <div class="decisions-list">
 
-            <h3>Accueil des participants</h3>
-            <p>Le jour J, les participants sont arrivés en début de soirée, nous avons fait un apéro de présentation de l'objectif de la session, de l'équipe produit chez Gutenberg Technology. Nous avons ensuite emmené chaque participant dans sa pièce respective, avec ses deux observateurs.</p>
+                <div class="decision-block">
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">un tableau de bord générique sans priorité</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">Les dashboards classiques affichent toutes les données à égalité, sans distinguer ce qui est urgent de ce qui peut attendre.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Structurer le tableau de bord autour de l'urgence du jour : cours à venir en haut, paiements à vérifier et impayés directement accessibles.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">L'éducatrice ouvre l'app le matin et sait immédiatement ce qu'elle doit faire — sans chercher.</span>
+                    </div>
+                </div>
+                <div class="decision-divider"></div>
 
-            <h3>Début du test</h3>
-            <p>Nous avons installé notre participant derrière l'ordinateur et avons lancé l'enregistrement de l'écran, de la caméra et de l'audio.</p>
-            <p>Pour commencer le test, nous avons briefé à nouveau le participant sur le fait de verbaliser, et que nous ne sommes pas là pour donner des réponses, plutôt observer, puis nous lui avons fourni le premier scénario à réaliser.</p>
-            <p>Pendant le test, en tant qu'observateur, nous étions placé derrière le participant avec l'écran dans notre champ de vision, et prenions des notes sur ce qui se passait ou était verbalisé par le participant.</p>
+                <div class="decision-block">
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">les infos d'un élève réparties sur plusieurs supports</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">Retrouver les coordonnées du propriétaire, l'historique des séances et les factures d'un chien impose de naviguer entre plusieurs outils.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Créer une fiche élève unifiée regroupant les infos du chien, du propriétaire, l'historique complet des cours et la liste des factures sur une seule page.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Accès à toute l'information d'un élève en moins de 10 secondes, depuis n'importe quel appareil.</span>
+                    </div>
+                </div>
+                <div class="decision-divider"></div>
 
-            <h3>Fin du test</h3>
-            <p>À la fin du test, soit parce que tous les scénarios avaient été réalisés, soit parce que l'heure était arrivée, nous avons coupé les enregistrements et discuté un peu avec notre participant, pour débriefer à chaud de tout ce qu'il venait de voir.</p>
+                <div class="decision-block">
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">tous les cours traités de la même façon</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">Une séance de suivi et un bilan comportemental initial ont des objectifs très différents, mais aucun outil ne les distingue.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Introduire deux types de cours — Séance et Bilan — avec des badges visuels distincts pour qualifier immédiatement le contexte d'une intervention.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Meilleure lisibilité de l'historique et fondation pour de futures fonctionnalités IA (suggestions de notes selon le type de cours).</span>
+                    </div>
+                </div>
+                <div class="decision-divider"></div>
 
-            <h3>Debrief général</h3>
-            <p>Chaque groupe s'est ensuite rendu dans une grande salle de réunion pour faire un débrief tous ensemble sur le déroulé du test, les ressentis, etc. Puis, nous avons remercié à nouveau les participants et clôturé la soirée.</p>
+                <div class="decision-block">
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">la fiche d'information comportementale sur papier ou dans les notes du téléphone</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">Les informations collectées lors d'un premier bilan (âge, comportements problématiques, historique) sont stockées de façon non structurée et introuvables lors des séances suivantes.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Intégrer une fiche d'informations structurée dans la fiche élève, avec des champs dédiés au chien et à son comportement, accessible et modifiable à tout moment.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Préparer le terrain pour une IA capable de générer des suggestions de compte-rendu de séance basées sur le profil comportemental du chien.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <h3>Prototype</h3>
+            <div class="carousel" id="carousel-japper">
+                <div class="carousel-track-wrap">
+                    <div class="carousel-track">
+
+                        <div class="carousel-slide">
+                            <img src="images/japper-dashboard.png" alt="Tableau de bord Japper">
+                            <div class="carousel-caption">
+                                <p class="carousel-caption-title">Tableau de bord — Vue du quotidien</p>
+                                <p class="carousel-caption-desc">Les cours à venir sont mis en avant, suivis des paiements à vérifier et des impayés. L'essentiel d'un coup d'œil.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="images/japper-eleves.png" alt="Liste des élèves Japper">
+                            <div class="carousel-caption">
+                                <p class="carousel-caption-title">Liste des élèves — Recherche et filtres</p>
+                                <p class="carousel-caption-desc">Tous les chiens et leurs propriétaires en un seul endroit, avec recherche rapide et accès direct à la fiche.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="images/japper-eleve.png" alt="Fiche élève Japper">
+                            <div class="carousel-caption">
+                                <p class="carousel-caption-title">Fiche élève — Infos, cours et factures réunis</p>
+                                <p class="carousel-caption-desc">Toutes les informations d'un élève sur une page : coordonnées, historique des cours (Bilan / Séance) et suivi de facturation.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="images/japper-fiche.png" alt="Fiche comportementale Japper">
+                            <div class="carousel-caption">
+                                <p class="carousel-caption-title">Fiche comportementale — Données structurées</p>
+                                <p class="carousel-caption-desc">Un formulaire guidé pour collecter les informations comportementales dès le premier bilan, réutilisables lors de chaque séance.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-btn--prev" aria-label="Précédent">
+                    <svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="carousel-btn carousel-btn--next" aria-label="Suivant">
+                    <svg width="18" height="18" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="carousel-dots"></div>
+            </div>
         </div>
 
-        <!-- ════ Analyse ════ -->
+        <!-- ════ Et après ════ -->
         <div class="case-section">
-            <h2>Analyse</h2>
-
-            <h3>Visionnage et relecture</h3>
-            <p>Chaque observateur a regardé et relu ce qui s'était passé pendant sa session avec son participant, pour noter les points importants dans un tableur Google Sheet. Une fois que tous les observateurs avaient rempli leur partie, nous nous sommes réunis.</p>
-
-            <h3>Tri par cartes</h3>
-            <p>En prenant pour base le tableur, nous avons annoter chacun des retours sur des posts-it. Puis, nous les avons classé par catégories : bugs, améliorations, etc.</p>
-
-            <h3>Priorisation</h3>
-            <p>Pour chacune des catégories, nous avons ensuite prioriser les retours, avec l'aide de l'équipe de développement et ajouté ces éléments à la roadmap.</p>
+            <h2>Et après</h2>
+            <p>Japper a été conçu avec une couche de données structurée dès le départ, pour préparer l'intégration progressive de l'IA. Les prochaines itérations visent à réduire encore davantage le temps de saisie et à anticiper les besoins de l'éducatrice.</p>
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <span class="objective-number">IA</span>
+                    <p class="objective-text">Génération automatique de compte-rendus de séance à partir du profil comportemental du chien</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">📱</span>
+                    <p class="objective-text">Application mobile pour saisir une séance directement depuis le terrain</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">✉</span>
+                    <p class="objective-text">Rappels automatiques par email aux propriétaires pour les impayés et les prochains rendez-vous</p>
+                </div>
+            </div>
         </div>
 
     </article>
@@ -430,10 +839,46 @@
     <a href="#" class="back-to-top" id="backToTop" aria-label="Remonter en haut">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 11L8 5L13 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
+
     <script>
         const btn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             btn.classList.toggle('visible', window.scrollY > 300);
+        });
+
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const dotsWrap = carousel.querySelector('.carousel-dots');
+            const prevBtn = carousel.querySelector('.carousel-btn--prev');
+            const nextBtn = carousel.querySelector('.carousel-btn--next');
+            let current = 0;
+
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+                dot.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(dot);
+            });
+
+            function goTo(index) {
+                current = (index + slides.length) % slides.length;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === current);
+                });
+            }
+
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => goTo(current + 1));
+
+            let startX = 0;
+            carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            carousel.addEventListener('touchend', e => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+            });
         });
     </script>
 
