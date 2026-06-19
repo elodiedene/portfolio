@@ -298,6 +298,35 @@
             .objectives-grid { grid-template-columns: 1fr 1fr; }
             footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
         }
+
+        /* ── Navigation projets ── */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .project-nav a {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            flex: 1;
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .project-nav a:hover { color: var(--accent); }
+        .project-nav-next { text-align: right; align-items: flex-end; }
+        .project-nav-dir {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+        .project-nav-title { font-size: 0.95rem; font-weight: 600; line-height: 1.3; }
     </style>
 </head>
 <body>
@@ -422,6 +451,14 @@
 
             <h3>Priorisation</h3>
             <p>Pour chacune des catégories, nous avons ensuite prioriser les retours, avec l'aide de l'équipe de développement et ajouté ces éléments à la roadmap.</p>
+        </div>
+
+        <!-- Navigation projets -->
+        <div class="project-nav">
+            <a class="project-nav-prev" href="projet4.html">
+                <span class="project-nav-dir">← Projet précédent</span>
+                <span class="project-nav-title">Améliorer le recrutement en garde d'enfants</span>
+            </a>
         </div>
 
     </article>

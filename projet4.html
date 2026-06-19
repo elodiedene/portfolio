@@ -289,6 +289,16 @@
             display: block;
         }
 
+        /* Image cliquable (ouvre la version pleine taille) */
+        .case-section a img {
+            cursor: zoom-in;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .case-section a:hover img {
+            opacity: 0.9;
+            transform: scale(1.01);
+        }
+
         /* Grille persona + experience map côte à côte */
         .two-col-grid {
             display: grid;
@@ -301,53 +311,13 @@
             font-size: 1.05rem;
             font-weight: 600;
             letter-spacing: -0.01em;
+            color: var(--text);
             margin-bottom: 0.75rem;
         }
 
-        /* ── Table features ── */
-        .data-table-wrap {
-            overflow-x: auto;
-            margin-top: 1.25rem;
-        }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.92rem;
-        }
-
-        .data-table thead tr {
-            border-bottom: 2px solid var(--border);
-        }
-
-        .data-table th {
-            text-align: left;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0 0 0.75rem;
-        }
-
-        .data-table th + th,
-        .data-table td + td {
-            padding-left: 2rem;
-        }
-
-        .data-table tbody tr {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .data-table tbody tr:last-child {
-            border-bottom: none;
-        }
-
-        .data-table td {
-            padding: 1rem 0;
-            color: var(--text-muted);
-            line-height: 1.6;
-            vertical-align: top;
+        .two-col-grid p:not(.col-label) {
+            font-style: italic;
+            margin-top: 0.75rem;
         }
 
         /* ── Images design côte à côte avec caption ── */
@@ -363,7 +333,7 @@
             margin: 0 0 0.6rem;
         }
 
-        .design-caption {
+        .image-caption {
             font-size: 0.8rem;
             color: var(--text-muted);
             line-height: 1.55;
@@ -422,6 +392,7 @@
         }
         .pill-dot--insight { background: var(--primary-light); }
         .pill-dot--key { background: var(--accent); }
+        .pills-list--hmw .pill { background: var(--bg-soft); }
 
         /* ── Decisions ── */
         .decisions-list {
@@ -449,6 +420,7 @@
             color: var(--text-muted);
         }
         .decision-row-label--avant { color: var(--accent); }
+        .decision-row-label--avant + .decision-row-text { color: var(--accent); }
         .decision-row-text {
             font-size: 0.9rem;
             color: var(--text);
@@ -468,13 +440,17 @@
             margin-top: 1rem;
         }
         .priority-card {
-            background: var(--bg-soft);
             border-radius: 12px;
             padding: 1.25rem 1.5rem;
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
         }
+        /* Fonds clairs par niveau de priorité */
+        .priority-card--must  { background: #E8F1EA; }
+        .priority-card--should { background: #FBF3D9; }
+        .priority-card--nice  { background: #FCEAE4; }
+        .priority-card--wont  { background: #FBE3E3; }
         .priority-badge {
             display: inline-block;
             font-size: 0.7rem;
@@ -484,11 +460,13 @@
             padding: 0.25rem 0.75rem;
             border-radius: 100px;
             width: fit-content;
+            background: #fff;
         }
-        .priority-card--must .priority-badge { background: var(--primary); color: #fff; }
-        .priority-card--should .priority-badge { background: var(--primary-soft); color: var(--primary); }
-        .priority-card--nice .priority-badge { background: var(--bg-soft); color: var(--text-muted); border: 1px solid var(--border); }
-        .priority-card--wont .priority-badge { background: #EDEDED; color: var(--text-muted); }
+        /* Tag : texte de la couleur du niveau */
+        .priority-card--must  .priority-badge { color: #2F6B43; }
+        .priority-card--should .priority-badge { color: #A87F12; }
+        .priority-card--nice  .priority-badge { color: #E8614A; }
+        .priority-card--wont  .priority-badge { color: #C0392B; }
         .priority-card-list {
             list-style: none;
             display: flex;
@@ -497,7 +475,7 @@
         }
         .priority-card-list li {
             font-size: 0.88rem;
-            color: var(--text-muted);
+            color: var(--text);
             line-height: 1.5;
             padding-left: 1rem;
             position: relative;
@@ -510,7 +488,7 @@
             width: 4px;
             height: 4px;
             border-radius: 50%;
-            background: var(--text-muted);
+            background: var(--text);
         }
 
         /* ── Responsive ── */
@@ -526,10 +504,39 @@
             .objectives-grid { grid-template-columns: 1fr 1fr; }
             .two-col-grid { grid-template-columns: 1fr; }
             .design-grid-item img { min-height: 0; }
-            .design-caption { font-size: 0.6rem; }
+            .image-caption { font-size: 0.6rem; }
             footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
             .features-priority-alt { grid-template-columns: 1fr; }
         }
+
+        /* ── Navigation projets ── */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .project-nav a {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            flex: 1;
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .project-nav a:hover { color: var(--accent); }
+        .project-nav-next { text-align: right; align-items: flex-end; }
+        .project-nav-dir {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+        .project-nav-title { font-size: 0.95rem; font-weight: 600; line-height: 1.3; }
     </style>
 </head>
 <body>
@@ -582,7 +589,7 @@
         <div class="case-section">
             <h2>Contexte &amp; Objectifs</h2>
 
-            <p>Chez Mômji, le quotidien des recruteurs consiste à évaluer des babysitters sur leurs compétences et leurs savoir être. Pour réaliser ce travail, ils utilisent un CRM développé en interne qui, d'après eux, montre des limites. Le projet consiste à créer une application web dédiée aux recruteurs, qui soit indépendante du CRM existant et qui permette de réaliser la totalité du processus de recrutement.</p>
+            <p>Chez Mômji, le quotidien des recruteurs consiste à évaluer des babysitters sur leurs compétences et leurs savoir être. Pour réaliser ce travail, ils utilisent un CRM développé en interne qui, d'après eux, montre des limites. La dette technique du CRM ne permettant pas d'évolution rapide, la décision a été prise de construire un outil dédié plutôt que de le refondre.</p>
 
             <div class="objectives-grid">
                 <div class="objective-item">
@@ -605,7 +612,7 @@
             <h2>Discovery</h2>
 
             <h3>Audit UX</h3>
-            <p class="subsection-desc">Réalisation d'un audit UX du CRM utilisé par les recruteurs, basé sur <strong>les critères heuristiques de Bastien et Scapin</strong></p>
+            <p class="subsection-desc">J'ai réalisé un audit UX du CRM utilisé par les recruteurs, basé sur <strong>les critères heuristiques de Bastien et Scapin :</strong></p>
             <div class="pills-list">
                 <span class="pill"><span class="pill-dot pill-dot--insight"></span>Beaucoup d'allers-retours qui augmentent le temps de réalisation d'une tâche</span>
                 <span class="pill"><span class="pill-dot pill-dot--insight"></span>Un système d'imbrication des pages peu optimal qui gêne la navigation</span>
@@ -614,7 +621,7 @@
             </div>
 
             <h3>Entretiens</h3>
-            <p class="subsection-desc">Réalisation d'entretiens semi-directifs avec <strong>5 recruteurs</strong> : on passe en revue leur travail quotidien, comment ils utilisent le CRM, comment se passe un entretien avec un candidat</p>
+            <p class="subsection-desc">J'ai mené 5 entretiens semi-directifs avec des<strong>&nbsp;recruteurs,&nbsp;</strong>on a abordé leur travail quotidien :</p>
             <div class="pills-list">
                 <span class="pill"><span class="pill-dot pill-dot--insight"></span>Les recruteurs ne sont pas guidés et oublient parfois de réaliser certaines tâches</span>
                 <span class="pill"><span class="pill-dot pill-dot--insight"></span>Le manque de traduction du CRM limite la compréhension des recruteurs non francophones</span>
@@ -622,20 +629,61 @@
                 <span class="pill"><span class="pill-dot pill-dot--insight"></span>Il y a trop de tableaux et informations non pertinentes qui polluent le parcours et engendrent des erreurs</span>
             </div>
 
-            <p class="subsection-desc">À partir des 5 entretiens réalisés, un persona principal a été construit pour représenter les recruteurs Mômji, et une experience map pour modéliser les frictions de leur parcours quotidien avec le CRM.</p>
+            <p class="subsection-desc">À partir des 5 entretiens réalisés, j'ai construit un persona principal et son experience map pour modéliser les frictions rencontrées par un recruteur.</p>
             <div class="two-col-grid">
                 <div>
                     <p class="col-label">Persona</p>
-                    <img src="images/persona-louisa.png" alt="Persona Louisa Patterson">
+                    <a href="images/persona-louisa-big.png" target="_blank" rel="noopener"><img src="images/persona-louisa.png" alt="Persona Louisa Patterson"></a>
+                    <p>Le pain point sur l'évaluation des compétences du candidat nous a orienté vers une solution qui aide à l'évaluation.</p>
                 </div>
                 <div>
                     <p class="col-label">Experience map</p>
-                    <img src="images/experience-map.png" alt="Experience map Louisa Patterson">
+                    <a href="images/experience-map-big.png" target="_blank" rel="noopener"><img src="images/experience-map.png" alt="Experience map Louisa Patterson"></a>
+                    <p>Le point de rupture le plus important est la planification de l'entretien, nous l'avons donc inclu dans les must have du projet.</p>
                 </div>
             </div>
 
-            <h3>User problem statement</h3>
-            <p class="pill-statement">Les recruteurs ont besoin d'être guidés lors d'un entretien avec un candidat pour estimer rapidement et correctement les aptitudes de ce dernier</p>
+            <h3>Décisions clés</h3>
+            <p class="subsection-desc">Suite à la discovery, nous avons pris certaines décisions clés :</p>
+            <div class="decisions-list">
+                <div class="decision-block">
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">L'interface n'est pas responsive.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">Les équipes sont obligées de scroller horizontalement pour voir l'entièreté de la page, c'est une énorme perte de temps.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Rendre les pages responsive pour permettre aux équipes de voir toutes les pages correctement, qu'elles soient affichées sur grand écran ou sur laptop.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Une interface lisible sur tous les écrans, qui réduit les manipulations inutiles et les erreurs liées aux informations hors champs.</span>
+                    </div>
+                </div>
+                <div class="decision-divider"></div>
+                <div class="decision-block">
+                    <div class="decision-row">
+                        <span class="decision-row-label decision-row-label--avant">Avant</span>
+                        <span class="decision-row-text">Les recruteurs ne sont pas guidés et oublient parfois de réaliser certaines tâches.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Problème</span>
+                        <span class="decision-row-text">Il y a des tâches obligatoires à réaliser mais qui sont oubliées, ce qui fait perdre beaucoup de temps.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Décision</span>
+                        <span class="decision-row-text">Prévoir un encart qui montre les différentes étapes du prescreen, ajouter des garde-fous lors de l'enregistrement des fiches.</span>
+                    </div>
+                    <div class="decision-row">
+                        <span class="decision-row-label">Impact attendu</span>
+                        <span class="decision-row-text">Plus de tâches oubliées, plus de temps perdu dans le processus de recrutement.</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- ════ Idéation ════ -->
@@ -643,45 +691,15 @@
             <h2>Idéation</h2>
 
             <h3>How might we</h3>
-            <p class="subsection-desc">Définition des énoncés "Comment pourrions-nous" avec l'équipe, basée sur les informations que nous avons recueillies</p>
-            <div class="pills-list">
+            <p class="subsection-desc">Afin de réfléchir à des solutions, nous nous sommes basés sur des énoncés "How might we" :</p>
+            <div class="pills-list pills-list--hmw">
                 <span class="pill"><span class="pill-dot pill-dot--key"></span>Comment pourrions-nous guider le recruteur quand il fait passer un entretien ?</span>
                 <span class="pill"><span class="pill-dot pill-dot--key"></span>Comment pourrions-nous éviter au recruteur de se tromper sur le profil du candidat ?</span>
                 <span class="pill"><span class="pill-dot pill-dot--key"></span>Comment pourrions-nous aider le recruteur à prendre une décision concernant les aptitudes du candidat ?</span>
             </div>
 
             <h3>Features</h3>
-            <p class="subsection-desc">Idéation et priorisation des features à proposer dans la solution</p>
-            <div class="data-table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Priorité</th>
-                            <th>Feature</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Must have</td>
-                            <td>Chercher la fiche candidat<br>Accéder à la fiche candidat<br>Lancer un prescreen par téléphone<br>Valider / Invalider le candidat<br>Programmer un entretien</td>
-                        </tr>
-                        <tr>
-                            <td>Should have</td>
-                            <td>Invalider automatiquement le candidat selon certaines conditions</td>
-                        </tr>
-                        <tr>
-                            <td>Nice to have</td>
-                            <td>Programmer un entretien automatiquement à la fin du prescreen</td>
-                        </tr>
-                        <tr>
-                            <td>Won't do</td>
-                            <td>Lancer un prescreen par vidéo</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p class="subsection-desc" style="margin-top: 1.75rem; margin-bottom: 0.75rem;"><strong>Version alternative</strong> — même contenu, organisé par cards de priorité</p>
+            <p class="subsection-desc">Puis, nous avons priorisés les fonctionnalités que nous voulions retrouver dans le nouvel outil :</p>
             <div class="features-priority-alt">
                 <div class="priority-card priority-card--must">
                     <span class="priority-badge">Must have</span>
@@ -717,6 +735,7 @@
         <!-- ════ Design ════ -->
         <div class="case-section">
             <h2>Design</h2>
+            <p>J'ai matérialisé les user flows puis un prototype mid-fidelity qui m'a permis de faire tester l'interface aux recruteurs.&nbsp;</p>
 
             <div class="two-col-grid">
                 <div>
@@ -730,70 +749,70 @@
             </div>
 
             <h3>User tests</h3>
-            <p class="subsection-desc">Réalisation de user tests pour éprouver le prototype sur différents scénarios, qui nous ont permis d'améliorer le prototype</p>
+            <p class="subsection-desc">Les tests nous ont permis de rectifier certains points, dont voici quelques exemples :&nbsp;</p>
             <div class="pills-list">
                 <span class="pill"><span class="pill-dot pill-dot--insight"></span>La vue par portrait n'est pas pratique, car il peut y avoir énormément de résultats pour un seul candidat</span>
                 <span class="pill"><span class="pill-dot pill-dot--insight"></span>La barre d'avancement du prescreen ne donne pas assez de détails sur l'étape où on s'est arrêté</span>
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Lorsque le système propose automatiquement de refuser le candidat, il faut plus détails pour l'expliquer au candidat</span>
+                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Lorsque le système propose automatiquement de refuser le candidat, il faut plus de détails pour l'expliquer au candidat</span>
             </div>
 
             <h3>Décisions clés</h3>
-            <p class="subsection-desc">Les résultats des tests ont directement orienté trois décisions structurantes pour la version high-fidelity</p>
+            <p class="subsection-desc">Les résultats des tests ont directement orienté trois décisions structurantes pour la version finale :</p>
             <div class="decisions-list">
                 <div class="decision-block">
                     <div class="decision-row">
                         <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">Les résultats de recherche s'affichaient en vue portrait avec des vignettes pour chaque candidat</span>
+                        <span class="decision-row-text">Les résultats de recherche sont affichés en card.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Problème</span>
-                        <span class="decision-row-text">Un candidat pouvant avoir de nombreux dossiers, la vue portrait rendait la navigation fastidieuse et difficile à parcourir rapidement</span>
+                        <span class="decision-row-text">Il y a beaucoup de doublons dans la base de données et un nom et prénom peuvent donner beaucoup trop de résultats pour une vue par card.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Décision</span>
-                        <span class="decision-row-text">Adopter la vue liste comme affichage par défaut, avec les informations clés visibles en un coup d'œil (statut prescreen, entretien programmé, décision)</span>
+                        <span class="decision-row-text">Proposer à la place une vue par liste.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Impact attendu</span>
-                        <span class="decision-row-text">Réduction du temps de recherche et meilleure lisibilité pour les recruteurs gérant de gros volumes de candidats</span>
+                        <span class="decision-row-text">Voir les résultats et informations en un clin d'oeil, pas de perte de temps.</span>
                     </div>
                 </div>
                 <div class="decision-divider"></div>
                 <div class="decision-block">
                     <div class="decision-row">
                         <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">Le prescreen affichait une barre de progression globale sans découpage par étape</span>
+                        <span class="decision-row-text">Le prescreen affiche une barre de progression globale sans découpage par étape.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Problème</span>
-                        <span class="decision-row-text">Impossible de savoir précisément à quelle étape le recruteur s'était arrêté lors d'une interruption du prescreen</span>
+                        <span class="decision-row-text">Impossible de savoir précisément à quelle étape le recruteur s'était arrêté lors d'une interruption du prescreen.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Décision</span>
-                        <span class="decision-row-text">Remplacer la barre générique par des étapes nommées avec un statut individuel (fait / en cours / à faire) pour chaque grande phase</span>
+                        <span class="decision-row-text">Remplacer la barre générique par des étapes nommées avec un système de check.&nbsp;</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Impact attendu</span>
-                        <span class="decision-row-text">Reprise rapide d'un prescreen interrompu sans risque d'oubli ou de répétition d'une étape déjà validée</span>
+                        <span class="decision-row-text">Reprise rapide d'un prescreen interrompu sans risque d'oubli ou de répétition d'une étape déjà validée.</span>
                     </div>
                 </div>
                 <div class="decision-divider"></div>
                 <div class="decision-block">
                     <div class="decision-row">
                         <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">Le refus automatique s'affichait comme une simple alerte, sans détails sur les critères déclencheurs</span>
+                        <span class="decision-row-text">Le refus automatique s'affiche comme une simple alerte, sans détails sur les critères déclencheurs.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Problème</span>
-                        <span class="decision-row-text">Les recruteurs manquaient d'éléments pour expliquer verbalement la décision de refus au candidat en direct</span>
+                        <span class="decision-row-text">Les recruteurs manquent d'éléments pour expliquer verbalement la décision de refus au candidat en direct.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Décision</span>
-                        <span class="decision-row-text">Enrichir le panneau de refus avec les critères non remplis et des formulations suggérées, adaptées au contexte de l'entretien</span>
+                        <span class="decision-row-text">Enrichir le panneau de refus avec les critères non remplis et des formulations suggérées, adaptées au contexte de l'entretien.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Impact attendu</span>
-                        <span class="decision-row-text">Amélioration de l'expérience candidat et réduction du stress des recruteurs lors des annonces de refus automatiques</span>
+                        <span class="decision-row-text">Amélioration de l'expérience candidat et réduction du stress des recruteurs lors des annonces de refus.</span>
                     </div>
                 </div>
             </div>
@@ -801,28 +820,28 @@
             <h3>Prototype high-fidelity</h3>
             <div class="design-grid">
                 <div class="design-grid-item">
-                    <img src="images/001.png" alt="Liste de résultats">
-                    <p class="design-caption">La liste de résultat permet de voir rapidement si le prescreen a été fait, si l'entretien est programmé et si il a été fait.</p>
+                    <a href="images/001-big.png" target="_blank" rel="noopener"><img src="images/001.png" alt="Liste de résultats"></a>
+                    <p class="image-caption">La liste de résultat permet de voir rapidement si le prescreen a été fait, si l'entretien est programmé et si il a été fait.</p>
                 </div>
                 <div class="design-grid-item">
-                    <img src="images/002.png" alt="Fiche candidat">
-                    <p class="design-caption">La fiche permet de voir les infos du candidat, l'état du prescreen avec les étapes et les entretiens programmés, réalisés, etc.</p>
+                    <a href="images/002-big.png" target="_blank" rel="noopener"><img src="images/002.png" alt="Fiche candidat"></a>
+                    <p class="image-caption">La fiche permet de voir les infos du candidat, l'état du prescreen avec les étapes et les entretiens par statut.</p>
                 </div>
                 <div class="design-grid-item">
-                    <img src="images/003.png" alt="Script prescreen">
-                    <p class="design-caption">Le script du prescreen s'ouvre depuis la fiche et guide l'utilisateur grâce aux cinq grosses étapes avec un ordre logique.</p>
+                    <a href="images/003-big.png" target="_blank" rel="noopener"><img src="images/003.png" alt="Script prescreen"></a>
+                    <p class="image-caption">Le script du prescreen s'ouvre depuis la fiche et guide le recruteur via cinq étapes avec un ordre logique.</p>
                 </div>
                 <div class="design-grid-item">
-                    <img src="images/004.png" alt="Programmation entretien">
-                    <p class="design-caption">Le système détecte automatiquement si le candidat peut continuer le processus de recrutement interne.</p>
+                    <a href="images/004-big.png" target="_blank" rel="noopener"><img src="images/004.png" alt="Programmation entretien"></a>
+                    <p class="image-caption">Le système détecte automatiquement si le candidat peut continuer le processus de recrutement interne.</p>
                 </div>
                 <div class="design-grid-item">
-                    <img src="images/005.png" alt="Planification entretien">
-                    <p class="design-caption">Il est maintenant possible de planifier les entretiens directement dans l'outil, les créneaux et les horaires apparaissent si dispo.</p>
+                    <a href="images/005-big.png" target="_blank" rel="noopener"><img src="images/005.png" alt="Planification entretien"></a>
+                    <p class="image-caption">Il est possible de planifier les entretiens directement dans l'outil, les créneaux et les horaires apparaissent si dispo.</p>
                 </div>
                 <div class="design-grid-item">
-                    <img src="images/006.png" alt="Récapitulatif fiche">
-                    <p class="design-caption">La fiche permet d'afficher un récapitulatif de l'avancement du prescreen, ainsi que les entretiens passés, à faire, etc.</p>
+                    <a href="images/006-big.png" target="_blank" rel="noopener"><img src="images/006.png" alt="Récapitulatif fiche"></a>
+                    <p class="image-caption">La fiche propose un récapitulatif de l'avancement du prescreen, ainsi que les entretiens passés, à faire, etc.</p>
                 </div>
             </div>
         </div>
@@ -831,58 +850,40 @@
         <div class="case-section">
             <h2>Livraison et évaluation</h2>
 
-            <p>L'application a été conçue en deux sprints de design sur quatre semaines, en collaboration étroite avec un chef de projet et une équipe de trois développeurs. La livraison des spécifications a couvert l'intégralité des parcours identifiés en Discovery, des wireframes validés jusqu'aux specs high-fidelity annotées.</p>
+            <p>Le projet a été conçu et prototypé jusqu'à une version high-fidelity testée par les recruteurs. Les indicateurs ci-dessous correspondent aux objectifs de performance définis avec l'équipe pour mesurer le succès du futur déploiement.
 
-            <h3>Spécifications</h3>
-            <p class="subsection-desc">Livrables produits à l'issue de la phase de design</p>
+</p>
+
             <div class="objectives-grid">
                 <div class="objective-item">
-                    <span class="objective-number">28</span>
-                    <p class="objective-text">écrans high-fidelity livrés, couvrant les 4 grandes étapes du parcours recruteur</p>
+                    <span class="objective-number"><span style="letter-spacing: -0.72px;">5 étapes</span></span>
+                    <p class="objective-text">un parcours&nbsp; découpé et guidé, là où l'ancien CRM n'offrait aucune structure</p>
                 </div>
                 <div class="objective-item">
-                    <span class="objective-number">3</span>
-                    <p class="objective-text">développeurs impliqués dans l'implémentation (2 front, 1 back)</p>
+                    <span class="objective-number"><span style="letter-spacing: -0.72px;">100 %</span></span>
+                    <p class="objective-text">des tâches du recrutement réunies dans une interface unique et responsive</p>
                 </div>
                 <div class="objective-item">
-                    <span class="objective-number">4 sem.</span>
-                    <p class="objective-text">de production design, de la validation des wireframes à la livraison des specs annotées</p>
+                    <span class="objective-number">0 oubli</span>
+                    <p class="objective-text">sur les tâches obligatoires, sécurisées par des garde-fous à l'enregistrement</p>
                 </div>
             </div>
 
-            <h3>Tests et recette</h3>
-            <p class="subsection-desc">Deux rounds de tests utilisateur organisés pour valider le prototype avant développement</p>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">2</span>
-                    <p class="objective-text">cycles de tests (mid-fidelity et high-fidelity), avec 5 recruteurs impliqués à chaque round</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">12</span>
-                    <p class="objective-text">scénarios de test couvrant les parcours principaux : prescreen, validation candidat, planification entretien</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">83 %</span>
-                    <p class="objective-text">de taux de complétion des tâches au premier essai sur le prototype high-fidelity</p>
-                </div>
-            </div>
+            <h3>Les difficultés rencontrées</h3>
+            <p class="subsection-desc">Côté conception, équilibrer l'automatisation (refus automatique) et le contrôle laissé au recruteur a demandé plusieurs itérations pour éviter un sentiment de perte de maîtrise.</p>
+            <p class="subsection-desc">Enfin, concevoir un outil multilingue dès le départ, pour les recruteurs non francophones, a imposé des contraintes de structure et de longueur de contenu à anticiper très tôt.</p>
+        </div>
 
-            <h3>Impact post-lancement</h3>
-            <p class="subsection-desc">Mesures réalisées 6 semaines après le déploiement auprès des équipes recrutement Mômji</p>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">−35 %</span>
-                    <p class="objective-text">de durée moyenne d'un prescreen complet, passant de 18 minutes à environ 12 minutes</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">+22 %</span>
-                    <p class="objective-text">de candidats traités par semaine et par recruteur depuis la mise en production</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">4,4 / 5</span>
-                    <p class="objective-text">de satisfaction moyenne sur l'outil, mesurée sur l'ensemble des 12 recruteurs</p>
-                </div>
-            </div>
+        <!-- Navigation projets -->
+        <div class="project-nav">
+            <a class="project-nav-prev" href="projet3.html">
+                <span class="project-nav-dir">← Projet précédent</span>
+                <span class="project-nav-title">Rendre l'autonomie aux babysitters</span>
+            </a>
+            <a class="project-nav-next" href="projet5.html">
+                <span class="project-nav-dir">Projet suivant →</span>
+                <span class="project-nav-title">Organiser une session de tests utilisateurs</span>
+            </a>
         </div>
 
     </article>

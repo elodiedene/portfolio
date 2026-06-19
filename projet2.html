@@ -273,6 +273,7 @@
             color: var(--text-muted);
         }
         .decision-row-label--avant { color: var(--accent); }
+        .decision-row-label--avant + .decision-row-text { color: var(--accent); }
         .decision-row-text {
             font-size: 0.9rem;
             color: var(--text);
@@ -372,8 +373,8 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .insight-item:first-child {
-            border-top: 1px solid var(--border);
+        .insight-item:last-child {
+            border-bottom: none;
         }
 
         .insight-num {
@@ -399,6 +400,8 @@
             color: var(--text);
             line-height: 1.4;
         }
+
+        .insight-body .insight-title { margin-bottom: 0; }
 
         .insight-desc {
             font-size: 0.88rem;
@@ -451,6 +454,8 @@
             overflow-wrap: break-word;
             word-break: break-word;
         }
+
+        .carousel-caption p { margin-bottom: 0; }
 
         .carousel-caption-title {
             font-size: 0.9rem;
@@ -589,6 +594,35 @@
                 padding: 1rem 1.25rem 1.25rem;
             }
         }
+
+        /* ── Navigation projets ── */
+        .project-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .project-nav a {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            flex: 1;
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .project-nav a:hover { color: var(--accent); }
+        .project-nav-next { text-align: right; align-items: flex-end; }
+        .project-nav-dir {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+        .project-nav-title { font-size: 0.95rem; font-weight: 600; line-height: 1.3; }
     </style>
 </head>
 <body>
@@ -644,11 +678,11 @@
             <div class="objectives-grid">
                 <div class="objective-item">
                     <span class="objective-number">01</span>
-                    <p class="objective-text">Améliorer la compréhension du produit</p>
+                    <p class="objective-text">Clarifier la proposition de valeur</p>
                 </div>
                 <div class="objective-item">
                     <span class="objective-number">02</span>
-                    <p class="objective-text">Améliorer la complétion de l'onboarding</p>
+                    <p class="objective-text">Améliorer le taux de complétion</p>
                 </div>
                 <div class="objective-item">
                     <span class="objective-number">03</span>
@@ -661,7 +695,7 @@
         <div class="case-section">
             <h2>Discovery</h2>
             <h3>Données quantitatives</h3>
-            <p>Avec Amplitude, nous avons vu que la complétion de l'onboarding chutait fortement depuis avril 2024.</p>
+            <p>Avec Amplitude, nous savons que la complétion de l'onboarding chute fortement depuis avril 2024.</p>
             <div class="stats-grid">
                 <div class="stat-card">
                     <span class="stat-big-num">72, 8 %</span>
@@ -676,7 +710,7 @@
                     <p class="stat-label">Avril 2024</p>
                 </div>
             </div>
-            <p>L'analyse du funnel a mis en évidence plusieurs points de friction.&nbsp;</p>
+            <p>L'analyse du funnel a mis en évidence plusieurs points de friction :</p>
             <div class="data-table-wrap">
             <table class="data-table">
                 <thead>
@@ -695,12 +729,8 @@
                         <td>Moyen (10 %)</td>
                     </tr>
                     <tr>
-                        <td>Choix de pilier</td>
-                        <td>Faible (5, 7 %)</td>
-                    </tr>
-                    <tr>
-                        <td>Choix d'action</td>
-                        <td>Fort (17, 2 %)</td>
+                        <td>Priorisation des piliers</td>
+                        <td>Fort (15, 7 %)</td>
                     </tr>
                 </tbody>
             </table>
@@ -721,22 +751,22 @@
                 <div class="insight-item">
                     <span class="insight-num">01</span>
                     <div class="insight-body">
-                        <p class="insight-title">Les utilisateurs ne comprennent pas suffisamment le concept du produit</p>
-                        <p class="insight-desc">Le drop avant même le choix de pilier suggère une difficulté de compréhension avant la phase d'engagement.</p>
+                        <p class="insight-title">Les utilisateurs ne comprennent pas le concept du produit</p>
+                        <p class="insight-desc">Le drop avant même la priorisation des piliers suggère une difficulté de compréhension avant la phase d'engagement.</p>
                     </div>
                 </div>
                 <div class="insight-item">
                     <span class="insight-num">02</span>
                     <div class="insight-body">
-                        <p class="insight-title">Le choix d'action arrivait trop tôt</p>
-                        <p class="insight-desc">Les utilisateurs doivent prendre des décisions avant d'avoir compris la valeur du produit.</p>
+                        <p class="insight-title">Le choix de priorisation des pilliers arrive trop tôt</p>
+                        <p class="insight-desc">Les utilisateurs doivent prendre des décisions avant même d'avoir compris la valeur du produit.</p>
                     </div>
                 </div>
                 <div class="insight-item">
                     <span class="insight-num">03</span>
                     <div class="insight-body">
-                        <p class="insight-title">Les utilisateurs ont trop d'actions proposées</p>
-                        <p class="insight-desc">Trop d'actions sont proposées pendant l'onboarding ce qui génère une surcharge d'information et une difficulté à se projeter.</p>
+                        <p class="insight-title">Les utilisateurs n'ont pas d'actions proposées</p>
+                        <p class="insight-desc">Les utilisateurs n'ont pas d'étape d'engagement concret avec le produit après la phase de découverte passive.&nbsp;</p>
                     </div>
                 </div>
             </div> 
@@ -744,36 +774,6 @@
         <!-- ════ Section 3 ════ -->
         <div class="case-section">
             <h2>Idéation</h2>
-            <h3>Objectifs produit</h3>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">01</span>
-                    <p class="objective-text">Clarifier la proposition de valeur</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">02</span>
-                    <p class="objective-text">Réduire la charge cognitive du parcours</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">03</span>
-                    <p class="objective-text">Rendre l'expérience plus progressive</p>
-                </div>
-            </div>
-            <h3>Objectifs business</h3>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">01</span>
-                    <p class="objective-text">Améliorer le taux de complétion</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">02</span>
-                    <p class="objective-text">Augmenter l'activation utilisateur</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">03</span>
-                    <p class="objective-text">Améliorer la rétention&nbsp; des utilisateurs</p>
-                </div>
-            </div>
             <h3>Flow existant</h3>
             <div class="carousel" id="carousel-flow">
                 <div class="carousel-track-wrap">
@@ -783,7 +783,7 @@
                             <img src="images/v1s1.png" alt="Étape 1">
                             <div class="carousel-caption">
                                 <p class="carousel-caption-title">Étape 1 - Écran de bienvenue</p>
-                                <p class="carousel-caption-desc">L'utilisateur découvre l'utilité de Fifty.</p>
+                                <p class="carousel-caption-desc">L'utilisateur découvre la proposition de valeur de Fifty.</p>
                             </div>
                         </div>
 
@@ -815,7 +815,7 @@
                             <img src="images/v1s5.jpg" alt="Étape 5">
                             <div class="carousel-caption">
                                 <p class="carousel-caption-title">Étape 5 - Fin de l'onboarding</p>
-                                <p class="carousel-caption-desc">L'utilisateur a maintenant accès à Fifty pour réaliser des actions./</p>
+                                <p class="carousel-caption-desc">L'utilisateur a maintenant accès à Fifty pour réaliser des actions.</p>
                             </div>
                         </div>
                         
@@ -830,11 +830,12 @@
                 <div class="carousel-dots"></div>
             </div>
             <h3>Décisions clés</h3>
+            <p>Suite à l'analyse du flow existant, nos hypothèses et les retours des équipes support, nous faisons des choix :</p>
             <div class="decisions-list">
                 <div class="decision-block">
                     <div class="decision-row">
                         <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">l'arrivée sur Fifty se fait trop brutalement</span>
+                        <span class="decision-row-text">L'arrivée sur Fifty se fait sans transition.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Problème</span>
@@ -854,7 +855,7 @@
                 <div class="decision-block">
                     <div class="decision-row">
                         <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">le concept de Fifty est expliqué de manière abstraite</span>
+                        <span class="decision-row-text">Le concept de Fifty est expliqué de manière abstraite.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Problème</span>
@@ -862,7 +863,7 @@
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Décision</span>
-                        <span class="decision-row-text">Ajouter des étapes pour expliquer à l'utilisateur à quoi va lui servir l'outil, comment ça fonctionne et les bénéfices qu'il va en tirer.</span>
+                        <span class="decision-row-text">Ajouter des étapes pour expliquer à l'utilisateur à quoi va lui servir l'outil, comment il fonctionne et les bénéfices qu'il va en tirer.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Impact attendu</span>
@@ -873,7 +874,7 @@
                 <div class="decision-block">
                     <div class="decision-row">
                         <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">le "choix" du thème n'est pas clair</span>
+                        <span class="decision-row-text">Le "choix" du thème n'est pas clair.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Problème</span>
@@ -892,11 +893,11 @@
                 <div class="decision-block">
                     <div class="decision-row">
                         <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">aucune action n'est choisie lors de l'onboarding</span>
+                        <span class="decision-row-text">Aucune action n'est choisie lors de l'onboarding.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Problème</span>
-                        <span class="decision-row-text">On ne pousse pas l'utilisateur à choisir une action, ce qui ne lui permet pas de finaliser la compréhension du produit.</span>
+                        <span class="decision-row-text">On ne pousse pas l'utilisateur à choisir une action, ce qui ne lui permet pas de le lancer dans l'utilisation du produit.</span>
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Décision</span>
@@ -904,10 +905,11 @@
                     </div>
                     <div class="decision-row">
                         <span class="decision-row-label">Impact attendu</span>
-                        <span class="decision-row-text">Augmenter l'activation et l'engagement des utilisateurs en les encourageant à sélectionner des actions et à réaliser pendant la semaine en cours.</span>
+                        <span class="decision-row-text">Augmenter l'activation et l'engagement des utilisateurs en les encourageant à sélectionner des actions et à les réaliser pendant la semaine en cours.</span>
                     </div>
                 </div>
             </div>
+            <h3>Flow retravaillé</h3>
             <div class="carousel" id="carousel-flow-2">
                 <div class="carousel-track-wrap">
                     <div class="carousel-track">
@@ -924,7 +926,7 @@
                             <img src="images/v2s2.png" alt="Étape 2">
                             <div class="carousel-caption">
                                 <p class="carousel-caption-title">Étape 2 - La méthode</p>
-                                <p class="carousel-caption-desc">L'utilisateur découvre en quoi consiste la méthode sur laquelle est basée Fifty.</p>
+                                <p class="carousel-caption-desc">Cette étape explique en quoi consiste la méthode sur laquelle est basée Fifty.</p>
                             </div>
                         </div>
 
@@ -948,23 +950,23 @@
                             <img src="images/v2s5.png" alt="Étape 5">
                             <div class="carousel-caption">
                                 <p class="carousel-caption-title">Étape 5 - Choix du thème</p>
-                                <p class="carousel-caption-desc">Description.</p>
+                                <p class="carousel-caption-desc">Cette étape explicite que tous les thèmes seront abordés.</p>
                             </div>
                         </div>
                         
                          <div class="carousel-slide">
                             <img src="images/v2s6.png" alt="Étape 6">
                             <div class="carousel-caption">
-                                <p class="carousel-caption-title">Titre</p>
-                                <p class="carousel-caption-desc">Description.</p>
+                                <p class="carousel-caption-title">Étape 6 - Choix des actions</p>
+                                <p class="carousel-caption-desc">Cette étape permet de mettre tout de suite en action.</p>
                             </div>
                         </div>
                         
                          <div class="carousel-slide">
                             <img src="images/v2s7.png" alt="Étape 7">
                             <div class="carousel-caption">
-                                <p class="carousel-caption-title">Titre</p>
-                                <p class="carousel-caption-desc">Description.</p>
+                                <p class="carousel-caption-title">Étape 7 - Fin de l'onboarding</p>
+                                <p class="carousel-caption-desc">Cette étape appelle à réaliser les actions sélectionnées.</p>
                             </div>
                         </div>
 
@@ -978,6 +980,49 @@
                 </button>
                 <div class="carousel-dots"></div>
             </div>
+        </div>
+
+        <!-- ════ Section 4 ════ -->
+        <div class="case-section">
+            <h2>Impact &amp; résultats</h2>
+            <p>Nous avons analysé les données quantitatives 30 jours après le déploiement de la nouvelle version.</p>
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <span class="objective-number">−4,7 points</span>
+                    <p class="objective-text">de taux d'abandon avant le premier choix utilisateur (de 15,7 à 11&nbsp;%)</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">+6 points</span>
+                    <p class="objective-text">de taux de complétion de l'onboarding (de 64&nbsp;% à 70&nbsp;%)</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">+12 points</span>
+                    <p class="objective-text">de taux d'utilisateurs en pratique soutenue (de 40&nbsp;% à 52&nbsp;%)</p>
+                </div>
+            </div>
+            <h3>Les difficultés rencontrées</h3>
+            <p>Clarifier la proposition de valeur a été un exercice difficile car chacun (dans l'équipe et dans l'entreprise) avait sa propre interprétation et sa propre façon de l'expliquer. Pour trouver un consensus, il a fallu challenger nos propres visions.&nbsp;</p>
+            <p>Nous voulions ajouter des illustrations pour aider à la compréhension de notre concept. Or, illustrer un concept abstrait a été un travail difficile à réaliser pour ma part. Il y avait des points de vue différents sur la manière d'illustrer "un changement basé sur la méthode des petits pas". Je me suis aidée de l'IA pour trouver des idées.</p>
+            <p>Nous voulions ajouter une étape de sélection d'actions. Or, il y avait un vrai désaccord sur le nombre d'actions proposées. J'ai réalisé plusieurs versions de prototype pour aider à la perception du flow et permettre de faire un choix avisé.</p>
+        </div>
+
+        <!-- ════ Section 5 ════ -->
+        <div class="case-section">
+            <h2>Ce que j'ai appris</h2>
+            <p>Aligner l'équipe en interne est un prérequis du design. On ne peut pas clarifier quelque chose pour l'utilisateur tant que l'équipe ne l'a pas clarifié pour elle-même.&nbsp;</p>
+            <p>Les données disent "où" mais pas "pourquoi". Nous avions des données quantitatives pour localiser les drops, mais ce sont nos hypothèses et les retours utilisateurs qui nous ont expliqué leur cause.</p>
+        </div>
+
+        <!-- Navigation projets -->
+        <div class="project-nav">
+            <a class="project-nav-prev" href="projet1.html">
+                <span class="project-nav-dir">← Projet précédent</span>
+                <span class="project-nav-title">Donner plus de liberté aux éducateurs canins</span>
+            </a>
+            <a class="project-nav-next" href="projet3.html">
+                <span class="project-nav-dir">Projet suivant →</span>
+                <span class="project-nav-title">Rendre l'autonomie aux babysitters</span>
+            </a>
         </div>
 
     </article>

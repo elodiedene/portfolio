@@ -587,6 +587,20 @@
             .showcase-card:hover .showcase-btn svg { transform: translate(2px, -2px); }
             .showcase-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.18); }
 
+            .showcase-card--disabled { cursor: default; pointer-events: none; }
+            .showcase-card--disabled:hover { transform: none; box-shadow: none; }
+            .showcase-btn--disabled {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                background: var(--border);
+                color: var(--text-muted);
+                padding: 0.55rem 1.1rem;
+                border-radius: 100px;
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+
             /* ════════════════════════════════
            ABOUT
         ════════════════════════════════ */
@@ -685,80 +699,6 @@
             }
 
             /* ════════════════════════════════
-           SOCIALS
-        ════════════════════════════════ */
-            .socials {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 3rem 4rem;
-                position: relative;
-            }
-
-            .socials-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 1.25rem;
-                margin-top: 2.5rem;
-            }
-
-            .social-card {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding: 1.25rem 1.75rem;
-                border-radius: 20px;
-                text-decoration: none;
-                color: #fff;
-                position: relative;
-                overflow: hidden;
-                transition:
-                    transform 0.25s,
-                    box-shadow 0.25s;
-            }
-
-            .social-card::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background-image: repeating-linear-gradient(
-                    45deg,
-                    rgba(0, 0, 0, 0.07) 0px,
-                    rgba(0, 0, 0, 0.07) 2px,
-                    transparent 2px,
-                    transparent 14px
-                );
-                pointer-events: none;
-            }
-
-            .social-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15);
-            }
-
-            .social-bottom {
-                display: flex;
-                align-items: flex-end;
-                justify-content: space-between;
-                position: relative;
-                z-index: 1;
-            }
-
-            .social-name {
-                font-size: 1.2rem;
-                font-weight: 600;
-                letter-spacing: -0.01em;
-            }
-
-            .social-arrow {
-                font-size: 1.3rem;
-                transition: transform 0.2s;
-            }
-
-            .social-card:hover .social-arrow {
-                transform: translate(3px, -3px);
-            }
-
-            /* ════════════════════════════════
            TESTIMONIALS
         ════════════════════════════════ */
             .testimonials {
@@ -834,6 +774,58 @@
             }
 
             /* ════════════════════════════════
+           CTA
+        ════════════════════════════════ */
+            .index-cta {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 4rem 5rem;
+            }
+
+            .index-cta-inner {
+                background: var(--primary-soft);
+                border-radius: 20px;
+                padding: 1.75rem 2.5rem;
+            }
+
+            .index-cta h2 {
+                font-size: clamp(1.5rem, 3vw, 2rem);
+                font-weight: 400;
+                letter-spacing: -0.02em;
+                margin-bottom: 1.25rem;
+            }
+
+            .index-cta h2 em {
+                font-style: italic;
+                font-weight: 300;
+                color: var(--primary-light);
+            }
+
+            .cv-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: var(--primary);
+                color: #fff;
+                padding: 0.85rem 1.75rem;
+                border-radius: 100px;
+                text-decoration: none;
+                font-size: 0.95rem;
+                font-weight: 600;
+                transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            }
+
+            .cv-link svg { transition: transform 0.2s; }
+
+            .cv-link:hover {
+                background: var(--primary-light);
+                transform: translateY(-2px);
+                box-shadow: 0 10px 28px rgba(46, 42, 92, 0.32);
+            }
+
+            .cv-link:hover svg { transform: translate(2px, -2px); }
+
+            /* ════════════════════════════════
            FOOTER
         ════════════════════════════════ */
             footer {
@@ -854,9 +846,6 @@
            RESPONSIVE
         ════════════════════════════════ */
             @media (max-width: 900px) {
-                .socials-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
                 .testimonials-grid {
                     grid-template-columns: repeat(2, 1fr);
                 }
@@ -892,10 +881,11 @@
 
                 .projects,
                 .about,
-                .socials,
                 .testimonials {
                     padding: 3rem 1.5rem;
                 }
+
+                .index-cta { padding: 0 1.5rem 3rem; }
 
                 .bento-grid {
                     grid-template-columns: 1fr;
@@ -911,11 +901,6 @@
                 .testimonials-grid {
                     grid-template-columns: 1fr;
                 }
-                .socials-grid {
-                    grid-template-columns: 1fr 1fr;
-                    gap: 1rem;
-                }
-
                 .about-content {
                     grid-template-columns: 1fr;
                     gap: 2rem;
@@ -934,9 +919,6 @@
             }
 
             @media (max-width: 480px) {
-                .socials-grid {
-                    grid-template-columns: 1fr;
-                }
                 .bento-grid {
                     grid-template-columns: 1fr;
                 }
@@ -1037,7 +1019,7 @@
         ════════════════════════════════════════════════════ -->
             <div class="bento-grid">
                 <!-- ░ Carte 1 — 1/2 ░ -->
-                <a href="projet1.html" class="bento-card showcase-card">
+                <div class="bento-card showcase-card showcase-card--disabled">
                     <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet1.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
                     </div>
                     <div class="showcase-bottom">
@@ -1046,16 +1028,13 @@
                             <span class="showcase-tag">saas b2b</span>
                         </div>
                         <h3 class="showcase-title">Donner plus de liberté aux&nbsp;<em>éducateurs canins</em></h3>
-                        <p class="showcase-desc">Conception d'un CRM enrichi par l'IA pour simplifier la gestion du quotidien des éducateurs canins indépendants.</p>
+                        <p class="showcase-desc">Conception d'un CRM grâce à l'IA pour simplifier le travail des éducateurs canins indépendants.</p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2025</span>
-                            <span class="showcase-btn">
-                                Voir l'étude
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </span>
+                            <span class="showcase-btn--disabled">🚧 En construction</span>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- ░ Carte 2 — 1/2 ░ -->
                 <a href="projet2.html" class="bento-card showcase-card">
@@ -1067,11 +1046,11 @@
                             <span class="showcase-tag">saas B2B</span>
                         </div>
                         <h3 class="showcase-title">Repenser l'onboarding grâce aux <em>données produit</em></h3>
-                        <p class="showcase-desc">Refonte de l'onboarding d'une plateforme SaaS B2B pour clarifier la promesse produit et réduire les abandons dès les premières secondes.</p>
+                        <p class="showcase-desc">Refonte de l'onboarding d'une plateforme SaaS B2B pour clarifier la promesse produit.</p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2023</span>
                             <span class="showcase-btn">
-                                Voir l'étude
+                                Voir le projet
                                 <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </span>
                         </div>
@@ -1087,12 +1066,12 @@
                             <span class="showcase-tag">Mobile</span>
                             <span class="showcase-tag">Refonte</span>
                         </div>
-                        <h3 class="showcase-title">Faciliter les démarches des&nbsp;<em>babysitters</em></h3>
+                        <h3 class="showcase-title">Rendre l'autonomie aux&nbsp;<em>babysitters</em></h3>
                         <p class="showcase-desc">Refonte d'un espace privé pour le rendre plus intuitif, mobile-first et cohérent avec l'évolution des services.</p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2021</span>
                             <span class="showcase-btn">
-                                Voir l'étude
+                                Voir le projet
                                 <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </span>
                         </div>
@@ -1109,11 +1088,11 @@
                             <span class="showcase-tag">SAAS B2B</span>
                         </div>
                         <h3 class="showcase-title">Améliorer le <em>recrutement</em> en garde d'enfants</h3>
-                        <p class="showcase-desc">Conception d'une app web qui guide les recruteurs pour évaluer les babysitters plus vite et plus justement.</p>
+                        <p class="showcase-desc">Conception d'une web app qui guide les recruteurs pour évaluer les babysitters plus vite et plus justement.</p>
                         <div class="showcase-footer">
                             <span class="showcase-meta">2020</span>
                             <span class="showcase-btn">
-                                Voir l'étude
+                                Voir le projet
                                 <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </span>
                         </div>
@@ -1135,7 +1114,7 @@
                         <div class="showcase-footer">
                             <span class="showcase-meta">2018</span>
                             <span class="showcase-btn">
-                                Voir l'étude
+                                Voir le projet
                                 <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </span>
                         </div>
@@ -1242,65 +1221,11 @@
             </div>
         </section>
 
-        <!-- ════════════ SOCIALS ════════════ -->
-        <section class="socials" id="socials">
-            <div class="star" style="top: 1.5rem; right: 2rem; animation-delay: 1.5s">
-                <svg width="26" height="26" viewBox="0 0 34 34" fill="none">
-                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#2E2A5C" />
-                </svg>
-            </div>
-            <div class="star" style="bottom: 2.5rem; left: 1.5rem; animation-delay: 0.3s">
-                <svg width="15" height="15" viewBox="0 0 34 34" fill="none">
-                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#E8614A" />
-                </svg>
-            </div>
-            <div class="section-header">
-                <span class="section-title">MES RÉSEAUX</span>
-            </div>
-            <div class="socials-grid">
-                <!-- Dribbble -->
-                <a
-                    href="https://dribbble.com/elodiedene"
-                    target="_blank"
-                    class="social-card"
-                    style="background:var(--accent);">
-                    <div class="social-bottom">
-                        <span class="social-name">Dribbble</span>
-                        <span class="social-arrow">↗</span>
-                    </div>
-                </a>
-
-                <!-- Behance -->
-                <a
-                    href="https://www.behance.net/elodiedene"
-                    target="_blank"
-                    class="social-card"
-                    style="background:var(--primary);">
-                    <div class="social-bottom">
-                        <span class="social-name">Behance</span>
-                        <span class="social-arrow">↗</span>
-                    </div>
-                </a>
-
-                <!-- LinkedIn -->
-                <a
-                    href="https://www.linkedin.com/in/elodiedene/"
-                    target="_blank"
-                    class="social-card"
-                    style="background:var(--bg-soft); color:var(--text);">
-                    <div class="social-bottom">
-                        <span class="social-name">LinkedIn</span>
-                        <span class="social-arrow">↗</span>
-                    </div>
-                </a>
-
-                <!-- Email -->
-                <a href="mailto:elodie.dene@gmail.com" class="social-card" style="background:var(--primary-light);">
-                    <div class="social-bottom">
-                        <span class="social-name">Email</span>
-                        <span class="social-arrow">↗</span>
-                    </div>
-                </a>
+        <!-- ════════════ CTA ════════════ -->
+        <section class="index-cta">
+            <div class="index-cta-inner">
+                <h2>Prêt à construire quelque chose<br><em>ensemble ?</em></h2>
+                <a href="https://www.linkedin.com/in/elodiedene/" target="_blank" class="cv-link">Me contacter<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
             </div>
         </section>
 
