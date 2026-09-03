@@ -71,11 +71,20 @@
             }
 
             .nav-logo {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.55rem;
                 font-size: 1rem;
                 font-weight: 600;
                 color: var(--text);
                 text-decoration: none;
-            }
+                }
+
+                .nav-logo-img {
+                height: 1.7rem;
+                width: auto;
+                display: block;
+                }
 
             .nav-links {
                 display: flex;
@@ -928,7 +937,7 @@
     <body>
         <!-- ════════════ NAV ════════════ -->
         <nav>
-            <a href="index.html" class="nav-logo">Elodie Dené</a>
+            <a href="index.html" class="nav-logo"><img src="images/Logo.svg" alt="Logo Elodie Dené" class="nav-logo-img">Elodie Dené</a>
             <ul class="nav-links">
                 <li>
                     <span class="nav-available">
@@ -1048,7 +1057,7 @@
                         <h3 class="showcase-title">Repenser l'onboarding grâce aux <em>données produit</em></h3>
                         <p class="showcase-desc">Refonte de l'onboarding d'une plateforme SaaS B2B pour clarifier la promesse produit.</p>
                         <div class="showcase-footer">
-                            <span class="showcase-meta">2023</span>
+                            <span class="showcase-meta">2024</span>
                             <span class="showcase-btn">
                                 Voir le projet
                                 <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>

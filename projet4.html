@@ -48,11 +48,20 @@
         }
 
         .nav-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
             font-size: 1rem;
             font-weight: 600;
             color: var(--text);
             text-decoration: none;
-        }
+            }
+
+            .nav-logo-img {
+            height: 1.7rem;
+            width: auto;
+            display: block;
+            }
 
         .nav-links {
             display: flex;
@@ -543,7 +552,7 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="index.html" class="nav-logo">Elodie Dené</a>
+        <a href="index.html" class="nav-logo"><img src="images/Logo.svg" alt="Logo Elodie Dené" class="nav-logo-img">Elodie Dené</a>
         <ul class="nav-links">
             <li>
                 <span class="nav-available">
