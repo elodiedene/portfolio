@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session de tests utilisateurs — Elodie Dené</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo"><img src="images/Logo.svg" alt="Logo Elodie Dené" class="nav-logo-img">Elodie Dené</a>
+        <ul class="nav-links">
+            <li>
+                <span class="nav-available">
+                    <span class="badge-dot"></span>
+                    Disponible
+                </span>
+            </li>
+            <li><a href="about.html">À propos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="case-header">
+        <a href="index.html" class="back-link">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Retour
+        </a>
+        <div class="case-tags">
+            <span class="tag">SaaS</span>
+            <span class="tag">B2B</span>
+            <span class="tag">EdTech</span>
+        </div>
+        <h1>Permettre aux créateurs de contenus éducatifs de collaborer</h1>
+        <div class="case-meta">
+            <div class="meta-item">
+                <span class="meta-label">Entreprise</span>
+                <p>Gutenberg Technology</p>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Rôle</span>
+                <p>UX &amp; UI Designer</p>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Année</span>
+                <p>2016 - 2019</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <article class="case-content">
+
+        <!-- ════ Contexte & Objectifs ════ -->
+        <div class="case-section">
+            <h2>Contexte &amp; Objectifs</h2>
+
+            <p>Gutenberg Technology propose une plateforme SaaS qui permet de créer, personnaliser et distribuer des contenus éducatifs via différents types de canal. Plusieurs utilisateurs (formateurs, éditeurs, correcteurs, créateurs) sont amenés à travailler ensemble sur un même contenu. Nous savons grâce aux retours clients qu’il leur manque des moyens de collaborer efficacement en ligne.</p>
+
+            <div class="objectives-grid">
+                <div class="objective-item">
+                    <span class="objective-number">01</span>
+                    <p class="objective-text">Pouvoir suivre les modifications faites par les autres</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">02</span>
+                    <p class="objective-text">Pouvoir annoter des informations en lien avec le contenu</p>
+                </div>
+                <div class="objective-item">
+                    <span class="objective-number">03</span>
+                    <p class="objective-text">Pouvoir donner son avis sur les modifications faites</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════ Préparation ════ -->
+        <div class="case-section">
+            <h2>Discovery</h2>
+
+            <h3>Benchmark</h3>
+            <p>J'ai réalisé un benchmark de différents outils qui proposent un équivalent au Track Changes (suivi de changements)</p>
+            <section class="cmp" aria-label="Comparatif du suivi des modifications : Google Docs, Microsoft Word, Confluence et WordPress">
+                <div class="cmp-scroll" tabindex="0">
+                    <table>
+                    <thead>
+                        <tr>
+                        <th scope="col">Critère</th>
+                        <th scope="col">Google Docs</th>
+                        <th scope="col">Microsoft Word</th>
+                        <th scope="col">Confluence</th>
+                        <th scope="col">WordPress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">Mode suggestion</th>
+                        <td>Oui, mode « Suggestion »</td>
+                        <td>Oui, « Suivi des modifications »</td>
+                        <td class="no">Non</td>
+                        <td class="no">Non</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Marquage inline des changements</th>
+                        <td>Oui : ajouts et suppressions colorés par auteur</td>
+                        <td>Oui : ajouts soulignés, suppressions barrées, couleur par relecteur</td>
+                        <td class="no">Non, seulement dans la vue de comparaison</td>
+                        <td class="no">Non, seulement dans la vue de comparaison</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Suivi des changements de mise en forme</th>
+                        <td>Oui (affiché dans les bulles de la marge)</td>
+                        <td>Oui, le plus complet, y compris les déplacements de texte</td>
+                        <td class="no">Non</td>
+                        <td class="no">Non</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Accepter / refuser</th>
+                        <td>Oui, un par un ou tout d’un coup</td>
+                        <td>Oui, un par un, par relecteur ou tout</td>
+                        <td class="no">Non (on restaure une version entière)</td>
+                        <td class="no">Non (on restaure une révision entière)</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Commentaires</th>
+                        <td>Oui : fils de discussion, résolution, assignation</td>
+                        <td>Oui : réponses possibles, volet de relecture</td>
+                        <td>Oui : commentaires de page et commentaires inline sur une sélection de texte</td>
+                        <td class="no">Non en natif</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Attribution par auteur</th>
+                        <td>Oui, couleur par personne</td>
+                        <td>Oui, couleur par relecteur</td>
+                        <td>Oui dans l’historique des versions</td>
+                        <td>Oui dans la liste des révisions</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Historique de versions + restauration</th>
+                        <td>Oui, avec versions nommables</td>
+                        <td>Limité (versions via OneDrive / SharePoint)</td>
+                        <td>Oui, versions numérotées, restauration, commentaire de version</td>
+                        <td>Oui, révisions automatiques et restauration</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Comparaison de deux versions</th>
+                        <td class="no">Non en natif (historique coloré par contributeur)</td>
+                        <td>Oui, « Comparer » et « Combiner » des documents</td>
+                        <td>Oui, vert pour les ajouts, rouge pour les suppressions</td>
+                        <td>Oui, curseur de comparaison, deux colonnes avec surlignage</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Édition collaborative en temps réel</th>
+                        <td>Oui, très fluide</td>
+                        <td>Partiel (moins robuste avec le suivi activé)</td>
+                        <td>Oui</td>
+                        <td class="no">Non (verrou : un seul éditeur à la fois)</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Contrôle des droits</th>
+                        <td>Éditeur / Commentateur / Lecteur</td>
+                        <td>Verrouillage du suivi par mot de passe, protection du document</td>
+                        <td>Droits par espace et par page</td>
+                        <td>Rôles WordPress (auteur, éditeur, etc.)</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Notifications</th>
+                        <td>Oui (e-mail sur commentaires et mentions)</td>
+                        <td>Limitées</td>
+                        <td>Oui (suivre une page, mentions)</td>
+                        <td>Limitées en natif</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+</section>
+
+        </div>
+
+        <!-- ════ Idéation ════ -->
+        <div class="case-section">
+            <h2>Idéation</h2>
+
+            <h3>Décisions clés</h3>
+            <p>Le jour J, les participants sont arrivés en début de soirée, nous avons fait un apéro de présentation de l'objectif de la session, de l'équipe produit chez Gutenberg Technology. Nous avons ensuite emmené chaque participant dans sa pièce respective, avec ses deux observateurs.</p>
+
+            <h3>Début du test</h3>
+            <p>Nous avons installé notre participant derrière l'ordinateur et avons lancé l'enregistrement de l'écran, de la caméra et de l'audio.</p>
+            <p>Pour commencer le test, nous avons briefé à nouveau le participant sur le fait de verbaliser, et que nous ne sommes pas là pour donner des réponses, plutôt observer, puis nous lui avons fourni le premier scénario à réaliser.</p>
+            <p>Pendant le test, en tant qu'observateur, nous étions placé derrière le participant avec l'écran dans notre champ de vision, et prenions des notes sur ce qui se passait ou était verbalisé par le participant.</p>
+
+            <h3>Fin du test</h3>
+            <p>À la fin du test, soit parce que tous les scénarios avaient été réalisés, soit parce que l'heure était arrivée, nous avons coupé les enregistrements et discuté un peu avec notre participant, pour débriefer à chaud de tout ce qu'il venait de voir.</p>
+
+            <h3>Debrief général</h3>
+            <p>Chaque groupe s'est ensuite rendu dans une grande salle de réunion pour faire un débrief tous ensemble sur le déroulé du test, les ressentis, etc. Puis, nous avons remercié à nouveau les participants et clôturé la soirée.</p>
+        </div>
+
+        <!-- ════ Analyse ════ -->
+        <div class="case-section">
+            <h2>Analyse</h2>
+
+            <h3>Visionnage et relecture</h3>
+            <p>Chaque observateur a regardé et relu ce qui s'était passé pendant sa session avec son participant, pour noter les points importants dans un tableur Google Sheet. Une fois que tous les observateurs avaient rempli leur partie, nous nous sommes réunis.</p>
+
+            <h3>Tri par cartes</h3>
+            <p>En prenant pour base le tableur, nous avons annoter chacun des retours sur des posts-it. Puis, nous les avons classé par catégories : bugs, améliorations, etc.</p>
+
+            <h3>Priorisation</h3>
+            <p>Pour chacune des catégories, nous avons ensuite prioriser les retours, avec l'aide de l'équipe de développement et ajouté ces éléments à la roadmap.</p>
+        </div>
+
+        <!-- Navigation projets (générée depuis l'ordre des cards de l'accueil) -->
+        <nav class="project-nav" id="project-nav"></nav>
+
+    </article>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Remonter en haut">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 11L8 5L13 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <script>
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            btn.classList.toggle('visible', window.scrollY > 300);
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Elodie Dené</p>
+    </footer>
+
+    <script src="projects-nav.js"></script>
+
+</body>
+</html>

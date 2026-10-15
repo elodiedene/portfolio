@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8" />
@@ -9,930 +9,7 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
             rel="stylesheet" />
-        <style>
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
-
-            :root {
-                /* ─── Neutres ─── */
-                --bg:         #FFFFFF;
-                --bg-soft:    #F2EDE3;
-                --text:       #1A1A1A;
-                --text-muted: #6B6660;
-                --border:     #E8E2D5;
-
-                /* ─── Primaire (violet profond) ─── */
-                --primary:        #2E2A5C;
-                --primary-soft:   #E8E4F0;
-                --primary-light:  #7165C8;
-
-                /* ─── Accent (corail) — usage parcimonieux ─── */
-                --accent:       #E8614A;
-                --accent-soft:  #FBE4DE;
-
-                /* ─── Alias ─── */
-                --orange:    var(--primary);
-                --orange-bg: var(--primary-soft);
-                --peach:     var(--bg-soft);
-            }
-
-            html {
-                scroll-behavior: smooth;
-            }
-
-            body {
-                font-family: "Plus Jakarta Sans", sans-serif;
-                background-color: var(--bg);
-                background-image: radial-gradient(rgba(26, 26, 46, 0.05) 1.5px, transparent 1.5px);
-                background-size: 24px 24px;
-                color: var(--text);
-                line-height: 1.6;
-            }
-
-            /* ════════════════════════════════
-           NAV
-        ════════════════════════════════ */
-            nav {
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 1.25rem 4rem;
-                background: rgba(255, 255, 255, 0.92);
-                backdrop-filter: blur(12px);
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-logo {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.55rem;
-                font-size: 1rem;
-                font-weight: 600;
-                color: var(--text);
-                text-decoration: none;
-                }
-
-                .nav-logo-img {
-                height: 1.7rem;
-                width: auto;
-                display: block;
-                }
-
-            .nav-links {
-                display: flex;
-                gap: 1.5rem;
-                list-style: none;
-                align-items: center;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-                color: var(--text-muted);
-                text-decoration: none;
-                font-weight: 500;
-                transition: color 0.2s;
-            }
-
-            .nav-links a:hover {
-                color: var(--text);
-            }
-
-            /* Tag "Disponible" */
-            .nav-available {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.45rem;
-                background: #E8F1EA;
-                color: #2F6B43;
-                font-size: 0.75rem;
-                font-weight: 700;
-                padding: 0.35rem 0.85rem;
-                border-radius: 100px;
-                letter-spacing: 0.02em;
-            }
-
-            .nav-available-dot {
-                width: 7px;
-                height: 7px;
-                background: #3A9E5F;
-                border-radius: 50%;
-                animation: blink 2s ease-in-out infinite;
-            }
-
-            @keyframes blink {
-                0%,
-                100% {
-                    opacity: 1;
-                }
-                50% {
-                    opacity: 0.3;
-                }
-            }
-
-
-            /* ════════════════════════════════
-           HERO
-        ════════════════════════════════ */
-            .hero {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 3rem 4rem;
-            }
-
-            .hero-content {
-                position: relative;
-            }
-
-            /* Étoiles décoratives */
-            .star {
-                position: absolute;
-                pointer-events: none;
-                animation: float 4s ease-in-out infinite;
-            }
-
-            .star-1 {
-                top: -1.5rem;
-                right: -1rem;
-                animation-delay: 0s;
-            }
-            .star-2 {
-                top: 3.5rem;
-                right: 2rem;
-                animation-delay: 1.2s;
-            }
-            .star-3 {
-                bottom: 2rem;
-                left: -1rem;
-                animation-delay: 0.7s;
-            }
-
-            @keyframes float {
-                0%,
-                100% {
-                    transform: translateY(0px);
-                }
-                50% {
-                    transform: translateY(-8px);
-                }
-            }
-
-            .hero-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.5rem;
-                background: var(--orange-bg);
-                color: var(--orange);
-                font-size: 0.8rem;
-                font-weight: 700;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                padding: 0.4rem 1rem;
-                border-radius: 100px;
-                margin-bottom: 2rem;
-            }
-
-            .hero-badge-dot {
-                width: 7px;
-                height: 7px;
-                background: var(--orange);
-                border-radius: 50%;
-                animation: blink 2s ease-in-out infinite;
-            }
-
-            .badge-short { display: none; }
-
-            .hero h1 {
-                font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-                font-weight: 400;
-                line-height: 1.15;
-                letter-spacing: -0.025em;
-                max-width: 900px;
-            }
-
-            .hero h1 em {
-                font-style: italic;
-                font-weight: 300;
-                color: var(--orange);
-            }
-
-            /* Boutons hero */
-            .hero-actions {
-                display: flex;
-                align-items: center;
-                gap: 1.5rem;
-                flex-wrap: wrap;
-                margin-top: 2rem;
-            }
-
-            .btn-primary {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.5rem;
-                background: var(--orange);
-                color: #fff;
-                padding: 0.85rem 1.75rem;
-                border-radius: 100px;
-                text-decoration: none;
-                font-size: 0.95rem;
-                font-weight: 600;
-                transition:
-                    background 0.2s,
-                    transform 0.2s,
-                    box-shadow 0.2s;
-            }
-
-            .btn-primary svg {
-                transition: transform 0.2s;
-            }
-
-            .btn-primary:hover {
-                background: var(--primary-light);
-                transform: translateY(-2px);
-                box-shadow: 0 10px 28px rgba(46, 42, 92, 0.32);
-            }
-
-            .btn-primary:hover svg {
-                transform: translate(2px, -2px);
-            }
-
-            .btn-secondary {
-                font-size: 0.95rem;
-                color: var(--text-muted);
-                text-decoration: none;
-                font-weight: 500;
-                display: inline-flex;
-                align-items: center;
-                gap: 0.5rem;
-                transition: color 0.2s;
-            }
-
-            .btn-secondary:hover {
-                color: var(--text);
-            }
-
-            /* ════════════════════════════════
-           SECTION HEADER (commun)
-        ════════════════════════════════ */
-            .section-header {
-                margin-bottom: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 0.78rem;
-                font-weight: 700;
-                color: var(--text-muted);
-                letter-spacing: 0.12em;
-                text-transform: uppercase;
-            }
-
-            /* ════════════════════════════════
-           SELECTED WORK
-        ════════════════════════════════ */
-            .projects {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 3rem 4rem;
-                position: relative;
-            }
-
-            /* ════════════════════════════════
-           BENTO GRID
-        ════════════════════════════════ */
-            .bento-grid {
-                display: grid;
-                grid-template-columns: repeat(6, 1fr);
-                gap: 1rem;
-            }
-
-            .bento-card {
-                position: relative;
-                border-radius: 20px;
-                overflow: hidden;
-                text-decoration: none;
-                display: block;
-                transition:
-                    transform 0.3s ease,
-                    box-shadow 0.3s ease;
-            }
-
-            /* Ligne 1 : 1/2 + 1/2 */
-            .bento-card:nth-child(1),
-            .bento-card:nth-child(2) {
-                grid-column: span 3;
-                min-height: 200px;
-            }
-
-            /* Ligne 2 : 1/3 + 1/3 + 1/3 */
-            .bento-card:nth-child(3),
-            .bento-card:nth-child(4),
-            .bento-card:nth-child(5) {
-                grid-column: span 2;
-                min-height: 160px;
-            }
-
-            .bento-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
-            }
-
-            /* ── Couleurs de fond (visibles tant qu'il n'y a pas d'image) ── */
-            .bento-c1 {
-                background-color: var(--primary);
-            }
-            .bento-c2 {
-                background-color: var(--bg-soft);
-            }
-            .bento-c3 {
-                background-color: var(--accent);
-            }
-            .bento-c4 {
-                background-color: var(--text);
-            }
-            .bento-c5 {
-                background-color: var(--primary-light);
-            }
-
-            /* ── Image pleine carte ── */
-            .bento-card img {
-                width: 100%;
-                height: auto;
-                display: block;
-                position: relative;
-                z-index: 1;
-            }
-
-            /* ── Overlay hover ── */
-            .bento-overlay {
-                position: absolute;
-                inset: 0;
-                z-index: 2;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                padding: 1.75rem;
-                opacity: 0;
-                transition: none;
-            }
-
-            .bento-card:hover .bento-overlay {
-                opacity: 1;
-            }
-
-            .bento-c1 .bento-overlay {
-                background: var(--primary);
-            }
-            .bento-c2 .bento-overlay {
-                background: var(--bg-soft);
-            }
-            .bento-c3 .bento-overlay {
-                background: var(--accent);
-            }
-            .bento-c4 .bento-overlay {
-                background: var(--text);
-            }
-            .bento-c5 .bento-overlay {
-                background: var(--primary-light);
-            }
-
-            .bento-overlay-tags {
-                display: flex;
-                gap: 0.4rem;
-                flex-wrap: wrap;
-                transform: translateY(-8px);
-                transition: transform 0.35s ease 0s;
-            }
-
-            .bento-card:hover .bento-overlay-tags {
-                transform: translateY(0);
-            }
-
-            .bento-overlay-bottom {
-                display: flex;
-                flex-direction: column;
-                gap: 1.25rem;
-                transform: translateY(8px);
-                transition: transform 0.35s ease 0.05s;
-            }
-
-            .bento-card:hover .bento-overlay-bottom {
-                transform: translateY(0);
-            }
-
-            .bento-overlay-tag {
-                font-size: 0.6rem;
-                font-weight: 700;
-                letter-spacing: 0.09em;
-                text-transform: uppercase;
-                padding: 0.25rem 0.7rem;
-                border-radius: 100px;
-                color: rgba(255, 255, 255, 0.9);
-                background: rgba(255, 255, 255, 0.22);
-            }
-
-            .bento-c2 .bento-overlay-tag {
-                color: rgba(26, 26, 26, 0.72);
-                background: rgba(26, 26, 26, 0.08);
-            }
-
-            .bento-overlay-desc {
-                font-size: 0.95rem;
-                font-weight: 500;
-                color: #fff;
-                line-height: 1.65;
-            }
-
-            .bento-c2 .bento-overlay-desc {
-                color: rgba(26, 26, 26, 0.88);
-            }
-
-            .bento-overlay-btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.45rem;
-                background: #fff;
-                color: var(--text);
-                font-size: 0.8rem;
-                font-weight: 700;
-                padding: 0.55rem 1.2rem;
-                border-radius: 100px;
-                width: fit-content;
-            }
-
-            /* ── Showcase card (nouvelle style card projet) ── */
-            .showcase-card {
-                display: flex;
-                flex-direction: column;
-                background: #fff;
-                min-height: unset !important;
-                border-radius: 20px;
-                overflow: hidden;
-                border: 1px solid var(--border);
-            }
-
-            .showcase-top {
-                position: relative;
-                background-color: var(--bg-soft);
-                flex: 1;
-                min-height: 240px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-                border-radius: 20px 20px 0 0;
-                transform: translateZ(0);
-            }
-
-            .showcase-logo {
-                position: absolute;
-                top: 1rem;
-                left: 1rem;
-                background: #fff;
-                color: var(--text);
-                font-size: 0.65rem;
-                font-weight: 800;
-                letter-spacing: 0.06em;
-                padding: 0.3rem 0.75rem;
-                border-radius: 100px;
-                text-transform: uppercase;
-                z-index: 2;
-            }
-
-            .showcase-top img {
-                max-height: 100%;
-                width: auto;
-                max-width: 70%;
-                object-fit: contain;
-                position: relative;
-                z-index: 1;
-            }
-
-            .showcase-bottom {
-                background: #fff;
-                padding: 1.25rem 1.5rem 1.5rem;
-                display: flex;
-                flex-direction: column;
-                gap: 0.6rem;
-            }
-
-            .showcase-tags {
-                display: flex;
-                gap: 0.4rem;
-                flex-wrap: wrap;
-                margin-bottom: 0.2rem;
-            }
-
-            .showcase-tag {
-                font-size: 0.62rem;
-                font-weight: 700;
-                color: var(--text);
-                background: var(--bg-soft);
-                padding: 0.25rem 0.65rem;
-                border-radius: 100px;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-            }
-
-            .showcase-title {
-                font-size: 1.15rem;
-                font-weight: 500;
-                letter-spacing: -0.02em;
-                line-height: 1.25;
-                color: var(--text);
-            }
-
-            .showcase-title em {
-                font-style: italic;
-                color: var(--text);
-            }
-
-            .showcase-desc {
-                font-size: 0.83rem;
-                color: var(--text-muted);
-                line-height: 1.6;
-            }
-
-            .showcase-footer {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding-top: 0.9rem;
-                margin-top: 0.25rem;
-                border-top: 1px solid var(--border);
-            }
-
-            .showcase-meta {
-                font-size: 0.78rem;
-                color: var(--text-muted);
-                font-weight: 500;
-            }
-
-            .showcase-btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.4rem;
-                background: var(--primary);
-                color: #fff;
-                font-size: 0.78rem;
-                font-weight: 600;
-                padding: 0.55rem 1rem;
-                border-radius: 100px;
-                white-space: nowrap;
-                transition: background 0.2s;
-            }
-
-            .showcase-btn svg {
-                transition: transform 0.2s;
-            }
-
-            .showcase-card:hover .showcase-btn { background: var(--primary-light); }
-            .showcase-card:hover .showcase-btn svg { transform: translate(2px, -2px); }
-            .showcase-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.18); }
-
-            .showcase-card--disabled { cursor: default; pointer-events: none; }
-            .showcase-card--disabled:hover { transform: none; box-shadow: none; }
-            .showcase-btn--disabled {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.4rem;
-                background: var(--border);
-                color: var(--text-muted);
-                padding: 0.55rem 1.1rem;
-                border-radius: 100px;
-                font-size: 0.8rem;
-                font-weight: 600;
-            }
-
-            /* ════════════════════════════════
-           ABOUT
-        ════════════════════════════════ */
-            .about {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 3rem 4rem;
-                position: relative;
-            }
-
-            .about-content {
-                display: grid;
-                grid-template-columns: auto 1fr;
-                gap: 4rem;
-                align-items: start;
-                margin-top: 2.5rem;
-            }
-
-            .about-photo {
-                width: 300px;
-                height: 300px;
-                flex-shrink: 0;
-                background: var(--peach);
-                border-radius: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-                position: relative;
-            }
-
-            .about-photo::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: radial-gradient(ellipse at 30% 70%, var(--primary-soft), var(--primary));
-                opacity: 0.35;
-            }
-
-            .about-photo span {
-                position: relative;
-                z-index: 1;
-                font-size: 0.85rem;
-                font-weight: 600;
-                color: var(--text-muted);
-                opacity: 0.7;
-            }
-
-            .about-photo img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                position: relative;
-                z-index: 1;
-            }
-
-            .about-text h2 {
-                font-size: 2rem;
-                font-weight: 500;
-                letter-spacing: -0.02em;
-                margin-bottom: 1.25rem;
-            }
-
-            .about-text p {
-                font-size: 1rem;
-                color: var(--text-muted);
-                line-height: 1.8;
-                margin-bottom: 1rem;
-            }
-
-            /* about-text : hauteur fixée à celle de la photo */
-            .about-text {
-                height: 300px;
-                display: flex;
-                flex-direction: column;
-                overflow: hidden;
-            }
-
-            /* Fade : s'étire pour remplir l'espace restant */
-            .about-fade-wrap {
-                position: relative;
-                flex: 1;
-                min-height: 0;
-                overflow: hidden;
-            }
-
-            .about-fade-wrap::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 140px;
-                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--bg) 100%);
-                pointer-events: none;
-            }
-
-            /* ════════════════════════════════
-           TESTIMONIALS
-        ════════════════════════════════ */
-            .testimonials {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 3rem 4rem;
-                position: relative;
-            }
-
-            .testimonials-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
-                margin-top: 2.5rem;
-            }
-
-            .testimonial-card {
-                background: #fff;
-                border: 1px solid var(--border);
-                border-radius: 20px;
-                padding: 2rem;
-                display: flex;
-                flex-direction: column;
-                gap: 1.25rem;
-            }
-
-            .testimonial-quote-mark {
-                font-size: 2.8rem;
-                line-height: 1;
-                color: var(--accent);
-                font-weight: 700;
-            }
-
-            .testimonial-quote {
-                font-size: 0.95rem;
-                color: var(--text-muted);
-                line-height: 1.8;
-                flex: 1;
-            }
-
-            .testimonial-author {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                border-top: 1px solid var(--border);
-                padding-top: 1.25rem;
-            }
-
-            .testimonial-avatar {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                background: var(--orange-bg);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 0.78rem;
-                font-weight: 700;
-                color: var(--orange);
-                flex-shrink: 0;
-            }
-
-            .testimonial-name {
-                font-size: 0.9rem;
-                font-weight: 600;
-                color: var(--text);
-            }
-
-            .testimonial-role {
-                font-size: 0.78rem;
-                color: var(--text-muted);
-                margin-top: 0.1rem;
-            }
-
-            /* ════════════════════════════════
-           CTA
-        ════════════════════════════════ */
-            .index-cta {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 0 4rem 5rem;
-            }
-
-            .index-cta-inner {
-                background: var(--primary-soft);
-                border-radius: 20px;
-                padding: 1.75rem 2.5rem;
-            }
-
-            .index-cta h2 {
-                font-size: clamp(1.5rem, 3vw, 2rem);
-                font-weight: 400;
-                letter-spacing: -0.02em;
-                margin-bottom: 1.25rem;
-            }
-
-            .index-cta h2 em {
-                font-style: italic;
-                font-weight: 300;
-                color: var(--primary-light);
-            }
-
-            .cv-link {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.5rem;
-                background: var(--primary);
-                color: #fff;
-                padding: 0.85rem 1.75rem;
-                border-radius: 100px;
-                text-decoration: none;
-                font-size: 0.95rem;
-                font-weight: 600;
-                transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-            }
-
-            .cv-link svg { transition: transform 0.2s; }
-
-            .cv-link:hover {
-                background: var(--primary-light);
-                transform: translateY(-2px);
-                box-shadow: 0 10px 28px rgba(46, 42, 92, 0.32);
-            }
-
-            .cv-link:hover svg { transform: translate(2px, -2px); }
-
-            /* ════════════════════════════════
-           FOOTER
-        ════════════════════════════════ */
-            footer {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 2.5rem 4rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            footer p {
-                font-size: 0.85rem;
-                color: var(--text-muted);
-            }
-
-            /* ════════════════════════════════
-           RESPONSIVE
-        ════════════════════════════════ */
-            @media (max-width: 900px) {
-                .testimonials-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-                .bento-grid {
-                    grid-template-columns: 1fr 1fr;
-                }
-                .bento-card:nth-child(1),
-                .bento-card:nth-child(2),
-                .bento-card:nth-child(3),
-                .bento-card:nth-child(4),
-                .bento-card:nth-child(5) {
-                    grid-column: span 1;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .badge-full { display: none; }
-                .badge-short { display: inline; }
-
-                nav {
-                    padding: 1rem 1.5rem;
-                }
-                .nav-available {
-                    display: none;
-                }
-
-                .hero {
-                    padding: 3rem 1.5rem;
-                }
-                .star {
-                    display: none;
-                }
-
-                .projects,
-                .about,
-                .testimonials {
-                    padding: 3rem 1.5rem;
-                }
-
-                .index-cta { padding: 0 1.5rem 3rem; }
-
-                .bento-grid {
-                    grid-template-columns: 1fr;
-                }
-                .bento-card:nth-child(1),
-                .bento-card:nth-child(2),
-                .bento-card:nth-child(3),
-                .bento-card:nth-child(4),
-                .bento-card:nth-child(5) {
-                    grid-column: span 1;
-                }
-
-                .testimonials-grid {
-                    grid-template-columns: 1fr;
-                }
-                .about-content {
-                    grid-template-columns: 1fr;
-                    gap: 2rem;
-                }
-                .about-photo {
-                    width: 100%;
-                    height: 280px;
-                }
-
-                footer {
-                    flex-direction: column;
-                    gap: 0.5rem;
-                    padding: 2rem 1.5rem;
-                    text-align: center;
-                }
-            }
-
-            @media (max-width: 480px) {
-                .bento-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
         <!-- ════════════ NAV ════════════ -->
@@ -941,7 +18,7 @@
             <ul class="nav-links">
                 <li>
                     <span class="nav-available">
-                        <span class="nav-available-dot"></span>
+                        <span class="badge-dot"></span>
                         Disponible
                     </span>
                 </li>
@@ -969,20 +46,16 @@
                 </div>
 
                 <div class="hero-badge">
-                    <span class="hero-badge-dot"></span>
-                    <span class="badge-full">Product designer - saas, edtech</span>
-                    <span class="badge-short">Product designer - saas, edtech</span>
+                    <span class="badge-dot"></span>
+                    <span>Product designer - saas, b2b, edtech</span>
                 </div>
 
                 <h1>
-                    De la formation en ligne à l'éducation canine, depuis&nbsp;<em
-                        >8&nbsp;ans</em
-                    >, je transforme des <em style="color:var(--accent);">idées complexes</em> en produits
-                    <em>SaaS</em> qui font revenir.
+                    Product Designer <em style="color:inherit;">SaaS&nbsp;B2B</em> avec <em style="color:inherit;">10&nbsp;ans</em> d'expérience. Je pars des <em style="color:var(--accent);">données utilisateurs</em> pour rendre lisibles des <em style="color:var(--accent);">produits complexes</em>, et j'en <em style="color:inherit;">mesure l'effet</em>.
                 </h1>
 
                 <div class="hero-actions">
-                    <a href="https://www.linkedin.com/in/elodiedene/" target="_blank" class="btn-primary"
+                    <a href="mailto:elodie.dene@gmail.com" class="btn-primary"
                         >Me contacter<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <path
                                 d="M2 12L12 2M12 2H5M12 2V9"
@@ -1021,19 +94,99 @@
             <div class="section-header">
                 <span class="section-title">MES PROJETS</span>
             </div>
-            <!-- ════════════════════════════════════════════════════
-             BENTO GRID — 1/2 + 1/2 puis 1/3 + 1/3 + 1/3
-             Remplace href="#" par le lien de ton case study
-             Remplace les src d'image par tes visuels
-        ════════════════════════════════════════════════════ -->
             <div class="bento-grid">
-                <!-- CARDS:START -->
-                <!-- ░ Carte 1 — 1/2 ░ -->
+                <!-- ░ Carte projet — onboarding ░ -->
+                <a href="projet-onboarding.html" class="bento-card showcase-card">
+                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet2.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
+                    </div>
+                    <div class="showcase-bottom">
+                        <div class="showcase-tags">
+                            <span class="showcase-tag">webapp</span>
+                            <span class="showcase-tag">saas B2B</span>
+                        </div>
+                        <h3 class="showcase-title">Repenser l'onboarding grâce aux <em>données produit</em></h3>
+                        <p class="showcase-desc">Refonte de l'onboarding d'une plateforme SaaS B2B pour clarifier la promesse produit.</p>
+                        <div class="showcase-footer">
+                            <span class="showcase-meta">2023 - 2025</span>
+                            <span class="showcase-btn">
+                                Voir le projet
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ░ Carte projet — recrutement ░ -->
+                <a href="projet-recrutement.html" class="bento-card showcase-card">
+                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet4.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
+                    </div>
+                    <div class="showcase-bottom">
+                        <div class="showcase-tags">
+                            <span class="showcase-tag">Web App</span>
+                            <span class="showcase-tag">SAAS B2B</span>
+                        </div>
+                        <h3 class="showcase-title">Améliorer le <em>recrutement</em> en garde d'enfants</h3>
+                        <p class="showcase-desc">Conception d'une web app qui guide les recruteurs pour évaluer les babysitters plus vite et plus justement.</p>
+                        <div class="showcase-footer">
+                            <span class="showcase-meta">2019 - 2022</span>
+                            <span class="showcase-btn">
+                                Voir le projet
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ░ Carte projet — babysitters ░ -->
+                <a href="projet-babysitters.html" class="bento-card showcase-card">
+                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet3.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
+                    </div>
+                    <div class="showcase-bottom">
+                        <div class="showcase-tags">
+                            <span class="showcase-tag">Mobile</span>
+                            <span class="showcase-tag">Refonte</span>
+                        </div>
+                        <h3 class="showcase-title">Rendre l'autonomie aux&nbsp;<em>babysitters</em></h3>
+                        <p class="showcase-desc">Refonte d'un espace privé pour le rendre plus intuitif, mobile-first et cohérent avec l'évolution des services.</p>
+                        <div class="showcase-footer">
+                            <span class="showcase-meta">2019 - 2022</span>
+                            <span class="showcase-btn">
+                                Voir le projet
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ░ Carte projet — authoring ░ -->
+                <a href="projet-authoring.html" class="bento-card showcase-card">
+                    <div class="showcase-top" style="background-color: var(--bg-soft);">
+                        <img src="images/projet5.svg" alt="Aperçu du projet 5">
+                    </div>
+                    <div class="showcase-bottom">
+                        <div class="showcase-tags">
+                            <span class="showcase-tag">ux research</span>
+                            <span class="showcase-tag">tests utilisateurs</span>
+                        </div>
+                        <h3 class="showcase-title">Concevoir et piloter une&nbsp;<em>session de tests utilisateurs</em></h3>
+                        <p class="showcase-desc">De l'organisation à l'analyse des retours : tests utilisateurs pour valider la cohérence d'un outil SaaS en pleine évolution. </p>
+                        <div class="showcase-footer">
+                            <span class="showcase-meta">2016 - 2019</span>
+                            <span class="showcase-btn">
+                                Voir le projet
+                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ░ Carte Japper — side project (en construction) ░ -->
                 <div class="bento-card showcase-card showcase-card--disabled">
                     <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet1.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
                     </div>
                     <div class="showcase-bottom">
                         <div class="showcase-tags">
+                            <span class="showcase-tag">Side project</span>
                             <span class="showcase-tag">IA</span>
                             <span class="showcase-tag">saas b2b</span>
                         </div>
@@ -1045,92 +198,56 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- ░ Carte 2 — 1/2 ░ -->
-                <a href="projet2.html" class="bento-card showcase-card">
-                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet2.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
-                    </div>
-                    <div class="showcase-bottom">
-                        <div class="showcase-tags">
-                            <span class="showcase-tag">webapp</span>
-                            <span class="showcase-tag">saas B2B</span>
+        <!-- ════════════ TESTIMONIALS ════════════ -->
+        <section class="testimonials">
+            <div class="star" style="top: 1rem; right: 3rem; animation-delay: 0.7s">
+                <svg width="20" height="20" viewBox="0 0 34 34" fill="none">
+                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#2E2A5C" />
+                </svg>
+            </div>
+            <div class="section-header">
+                <span class="section-title">TÉMOIGNAGES</span>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        Elodie comprend les contraintes front et adapte ses designs en conséquence, ce qui évite beaucoup d'allers-retours.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">PB</div>
+                        <div>
+                            <div class="testimonial-name">Pierre-Alain Bouly</div>
+                            <div class="testimonial-role">Senior Software Engineer</div>
                         </div>
-                        <h3 class="showcase-title">Repenser l'onboarding grâce aux <em>données produit</em></h3>
-                        <p class="showcase-desc">Refonte de l'onboarding d'une plateforme SaaS B2B pour clarifier la promesse produit.</p>
-                        <div class="showcase-footer">
-                            <span class="showcase-meta">2024</span>
-                            <span class="showcase-btn">
-                                Voir le projet
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </span>
-                        </div>
                     </div>
-                </a>
+                </div>
 
-                <!-- ░ Carte 3 — showcase card ░ -->
-                <a href="projet3.html" class="bento-card showcase-card">
-                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet3.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
-                    </div>
-                    <div class="showcase-bottom">
-                        <div class="showcase-tags">
-                            <span class="showcase-tag">Mobile</span>
-                            <span class="showcase-tag">Refonte</span>
-                        </div>
-                        <h3 class="showcase-title">Rendre l'autonomie aux&nbsp;<em>babysitters</em></h3>
-                        <p class="showcase-desc">Refonte d'un espace privé pour le rendre plus intuitif, mobile-first et cohérent avec l'évolution des services.</p>
-                        <div class="showcase-footer">
-                            <span class="showcase-meta">2022</span>
-                            <span class="showcase-btn">
-                                Voir le projet
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </span>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        Le travail d'Elodie nous a permis de mieux comprendre les besoins en alignement aux objectifs stratégiques de l'entreprise.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SR</div>
+                        <div>
+                            <div class="testimonial-name">Sabina Ro</div>
+                            <div class="testimonial-role">Talent Acquisition Manager</div>
                         </div>
                     </div>
-                </a>
+                </div>
 
-                <!-- ░ Carte 4 — showcase card ░ -->
-                <a href="projet4.html" class="bento-card showcase-card">
-                    <div class="showcase-top" style="background-color: var(--bg-soft); background-image: url('images/card-projet4.png'); background-size: cover; background-position: center; border-bottom: 1px solid var(--border);">
-                    </div>
-                    <div class="showcase-bottom">
-                        <div class="showcase-tags">
-                            <span class="showcase-tag">Web App</span>
-                            <span class="showcase-tag">SAAS B2B</span>
-                        </div>
-                        <h3 class="showcase-title">Améliorer le <em>recrutement</em> en garde d'enfants</h3>
-                        <p class="showcase-desc">Conception d'une web app qui guide les recruteurs pour évaluer les babysitters plus vite et plus justement.</p>
-                        <div class="showcase-footer">
-                            <span class="showcase-meta">2021</span>
-                            <span class="showcase-btn">
-                                Voir le projet
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </span>
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">
+                        J'ai travaillé avec Elodie et j'ai apprécié sa façon de prendre en compte les remontées terrain pour les traduire en décisions design concrètes.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">FS</div>
+                        <div>
+                            <div class="testimonial-name">Farha Siriouane</div>
+                            <div class="testimonial-role">Head of CSM</div>
                         </div>
                     </div>
-                </a>
-
-                <!-- ░ Carte 5 — showcase card ░ -->
-                <a href="projet5.html" class="bento-card showcase-card">
-                    <div class="showcase-top" style="background-color: var(--bg-soft);">
-                        <img src="images/projet5.svg" alt="Aperçu de l'app Mônji">
-                    </div>
-                    <div class="showcase-bottom">
-                        <div class="showcase-tags">
-                            <span class="showcase-tag">ux research</span>
-                            <span class="showcase-tag">tests utilisateurs</span>
-                        </div>
-                        <h3 class="showcase-title">Concevoir et piloter une&nbsp;<em>session de tests utilisateurs</em></h3>
-                        <p class="showcase-desc">De l'organisation à l'analyse des retours : tests utilisateurs pour valider la cohérence d'un outil SaaS en pleine évolution. </p>
-                        <div class="showcase-footer">
-                            <span class="showcase-meta">2018</span>
-                            <span class="showcase-btn">
-                                Voir le projet
-                                <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-                <!-- CARDS:END -->
+                </div>
             </div>
         </section>
 
@@ -1144,8 +261,7 @@
             <div class="section-header"><span class="section-title">À PROPOS</span></div>
             <div class="about-content">
                 <div class="about-photo">
-                    <img src="images/photo2.png" alt="Elodie Dené">
-                    
+                    <img src="images/photo-web.jpg" alt="Elodie Dené" style="object-position: center 35%;">
                 </div>
                 <div class="about-text">
                     <h2>Je suis Elodie</h2>
@@ -1178,64 +294,11 @@
             </div>
         </section>
 
-        <!-- ════════════ TESTIMONIALS ════════════ -->
-        <section class="testimonials">
-            <div class="star" style="top: 1rem; right: 3rem; animation-delay: 0.7s">
-                <svg width="20" height="20" viewBox="0 0 34 34" fill="none">
-                    <path d="M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z" fill="#2E2A5C" />
-                </svg>
-            </div>
-            <div class="section-header">
-                <span class="section-title">TÉMOIGNAGES</span>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote">
-                        Elodie comprend les contraintes front et adapte ses designs en conséquence, ce qui évite beaucoup d'allers-retours.</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">PB</div>
-                        <div>
-                            <div class="testimonial-name">Pierre-Alain Bouly</div>
-                            <div class="testimonial-role">Senior Software Engineer</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote">
-                        Le travail d'Elodie nous a permis de mieux comprendre les besoins en alignement aux objectifs stratégiques de l'entreprise.</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">SR</div>
-                        <div>
-                            <div class="testimonial-name">Sabina Ro</div>
-                            <div class="testimonial-role">Talent Acquisition Manager</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote">
-                        J'ai travaillé avec Elodie et j'ai apprécié sa façon de prendre en compte les remontées terrain pour les traduire en décisions design concrètes.
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">FS</div>
-                        <div>
-                            <div class="testimonial-name">Farha Siriouane</div>
-                            <div class="testimonial-role">Head of CSM</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- ════════════ CTA ════════════ -->
         <section class="index-cta">
             <div class="index-cta-inner">
                 <h2>Prêt à construire quelque chose<br><em>ensemble ?</em></h2>
-                <a href="https://www.linkedin.com/in/elodiedene/" target="_blank" class="cv-link">Me contacter<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                <a href="mailto:elodie.dene@gmail.com" class="cv-link">Me contacter<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
             </div>
         </section>
 

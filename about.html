@@ -7,402 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --bg:         #FFFFFF;
-            --bg-card:    #FFFFFF;
-            --bg-soft:    #F2EDE3;
-            --text:       #1A1A1A;
-            --text-muted: #6B6660;
-            --border:     #E8E2D5;
-            --primary:        #2E2A5C;
-            --primary-soft:   #E8E4F0;
-            --primary-light:  #7165C8;
-            --accent:       #E8614A;
-            --accent-soft:  #FBE4DE;
-            --orange:    var(--primary);
-            --orange-bg: var(--primary-soft);
-            --green:     var(--primary);
-            --green-bg:  var(--primary-soft);
-            --yellow:    var(--accent);
-            --peach:     var(--bg-soft);
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        /* ── Nav ── */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 4rem;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text);
-            text-decoration: none;
-            }
-
-            .nav-logo-img {
-            height: 1.7rem;
-            width: auto;
-            display: block;
-            }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--text); }
-
-        .nav-available {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            background: #E8F1EA;
-            color: #2F6B43;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.35rem 0.85rem;
-            border-radius: 100px;
-            letter-spacing: 0.02em;
-        }
-
-        .nav-available-dot {
-            width: 7px;
-            height: 7px;
-            background: #3A9E5F;
-            border-radius: 50%;
-            animation: blink 2s ease-in-out infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50%       { opacity: 0.3; }
-        }
-
-        /* ── Contenu centré ── */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 6rem 4rem 5rem;
-        }
-
-        /* ── Back link ── */
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-bottom: 3rem;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover { color: var(--orange); }
-
-        /* ── Intro ── */
-        .about-intro b {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .about-quote-wrap {
-            background: var(--bg-soft);
-            border-radius: 20px;
-            padding: 2rem 2.5rem 2.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .about-quote-mark {
-            display: block;
-            font-size: 5rem;
-            line-height: 0.8;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-
-        .about-intro h1 {
-            font-size: clamp(1.9rem, 4vw, 3rem);
-            font-weight: 400;
-            line-height: 1.2;
-            letter-spacing: -0.025em;
-            margin-bottom: 0;
-        }
-
-        .about-intro p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.85;
-            margin-bottom: 1.1rem;
-        }
-
-        .about-intro p:last-of-type { margin-bottom: 1.75rem; }
-
-        .cv-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--primary);
-            color: #fff;
-            padding: 0.85rem 1.75rem;
-            border-radius: 100px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-        }
-
-        .cv-link svg { transition: transform 0.2s; }
-
-        .cv-link:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(46, 42, 92, 0.32);
-        }
-
-        .cv-link:hover svg { transform: translate(2px, -2px); }
-
-        /* ── Séparateur de section ── */
-        .about-section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 4rem 5rem;
-        }
-
-        .about-section h2 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: 2.5rem;
-        }
-
-        /* ── Grille principes ── */
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .principle-card {
-            background: var(--bg-soft);
-            border-radius: 20px;
-            padding: 1.75rem 1.75rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .principle-visual {
-            position: relative;
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            overflow: hidden;
-        }
-
-        .principle-big-num {
-            font-size: 8rem;
-            font-weight: 800;
-            color: var(--accent);
-            line-height: 1;
-            letter-spacing: -0.05em;
-            user-select: none;
-        }
-
-.principle-body {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .principle-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text);
-            letter-spacing: -0.01em;
-            line-height: 1.4;
-        }
-
-        .principle-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-        }
-
-        /* ── Liste fun ── */
-        .fun-list {
-            list-style: none;
-            padding-left: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .fun-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .fun-list li::before {
-            content: '';
-            display: block;
-            width: 26px;
-            height: 26px;
-            flex-shrink: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Cpath d='M17 0L19.8 14.2L34 17L19.8 19.8L17 34L14.2 19.8L0 17L14.2 14.2L17 0Z' fill='%232E2A5C'/%3E%3C/svg%3E");
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        /* ── Photo ── */
-        .about-photo {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 4rem 5rem;
-            overflow: hidden;
-        }
-
-        .about-photo img {
-            width: 100%;
-            display: block;
-        }
-
-        /* ── CTA bloc ── */
-        .about-cta {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 4rem 5rem;
-        }
-
-        .about-cta-inner {
-            background: var(--primary-soft);
-            border-radius: 20px;
-            padding: 1.75rem 2.5rem;
-        }
-
-        .about-cta h2 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 400;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.25rem;
-        }
-
-        .about-cta h2 em {
-            font-style: italic;
-            font-weight: 300;
-            color: var(--primary-light);
-        }
-
-        @media (max-width: 768px) {
-            .about-cta { padding: 0 1.5rem 3rem; }
-        }
-
-        /* ── Footer ── */
-        footer {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 4rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        footer p { font-size: 0.85rem; color: var(--text-muted); }
-
-        .footer-links { display: flex; gap: 1.5rem; }
-
-        .footer-links a {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover { color: var(--orange); }
-
-        /* ── Back to top ── */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 44px;
-            height: 44px;
-            background: var(--primary);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s, transform 0.3s, background 0.2s;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .back-to-top:hover { background: var(--primary-light); }
-
-        /* ── Responsive ── */
-        @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; }
-            .nav-available { display: none; }
-            .about-content { padding: 4rem 1.5rem 3rem; }
-            .about-section { padding: 0 1.5rem 3rem; }
-            .principles-grid { grid-template-columns: 1fr; }
-            .about-photo { padding: 0 1.5rem 3rem; }
-            footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-        }
-    </style>
+        <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -412,7 +17,7 @@
         <ul class="nav-links">
             <li>
                 <span class="nav-available">
-                    <span class="nav-available-dot"></span>
+                    <span class="badge-dot"></span>
                     Disponible
                 </span>
             </li>
@@ -421,7 +26,7 @@
     </nav>
 
     <!-- Intro -->
-    <section class="about-content about-intro">
+    <section class="about-page about-intro">
         <a href="index.html" class="back-link">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Retour
@@ -436,8 +41,6 @@
         <p>Ma double formation en<b> Product Design et Stratégie Digitale</b>, adossée à mon parcours en <b>Sciences Humaines et Sociales</b>, me donne une perspective particulière sur les projets centrés utilisateur : je m'intéresse autant aux <b>comportements et aux besoins</b> qu'à la solution elle-même.</p>
 
         <p>J'ai aussi une sensibilité forte pour les <b>causes environnementales et animales</b>, et mon ambition est d'aligner progressivement ma carrière sur ces engagements.</p>
-
-        <p></p>
 
         <a href="Élodie Dené - CV.pdf" download="Elodie Dene - CV.pdf" class="cv-link">
             Télécharger mon CV
@@ -456,7 +59,7 @@
                     <span class="principle-big-num">01</span>
                 </div>
                 <div class="principle-body">
-                    <p class="principle-title">Empathie</p>
+                    <p class="card-title">Empathie</p>
                     <p class="principle-desc">Avant de concevoir, je prends le temps de comprendre les utilisateurs : leurs objectifs, leurs frustrations et leur contexte.&nbsp;</p>
                 </div>
             </div>
@@ -467,7 +70,7 @@
                     <span class="principle-big-num">02</span>
                 </div>
                 <div class="principle-body">
-                    <p class="principle-title">Intention</p>
+                    <p class="card-title">Intention</p>
                     <p class="principle-desc">Chaque choix de conception a une raison d'être. Je relie les choix visuels aux besoins des utilisateurs et aux objectifs de l'entreprise.&nbsp;</p>
                 </div>
             </div>
@@ -478,7 +81,7 @@
                     <span class="principle-big-num">03</span>
                 </div>
                 <div class="principle-body">
-                    <p class="principle-title">Curiosité</p>
+                    <p class="card-title">Curiosité</p>
                     <p class="principle-desc">La première idée est rarement la meilleure. Je considère les feedbacks, les tests et les itérations comme des étapes naturelles du processus.&nbsp;</p>
                 </div>
             </div>
@@ -493,12 +96,12 @@
             <li>je fais des activités en tout genre avec ma fille Mia</li>
             <li>je mange de délicieux plats végétariens (grâce au houmous et au pain à l'ail)</li>
             <li>je m'occupe de mon chien et de mes chats (dites bonjour à Nuka, Marlon, Nala et Yuki)</li>
-            <li><span style="font-size: 15.2px;">je joue à des jeux vidéo d'horreur (Resident Evil, Outlast, Until Dawn, The Quarry)</span></li>
+            <li>je joue à des jeux vidéo d'horreur (Resident Evil, Outlast, Until Dawn, The Quarry)</li>
         </ul>
     </section>
 
     <!-- Photo -->
-    <div class="about-photo">
+    <div class="about-page-photo">
         <img src="images/moodboard.png" alt="Elodie Dené">
     </div>
 

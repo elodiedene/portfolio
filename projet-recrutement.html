@@ -7,546 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --bg:         #FFFFFF;
-            --bg-soft:    #F2EDE3;
-            --text:       #1A1A1A;
-            --text-muted: #6B6660;
-            --border:     #E8E2D5;
-            --primary:        #2E2A5C;
-            --primary-soft:   #E8E4F0;
-            --primary-light:  #7165C8;
-            --accent:       #E8614A;
-            --orange:    var(--primary);
-            --orange-bg: var(--primary-soft);
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        /* ── Nav ── */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 4rem;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text);
-            text-decoration: none;
-            }
-
-            .nav-logo-img {
-            height: 1.7rem;
-            width: auto;
-            display: block;
-            }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--text); }
-
-        .nav-available {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            background: #E8F1EA;
-            color: #2F6B43;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.35rem 0.85rem;
-            border-radius: 100px;
-            letter-spacing: 0.02em;
-        }
-
-        .nav-available-dot {
-            width: 7px;
-            height: 7px;
-            background: #3A9E5F;
-            border-radius: 50%;
-            animation: blink 2s ease-in-out infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50%       { opacity: 0.3; }
-        }
-
-        /* ── Case Study Header ── */
-        .case-header {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 6rem 4rem 0;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-bottom: 3rem;
-            transition: color 0.2s;
-        }
-
-        .back-link:hover { color: var(--orange); }
-
-        .case-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--orange);
-            background: var(--orange-bg);
-            padding: 0.3rem 0.85rem;
-            border-radius: 100px;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
-        }
-
-        .case-header h1 {
-            font-size: clamp(1.75rem, 3.5vw, 3rem);
-            font-weight: 400;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-
-        /* ── Content ── */
-        .case-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 4rem 8rem;
-        }
-
-        /* ── Meta ── */
-        .case-meta {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            padding: 1.75rem 2rem;
-            background: var(--primary-soft);
-            border-radius: 16px;
-            margin-top: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .meta-item {
-            padding: 0 1.75rem;
-            border-right: 1px solid rgba(46, 42, 92, 0.12);
-        }
-
-        .meta-item:first-child { padding-left: 0; }
-        .meta-item:last-child { border-right: none; }
-
-        .meta-label {
-            display: block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 0.4rem;
-        }
-
-        .meta-item p {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        /* ── Sections ── */
-        .case-section {
-            margin-bottom: 4rem;
-        }
-
-        .case-section h2 {
-            font-size: 1.8rem;
-            font-weight: 500;
-            letter-spacing: -0.02em;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .case-section h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin-top: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .case-section p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .subsection-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-        }
-
-        /* ── Grille d'objectifs ── */
-        .objectives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 1.5rem 0 2rem;
-        }
-
-        .objective-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-
-        .objective-number {
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            color: var(--text);
-        }
-
-        .objective-text {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        /* ── Pills ── */
-        .pills-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin: 1rem 0 2rem;
-        }
-
-        .pill {
-            display: inline-flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            background: var(--primary-soft);
-            color: var(--text);
-            font-size: 0.88rem;
-            font-weight: 500;
-            padding: 0.65rem 1rem;
-            border-radius: 10px;
-            line-height: 1.5;
-        }
-
-        /* Pill pleine largeur (user problem statement) */
-        .pill-statement {
-            display: block;
-            background: var(--primary-soft);
-            color: var(--text);
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 1.1rem 1.25rem;
-            border-radius: 12px;
-            line-height: 1.65;
-            margin-top: 0.75rem;
-        }
-
-        .case-section img {
-            width: 100%;
-            display: block;
-        }
-
-        /* Image cliquable (ouvre la version pleine taille) */
-        .case-section a img {
-            cursor: zoom-in;
-            transition: opacity 0.2s, transform 0.2s;
-        }
-        .case-section a:hover img {
-            opacity: 0.9;
-            transform: scale(1.01);
-        }
-
-        /* Grille persona + experience map côte à côte */
-        .two-col-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-            margin: 1.5rem 0 0.75rem;
-        }
-
-        .two-col-grid .col-label {
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            color: var(--text);
-            margin-bottom: 0.75rem;
-        }
-
-        .two-col-grid p:not(.col-label) {
-            font-style: italic;
-            margin-top: 0.75rem;
-        }
-
-        /* ── Images design côte à côte avec caption ── */
-        .design-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-            margin: 1.5rem 0 0.5rem;
-        }
-
-        .design-grid-item img {
-            min-height: 240px;
-            margin: 0 0 0.6rem;
-        }
-
-        .image-caption {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.55;
-            font-style: italic;
-        }
-
-        /* ── Footer ── */
-        footer {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 4rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        footer p { font-size: 0.85rem; color: var(--text-muted); }
-
-        /* ── Back to top ── */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 44px;
-            height: 44px;
-            background: var(--primary);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s, transform 0.3s, background 0.2s;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .back-to-top:hover { background: var(--primary-light); }
-
-        /* ── Pill dots ── */
-        .pill-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            margin-top: 0.48rem;
-        }
-        .pill-dot--insight { background: var(--primary-light); }
-        .pill-dot--key { background: var(--accent); }
-        .pills-list--hmw .pill { background: var(--bg-soft); }
-
-        /* ── Decisions ── */
-        .decisions-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin: 1.5rem 0 0.5rem;
-        }
-        .decision-block {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .decision-row {
-            display: grid;
-            grid-template-columns: 95px 1fr;
-            gap: 0.75rem;
-            align-items: baseline;
-        }
-        .decision-row-label {
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-        }
-        .decision-row-label--avant { color: var(--accent); }
-        .decision-row-label--avant + .decision-row-text { color: var(--accent); }
-        .decision-row-text {
-            font-size: 0.9rem;
-            color: var(--text);
-            line-height: 1.6;
-        }
-        .decision-divider {
-            height: 1px;
-            background: var(--border);
-            margin: 0.25rem 0;
-        }
-
-        /* ── Features priority alt ── */
-        .features-priority-alt {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .priority-card {
-            border-radius: 12px;
-            padding: 1.25rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        /* Fonds clairs par niveau de priorité */
-        .priority-card--must  { background: #E8F1EA; }
-        .priority-card--should { background: #FBF3D9; }
-        .priority-card--nice  { background: #FCEAE4; }
-        .priority-card--wont  { background: #FBE3E3; }
-        .priority-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.25rem 0.75rem;
-            border-radius: 100px;
-            width: fit-content;
-            background: #fff;
-        }
-        /* Tag : texte de la couleur du niveau */
-        .priority-card--must  .priority-badge { color: #2F6B43; }
-        .priority-card--should .priority-badge { color: #A87F12; }
-        .priority-card--nice  .priority-badge { color: #E8614A; }
-        .priority-card--wont  .priority-badge { color: #C0392B; }
-        .priority-card-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .priority-card-list li {
-            font-size: 0.88rem;
-            color: var(--text);
-            line-height: 1.5;
-            padding-left: 1rem;
-            position: relative;
-        }
-        .priority-card-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.55em;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: var(--text);
-        }
-
-        /* ── Responsive ── */
-        @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; }
-            .nav-available { display: none; }
-            .case-header { padding: 4rem 1.5rem 2rem; }
-            .case-content { padding: 0 1.5rem 5rem; }
-            .case-meta { grid-template-columns: 1fr; }
-            .meta-item { padding: 0.75rem 0; border-right: none; border-bottom: 1px solid rgba(46, 42, 92, 0.12); }
-            .meta-item:first-child { padding-top: 0; }
-            .meta-item:last-child { border-bottom: none; padding-bottom: 0; }
-            .objectives-grid { grid-template-columns: 1fr 1fr; }
-            .two-col-grid { grid-template-columns: 1fr; }
-            .design-grid-item img { min-height: 0; }
-            .image-caption { font-size: 0.6rem; }
-            footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-            .features-priority-alt { grid-template-columns: 1fr; }
-        }
-
-        /* ── Navigation projets ── */
-        .project-nav {
-            display: flex;
-            justify-content: space-between;
-            gap: 1.5rem;
-            margin-top: 4rem;
-            padding-top: 2.5rem;
-            border-top: 1px solid var(--border);
-        }
-        .project-nav a {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-            flex: 1;
-            text-decoration: none;
-            color: var(--text);
-            transition: color 0.2s;
-        }
-        .project-nav a:hover { color: var(--accent); }
-        .project-nav-next { text-align: right; align-items: flex-end; }
-        .project-nav-dir {
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-        }
-        .project-nav-title { font-size: 0.95rem; font-weight: 600; line-height: 1.3; }
-    </style>
+        <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -556,7 +17,7 @@
         <ul class="nav-links">
             <li>
                 <span class="nav-available">
-                    <span class="nav-available-dot"></span>
+                    <span class="badge-dot"></span>
                     Disponible
                 </span>
             </li>
@@ -586,7 +47,7 @@
             </div>
             <div class="meta-item">
                 <span class="meta-label">Année</span>
-                <p>2021</p>
+                <p>2019 - 2022</p>
             </div>
         </div>
     </header>
@@ -623,19 +84,19 @@
             <h3>Audit UX</h3>
             <p class="subsection-desc">J'ai réalisé un audit UX du CRM utilisé par les recruteurs, basé sur <strong>les critères heuristiques de Bastien et Scapin :</strong></p>
             <div class="pills-list">
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Beaucoup d'allers-retours qui augmentent le temps de réalisation d'une tâche</span>
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Un système d'imbrication des pages peu optimal qui gêne la navigation</span>
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Des pages qui ne sont pas responsives, ce qui génère un scroll horizontal</span>
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Pas de retours système pour informer l'utilisateur de ce qu'il se passe</span>
+                <span class="pill"><span class="pill-dot"></span>Beaucoup d'allers-retours qui augmentent le temps de réalisation d'une tâche</span>
+                <span class="pill"><span class="pill-dot"></span>Un système d'imbrication des pages peu optimal qui gêne la navigation</span>
+                <span class="pill"><span class="pill-dot"></span>Des pages qui ne sont pas responsives, ce qui génère un scroll horizontal</span>
+                <span class="pill"><span class="pill-dot"></span>Pas de retours système pour informer l'utilisateur de ce qu'il se passe</span>
             </div>
 
             <h3>Entretiens</h3>
             <p class="subsection-desc">J'ai mené 5 entretiens semi-directifs avec des<strong>&nbsp;recruteurs,&nbsp;</strong>on a abordé leur travail quotidien :</p>
             <div class="pills-list">
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Les recruteurs ne sont pas guidés et oublient parfois de réaliser certaines tâches</span>
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Le manque de traduction du CRM limite la compréhension des recruteurs non francophones</span>
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Il y a peu d'automatisation et le processus de recrutement peut devenir répétitif, fastidieux et lent</span>
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Il y a trop de tableaux et informations non pertinentes qui polluent le parcours et engendrent des erreurs</span>
+                <span class="pill"><span class="pill-dot"></span>Les recruteurs ne sont pas guidés et oublient parfois de réaliser certaines tâches</span>
+                <span class="pill"><span class="pill-dot"></span>Le manque de traduction du CRM limite la compréhension des recruteurs non francophones</span>
+                <span class="pill"><span class="pill-dot"></span>Il y a peu d'automatisation et le processus de recrutement peut devenir répétitif, fastidieux et lent</span>
+                <span class="pill"><span class="pill-dot"></span>Il y a trop de tableaux et informations non pertinentes qui polluent le parcours et engendrent des erreurs</span>
             </div>
 
             <p class="subsection-desc">À partir des 5 entretiens réalisés, j'ai construit un persona principal et son experience map pour modéliser les frictions rencontrées par un recruteur.</p>
@@ -702,9 +163,9 @@
             <h3>How might we</h3>
             <p class="subsection-desc">Afin de réfléchir à des solutions, nous nous sommes basés sur des énoncés "How might we" :</p>
             <div class="pills-list pills-list--hmw">
-                <span class="pill"><span class="pill-dot pill-dot--key"></span>Comment pourrions-nous guider le recruteur quand il fait passer un entretien ?</span>
-                <span class="pill"><span class="pill-dot pill-dot--key"></span>Comment pourrions-nous éviter au recruteur de se tromper sur le profil du candidat ?</span>
-                <span class="pill"><span class="pill-dot pill-dot--key"></span>Comment pourrions-nous aider le recruteur à prendre une décision concernant les aptitudes du candidat ?</span>
+                <span class="pill"><span class="pill-dot"></span>Comment pourrions-nous guider le recruteur quand il fait passer un entretien ?</span>
+                <span class="pill"><span class="pill-dot"></span>Comment pourrions-nous éviter au recruteur de se tromper sur le profil du candidat ?</span>
+                <span class="pill"><span class="pill-dot"></span>Comment pourrions-nous aider le recruteur à prendre une décision concernant les aptitudes du candidat ?</span>
             </div>
 
             <h3>Features</h3>
@@ -760,9 +221,9 @@
             <h3>User tests</h3>
             <p class="subsection-desc">Les tests nous ont permis de rectifier certains points, dont voici quelques exemples :&nbsp;</p>
             <div class="pills-list">
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>La vue par portrait n'est pas pratique, car il peut y avoir énormément de résultats pour un seul candidat</span>
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>La barre d'avancement du prescreen ne donne pas assez de détails sur l'étape où on s'est arrêté</span>
-                <span class="pill"><span class="pill-dot pill-dot--insight"></span>Lorsque le système propose automatiquement de refuser le candidat, il faut plus de détails pour l'expliquer au candidat</span>
+                <span class="pill"><span class="pill-dot"></span>La vue par portrait n'est pas pratique, car il peut y avoir énormément de résultats pour un seul candidat</span>
+                <span class="pill"><span class="pill-dot"></span>La barre d'avancement du prescreen ne donne pas assez de détails sur l'étape où on s'est arrêté</span>
+                <span class="pill"><span class="pill-dot"></span>Lorsque le système propose automatiquement de refuser le candidat, il faut plus de détails pour l'expliquer au candidat</span>
             </div>
 
             <h3>Décisions clés</h3>
@@ -883,17 +344,8 @@
             <p class="subsection-desc">Enfin, concevoir un outil multilingue dès le départ, pour les recruteurs non francophones, a imposé des contraintes de structure et de longueur de contenu à anticiper très tôt.</p>
         </div>
 
-        <!-- Navigation projets -->
-        <div class="project-nav">
-            <a class="project-nav-prev" href="projet3.html">
-                <span class="project-nav-dir">← Projet précédent</span>
-                <span class="project-nav-title">Rendre l'autonomie aux babysitters</span>
-            </a>
-            <a class="project-nav-next" href="projet5.html">
-                <span class="project-nav-dir">Projet suivant →</span>
-                <span class="project-nav-title">Organiser une session de tests utilisateurs</span>
-            </a>
-        </div>
+        <!-- Navigation projets (générée depuis l'ordre des cards de l'accueil) -->
+        <nav class="project-nav" id="project-nav"></nav>
 
     </article>
 
@@ -912,6 +364,8 @@
     <footer>
         <p>© 2026 Elodie Dené</p>
     </footer>
+
+    <script src="projects-nav.js"></script>
 
 </body>
 </html>
