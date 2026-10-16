@@ -70,12 +70,23 @@ nav {
     font-weight: 600;
     color: var(--text);
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 .nav-logo-img {
     height: 1.7rem;
     width: auto;
     display: block;
+    filter: brightness(0);
+    transition: filter 0.2s;
+}
+
+.nav-logo:hover {
+    color: var(--accent);
+}
+
+.nav-logo:hover .nav-logo-img {
+    filter: none;
 }
 
 .nav-links {
@@ -158,7 +169,7 @@ nav {
 .hero h1 {
     font-family: "Playfair Display", serif;
     font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.15;
     letter-spacing: -0.01em;
     max-width: 900px;
@@ -183,10 +194,72 @@ nav {
     align-items: center;
     gap: 1.5rem;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
-.btn-primary,
+/* Bouton plein (hero) — noir, hover orange vif */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--text);
+    color: #fff;
+    border: 1.5px solid var(--text);
+    padding: 0.85rem 1.75rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary svg {
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(232, 97, 74, 0.28);
+}
+
+.btn-primary:hover svg {
+    transform: translate(3px, -3px);
+}
+
+/* Bouton secondaire (hero) — contour noir, hover orange vif */
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--text);
+    padding: 0.85rem 1.75rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.btn-secondary svg {
+    transition: transform 0.2s;
+}
+
+.btn-secondary:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.btn-secondary:hover svg {
+    transform: translateY(3px);
+}
+
+/* Bouton plein (about) — reste violet */
 .cv-link {
     display: inline-flex;
     align-items: center;
@@ -201,24 +274,21 @@ nav {
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
-.btn-primary svg,
 .cv-link svg {
     transition: transform 0.2s;
 }
 
-.btn-primary:hover,
 .cv-link:hover {
     background: var(--primary-light);
     transform: translateY(-2px);
     box-shadow: 0 10px 28px rgba(46, 42, 92, 0.32);
 }
 
-.btn-primary:hover svg,
 .cv-link:hover svg {
     transform: translateX(3px);
 }
 
-/* Lien texte harmonisé — orange, noir au hover, flèche animée */
+/* Lien texte harmonisé — noir, orange au hover, flèche animée */
 .link {
     display: inline-flex;
     align-items: center;
@@ -226,7 +296,7 @@ nav {
     gap: 0.4rem;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--text);
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -236,7 +306,7 @@ nav {
 }
 
 .link:hover {
-    color: var(--text);
+    color: var(--accent);
 }
 
 .link:hover svg {
@@ -257,7 +327,7 @@ nav {
 }
 
 .section-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .projects {
@@ -310,6 +380,7 @@ nav {
 .project-card-body {
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 0.75rem;
     padding: 1.5rem 0.5rem 0.5rem;
 }
@@ -329,7 +400,7 @@ nav {
 .project-card-title {
     font-family: "Playfair Display", serif;
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.2;
     color: var(--text);
 }
@@ -346,7 +417,8 @@ nav {
 }
 
 .project-card-link {
-    margin-top: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -368,8 +440,9 @@ nav {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     grid-template-areas:
-        "meta desc"
-        "title desc";
+        "meta meta"
+        "title desc"
+        "status desc";
     column-gap: 2.5rem;
     align-items: center;
     background: #fff;
@@ -383,6 +456,7 @@ nav {
     grid-area: meta;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.75rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
@@ -394,6 +468,9 @@ nav {
 }
 
 .project-side-badge {
+    grid-area: status;
+    justify-self: start;
+    margin-top: 1rem;
     border: 1px solid var(--accent);
     color: var(--accent);
     border-radius: 100px;
@@ -449,7 +526,7 @@ nav {
 }
 
 .about-title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .about-text p {
@@ -479,7 +556,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 2rem;
+    gap: 0.9rem 2rem;
     flex-wrap: wrap;
 }
 
@@ -502,18 +579,12 @@ nav {
     max-width: 20ch;
 }
 
-.testimonials-head-right {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    align-items: flex-start;
+.testimonials-foot {
+    max-width: 1100px;
+    margin: 1rem auto 0;
+    padding: 0 4rem;
 }
 
-
-.testimonials-count {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-}
 
 .testimonials-scroll {
     display: flex;
@@ -521,7 +592,7 @@ nav {
     overflow-x: auto;
     scroll-snap-type: x proximity;
     scroll-padding-left: max(1.5rem, calc((100% - 1100px) / 2 + 4rem));
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     padding: 0.5rem max(1.5rem, calc((100% - 1100px) / 2 + 4rem)) 1rem;
     scrollbar-width: none;
 }
@@ -608,6 +679,7 @@ nav {
 .cta-btn {
     display: inline-flex;
     align-items: center;
+    gap: 0.5rem;
     background: var(--bg-soft);
     color: var(--text);
     font-size: 0.95rem;
@@ -616,6 +688,14 @@ nav {
     border-radius: 100px;
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.cta-btn svg {
+    transition: transform 0.2s;
+}
+
+.cta-btn:hover svg {
+    transform: translate(3px, -3px);
 }
 
 .cta-btn:hover {
@@ -697,6 +777,15 @@ footer p {
     gap: 0.5rem;
     flex-wrap: wrap;
     margin-bottom: 1.5rem;
+}
+
+/* Titres serif des pages About & Projet — cohérence avec l'accueil */
+.about-intro h1,
+.about-section h2,
+.about-cta h2,
+.case-header h1,
+.case-section h2 {
+    font-family: "Playfair Display", serif;
 }
 
 .case-header h1 {
@@ -1682,6 +1771,9 @@ footer p {
     .testimonials-head {
         padding: 0 1.5rem;
     }
+    .testimonials-foot {
+        padding: 0 1.5rem;
+    }
     .cta-inner {
         padding: 4.5rem 1.5rem;
     }
@@ -1699,6 +1791,7 @@ footer p {
         grid-template-areas:
             "meta"
             "title"
+            "status"
             "desc";
         gap: 1.25rem;
         padding: 2rem 1.5rem;
