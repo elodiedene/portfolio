@@ -402,7 +402,7 @@ nav {
     grid-template-areas:
         "meta meta"
         "title desc"
-        "status desc";
+        "status .";
     column-gap: 2.5rem;
     align-items: center;
     background: #fff;
@@ -1645,17 +1645,8 @@ footer p {
 .about-quote-wrap {
     background: var(--bg-soft);
     border-radius: 20px;
-    padding: 2rem 2.5rem 2.5rem;
+    padding: 2.5rem;
     margin-bottom: 2.5rem;
-}
-
-.about-quote-mark {
-    display: block;
-    font-size: 5rem;
-    line-height: 0.8;
-    color: var(--primary);
-    font-weight: 700;
-    margin-bottom: 0.75rem;
 }
 
 .about-intro h1 {
@@ -1786,6 +1777,10 @@ footer p {
 
 .timeline-role strong {
     font-weight: 700;
+}
+
+.timeline-role + .timeline-role {
+    margin-top: 0.4rem;
 }
 
 .timeline-desc {
