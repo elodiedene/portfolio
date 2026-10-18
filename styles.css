@@ -1808,12 +1808,23 @@ footer p {
     padding: 1.5rem 0.75rem 1.25rem;
     background: var(--bg-soft);
     border-radius: 16px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tool:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 .tool-logo {
     width: 40px;
     height: 40px;
     object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+.tool:hover .tool-logo {
+    transform: scale(1.1);
 }
 
 .tool-name {
