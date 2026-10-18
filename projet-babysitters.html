@@ -168,63 +168,68 @@
         <div class="case-section">
             <h2>Design</h2>
 
-            <h3>Décisions clés</h3>
-            <div class="decisions-list">
-                <div class="decision-block">
-                    <div class="decision-row">
-                        <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">L'espace a une interface desktop uniquement.</span>
-                    </div>
-                    <div class="decision-row">
-                        <span class="decision-row-label">Problème</span>
-                        <span class="decision-row-text">Toutes les pages et actions nécessitent un ordinateur pour être correctement visibles, la navigation est très frustrante sur mobile.</span>
-                    </div>
-                    <div class="decision-row">
-                        <span class="decision-row-label">Décision</span>
-                        <span class="decision-row-text">Refonte mobile-first avec une navigation par burger menu (trop d'entrées pour proposer une tab bar) et une hiérarchie de l'information repensée pour une lecture verticale.</span>
-                    </div>
-                    <div class="decision-row">
-                        <span class="decision-row-label">Impact attendu</span>
-                        <span class="decision-row-text">Fluidifier la navigation sur mobile, réduire les erreurs de manipulation et augmenter le taux de candidature depuis smartphone.</span>
-                    </div>
-                </div>
-                <div class="decision-divider"></div>
-                <div class="decision-block">
-                    <div class="decision-row">
-                        <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">Pas de vue liste des offres et des filtres manquants.</span>
-                    </div>
-                    <div class="decision-row">
-                        <span class="decision-row-label">Problème</span>
-                        <span class="decision-row-text">85 % des répondants au questionnaire préfèrent une vue liste mais c'est une carte uniquement qui est proposée. Les filtres disponibles ne permettent pas de trier par salaire ni par distance — les deux critères les plus importants pour les candidats.</span>
-                    </div>
-                    <div class="decision-row">
-                        <span class="decision-row-label">Décision</span>
-                        <span class="decision-row-text">Mettre la vue liste par défaut avec des filtres contextuels pertinents : salaire, distance, type de garde, âge des enfants, disponibilités. La carte reste accessible en option secondaire.</span>
-                    </div>
-                    <div class="decision-row">
-                        <span class="decision-row-label">Impact attendu</span>
-                        <span class="decision-row-text">Améliorer la pertinence des offres affichées, réduire le temps de recherche et augmenter le taux de candidature.</span>
-                    </div>
-                </div>
-                <div class="decision-divider"></div>
-                <div class="decision-block">
-                    <div class="decision-row">
-                        <span class="decision-row-label decision-row-label--avant">Avant</span>
-                        <span class="decision-row-text">Aucune visibilité sur le parcours à venir du candidat.</span>
-                    </div>
-                    <div class="decision-row">
-                        <span class="decision-row-label">Problème</span>
-                        <span class="decision-row-text">Les candidats ne savent pas ce qui les attend après leur inscription ni où ils en sont dans leur démarche, ce qui génère de l'anxiété et des abandons en cours de parcours.</span>
-                    </div>
-                    <div class="decision-row">
-                        <span class="decision-row-label">Décision</span>
-                        <span class="decision-row-text">Ajout d'un tableau de bord avec un fil d'avancement visible dès la connexion, affichant les étapes complétées, les actions en attente et les prochaines étapes clés du parcours.</span>
-                    </div>
-                    <div class="decision-row">
-                        <span class="decision-row-label">Impact attendu</span>
-                        <span class="decision-row-text">Réduire l'anxiété des nouveaux candidats, augmenter le taux de complétion du profil et diminuer les questions adressées au support.</span>
-                    </div>
+            <div class="decisions-band">
+                <h3 class="decisions-band-title">Décisions clés</h3>
+                <div class="decisions-grid">
+                    <article class="decision-card">
+                        <div class="decision-card-head">
+                            <span class="badge">Décision</span>
+                            <span class="decision-card-num">01</span>
+                        </div>
+                        <h4 class="decision-card-title">Passer au mobile-first</h4>
+                        <div class="decision-card-part decision-card-part--avant">
+                            <span class="decision-card-label">Avant</span>
+                            <span class="decision-card-text">L'espace a une interface desktop uniquement. Toutes les pages et actions nécessitent un ordinateur pour être correctement visibles, la navigation est très frustrante sur mobile.</span>
+                        </div>
+                        <div class="decision-card-part">
+                            <span class="decision-card-label">Décision</span>
+                            <span class="decision-card-text">Refonte mobile-first avec une navigation par burger menu (trop d'entrées pour proposer une tab bar) et une hiérarchie de l'information repensée pour une lecture verticale.</span>
+                        </div>
+                        <div class="decision-card-part decision-card-part--impact">
+                            <span class="decision-card-label">Impact attendu</span>
+                            <span class="decision-card-text">Fluidifier la navigation sur mobile, réduire les erreurs de manipulation et augmenter le taux de candidature depuis smartphone.</span>
+                        </div>
+                    </article>
+
+                    <article class="decision-card">
+                        <div class="decision-card-head">
+                            <span class="badge">Décision</span>
+                            <span class="decision-card-num">02</span>
+                        </div>
+                        <h4 class="decision-card-title">Une vue liste et de vrais filtres</h4>
+                        <div class="decision-card-part decision-card-part--avant">
+                            <span class="decision-card-label">Avant</span>
+                            <span class="decision-card-text">Pas de vue liste des offres et des filtres manquants. 85 % des répondants au questionnaire préfèrent une vue liste mais c'est une carte uniquement qui est proposée. Les filtres disponibles ne permettent pas de trier par salaire ni par distance — les deux critères les plus importants pour les candidats.</span>
+                        </div>
+                        <div class="decision-card-part">
+                            <span class="decision-card-label">Décision</span>
+                            <span class="decision-card-text">Mettre la vue liste par défaut avec des filtres contextuels pertinents : salaire, distance, type de garde, âge des enfants, disponibilités. La carte reste accessible en option secondaire.</span>
+                        </div>
+                        <div class="decision-card-part decision-card-part--impact">
+                            <span class="decision-card-label">Impact attendu</span>
+                            <span class="decision-card-text">Améliorer la pertinence des offres affichées, réduire le temps de recherche et augmenter le taux de candidature.</span>
+                        </div>
+                    </article>
+
+                    <article class="decision-card">
+                        <div class="decision-card-head">
+                            <span class="badge">Décision</span>
+                            <span class="decision-card-num">03</span>
+                        </div>
+                        <h4 class="decision-card-title">Rendre le parcours visible</h4>
+                        <div class="decision-card-part decision-card-part--avant">
+                            <span class="decision-card-label">Avant</span>
+                            <span class="decision-card-text">Aucune visibilité sur le parcours à venir du candidat. Les candidats ne savent pas ce qui les attend après leur inscription ni où ils en sont dans leur démarche, ce qui génère de l'anxiété et des abandons en cours de parcours.</span>
+                        </div>
+                        <div class="decision-card-part">
+                            <span class="decision-card-label">Décision</span>
+                            <span class="decision-card-text">Ajout d'un tableau de bord avec un fil d'avancement visible dès la connexion, affichant les étapes complétées, les actions en attente et les prochaines étapes clés du parcours.</span>
+                        </div>
+                        <div class="decision-card-part decision-card-part--impact">
+                            <span class="decision-card-label">Impact attendu</span>
+                            <span class="decision-card-text">Réduire l'anxiété des nouveaux candidats, augmenter le taux de complétion du profil et diminuer les questions adressées au support.</span>
+                        </div>
+                    </article>
                 </div>
             </div>
 
@@ -266,7 +271,15 @@
         </div>
         <div class="case-section">
             <h2>Ce que j'ai appris</h2>
-            <p>Travailler sur un produit qui a une grande dette technique m'a appris à concevoir sous contrainte. Beaucoup d'idées ont dû être abandonnées ou simplifiées non pas parce qu'elles n'étaient pas pertinentes, mais parce que le socle technique ne le permettait pas. J'ai compris que le rôle du designer n'est pas seulement de proposer la meilleure expérience possible, c'est de trouver la meilleure expérience réalisable.</p>
+            <div class="learnings-list">
+                <div class="learning-item">
+                    <span class="learning-num">01</span>
+                    <div class="learning-body">
+                        <h3 class="learning-title">Concevoir sous contrainte technique.</h3>
+                        <p class="learning-desc">Travailler sur un produit qui a une grande dette technique m'a appris à concevoir sous contrainte. Beaucoup d'idées ont dû être abandonnées ou simplifiées non pas parce qu'elles n'étaient pas pertinentes, mais parce que le socle technique ne le permettait pas. J'ai compris que le rôle du designer n'est pas seulement de proposer la meilleure expérience possible, c'est de trouver la meilleure expérience réalisable.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </article>

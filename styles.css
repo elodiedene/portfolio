@@ -991,52 +991,225 @@ footer p {
     color: var(--accent);
 }
 
-.decisions-list {
+/* ── Ce que j'ai appris : liste numérotée ── */
+.learnings-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin: 1.5rem 0 0.5rem;
 }
 
-.decision-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.decision-row {
+.learning-item {
     display: grid;
-    grid-template-columns: 95px 1fr;
-    gap: 0.75rem;
-    align-items: baseline;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    align-items: start;
+    padding: 2.25rem 0;
+    border-bottom: 1px solid var(--border);
 }
 
-.decision-row-label {
+.learning-num {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.case-section .learning-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+}
+
+.case-section .learning-desc {
+    margin: 0;
+    max-width: 44rem;
+}
+
+@media (max-width: 768px) {
+    .learning-item {
+        grid-template-columns: 4rem minmax(0, 1fr);
+        padding: 1.75rem 0;
+    }
+    .learning-num { font-size: 2.25rem; }
+}
+
+/* ── Hypothèses / Insights : bandeau sable pleine largeur ── */
+.insights-band {
+    background: var(--sand);
+    box-shadow: 0 0 0 100vmax var(--sand);
+    clip-path: inset(0 -100vmax);
+    padding: 2.5rem 0;
+    margin-top: 2.5rem;
+}
+
+.case-section .insights-band-title {
+    margin-top: 0;
+}
+
+.insights-band .insights-list {
+    margin-bottom: 0;
+}
+
+.insights-band .insight-item {
+    border-color: #DCD3BF;
+}
+
+.decisions-band {
+    background: var(--bg-soft);
+    box-shadow: 0 0 0 100vmax var(--bg-soft);
+    clip-path: inset(0 -100vmax);
+    padding: 3rem 0;
+    margin: 2.5rem 0 1.75rem;
+}
+
+/* Collé aux bandeaux de flow qui l'entourent */
+.flow-band + .decisions-band,
+.decisions-band + .flow-band {
+    margin-top: 0;
+}
+
+.flow-band:has(+ .decisions-band),
+.decisions-band:has(+ .flow-band) {
+    margin-bottom: 0;
+}
+
+.case-section .decisions-band-title {
+    margin-top: 0;
+}
+
+.case-section .decisions-band-intro {
+    margin-bottom: 1.5rem;
+}
+
+.decisions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.decision-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.decision-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.decision-card-num {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.case-section .decision-card-title {
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-wrap: pretty;
+    margin: 0;
+}
+
+.decision-card-part {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.decision-card-part--avant {
+    background: var(--accent-soft);
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+}
+
+
+.decision-card-part--impact {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+/* Aligne titre, Avant, Décision et Impact d'une carte à l'autre sur une même ligne */
+@supports (grid-template-rows: subgrid) {
+    .decision-card {
+        display: grid;
+        grid-row: span 5;
+        grid-template-rows: subgrid;
+        row-gap: 1.25rem;
+        align-content: start;
+    }
+
+    .decision-card-part--impact {
+        margin-top: 0;
+    }
+}
+
+.decision-card-label {
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--text-muted);
+    color: var(--primary);
 }
 
-.decision-row-label--avant {
-    color: var(--accent);
-}
+.decision-card-part--avant .decision-card-label { color: #C24A35; }
+.decision-card-part--impact .decision-card-label { color: var(--accent); }
 
-.decision-row-label--avant + .decision-row-text {
-    color: var(--accent);
-}
-
-.decision-row-text {
+.decision-card-text {
     font-size: 0.9rem;
-    color: var(--text);
     line-height: 1.6;
+    color: var(--text);
 }
 
-.decision-divider {
-    height: 1px;
-    background: var(--border);
-    margin: 0.25rem 0;
+.decision-card-part--impact .decision-card-text {
+    position: relative;
+    padding-left: 1.4em;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.55;
+    color: var(--text);
+}
+
+.decision-card-part--impact .decision-card-text::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* Exactement 3 décisions : une seule ligne de 3 cartes plus compactes */
+.decisions-grid:has(> :nth-child(3):last-child) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.decisions-grid:has(> :nth-child(3):last-child) .decision-card {
+    padding: 1.5rem;
+}
+
+.case-section .decisions-grid:has(> :nth-child(3):last-child) .decision-card-title {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+    .decisions-grid:has(> :nth-child(3):last-child) { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .decisions-grid { grid-template-columns: 1fr; }
 }
 
 .back-to-top {
@@ -1162,6 +1335,10 @@ footer p {
     background: var(--sand);
     margin: 2.5rem calc(50% - 50vw) 1.75rem;
     padding: 2rem 0;
+}
+
+.flow-band--plain {
+    background: none;
 }
 
 .case-section .flow-band-title {
@@ -1453,25 +1630,6 @@ footer p {
 .two-col-grid p:not(.col-label) {
     font-style: italic;
     margin-top: 0.75rem;
-}
-
-.design-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    margin: 1.5rem 0 0.5rem;
-}
-
-.design-grid-item img {
-    min-height: 240px;
-    margin: 0 0 0.6rem;
-}
-
-.image-caption {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    line-height: 1.55;
-    font-style: italic;
 }
 
 .features-priority-alt {
@@ -2069,12 +2227,6 @@ footer p {
     }
     .two-col-grid {
         grid-template-columns: 1fr;
-    }
-    .design-grid-item img {
-        min-height: 0;
-    }
-    .image-caption {
-        font-size: 0.6rem;
     }
     .features-priority-alt {
         grid-template-columns: 1fr;
