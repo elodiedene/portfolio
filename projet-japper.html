@@ -15,13 +15,8 @@
     <nav>
         <a href="index.html" class="nav-logo"><img src="images/Logo.svg" alt="Logo Elodie Dené" class="nav-logo-img">Elodie Dené</a>
         <ul class="nav-links">
-            <li>
-                <span class="nav-available">
-                    <span class="badge-dot"></span>
-                    Disponible
-                </span>
-            </li>
             <li><a href="about.html">À propos</a></li>
+            <li><a href="https://www.linkedin.com/in/elodiedene/" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
     </nav>
 
@@ -32,8 +27,7 @@
             Retour
         </a>
         <div class="case-tags">
-            <span class="badge">IA</span>
-            <span class="badge">SaaS B2B</span>
+            <span class="badge">SIDE PROJECT · IA · SAAS B2B</span>
         </div>
         <h1>Donner plus de liberté aux éducateurs canins</h1>
         <div class="case-meta">
@@ -56,22 +50,19 @@
     <article class="case-content">
 
         <!-- ════ Contexte & Objectifs ════ -->
-        <div class="case-section">
-            <h2>Contexte &amp; Objectifs</h2>
-            <p>Caroline est éducatrice canine indépendante. Elle jongle entre ses séances sur le terrain, le suivi de ses élèves, la relance des impayés et la gestion de ses factures — le tout avec un carnet, WhatsApp et un tableau Excel. Japper est un CRM SaaS conçu pour centraliser toute cette gestion et lui rendre du temps.</p>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">01</span>
-                    <p class="objective-text">Centraliser les informations élèves et propriétaires</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">02</span>
-                    <p class="objective-text">Faciliter le suivi des paiements et des impayés</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">03</span>
-                    <p class="objective-text">Réduire le temps consacré à l'administration</p>
-                </div>
+        <div class="case-section case-intro">
+            <div class="case-intro-text">
+                <span class="section-title case-intro-label">01 — Contexte &amp; Objectifs</span>
+                <h2 class="case-intro-title">Moins d'administratif, plus de <em>terrain</em>.</h2>
+                <p>Caroline est éducatrice canine indépendante. Elle jongle entre ses séances sur le terrain, le suivi de ses élèves, la relance des impayés et la gestion de ses factures — le tout avec un carnet, WhatsApp et un tableau Excel. Japper est un CRM SaaS conçu pour centraliser toute cette gestion et lui rendre du temps.</p>
+            </div>
+            <div class="case-intro-goals">
+                <span class="case-intro-goals-label">Objectifs</span>
+                <ol>
+                    <li><span>01</span>Centraliser les informations élèves et propriétaires</li>
+                    <li><span>02</span>Faciliter le suivi des paiements et des impayés</li>
+                    <li><span>03</span>Réduire le temps consacré à l'administration</li>
+                </ol>
             </div>
         </div>
 
@@ -306,9 +297,6 @@
             </div>
         </div>
 
-        <!-- Navigation projets (générée depuis l'ordre des cards de l'accueil) -->
-        <nav class="project-nav" id="project-nav"></nav>
-
     </article>
 
     <!-- Back to top -->
@@ -358,12 +346,19 @@
         });
     </script>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Elodie Dené</p>
-    </footer>
-
-    <script src="projects-nav.js"></script>
+    <!-- Projet suivant + footer -->
+    <section class="cta">
+        <a href="projet-onboarding.html" class="cta-inner next-project">
+            <span class="next-project-label">Projet suivant · 01</span>
+            <h2 class="cta-title">Repenser l'onboarding grâce aux <em>données produit</em></h2>
+        </a>
+        <footer class="cta-footer">
+            <div class="cta-footer-inner">
+                <p>© 2026 Elodie Dené</p>
+                <a href="mailto:elodie.dene@gmail.com">elodie.dene@gmail.com</a>
+            </div>
+        </footer>
+    </section>
 
 </body>
 </html>

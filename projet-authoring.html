@@ -16,13 +16,8 @@
     <nav>
         <a href="index.html" class="nav-logo"><img src="images/Logo.svg" alt="Logo Elodie Dené" class="nav-logo-img">Elodie Dené</a>
         <ul class="nav-links">
-            <li>
-                <span class="nav-available">
-                    <span class="badge-dot"></span>
-                    Disponible
-                </span>
-            </li>
             <li><a href="about.html">À propos</a></li>
+            <li><a href="https://www.linkedin.com/in/elodiedene/" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
     </nav>
 
@@ -33,9 +28,7 @@
             Retour
         </a>
         <div class="case-tags">
-            <span class="badge">SaaS</span>
-            <span class="badge">B2B</span>
-            <span class="badge">EdTech</span>
+            <span class="badge">OUTIL COLLABORATIF · SAAS B2B · GT</span>
         </div>
         <h1>Permettre aux créateurs de contenus éducatifs de collaborer</h1>
         <div class="case-meta">
@@ -58,24 +51,19 @@
     <article class="case-content">
 
         <!-- ════ Contexte & Objectifs ════ -->
-        <div class="case-section">
-            <h2>Contexte &amp; Objectifs</h2>
-
-            <p>Gutenberg Technology propose une plateforme SaaS qui permet de créer, personnaliser et distribuer des contenus éducatifs via différents types de canal. Plusieurs utilisateurs (formateurs, éditeurs, correcteurs, créateurs) sont amenés à travailler ensemble sur un même contenu. Nous savons grâce aux retours clients qu’il leur manque des moyens de collaborer efficacement en ligne.</p>
-
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">01</span>
-                    <p class="objective-text">Pouvoir suivre les modifications faites par les autres</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">02</span>
-                    <p class="objective-text">Pouvoir annoter des informations en lien avec le contenu</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">03</span>
-                    <p class="objective-text">Pouvoir donner son avis sur les modifications faites</p>
-                </div>
+        <div class="case-section case-intro">
+            <div class="case-intro-text">
+                <span class="section-title case-intro-label">01 — Contexte &amp; Objectifs</span>
+                <h2 class="case-intro-title">Créer des contenus éducatifs <em>à plusieurs mains</em>.</h2>
+                <p>Gutenberg Technology propose une plateforme SaaS qui permet de créer, personnaliser et distribuer des contenus éducatifs via différents types de canal. Plusieurs utilisateurs (formateurs, éditeurs, correcteurs, créateurs) sont amenés à travailler ensemble sur un même contenu. Nous savons grâce aux retours clients qu’il leur manque des moyens de collaborer efficacement en ligne.</p>
+            </div>
+            <div class="case-intro-goals">
+                <span class="case-intro-goals-label">Objectifs</span>
+                <ol>
+                    <li><span>01</span>Pouvoir suivre les modifications faites par les autres</li>
+                    <li><span>02</span>Pouvoir annoter des informations en lien avec le contenu</li>
+                    <li><span>03</span>Pouvoir donner son avis sur les modifications faites</li>
+                </ol>
             </div>
         </div>
 
@@ -215,9 +203,6 @@
             <p>Pour chacune des catégories, nous avons ensuite prioriser les retours, avec l'aide de l'équipe de développement et ajouté ces éléments à la roadmap.</p>
         </div>
 
-        <!-- Navigation projets (générée depuis l'ordre des cards de l'accueil) -->
-        <nav class="project-nav" id="project-nav"></nav>
-
     </article>
 
     <!-- Back to top -->
@@ -231,12 +216,19 @@
         });
     </script>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Elodie Dené</p>
-    </footer>
-
-    <script src="projects-nav.js"></script>
+    <!-- Projet suivant + footer -->
+    <section class="cta">
+        <a href="projet-onboarding.html" class="cta-inner next-project">
+            <span class="next-project-label">Projet suivant · 01</span>
+            <h2 class="cta-title">Repenser l'onboarding grâce aux <em>données produit</em></h2>
+        </a>
+        <footer class="cta-footer">
+            <div class="cta-footer-inner">
+                <p>© 2026 Elodie Dené</p>
+                <a href="mailto:elodie.dene@gmail.com">elodie.dene@gmail.com</a>
+            </div>
+        </footer>
+    </section>
 
 </body>
 </html>

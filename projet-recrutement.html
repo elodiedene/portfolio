@@ -15,13 +15,8 @@
     <nav>
         <a href="index.html" class="nav-logo"><img src="images/Logo.svg" alt="Logo Elodie Dené" class="nav-logo-img">Elodie Dené</a>
         <ul class="nav-links">
-            <li>
-                <span class="nav-available">
-                    <span class="badge-dot"></span>
-                    Disponible
-                </span>
-            </li>
             <li><a href="about.html">À propos</a></li>
+            <li><a href="https://www.linkedin.com/in/elodiedene/" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
     </nav>
 
@@ -32,8 +27,7 @@
             Retour
         </a>
         <div class="case-tags">
-            <span class="badge">WEB APP</span>
-            <span class="badge">B2B SAAS</span>
+            <span class="badge">OUTIL MÉTIER · OUTIL INTERNE · MÔMJI</span>
         </div>
         <h1>Améliorer le recrutement en garde d'enfants</h1>
         <div class="case-meta">
@@ -56,24 +50,19 @@
     <article class="case-content">
 
         <!-- ════ Contexte & Objectifs ════ -->
-        <div class="case-section">
-            <h2>Contexte &amp; Objectifs</h2>
-
-            <p>Chez Mômji, le quotidien des recruteurs consiste à évaluer des babysitters sur leurs compétences et leurs savoir être. Pour réaliser ce travail, ils utilisent un CRM développé en interne qui, d'après eux, montre des limites. La dette technique du CRM ne permettant pas d'évolution rapide, la décision a été prise de construire un outil dédié plutôt que de le refondre.</p>
-
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">01</span>
-                    <p class="objective-text">Permettre aux recruteurs de réaliser toutes leurs tâches quotidiennes en un seul endroit</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">02</span>
-                    <p class="objective-text">Augmenter la facilité et la rapidité avec lesquelles les recruteurs réalisent leurs tâches</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">03</span>
-                    <p class="objective-text">Réduire le risque d'erreur d'appréciation des candidats par les recruteurs</p>
-                </div>
+        <div class="case-section case-intro">
+            <div class="case-intro-text">
+                <span class="section-title case-intro-label">01 — Contexte &amp; Objectifs</span>
+                <h2 class="case-intro-title">Un outil dédié pour <em>mieux recruter</em>.</h2>
+                <p>Chez Mômji, le quotidien des recruteurs consiste à évaluer des babysitters sur leurs compétences et leurs savoir être. Pour réaliser ce travail, ils utilisent un CRM développé en interne qui, d'après eux, montre des limites. La dette technique du CRM ne permettant pas d'évolution rapide, la décision a été prise de construire un outil dédié plutôt que de le refondre.</p>
+            </div>
+            <div class="case-intro-goals">
+                <span class="case-intro-goals-label">Objectifs</span>
+                <ol>
+                    <li><span>01</span>Permettre aux recruteurs de réaliser toutes leurs tâches quotidiennes en un seul endroit</li>
+                    <li><span>02</span>Augmenter la facilité et la rapidité avec lesquelles les recruteurs réalisent leurs tâches</li>
+                    <li><span>03</span>Réduire le risque d'erreur d'appréciation des candidats par les recruteurs</li>
+                </ol>
             </div>
         </div>
 
@@ -344,9 +333,6 @@
             <p class="subsection-desc">Enfin, concevoir un outil multilingue dès le départ, pour les recruteurs non francophones, a imposé des contraintes de structure et de longueur de contenu à anticiper très tôt.</p>
         </div>
 
-        <!-- Navigation projets (générée depuis l'ordre des cards de l'accueil) -->
-        <nav class="project-nav" id="project-nav"></nav>
-
     </article>
 
     <!-- Back to top -->
@@ -360,12 +346,19 @@
         });
     </script>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Elodie Dené</p>
-    </footer>
-
-    <script src="projects-nav.js"></script>
+    <!-- Projet suivant + footer -->
+    <section class="cta">
+        <a href="projet-babysitters.html" class="cta-inner next-project">
+            <span class="next-project-label">Projet suivant · 03</span>
+            <h2 class="cta-title">Rendre l'autonomie aux <em>babysitters</em></h2>
+        </a>
+        <footer class="cta-footer">
+            <div class="cta-footer-inner">
+                <p>© 2026 Elodie Dené</p>
+                <a href="mailto:elodie.dene@gmail.com">elodie.dene@gmail.com</a>
+            </div>
+        </footer>
+    </section>
 
 </body>
 </html>
