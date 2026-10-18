@@ -15,7 +15,10 @@
         <!-- ════════════ NAV ════════════ -->
         <nav>
             <a href="index.html" class="nav-logo"><img src="images/Logo.svg" alt="Logo Elodie Dené" class="nav-logo-img">Elodie Dené</a>
-            <ul class="nav-links">
+            <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html#work">Projets</a></li>
                 <li><a href="about.html">À propos</a></li>
                 <li><a href="elodie-dene-cv.pdf" target="_blank" rel="noopener">Mon CV</a></li>
@@ -67,7 +70,7 @@
                 <span class="section-title">MES PROJETS</span>
                 <h2 class="section-headline">Du problème <em>au résultat</em></h2>
             </div>
-            <div class="projects-grid">
+            <div class="projects-grid" data-deck data-deck-hint="Glissez pour voir le projet suivant">
                 <a href="projet-onboarding.html" class="project-card">
                     <div class="project-card-visual" style="background-image: url('images/card-projet2.png');"></div>
                     <div class="project-card-body">
@@ -231,10 +234,11 @@
             <footer class="cta-footer">
                 <div class="cta-footer-inner">
                     <p>© 2026 Elodie Dené</p>
-                    <a href="mailto:elodie.dene@gmail.com">elodie.dene@gmail.com</a>
                 </div>
             </footer>
         </section>
 
+        <script src="deck.js"></script>
+        <script src="nav.js"></script>
     </body>
 </html>

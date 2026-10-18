@@ -108,15 +108,75 @@ nav {
     color: var(--text);
 }
 
-@media (max-width: 600px) {
-    .nav-logo {
-        font-size: 0;
+/* Bouton burger (mobile uniquement) */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    margin-right: -8px;
+    padding: 0 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--text);
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.nav-open .nav-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
     }
     .nav-links {
-        gap: 0.9rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.5rem 1.5rem 1rem;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    }
+    .nav-open .nav-links {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+    .nav-links li + li {
+        border-top: 1px solid var(--border);
     }
     .nav-links a {
-        font-size: 0.82rem;
+        display: block;
+        padding: 0.9rem 0;
+        font-size: 1rem;
+        color: var(--text);
     }
 }
 
@@ -301,7 +361,7 @@ nav {
 
 .projects {
     background: var(--project-bg);
-    padding: 4rem 0;
+    padding: 3rem 0;
 }
 
 .projects-inner {
@@ -502,7 +562,7 @@ nav {
 /* ── Témoignages : bandeau beige + scroll horizontal ── */
 .testimonials {
     background: var(--sand);
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 
 .testimonials-head {
@@ -613,13 +673,13 @@ nav {
 .cta-inner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 7rem 4rem;
+    padding: 3rem 4rem;
 }
 
 .cta-title {
     font-family: "Playfair Display", serif;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 500;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 400;
     line-height: 1.1;
     letter-spacing: -0.01em;
     color: var(--bg-soft);
@@ -684,16 +744,6 @@ nav {
     font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
     font-size: 0.78rem;
     color: rgba(242, 237, 227, 0.5);
-}
-
-.cta-footer-inner a {
-    color: rgba(242, 237, 227, 0.5);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.cta-footer-inner a:hover {
-    color: var(--bg-soft);
 }
 
 /* ── Projet suivant (pages projet) : même bandeau sombre que la CTA ── */
@@ -1796,7 +1846,31 @@ footer p {
 
 @media (max-width: 900px) {
     .toolbox {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Mobile : icône seule, le nom reste lisible par les lecteurs d'écran */
+@media (max-width: 768px) {
+    .toolbox {
+        gap: 0.75rem;
+    }
+    .tool {
+        position: relative;
+        justify-content: center;
+        padding: 1.1rem 0.5rem;
+    }
+    .tool-logo {
+        width: 34px;
+        height: 34px;
+    }
+    .tool-name {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
     }
 }
 
@@ -1895,7 +1969,7 @@ footer p {
         padding: 0 1.5rem;
     }
     .cta-inner {
-        padding: 4.5rem 1.5rem;
+        padding: 3rem 1.5rem;
     }
     .next-project {
         padding: 4rem 1.5rem;
@@ -1908,6 +1982,60 @@ footer p {
     }
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+    /* Pile de cards (activée par deck.js) : on glisse la card du dessus pour voir la suivante */
+    .is-deck {
+        display: block;
+        position: relative;
+    }
+    .is-deck > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform-origin: bottom center;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+        touch-action: pan-y;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-user-drag: none;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+    .is-deck > *:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+    .is-deck > .is-dragging {
+        transition: none;
+    }
+    .deck-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 1.25rem;
+    }
+    .deck-hint {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+    .deck-dots {
+        display: flex;
+        gap: 0.5rem;
+    }
+    .deck-dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background: var(--border);
+        cursor: pointer;
+        transition: background 0.2s, width 0.2s;
+    }
+    .deck-dot.is-active {
+        width: 20px;
+        border-radius: 4px;
+        background: var(--accent);
     }
     .project-side {
         grid-template-columns: 1fr;
@@ -1924,7 +2052,10 @@ footer p {
         gap: 2rem;
     }
     .about-photo {
-        max-width: 240px;
+        aspect-ratio: 4 / 5;
+    }
+    .testimonial-card {
+        flex-basis: 78%;
     }
     footer {
         flex-direction: column;
