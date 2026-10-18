@@ -178,10 +178,6 @@ nav {
     color: var(--orange);
 }
 
-.hero h1 em.em-neutral {
-    color: inherit;
-}
-
 .hero h1 em.em-accent {
     font-style: italic;
     color: var(--accent);
