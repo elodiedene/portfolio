@@ -2064,7 +2064,7 @@ footer p {
         text-align: center;
     }
     .case-header {
-        padding: 4rem 1.5rem 2rem;
+        padding: 3rem 1.5rem 2rem;
     }
     .case-content {
         padding: 0 1.5rem 5rem;
@@ -2128,7 +2128,7 @@ footer p {
         grid-template-columns: 1fr;
     }
     .about-page {
-        padding: 4rem 1.5rem 3rem;
+        padding: 3rem 1.5rem 3rem;
     }
     .about-section {
         padding: 0 1.5rem 3rem;
