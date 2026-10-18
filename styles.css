@@ -47,6 +47,7 @@ body {
     background-size: 24px 24px;
     color: var(--text);
     line-height: 1.6;
+    overflow-x: clip;
 }
 
 nav {
@@ -1156,122 +1157,81 @@ footer p {
     line-height: 1.65;
 }
 
-.carousel {
-    position: relative;
-    margin-bottom: 1.75rem;
-    user-select: none;
+/* ── Flow en cards : bandeau beige + scroll horizontal (comme les témoignages) ── */
+.flow-band {
+    background: var(--sand);
+    margin: 2.5rem calc(50% - 50vw) 1.75rem;
+    padding: 2rem 0;
 }
 
-.carousel-track-wrap {
-    overflow: hidden;
+.case-section .flow-band-title {
+    margin: 0 0 0.5rem;
+    padding: 0 max(1.5rem, calc((100% - 1100px) / 2 + 4rem));
+}
+
+.flow-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-left: max(1.5rem, calc((100% - 1100px) / 2 + 4rem));
+    padding: 0.5rem max(1.5rem, calc((100% - 1100px) / 2 + 4rem)) 1rem;
+    scrollbar-width: none;
+}
+
+.flow-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.flow-card {
+    flex: 0 0 420px;
+    scroll-snap-align: start;
+    background: var(--card-cream);
     border-radius: 16px;
-    background: var(--bg-soft);
+    padding: 1rem 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.case-section .flow-card img {
+    margin: 0;
+    aspect-ratio: 1440 / 1024;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 10px;
     border: 1px solid var(--border);
 }
 
-.carousel-track {
+.flow-card-foot {
     display: flex;
-    width: 100%;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0 0.5rem;
 }
 
-.carousel-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
+.case-section .flow-card-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 0.35rem;
 }
 
-.carousel-slide img {
-    width: 100%;
-    height: 420px;
-    display: block;
-    object-fit: cover;
-    object-position: center top;
-}
-
-.carousel-caption {
-    padding: 0.75rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    min-width: 0;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-.carousel-caption p {
+.case-section .flow-card-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
     margin-bottom: 0;
 }
 
-.carousel-caption-title {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--text);
-    overflow-wrap: break-word;
-}
-
-.carousel-caption-desc {
+.flow-card-num {
     font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    overflow-wrap: break-word;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: calc(50% - 30px);
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(8px);
-    color: var(--text);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, box-shadow 0.2s;
-    z-index: 2;
-}
-
-.carousel-btn:hover {
-    background: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-}
-
-.carousel-btn--prev {
-    left: 0.75rem;
-}
-
-.carousel-btn--next {
-    right: 0.75rem;
-}
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.carousel-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--border);
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.carousel-dot.active {
-    background: var(--primary);
-    transform: scale(1.3);
+    font-weight: 600;
+    color: var(--accent);
+    flex-shrink: 0;
 }
 
 .data-table-wrap {
@@ -2057,6 +2017,9 @@ footer p {
     .testimonial-card {
         flex-basis: 78%;
     }
+    .flow-card {
+        flex-basis: 82%;
+    }
     footer {
         flex-direction: column;
         gap: 0.5rem;
@@ -2097,17 +2060,6 @@ footer p {
         grid-template-columns: 3rem 1fr;
         font-size: 1.15rem;
         padding: 1.15rem 0;
-    }
-    .carousel-slide img {
-        height: 280px;
-        object-position: center center;
-    }
-    .carousel-btn {
-        width: 34px;
-        height: 34px;
-    }
-    .carousel-caption {
-        padding: 1rem 1.25rem 1.25rem;
     }
     .benchmark-cards {
         grid-template-columns: 1fr;
