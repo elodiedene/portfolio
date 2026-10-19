@@ -32,13 +32,19 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!('IntersectionObserver' in window)) return;
 
-    const targets = document.querySelectorAll('[data-reveal], [data-bar], [data-barh], [data-draw], [data-count]');
+    const targets = [...document.querySelectorAll('[data-reveal], [data-bar], [data-count]')];
 
-    // Courbe : on cache le tracé avant d'activer la transition
+    // Courbe : on cache le tracé avant d'activer la transition. Safari observe mal les éléments
+    // internes d'un SVG, donc on observe le <svg> lui-même et on retrouve le tracé à partir de lui.
+    const drawPaths = new Map();
     document.querySelectorAll('[data-draw]').forEach((path) => {
-        const length = path.getTotalLength();
+        let length;
+        try { length = path.getTotalLength(); } catch (e) { return; }
+        if (!length) return;
         path.style.strokeDasharray = length;
         path.style.strokeDashoffset = length;
+        drawPaths.set(path.ownerSVGElement, path);
+        targets.push(path.ownerSVGElement);
     });
 
     // L'état caché n'existe qu'avec cette classe : sans JS, tout reste visible
@@ -64,7 +70,7 @@
             const el = entry.target;
             observer.unobserve(el);
             el.classList.add('is-in');
-            if (el.hasAttribute('data-draw')) el.style.strokeDashoffset = 0;
+            if (drawPaths.has(el)) drawPaths.get(el).style.strokeDashoffset = 0;
             if (el.hasAttribute('data-count')) count(el);
         });
     }, { threshold: 0.15 });
