@@ -7,9 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page-onboarding">
 
     <!-- Navigation -->
     <nav>
@@ -25,411 +25,295 @@
         </ul>
     </nav>
 
-    <!-- Header -->
-    <header class="case-header">
-        <a href="index.html" class="link back">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Retour
-        </a>
-        <div class="case-tags">
-            <span class="badge">PLATEFORME RH · SAAS B2B · FIFTY</span>
-        </div>
-        <h1>Repenser l'onboarding grâce aux données produit</h1>
-        <div class="case-meta">
-            <div class="meta-item">
-                <span class="meta-label">Entreprise</span>
-                <p>Fifty</p>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">Rôle</span>
-                <p>Product Designer</p>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">Année</span>
-                <p>2023 - 2025</p>
-            </div>
-        </div>
-    </header>
+    <main>
 
-    <!-- Content -->
-    <article class="case-content">
+        <!-- ════ Hero ════ -->
+        <section class="ob-hero ob-wrap">
+            <a href="index.html" class="ob-back" data-reveal>← Retour</a>
+            <div class="ob-hero-eyebrow" data-reveal>PLATEFORME RH · SAAS B2B · FIFTY</div>
+            <h1 class="ob-h1" data-reveal>Faire passer de 40% à 52% les utilisateurs en usage soutenu</h1>
+            <div class="ob-meta" data-reveal>
+                <span>ENTREPRISE — <span class="ob-meta-value">Fifty</span></span>
+                <span>RÔLE — <span class="ob-meta-value">Seule designer, binôme avec PM</span></span>
+                <span>ANNÉE — <span class="ob-meta-value">2024</span></span>
+            </div>
+        </section>
 
-        <!-- ════ Contexte & Objectifs ════ -->
-        <div class="case-section case-intro">
-            <div class="case-intro-text">
-                <span class="section-title case-intro-label">01 — Contexte &amp; Objectifs</span>
-                <h2 class="case-intro-title">Transformer les formations en <em>actions concrètes</em>.</h2>
-                <p>Fifty aide les entreprises à transformer les formations en actions concrètes du quotidien.&nbsp; Ce projet est la refonte de l'onboarding de la plateforme qui permet aux collaborateurs de choisir leurs actions à réaliser.</p>
+        <!-- ════ Contexte & objectifs ════ -->
+        <section class="ob-band ob-section">
+            <div class="ob-wrap ob-grid ob-grid--420 ob-context">
+                <div class="ob-context-text" data-reveal>
+                    <div class="ob-eyebrow">01 — CONTEXTE &amp; OBJECTIFS</div>
+                    <p class="ob-context-p">Fifty aide les entreprises à transformer les formations en actions concrètes du quotidien. Ce projet est la refonte de l'onboarding de la plateforme qui permet aux collaborateurs de choisir leurs actions à réaliser.</p>
+                    <p class="ob-context-p">Ce sont les RH qui achètent la solution, et les collaborateurs qui l'utilisent : <strong>l'onboarding doit convaincre des personnes qui n'ont pas choisi l'outil.</strong></p>
+                </div>
+                <div class="ob-objectives" data-reveal>
+                    <div class="ob-label">OBJECTIFS</div>
+                    <ol class="ob-objectives-list">
+                        <li><span class="ob-num">01</span><span>Clarifier la proposition de valeur</span></li>
+                        <li><span class="ob-num">02</span><span>Améliorer le taux de complétion</span></li>
+                        <li><span class="ob-num">03</span><span>Améliorer l'activation utilisateur</span></li>
+                    </ol>
+                </div>
             </div>
-            <div class="case-intro-goals">
-                <span class="case-intro-goals-label">Objectifs</span>
-                <ol>
-                    <li><span>01</span>Clarifier la proposition de valeur</li>
-                    <li><span>02</span>Améliorer le taux de complétion</li>
-                    <li><span>03</span>Améliorer l'activation utilisateur</li>
-                </ol>
-            </div>
-        </div>
+        </section>
 
-        <!-- ════ Section 2 ════ -->
-        <div class="case-section">
-            <h2>Discovery</h2>
-            <h3>Données quantitatives</h3>
-            <p>Avec Amplitude, nous savons que la complétion de l'onboarding chute fortement depuis avril 2024.</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-big-num">72,8 %</span>
-                    <p class="stat-label">Février 2024</p>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-big-num">72,2 %</span>
-                    <p class="stat-label">Mars 2024</p>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-big-num">64 %</span>
-                    <p class="stat-label">Avril 2024</p>
-                </div>
-            </div>
-            <p>L'analyse du funnel a mis en évidence plusieurs points de friction :</p>
-            <div class="data-table-wrap">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Étape</th>
-                        <th>Drop</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Après création de compte</td>
-                        <td>Faible (2 %)</td>
-                    </tr>
-                    <tr>
-                        <td>Remplissage du profil</td>
-                        <td>Moyen (10 %)</td>
-                    </tr>
-                    <tr>
-                        <td>Priorisation des piliers</td>
-                        <td>Fort (15,7 %)</td>
-                    </tr>
-                </tbody>
-            </table>
-            </div>
-            <p>En avril 2024, les utilisateurs sont divisés en deux groupes :</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-big-num">60 %</span>
-                    <p class="stat-label">Utilisateurs en pratique exploratoire<br>(1 à 2 actions réalisées / semaine)</p>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-big-num">40 %</span>
-                    <p class="stat-label">Utilisateurs en pratique soutenue<br>(2 à 4 actions réalisées / semaine)</p>
-                </div>
-            </div>
-            <h3>Données qualitatives</h3>
-            <p>Nous n’avons pas mené d’entretiens dédiés à l’onboarding. Pour comprendre les chiffres, nous nous sommes appuyés sur les retours remontés par l’équipe support et les CSM :</p>
-            <p>« Les utilisateurs ne comprennent pas pourquoi ils arrivent sur Fifty. »</p>
-            <p>« Parfois, il y a une très faible communication en interne autour de Fifty. »</p>
-            <div class="insights-band">
-                <h3 class="insights-band-title">Hypothèses</h3>
-                <div class="insights-list">
-                    <div class="insight-item">
-                        <span class="insight-num">01</span>
-                        <div class="insight-body">
-                            <p class="card-title">Les utilisateurs ne comprennent pas le concept du produit</p>
-                            <p class="insight-desc">Le drop avant même la priorisation des piliers suggère une difficulté de compréhension avant la phase d'engagement.</p>
-                        </div>
+        <!-- ════ Discovery ════ -->
+        <section class="ob-wrap ob-section">
+            <div class="ob-eyebrow" data-reveal>02 — DISCOVERY · DONNÉES QUANTITATIVES</div>
+            <p class="ob-lead" data-reveal>Avec Amplitude, nous savons que la complétion de l'onboarding chute fortement depuis avril 2024.</p>
+            <div class="ob-grid ob-grid--460 ob-grid--gap16">
+                <div class="ob-card ob-card--lg" data-reveal>
+                    <div class="ob-card-label">Taux de complétion de l'onboarding</div>
+                    <svg class="ob-curve" viewBox="0 0 400 180" role="img" aria-label="Courbe du taux de complétion : 72,8 % en février, 72,2 % en mars, 64 % en avril 2024">
+                        <line x1="0" y1="170" x2="400" y2="170" class="ob-curve-base"></line>
+                        <polyline data-draw points="40,30 200,36 360,120" class="ob-curve-line"></polyline>
+                        <circle cx="40" cy="30" r="6" class="ob-curve-dot"></circle>
+                        <circle cx="200" cy="36" r="6" class="ob-curve-dot"></circle>
+                        <circle cx="360" cy="120" r="8" class="ob-curve-dot ob-curve-dot--last"></circle>
+                    </svg>
+                    <div class="ob-months">
+                        <div><div class="ob-month-value" data-count="72.8" data-dec="1" data-suffix=" %">72,8 %</div><div class="ob-small">Février 2024</div></div>
+                        <div><div class="ob-month-value" data-count="72.2" data-dec="1" data-suffix=" %">72,2 %</div><div class="ob-small">Mars 2024</div></div>
+                        <div><div class="ob-month-value ob-coral-text" data-count="64" data-suffix=" %">64 %</div><div class="ob-small">Avril 2024</div></div>
                     </div>
-                    <div class="insight-item">
-                        <span class="insight-num">02</span>
-                        <div class="insight-body">
-                            <p class="card-title">Le choix de priorisation des pilliers arrive trop tôt</p>
-                            <p class="insight-desc">Les utilisateurs doivent prendre des décisions avant même d'avoir compris la valeur du produit.</p>
-                        </div>
+                </div>
+                <div class="ob-card ob-card--lg ob-funnel" data-reveal>
+                    <div class="ob-card-label">L'analyse du funnel a mis en évidence plusieurs points de friction :</div>
+                    <div class="ob-funnel-row">
+                        <div class="ob-funnel-head"><span>Écran de bienvenue, juste après la création du compte</span><span class="ob-mono">Faible · 2 %</span></div>
+                        <div class="ob-track"><div class="ob-fill ob-fill--neutral" data-bar style="--v:12.7%"></div></div>
                     </div>
-                    <div class="insight-item">
-                        <span class="insight-num">03</span>
-                        <div class="insight-body">
-                            <p class="card-title">Les utilisateurs n'ont pas d'actions proposées</p>
-                            <p class="insight-desc">Les utilisateurs n'ont pas d'étape d'engagement concret avec le produit après la phase de découverte passive.&nbsp;</p>
+                    <div class="ob-funnel-row">
+                        <div class="ob-funnel-head"><span>Profil</span><span class="ob-mono">Moyen · 10 %</span></div>
+                        <div class="ob-track"><div class="ob-fill ob-fill--light" data-bar style="--v:63.7%"></div></div>
+                    </div>
+                    <div class="ob-funnel-row">
+                        <div class="ob-funnel-head"><span>Classement des thèmes</span><span class="ob-mono ob-coral-dark">Fort · 15,7 %</span></div>
+                        <div class="ob-track"><div class="ob-fill ob-fill--coral" data-bar style="--v:100%"></div></div>
+                    </div>
+                    <div class="ob-groups">
+                        <div class="ob-card-label ob-groups-label">En avril 2024, les utilisateurs sont divisés en deux groupes :</div>
+                        <div class="ob-stack">
+                            <div class="ob-stack-part ob-stack-part--explo" data-bar style="--v:60%">60 %</div>
+                            <div class="ob-stack-part ob-stack-part--soutenue" data-bar style="--v:40%">40 %</div>
                         </div>
+                        <div class="ob-stack-legend"><span>Pratique exploratoire<br>1 à 2 actions / semaine</span><span>Pratique soutenue<br>plus de 2 actions / semaine</span></div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- ════ Section 3 ════ -->
-        <div class="case-section">
-            <h2>Idéation</h2>
-            <div class="flow-band flow-band--plain">
-                <h3 class="flow-band-title">Flow existant</h3>
-                <div class="flow-scroll">
-                    <article class="flow-card">
-                        <img src="images/v1s1.png" alt="Étape 1 - Écran de bienvenue">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Écran de bienvenue</p>
-                                <p class="flow-card-desc">L'utilisateur découvre la proposition de valeur de Fifty.</p>
-                            </div>
-                            <span class="flow-card-num">01</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v1s2.png" alt="Étape 2 - Informations du programme">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Informations du programme</p>
-                                <p class="flow-card-desc">L'utilisateur retrouve des informations liées au programme.</p>
-                            </div>
-                            <span class="flow-card-num">02</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v1s3.jpg" alt="Étape 3 - Profil">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Profil</p>
-                                <p class="flow-card-desc">L'utilisateur doit remplir quelques informations pour orienter le parcours.</p>
-                            </div>
-                            <span class="flow-card-num">03</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v1s4.jpg" alt="Étape 4 - Classement des thèmes">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Classement des thèmes</p>
-                                <p class="flow-card-desc">L'utilisateur doit classer les thèmes du programme par préférence.</p>
-                            </div>
-                            <span class="flow-card-num">04</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v1s5.jpg" alt="Étape 5 - Fin de l'onboarding">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Fin de l'onboarding</p>
-                                <p class="flow-card-desc">L'utilisateur a maintenant accès à Fifty pour réaliser des actions.</p>
-                            </div>
-                            <span class="flow-card-num">05</span>
-                        </div>
-                    </article>
+
+            <div class="ob-quali">
+                <div class="ob-quali-intro" data-reveal>
+                    <div class="ob-eyebrow">02 — DISCOVERY · DONNÉES QUALITATIVES</div>
+                    <p class="ob-body">Nous n'avons pas mené d'entretiens dédiés à l'onboarding. Pour comprendre les chiffres, nous nous sommes appuyés sur les retours remontés par les CSM :</p>
+                </div>
+                <div class="ob-grid ob-grid--420 ob-quotes">
+                    <figure class="ob-quote" data-reveal>
+                        <blockquote><span class="ob-quote-mark">«&nbsp;</span>Les utilisateurs ne comprennent pas pourquoi ils arrivent sur Fifty.<span class="ob-quote-mark">&nbsp;»</span></blockquote>
+                        <figcaption>— RETOUR CSM</figcaption>
+                    </figure>
+                    <figure class="ob-quote" data-reveal>
+                        <blockquote><span class="ob-quote-mark">«&nbsp;</span>Parfois, il y a une très faible communication en interne autour de Fifty.<span class="ob-quote-mark">&nbsp;»</span></blockquote>
+                        <figcaption>— RETOUR CSM</figcaption>
+                    </figure>
                 </div>
             </div>
-            <div class="decisions-band">
-                <h3 class="decisions-band-title">Décisions clés</h3>
-                <p class="decisions-band-intro">Suite à l'analyse du flow existant, nos hypothèses et les retours des équipes support, nous faisons des choix :</p>
-                <div class="decisions-grid">
-                    <article class="decision-card">
-                        <div class="decision-card-head">
-                            <span class="badge">Décision</span>
-                            <span class="decision-card-num">01</span>
-                        </div>
-                        <h4 class="decision-card-title">Contextualiser l'arrivée sur Fifty</h4>
-                        <div class="decision-card-part decision-card-part--avant">
-                            <span class="decision-card-label">Avant</span>
-                            <span class="decision-card-text">L'arrivée sur Fifty se fait sans transition. La première étape de l'onboarding n'est pas assez explicite concernant le lien entre l'entreprise cliente et Fifty.</span>
-                        </div>
-                        <div class="decision-card-part">
-                            <span class="decision-card-label">Décision</span>
-                            <span class="decision-card-text">Donner plus de contexte aux utilisateurs sur leur arrivée sur Fifty pour qu'ils comprennent plus facilement pourquoi ils se retrouvent sur cet outil.</span>
-                        </div>
-                        <div class="decision-card-part decision-card-part--impact">
-                            <span class="decision-card-label">Impact attendu</span>
-                            <span class="decision-card-text">Améliorer la transition entre la communication de l'entreprise et l'expérience produit et ainsi renforcer la confiance des utilisateurs dès les premières secondes.</span>
-                        </div>
-                    </article>
 
-                    <article class="decision-card">
-                        <div class="decision-card-head">
-                            <span class="badge">Décision</span>
-                            <span class="decision-card-num">02</span>
-                        </div>
-                        <h4 class="decision-card-title">Expliquer concrètement le concept</h4>
-                        <div class="decision-card-part decision-card-part--avant">
-                            <span class="decision-card-label">Avant</span>
-                            <span class="decision-card-text">Le concept de Fifty est expliqué de manière abstraite. Il n'y a qu'une étape dédiée au concept de Fifty, ce qui n'est pas assez pour que l'utilisateur comprenne concrètement de quoi il s'agit.</span>
-                        </div>
-                        <div class="decision-card-part">
-                            <span class="decision-card-label">Décision</span>
-                            <span class="decision-card-text">Ajouter des étapes pour expliquer à l'utilisateur à quoi va lui servir l'outil, comment il fonctionne et les bénéfices qu'il va en tirer.</span>
-                        </div>
-                        <div class="decision-card-part decision-card-part--impact">
-                            <span class="decision-card-label">Impact attendu</span>
-                            <span class="decision-card-text">Réduire les abandons avant même d'atteindre le premier choix à faire de l'utilisateur.</span>
-                        </div>
-                    </article>
-
-                    <article class="decision-card">
-                        <div class="decision-card-head">
-                            <span class="badge">Décision</span>
-                            <span class="decision-card-num">03</span>
-                        </div>
-                        <h4 class="decision-card-title">Faire un vrai choix de thème</h4>
-                        <div class="decision-card-part decision-card-part--avant">
-                            <span class="decision-card-label">Avant</span>
-                            <span class="decision-card-text">Le "choix" du thème n'est pas clair. L'utilisateur ne choisit pas vraiment un thème, il les priorise, ce qui fera plus ou moins ressortir des actions. Cet effet n'est pas explicité.</span>
-                        </div>
-                        <div class="decision-card-part">
-                            <span class="decision-card-label">Décision</span>
-                            <span class="decision-card-text">Faire faire un vrai choix à l'utilisateur concernant un thème, en lui expliquant que les autres thèmes seront vus les semaines suivantes.</span>
-                        </div>
-                        <div class="decision-card-part decision-card-part--impact">
-                            <span class="decision-card-label">Impact attendu</span>
-                            <span class="decision-card-text">Réduire les incompréhensions et augmenter la confiance de l'utilisateur.</span>
-                        </div>
-                    </article>
-
-                    <article class="decision-card">
-                        <div class="decision-card-head">
-                            <span class="badge">Décision</span>
-                            <span class="decision-card-num">04</span>
-                        </div>
-                        <h4 class="decision-card-title">Choisir ses premières actions</h4>
-                        <div class="decision-card-part decision-card-part--avant">
-                            <span class="decision-card-label">Avant</span>
-                            <span class="decision-card-text">Aucune action n'est choisie lors de l'onboarding. On ne pousse pas l'utilisateur à choisir une action, ce qui ne lui permet pas de le lancer dans l'utilisation du produit.</span>
-                        </div>
-                        <div class="decision-card-part">
-                            <span class="decision-card-label">Décision</span>
-                            <span class="decision-card-text">Ajouter une étape où l'utilisateur peut visualiser différentes actions et choisir celles qu'il souhaite réaliser.</span>
-                        </div>
-                        <div class="decision-card-part decision-card-part--impact">
-                            <span class="decision-card-label">Impact attendu</span>
-                            <span class="decision-card-text">Augmenter l'activation et l'engagement des utilisateurs en les encourageant à sélectionner des actions et à les réaliser pendant la semaine en cours.</span>
-                        </div>
-                    </article>
+            <h3 class="ob-eyebrow ob-eyebrow--hypo" data-reveal>02 — DISCOVERY · HYPOTHÈSES</h3>
+            <div class="ob-grid ob-grid--300">
+                <div class="ob-card ob-hypo" data-reveal>
+                    <span class="ob-tag">H1 · COMPRÉHENSION</span>
+                    <h4>Les utilisateurs ne comprennent pas le concept du produit</h4>
+                    <p>Le drop avant même le classement des thèmes suggère une difficulté de compréhension avant la phase d'engagement.</p>
+                </div>
+                <div class="ob-card ob-hypo" data-reveal>
+                    <span class="ob-tag">H2 · TIMING</span>
+                    <h4>Le classement des thèmes arrive trop tôt</h4>
+                    <p>Les utilisateurs doivent prendre des décisions avant même d'avoir compris la valeur du produit.</p>
+                </div>
+                <div class="ob-card ob-hypo" data-reveal>
+                    <span class="ob-tag">H3 · ENGAGEMENT</span>
+                    <h4>Les utilisateurs n'ont pas d'actions proposées</h4>
+                    <p>Les utilisateurs n'ont pas d'étape d'engagement concret avec le produit après la phase de découverte passive.</p>
                 </div>
             </div>
-            <div class="flow-band">
-                <h3 class="flow-band-title">Flow retravaillé</h3>
-                <div class="flow-scroll">
-                    <article class="flow-card">
-                        <img src="images/v2s1.png" alt="Étape 1 - Écran de bienvenue">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Écran de bienvenue</p>
-                                <p class="flow-card-desc">Cette étape donne du contexte et explique à quoi sert Fifty.</p>
-                            </div>
-                            <span class="flow-card-num">01</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v2s2.png" alt="Étape 2 - La méthode">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">La méthode</p>
-                                <p class="flow-card-desc">Cette étape explique en quoi consiste la méthode sur laquelle est basée Fifty.</p>
-                            </div>
-                            <span class="flow-card-num">02</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v2s3.png" alt="Étape 3 - Comment ça marche">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Comment ça marche</p>
-                                <p class="flow-card-desc">Cette étape donne plus de détails sur le fonctionnement de la méthode.</p>
-                            </div>
-                            <span class="flow-card-num">03</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v2s4.png" alt="Étape 4 - Profil">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Profil</p>
-                                <p class="flow-card-desc">Cette étape demande quelques détails sur l'utilisateur pour adapter les actions.</p>
-                            </div>
-                            <span class="flow-card-num">04</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v2s5.png" alt="Étape 5 - Choix du thème">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Choix du thème</p>
-                                <p class="flow-card-desc">Cette étape explicite que tous les thèmes seront abordés.</p>
-                            </div>
-                            <span class="flow-card-num">05</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v2s6.png" alt="Étape 6 - Choix des actions">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Choix des actions</p>
-                                <p class="flow-card-desc">Cette étape permet de mettre tout de suite en action.</p>
-                            </div>
-                            <span class="flow-card-num">06</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/v2s7.png" alt="Étape 7 - Fin de l'onboarding">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Fin de l'onboarding</p>
-                                <p class="flow-card-desc">Cette étape appelle à réaliser les actions sélectionnées.</p>
-                            </div>
-                            <span class="flow-card-num">07</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
+        </section>
 
-        <!-- ════ Section 4 ════ -->
-        <div class="case-section">
-            <h2>Impact &amp; résultats</h2>
-            <p>Nous avons analysé les données quantitatives 30 jours après le déploiement de la nouvelle version.</p>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">−4,7 points</span>
-                    <p class="objective-text">de taux d'abandon avant le premier choix utilisateur (de 15,7 à 11&nbsp;%)</p>
+        <!-- ════ Flow existant ════ -->
+        <section class="ob-band ob-flow-section">
+            <div class="ob-wrap ob-flow-head">
+                <div data-reveal>
+                    <div class="ob-eyebrow ob-eyebrow--flow">03 — IDÉATION · FLOW EXISTANT</div>
                 </div>
-                <div class="objective-item">
-                    <span class="objective-number">+6 points</span>
-                    <p class="objective-text">de taux de complétion de l'onboarding (de 64&nbsp;% à 70&nbsp;%)</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">+12 points</span>
-                    <p class="objective-text">de taux d'utilisateurs en pratique soutenue (de 40&nbsp;% à 52&nbsp;%)</p>
-                </div>
+                <div class="ob-flow-hint">5 étapes · faire défiler →</div>
             </div>
-            <h3>Les difficultés rencontrées</h3>
-            <p>Clarifier la proposition de valeur a été un exercice difficile car chacun (dans l'équipe et dans l'entreprise) avait sa propre interprétation et sa propre façon de l'expliquer. Pour trouver un consensus, il a fallu challenger nos propres visions.&nbsp;</p>
-            <p>Nous voulions ajouter des illustrations pour aider à la compréhension de notre concept. Or, illustrer un concept abstrait a été un travail difficile à réaliser pour ma part. Il y avait des points de vue différents sur la manière d'illustrer "un changement basé sur la méthode des petits pas". Je me suis aidée de l'IA pour trouver des idées.</p>
-            <p>Nous voulions ajouter une étape de sélection d'actions. Or, il y avait un vrai désaccord sur le nombre d'actions proposées. J'ai réalisé plusieurs versions de prototype pour aider à la perception du flow et permettre de faire un choix avisé.</p>
-        </div>
+            <div class="ob-flow">
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v1s1.png" alt="Écran de bienvenue"></div>
+                    <figcaption><span class="ob-flow-num">01</span><div><div class="ob-flow-title">Écran de bienvenue</div><div class="ob-flow-desc">L'utilisateur découvre la proposition de valeur de Fifty.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v1s2.png" alt="Informations du programme"></div>
+                    <figcaption><span class="ob-flow-num">02</span><div><div class="ob-flow-title">Informations du programme</div><div class="ob-flow-desc">L'utilisateur retrouve des informations liées au programme.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v1s3.jpg" alt="Profil"></div>
+                    <figcaption><span class="ob-flow-num">03</span><div><div class="ob-flow-title">Profil</div><div class="ob-flow-desc">L'utilisateur doit remplir quelques informations pour orienter le parcours.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v1s4.jpg" alt="Classement des thèmes"></div>
+                    <figcaption><span class="ob-flow-num">04</span><div><div class="ob-flow-title">Classement des thèmes</div><div class="ob-flow-desc">L'utilisateur doit classer les thèmes du programme par préférence.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v1s5.jpg" alt="Fin de l'onboarding"></div>
+                    <figcaption><span class="ob-flow-num">05</span><div><div class="ob-flow-title">Fin de l'onboarding</div><div class="ob-flow-desc">L'utilisateur a maintenant accès à Fifty pour réaliser des actions.</div></div></figcaption>
+                </figure>
+            </div>
+        </section>
 
-        <!-- ════ Section 5 ════ -->
-        <div class="case-section">
-            <h2>Ce que j'ai appris</h2>
-            <div class="learnings-list">
-                <div class="learning-item">
-                    <span class="learning-num">01</span>
-                    <div class="learning-body">
-                        <h3 class="learning-title">Aligner l'équipe en interne est un prérequis du design.</h3>
-                        <p class="learning-desc">On ne peut pas clarifier quelque chose pour l'utilisateur tant que l'équipe ne l'a pas clarifié pour elle-même.</p>
+        <!-- ════ Décisions clés ════ -->
+        <section class="ob-wrap ob-section">
+            <div class="ob-eyebrow" data-reveal>03 — IDÉATION · DÉCISIONS CLÉS</div>
+            <p class="ob-intro" data-reveal>Suite à l'analyse du flow existant, nos hypothèses et les retours des CSM, nous faisons des choix :</p>
+            <div class="ob-tabs" role="tablist" aria-label="Décisions clés" data-reveal>
+                <button type="button" class="ob-tab" role="tab" id="ob-tab-1" aria-controls="ob-dec-1" aria-selected="true"><span class="ob-tab-num">01</span>Contextualiser l'arrivée sur Fifty</button>
+                <button type="button" class="ob-tab" role="tab" id="ob-tab-2" aria-controls="ob-dec-2" aria-selected="false" tabindex="-1"><span class="ob-tab-num">02</span>Expliquer concrètement le concept</button>
+                <button type="button" class="ob-tab" role="tab" id="ob-tab-3" aria-controls="ob-dec-3" aria-selected="false" tabindex="-1"><span class="ob-tab-num">03</span>Faire un vrai choix de thème</button>
+                <button type="button" class="ob-tab" role="tab" id="ob-tab-4" aria-controls="ob-dec-4" aria-selected="false" tabindex="-1"><span class="ob-tab-num">04</span>Choisir ses premières actions</button>
+            </div>
+            <div class="ob-dec-panels" data-reveal>
+                <div class="ob-dec" id="ob-dec-1" role="tabpanel" aria-labelledby="ob-tab-1">
+                    <div class="ob-dec-source">Source : <span>→ Retours CSM</span></div>
+                    <div class="ob-grid ob-grid--260">
+                        <div class="ob-dec-part ob-dec-part--avant"><div class="ob-dec-label">AVANT</div><p>L'arrivée sur Fifty se fait sans transition. La première étape de l'onboarding n'est pas assez explicite concernant le lien entre l'entreprise cliente et Fifty.</p></div>
+                        <div class="ob-dec-part ob-dec-part--decision"><div class="ob-dec-label">→ DÉCISION</div><p>Donner plus de contexte aux utilisateurs sur leur arrivée sur Fifty pour qu'ils comprennent plus facilement pourquoi ils se retrouvent sur cet outil.</p></div>
+                        <div class="ob-dec-part ob-dec-part--impact"><div class="ob-dec-label">→ IMPACT ATTENDU</div><p>Améliorer la transition entre la communication de l'entreprise et l'expérience produit et ainsi renforcer la confiance des utilisateurs dès les premières secondes.</p></div>
                     </div>
                 </div>
-                <div class="learning-item">
-                    <span class="learning-num">02</span>
-                    <div class="learning-body">
-                        <h3 class="learning-title">Les données disent « où » mais pas « pourquoi ».</h3>
-                        <p class="learning-desc">Elles nous ont permis de localiser les drops, mais ce sont les retours du support et nos hypothèses qui nous ont aidés à en comprendre la cause.</p>
+                <div class="ob-dec" id="ob-dec-2" role="tabpanel" aria-labelledby="ob-tab-2">
+                    <div class="ob-dec-source">Source : <span>→ H1</span></div>
+                    <div class="ob-grid ob-grid--260">
+                        <div class="ob-dec-part ob-dec-part--avant"><div class="ob-dec-label">AVANT</div><p>Le concept de Fifty est expliqué de manière abstraite. Il n'y a qu'une étape dédiée au concept de Fifty, ce qui n'est pas assez pour que l'utilisateur comprenne concrètement de quoi il s'agit.</p></div>
+                        <div class="ob-dec-part ob-dec-part--decision"><div class="ob-dec-label">→ DÉCISION</div><p>Ajouter des étapes pour expliquer à l'utilisateur à quoi va lui servir l'outil, comment il fonctionne et les bénéfices qu'il va en tirer.</p></div>
+                        <div class="ob-dec-part ob-dec-part--impact"><div class="ob-dec-label">→ IMPACT ATTENDU</div><p>Réduire les abandons avant même d'atteindre le premier choix à faire de l'utilisateur.</p></div>
                     </div>
                 </div>
-                <div class="learning-item">
-                    <span class="learning-num">03</span>
-                    <div class="learning-body">
-                        <h3 class="learning-title">Ce que je ferais autrement.</h3>
-                        <p class="learning-desc">Si c’était à refaire, je mènerais quelques entretiens avec des utilisateurs qui ont abandonné l’onboarding, avant de concevoir. Nos hypothèses se sont révélées justes, mais nous aurions pu le vérifier plus tôt.</p>
+                <div class="ob-dec" id="ob-dec-3" role="tabpanel" aria-labelledby="ob-tab-3">
+                    <div class="ob-dec-source">Source : <span>→ H2</span></div>
+                    <div class="ob-grid ob-grid--260">
+                        <div class="ob-dec-part ob-dec-part--avant"><div class="ob-dec-label">AVANT</div><p>Le « choix » du thème n'est pas clair. L'utilisateur ne choisit pas vraiment un thème, il les priorise, ce qui fera plus ou moins ressortir des actions. Cet effet n'est pas explicité.</p></div>
+                        <div class="ob-dec-part ob-dec-part--decision"><div class="ob-dec-label">→ DÉCISION</div><p>Faire faire un vrai choix à l'utilisateur concernant un thème, en lui expliquant que les autres thèmes seront vus les semaines suivantes.</p></div>
+                        <div class="ob-dec-part ob-dec-part--impact"><div class="ob-dec-label">→ IMPACT ATTENDU</div><p>Réduire les incompréhensions et augmenter la confiance de l'utilisateur.</p></div>
+                    </div>
+                </div>
+                <div class="ob-dec" id="ob-dec-4" role="tabpanel" aria-labelledby="ob-tab-4">
+                    <div class="ob-dec-source">Source : <span>→ H3</span></div>
+                    <div class="ob-grid ob-grid--260">
+                        <div class="ob-dec-part ob-dec-part--avant"><div class="ob-dec-label">AVANT</div><p>Aucune action n'est choisie lors de l'onboarding. On ne pousse pas l'utilisateur à choisir une action, ce qui ne lui permet pas de se lancer dans l'utilisation du produit.</p></div>
+                        <div class="ob-dec-part ob-dec-part--decision"><div class="ob-dec-label">→ DÉCISION</div><p>Ajouter une étape où l'utilisateur peut visualiser différentes actions et choisir celles qu'il souhaite réaliser.</p></div>
+                        <div class="ob-dec-part ob-dec-part--impact"><div class="ob-dec-label">→ IMPACT ATTENDU</div><p>Augmenter l'activation et l'engagement des utilisateurs en les encourageant à sélectionner des actions et à les réaliser pendant la semaine en cours.</p></div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </article>
+        <!-- ════ Flow retravaillé ════ -->
+        <section class="ob-band ob-flow-section">
+            <div class="ob-wrap ob-flow-head">
+                <div data-reveal>
+                    <div class="ob-eyebrow ob-eyebrow--flow">03 — IDÉATION · FLOW RETRAVAILLÉ</div>
+                </div>
+                <div class="ob-flow-hint">7 étapes · faire défiler →</div>
+            </div>
+            <div class="ob-flow">
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v2s1.png" alt="Écran de bienvenue"></div>
+                    <figcaption><span class="ob-flow-num">01</span><div><div class="ob-flow-title">Écran de bienvenue</div><div class="ob-flow-desc">Cette étape donne du contexte et explique à quoi sert Fifty.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v2s2.png" alt="La méthode"></div>
+                    <figcaption><span class="ob-flow-num">02</span><div><div class="ob-flow-title">La méthode</div><div class="ob-flow-desc">Cette étape explique en quoi consiste la méthode sur laquelle est basée Fifty.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v2s3.png" alt="Comment ça marche"></div>
+                    <figcaption><span class="ob-flow-num">03</span><div><div class="ob-flow-title">Comment ça marche</div><div class="ob-flow-desc">Cette étape donne plus de détails sur le fonctionnement de la méthode.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v2s4.png" alt="Profil"></div>
+                    <figcaption><span class="ob-flow-num">04</span><div><div class="ob-flow-title">Profil</div><div class="ob-flow-desc">Cette étape demande quelques détails sur l'utilisateur pour adapter les actions.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v2s5.png" alt="Choix du thème"></div>
+                    <figcaption><span class="ob-flow-num">05</span><div><div class="ob-flow-title">Choix du thème</div><div class="ob-flow-desc">Cette étape explicite que tous les thèmes seront abordés.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v2s6.png" alt="Choix des actions"></div>
+                    <figcaption><span class="ob-flow-num">06</span><div><div class="ob-flow-title">Choix des actions</div><div class="ob-flow-desc">Cette étape permet de mettre tout de suite en action.</div></div></figcaption>
+                </figure>
+                <figure class="ob-flow-card">
+                    <div class="ob-flow-frame"><img src="images/v2s7.png" alt="Fin de l'onboarding"></div>
+                    <figcaption><span class="ob-flow-num">07</span><div><div class="ob-flow-title">Fin de l'onboarding</div><div class="ob-flow-desc">Cette étape appelle à réaliser les actions sélectionnées.</div></div></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ════ Impact & résultats ════ -->
+        <section class="ob-wrap ob-section ob-impact">
+            <div class="ob-eyebrow" data-reveal>04 — IMPACT &amp; RÉSULTATS · J+30</div>
+            <p class="ob-intro ob-intro--impact" data-reveal>Faute de temps pour tester avec des utilisateurs, nous avons validé le flow en interne, puis mesuré son impact 30 jours après le déploiement.</p>
+            <div class="ob-grid ob-impact-bottom">
+                <div class="ob-recap" data-reveal>
+                    <div class="ob-recap-row">
+                        <div class="ob-recap-nums"><span class="ob-recap-before">15,7</span><span class="ob-steps-arrow">→</span><span>11 %</span></div>
+                        <div class="ob-recap-meta"><span class="ob-recap-delta">−4,7 pts</span> <span>d'abandon à l'étape des thèmes</span></div>
+                    </div>
+                    <div class="ob-recap-row">
+                        <div class="ob-recap-nums"><span class="ob-recap-before">64</span><span class="ob-steps-arrow">→</span><span>70 %</span></div>
+                        <div class="ob-recap-meta"><span class="ob-recap-delta">+6 pts</span> <span>de taux de complétion de l'onboarding</span></div>
+                    </div>
+                    <div class="ob-recap-row">
+                        <div class="ob-recap-nums"><span class="ob-recap-before">40</span><span class="ob-steps-arrow">→</span><span>52 %</span></div>
+                        <div class="ob-recap-meta"><span class="ob-recap-delta">+12 pts</span> <span>de taux d'utilisateurs en pratique soutenue</span></div>
+                    </div>
+                </div>
+                <div class="ob-card ob-nuance" data-reveal>
+                    <div class="ob-eyebrow">À NUANCER</div>
+                    <div class="ob-nuance-bars">
+                        <div class="ob-nuance-row"><span class="ob-nuance-label">Fév.</span><div class="ob-track"><div class="ob-fill ob-fill--neutral" data-bar style="--v:72.8%"></div></div><span class="ob-nuance-value">72,8 %</span></div>
+                        <div class="ob-nuance-row"><span class="ob-nuance-label">Avr.</span><div class="ob-track"><div class="ob-fill ob-fill--ink" data-bar style="--v:64%"></div></div><span class="ob-nuance-value">64 %</span></div>
+                        <div class="ob-nuance-row"><span class="ob-nuance-label">Après</span><div class="ob-track"><div class="ob-fill ob-fill--coral" data-bar style="--v:70%"></div></div><span class="ob-nuance-value">70 %</span></div>
+                    </div>
+                    <p>La complétion remonte à 70 %, mais reste sous son niveau de février (72,8 %). Nous n'avons pas identifié ce qui a provoqué la chute d'avril : la refonte a corrigé des frictions réelles, sans forcément répondre à la cause de cette baisse.</p>
+                </div>
+                <div class="ob-steps" data-reveal>
+                    <div class="ob-steps-num"><span>5</span><span class="ob-steps-arrow">→</span><span>7 étapes</span></div>
+                    <p>Le nouveau flow compte deux étapes de plus, et pourtant la complétion augmente. <span class="ob-steps-strong">Un onboarding plus long mais plus clair fonctionne mieux qu'un onboarding court qu'on ne comprend pas.</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════ Rétrospective ════ -->
+        <section class="ob-wrap ob-retro ob-grid ob-grid--440">
+            <div>
+                <h3 class="ob-h3" data-reveal>Les difficultés rencontrées</h3>
+                <div class="ob-difficulties">
+                    <div class="ob-difficulty" data-reveal><span class="ob-difficulty-label">CONSENSUS</span><p>Clarifier la proposition de valeur a été un exercice difficile car chacun (dans l'équipe et dans l'entreprise) avait sa propre interprétation et sa propre façon de l'expliquer. Pour trouver un consensus, il a fallu challenger nos propres visions.</p></div>
+                    <div class="ob-difficulty" data-reveal><span class="ob-difficulty-label">PROTOTYPAGE</span><p>Nous voulions ajouter une étape de sélection d'actions. Or, il y avait un vrai désaccord sur le nombre d'actions proposées. J'ai réalisé plusieurs versions de prototype pour aider à la perception du flow et permettre de faire un choix avisé. Nous avons retenu 4 actions, en cohérence avec le rythme de pratique soutenue que nous voulions installer.</p></div>
+                    <div class="ob-difficulty" data-reveal><span class="ob-difficulty-label">ILLUSTRATION</span><p>Illustrer un concept abstrait, « le changement par la méthode des petits pas », a aussi demandé plusieurs itérations. Je me suis aidée de l'IA pour explorer des pistes.</p></div>
+                </div>
+            </div>
+            <div>
+                <h3 class="ob-h3" data-reveal>Ce que j'ai appris</h3>
+                <div class="ob-learnings">
+                    <div class="ob-learning" data-reveal><div class="ob-learning-head"><span class="ob-learning-num">01</span><span class="ob-learning-title">Aligner l'équipe en interne est un prérequis du design.</span></div><p>On ne peut pas clarifier quelque chose pour l'utilisateur tant que l'équipe ne l'a pas clarifié pour elle-même.</p></div>
+                    <div class="ob-learning" data-reveal><div class="ob-learning-head"><span class="ob-learning-num">02</span><span class="ob-learning-title">Les données disent « où » mais pas « pourquoi ».</span></div><p>Elles nous ont permis de localiser les drops, mais ce sont les retours des CSM et nos hypothèses qui nous ont aidés à en comprendre la cause.</p></div>
+                    <div class="ob-learning" data-reveal><div class="ob-learning-head"><span class="ob-learning-num">03</span><span class="ob-learning-title">Ce que je ferais autrement.</span></div><p>Si c'était à refaire, je mènerais quelques entretiens avec des utilisateurs qui ont abandonné l'onboarding. Les résultats vont dans le sens de nos hypothèses, mais ces entretiens nous auraient permis de les vérifier avant de concevoir.</p></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Back to top -->
     <a href="#" class="back-to-top" id="backToTop" aria-label="Remonter en haut">
@@ -446,8 +330,8 @@
     <!-- Projet suivant + footer -->
     <section class="cta">
         <a href="projet-recrutement.html" class="cta-inner next-project">
-            <span class="next-project-label">Projet suivant · 02</span>
-            <h2 class="cta-title">Améliorer le <em>recrutement</em> en garde d'enfants</h2>
+            <span class="next-project-label">PROJET SUIVANT · 02 →</span>
+            <h2 class="cta-title">Améliorer le recrutement<br>en garde d'enfants</h2>
         </a>
         <footer class="cta-footer">
             <div class="cta-footer-inner">
@@ -457,5 +341,6 @@
     </section>
 
     <script src="nav.js"></script>
+    <script src="onboarding.js"></script>
 </body>
 </html>
