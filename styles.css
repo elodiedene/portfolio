@@ -395,6 +395,23 @@ nav {
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
 }
 
+.project-card.is-disabled {
+    cursor: default;
+}
+
+.project-card.is-disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.project-card-status {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 100px;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.68rem;
+}
+
 .project-card-visual {
     aspect-ratio: 16 / 10;
     border-radius: 12px;
