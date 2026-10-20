@@ -1,32 +1,37 @@
-// Page projet onboarding : onglets des décisions clés et animations au scroll
+// Pages projet (.page-case) : onglets (décisions, principes) et animations au scroll
 (() => {
-    // Onglets : une seule décision visible, 01 par défaut
-    const tabs = [...document.querySelectorAll('.ob-tab')];
+    // Onglets : un seul panneau visible, le premier par défaut ; sans JS, tous restent visibles.
+    // Chaque groupe (décisions clés, principes de conception) fonctionne indépendamment.
+    function setupTabs(tabs) {
+        function select(tab, focus) {
+            tabs.forEach((t) => {
+                const on = t === tab;
+                t.setAttribute('aria-selected', String(on));
+                t.tabIndex = on ? 0 : -1;
+                document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+            });
+            if (focus) tab.focus();
+        }
 
-    function select(tab, focus) {
-        tabs.forEach((t) => {
-            const on = t === tab;
-            t.setAttribute('aria-selected', String(on));
-            t.tabIndex = on ? 0 : -1;
-            document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+        tabs.forEach((tab, i) => {
+            tab.addEventListener('click', () => select(tab));
+            tab.addEventListener('keydown', (e) => {
+                const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+                if (step) {
+                    e.preventDefault();
+                    select(tabs[(i + step + tabs.length) % tabs.length], true);
+                } else if (e.key === 'Home' || e.key === 'End') {
+                    e.preventDefault();
+                    select(tabs[e.key === 'Home' ? 0 : tabs.length - 1], true);
+                }
+            });
         });
-        if (focus) tab.focus();
+        if (tabs.length) select(tabs[0]);
     }
 
-    tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => select(tab));
-        tab.addEventListener('keydown', (e) => {
-            const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
-            if (step) {
-                e.preventDefault();
-                select(tabs[(i + step + tabs.length) % tabs.length], true);
-            } else if (e.key === 'Home' || e.key === 'End') {
-                e.preventDefault();
-                select(tabs[e.key === 'Home' ? 0 : tabs.length - 1], true);
-            }
-        });
+    document.querySelectorAll('[role="tablist"]').forEach((list) => {
+        setupTabs([...list.querySelectorAll('[role="tab"]')]);
     });
-    if (tabs.length) select(tabs[0]);
 
     // Animations : rien si l'utilisateur préfère réduire les mouvements (état final affiché)
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -48,7 +53,7 @@
     });
 
     // L'état caché n'existe qu'avec cette classe : sans JS, tout reste visible
-    document.documentElement.classList.add('ob-motion');
+    document.documentElement.classList.add('cs-motion');
 
     function count(el) {
         const to = parseFloat(el.dataset.count);
