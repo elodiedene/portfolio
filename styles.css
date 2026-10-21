@@ -3552,9 +3552,11 @@ footer p {
     aspect-ratio: 16 / 7;
 }
 
+/* L'image remplit le cadre (calée en haut) ; « Agrandir » ouvre la version entière */
 .cs-artefact-frame--wide img {
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .cs-artefact-insight--narrow {
