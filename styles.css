@@ -217,14 +217,6 @@ nav {
     margin-bottom: 2rem;
 }
 
-.badge-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--dot-color, var(--primary));
-    animation: blink 2s ease-in-out infinite;
-}
-
 .hero h1 {
     font-family: "Playfair Display", serif;
     font-size: clamp(2.4rem, 4.5vw, 4rem);
@@ -346,10 +338,6 @@ nav {
 
 .link.back:hover svg {
     transform: translateX(-3px);
-}
-
-.link .more-short {
-    display: none;
 }
 
 .section-header {
@@ -619,7 +607,6 @@ nav {
     padding: 0 4rem;
 }
 
-
 .testimonials-scroll {
     display: flex;
     gap: 1.5rem;
@@ -810,7 +797,6 @@ footer p {
     margin: 0 auto;
     padding: 6rem 4rem 0;
 }
-
 
 .case-tags {
     display: flex;
@@ -1008,49 +994,6 @@ footer p {
     color: var(--accent);
 }
 
-/* ── Ce que j'ai appris : liste numérotée ── */
-.learnings-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.learning-item {
-    display: grid;
-    grid-template-columns: 11rem minmax(0, 1fr);
-    align-items: start;
-    padding: 2.25rem 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.learning-num {
-    font-family: "Playfair Display", serif;
-    font-style: italic;
-    font-size: 3.5rem;
-    line-height: 1;
-    color: var(--accent);
-}
-
-.case-section .learning-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--text);
-    margin: 0 0 0.5rem;
-}
-
-.case-section .learning-desc {
-    margin: 0;
-    max-width: 44rem;
-}
-
-@media (max-width: 768px) {
-    .learning-item {
-        grid-template-columns: 4rem minmax(0, 1fr);
-        padding: 1.75rem 0;
-    }
-    .learning-num { font-size: 2.25rem; }
-}
-
 /* ── Hypothèses / Insights : bandeau sable pleine largeur ── */
 .insights-band {
     background: var(--sand);
@@ -1093,10 +1036,6 @@ footer p {
 
 .case-section .decisions-band-title {
     margin-top: 0;
-}
-
-.case-section .decisions-band-intro {
-    margin-bottom: 1.5rem;
 }
 
 .decisions-grid {
@@ -1152,7 +1091,6 @@ footer p {
     border-radius: 12px;
     padding: 0.9rem 1rem;
 }
-
 
 .decision-card-part--impact {
     margin-top: auto;
@@ -1354,10 +1292,6 @@ footer p {
     padding: 2rem 0;
 }
 
-.flow-band--plain {
-    background: none;
-}
-
 .case-section .flow-band-title {
     margin: 0 0 0.5rem;
     padding: 0 max(1.5rem, calc((100% - 1100px) / 2 + 4rem));
@@ -1428,202 +1362,14 @@ footer p {
     flex-shrink: 0;
 }
 
-.data-table-wrap {
-    overflow-x: auto;
-    margin-bottom: 1.75rem;
-}
-
-.data-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.92rem;
-}
-
-.data-table thead tr {
-    border-bottom: 2px solid var(--border);
-}
-
-.data-table th {
-    text-align: left;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0 0 0.75rem;
-}
-
-.data-table th + th,
-        .data-table td + td {
-    padding-left: 2rem;
-}
-
-.data-table tbody tr {
-    border-bottom: 1px solid var(--border);
-}
-
-.data-table tbody tr:last-child {
-    border-bottom: none;
-}
-
-.data-table td {
-    padding: 1rem 0;
-    color: var(--text-muted);
-    line-height: 1.6;
-    vertical-align: top;
-}
-
 .insight-item:first-child {
     border-top: 1px solid var(--border);
-}
-
-.subsection-desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
-}
-
-.pills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin: 1rem 0 2rem;
-    --dot-color: var(--primary-light);
-}
-
-.pill {
-    display: inline-flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    background: var(--bg-soft);
-    color: var(--text);
-    font-size: 0.88rem;
-    font-weight: 500;
-    padding: 0.65rem 1rem;
-    border-radius: 10px;
-    line-height: 1.5;
-}
-
-.pill-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 0.48rem;
-    background: var(--dot-color, var(--primary-light));
-}
-
-.pills-list--hmw {
-    --dot-color: var(--accent);
-}
-
-.pills-list--hmw .pill {
-    background: var(--bg-soft);
-}
-
-.benchmark-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin: 1.25rem 0 0.5rem;
-}
-
-.benchmark-card {
-    background: var(--bg-soft);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-}
-
-.benchmark-card-name {
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--primary);
-}
-
-.benchmark-card-points {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.benchmark-card-points li {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.55;
-    padding-left: 0.9rem;
-    position: relative;
-}
-
-.benchmark-card-points li::before,
-.priority-card-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-}
-
-.benchmark-card-points li::before {
-    background: var(--text-muted);
-}
-
-.benchmark-card-takeaway {
-    font-size: 0.82rem;
-    color: var(--text);
-    line-height: 1.55;
-    border-top: 1px solid var(--border);
-    padding-top: 0.75rem;
-    margin: 0;
-}
-
-.benchmark-card-takeaway strong {
-    color: var(--accent);
 }
 
 .case-section img {
     width: 100%;
     display: block;
     margin: 1.5rem 0 0.75rem;
-}
-
-.personas-grid,
-.two-col-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    margin: 1.5rem 0 0.75rem;
-}
-
-.personas-grid img {
-    margin: 0;
-}
-
-.figma-embed-wrap {
-    position: relative;
-    width: 100%;
-    padding-bottom: 65%;
-    margin: 1.5rem 0 0.75rem;
-    border: 1px solid var(--border);
-    background: var(--bg-soft);
-}
-
-.figma-embed-wrap iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
 }
 
 .case-section a img {
@@ -1634,97 +1380,6 @@ footer p {
 .case-section a:hover img {
     opacity: 0.9;
     transform: scale(1.01);
-}
-
-.two-col-grid .col-label {
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    margin-bottom: 0.75rem;
-}
-
-.two-col-grid p:not(.col-label) {
-    font-style: italic;
-    margin-top: 0.75rem;
-}
-
-.features-priority-alt {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.priority-card {
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.priority-card--must {
-    background: #E8F1EA;
-}
-
-.priority-card--should {
-    background: #FBF3D9;
-}
-
-.priority-card--nice {
-    background: #FCEAE4;
-}
-
-.priority-card--wont {
-    background: #FBE3E3;
-}
-
-.priority-badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.25rem 0.75rem;
-    border-radius: 100px;
-    width: fit-content;
-    background: #fff;
-}
-
-.priority-card--must  .priority-badge {
-    color: #2F6B43;
-}
-
-.priority-card--should .priority-badge {
-    color: #A87F12;
-}
-
-.priority-card--nice  .priority-badge {
-    color: #E8614A;
-}
-
-.priority-card--wont  .priority-badge {
-    color: #C0392B;
-}
-
-.priority-card-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.priority-card-list li {
-    font-size: 0.88rem;
-    color: var(--text);
-    line-height: 1.5;
-    padding-left: 1rem;
-    position: relative;
-}
-
-.priority-card-list li::before {
-    background: var(--text);
 }
 
 .cmp {
@@ -2236,18 +1891,6 @@ footer p {
         font-size: 1.15rem;
         padding: 1.15rem 0;
     }
-    .benchmark-cards {
-        grid-template-columns: 1fr;
-    }
-    .personas-grid {
-        grid-template-columns: 1fr;
-    }
-    .two-col-grid {
-        grid-template-columns: 1fr;
-    }
-    .features-priority-alt {
-        grid-template-columns: 1fr;
-    }
     .about-page {
         padding: 3rem 1.5rem 3rem;
     }
@@ -2263,15 +1906,6 @@ footer p {
     }
     .about-page-photo {
         padding: 0 1.5rem 3rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .link .more-full {
-        display: none;
-    }
-    .link .more-short {
-        display: inline;
     }
 }
 
@@ -2416,10 +2050,6 @@ footer p {
     margin: 0 0 28px;
 }
 
-.cs-eyebrow--hypo {
-    margin: var(--cs-section-y) 0 20px;
-}
-
 .cs-intro {
     font-size: 18px;
     line-height: 1.6;
@@ -2427,11 +2057,6 @@ footer p {
     max-width: 60ch;
     margin: 0 0 32px;
     text-wrap: pretty;
-}
-
-/* Intro directement sous un surtitre (sans titre entre les deux) : même écart que l'intro Discovery */
-.cs-eyebrow + .cs-intro {
-    margin-top: 24px;
 }
 
 .cs-intro--impact {
@@ -2770,14 +2395,6 @@ footer p {
     flex-wrap: wrap;
 }
 
-.cs-eyebrow--flow {
-    margin-bottom: 28px;
-}
-
-.cs-eyebrow--flow:last-child {
-    margin-bottom: 0;
-}
-
 .cs-flow-hint {
     font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
     font-size: 13px;
@@ -3102,7 +2719,11 @@ footer p {
 .cs-retro {
     padding-block: var(--cs-section-y);
     border-top: 1px solid var(--cs-border);
+}
+
+.cs-retro-grid {
     gap: 56px;
+    margin-top: 28px;
 }
 
 .cs-difficulties {
@@ -3298,8 +2919,8 @@ footer p {
     --cs-line-on-pale: #dcaea2;
 }
 
-/* ── Titres de section (sous le H1 du hero, en Playfair comme le reste du site) ── */
-.cs-h2,
+/* ── Titres de sous-section (sous le surtitre numéroté de la section, en Playfair comme le reste du site) ── */
+.cs-h3,
 .cs-principle-title,
 .cs-principle-detail-title,
 .cs-hmw blockquote,
@@ -3312,23 +2933,30 @@ footer p {
     letter-spacing: -0.01em;
 }
 
-.cs-h2 {
-    font-size: clamp(32px, 4vw, 52px);
-    line-height: 1.05;
-    margin: 0;
-}
-
-.cs-h2--md {
+.cs-h3 {
     font-size: clamp(28px, 3vw, 40px);
-    margin: 20px 0 12px;
+    line-height: 1.1;
+    margin: 0 0 16px;
+    text-wrap: balance;
 }
 
-.cs-h2--spaced {
-    margin-bottom: 24px;
+.cs-eyebrow + .cs-h3 {
+    margin-top: 20px;
 }
 
-.cs-eyebrow--title {
-    margin-bottom: 20px;
+/* Sous-section suivante dans la même section */
+.cs-h3--sub {
+    margin: var(--cs-section-y) 0 24px;
+}
+
+/* Dans les en-têtes en flex, l'écart est géré par le conteneur */
+.cs-quali-intro .cs-h3,
+.cs-section-head .cs-h3 {
+    margin-bottom: 0;
+}
+
+.cs-flow-head .cs-h3:last-child {
+    margin-bottom: 0;
 }
 
 .cs-section-head {
@@ -3812,6 +3440,351 @@ footer p {
 
 @media (max-width: 480px) {
     .cs-difficulties--wide .cs-difficulty {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ════════════════════════════════════════════════════════════
+   Composants cs- ajoutés avec la page babysitters (stat clé, benchmark,
+   galerie de téléphones, cartes de résultats).
+   ════════════════════════════════════════════════════════════ */
+.cs-stat-num,
+.cs-result-num,
+.cs-result-title {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    font-variant-numeric: lining-nums;
+}
+
+.cs-grid--start {
+    align-items: start;
+}
+
+.cs-stack-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cs-finding-intro {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--cs-text-3);
+    margin-bottom: 16px;
+    text-wrap: pretty;
+}
+
+/* ── Discovery : stat clé du questionnaire ── */
+.cs-stat {
+    background: var(--cs-ink);
+    color: var(--cs-cream);
+    border-radius: 16px;
+    padding: clamp(24px, 3vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cs-stat-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+}
+
+.cs-stat-kicker { color: var(--cs-coral-on-ink); }
+.cs-stat-meta { color: var(--cs-label-on-ink); }
+
+.cs-stat-body {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cs-stat-num {
+    font-size: clamp(56px, 7vw, 96px);
+    line-height: .9;
+    white-space: nowrap;
+}
+
+.cs-stat-text {
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--cs-on-ink-2);
+    max-width: 24ch;
+}
+
+.cs-stat-bar {
+    display: flex;
+    height: 40px;
+    gap: 3px;
+}
+
+.cs-stat-part {
+    width: var(--v);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.cs-stat-part--liste {
+    background: var(--cs-coral);
+    color: var(--cs-ink);
+    border-radius: 6px 0 0 6px;
+}
+
+.cs-stat-part--carte {
+    background: var(--cs-line-on-ink);
+    border-radius: 0 6px 6px 0;
+    padding: 0 10px;
+}
+
+/* ── Experience journey map : cadre large, image entière ── */
+.cs-artefact-frame--wide {
+    aspect-ratio: 16 / 7;
+}
+
+.cs-artefact-frame--wide img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.cs-artefact-insight--narrow {
+    max-width: 52ch;
+}
+
+/* ── Benchmark : carte de constats + pied noir ── */
+.cs-bench {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.cs-bench-body {
+    flex: 1;
+    padding: clamp(24px, 3vw, 32px) clamp(24px, 3vw, 32px) 16px;
+}
+
+.cs-bench .cs-finding-list li {
+    padding: 14px 0;
+}
+
+.cs-bench-foot {
+    background: var(--cs-ink);
+    color: var(--cs-cream);
+    padding: 24px clamp(24px, 3vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cs-bench-label {
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    color: var(--cs-coral-on-ink);
+}
+
+.cs-bench-foot p {
+    font-size: 17px;
+    line-height: 1.5;
+    text-wrap: pretty;
+}
+
+.cs-bench-foot .cs-bench-note {
+    font-size: 14px;
+    color: var(--cs-label-on-ink);
+}
+
+/* ── Écrans clés : filtres + carrousel de téléphones ── */
+.cs-phones-intro {
+    color: var(--cs-text-1);
+    max-width: 52ch;
+}
+
+.cs-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 40px;
+}
+
+.cs-filter {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--cs-neutral);
+    background: transparent;
+    color: var(--cs-ink);
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background .25s, color .25s, border-color .25s;
+}
+
+.cs-filter:hover {
+    border-color: var(--cs-ink);
+}
+
+.cs-filter[aria-pressed="true"] {
+    background: var(--cs-ink);
+    border-color: var(--cs-ink);
+    color: var(--cs-cream);
+}
+
+.cs-filter:focus-visible {
+    outline: 2px solid var(--cs-coral);
+    outline-offset: 2px;
+}
+
+.cs-phones {
+    gap: 32px;
+    padding-top: 40px;
+}
+
+.cs-phone-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: opacity .35s;
+}
+
+/* Le filtre atténue les écrans hors sélection sans les retirer : le carrousel reste stable */
+.cs-phone-card.is-dimmed {
+    opacity: .25;
+}
+
+.cs-phone {
+    background: var(--cs-ink);
+    border-radius: 44px;
+    padding: 10px;
+    box-shadow: 0 24px 48px -24px rgba(18, 15, 13, .35);
+}
+
+.cs-phone-screen {
+    aspect-ratio: 390 / 844;
+    border-radius: 34px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--cs-paper);
+    scrollbar-width: none;
+}
+
+.cs-phone-screen::-webkit-scrollbar {
+    display: none;
+}
+
+.cs-phone-screen:focus-visible {
+    outline: 2px solid var(--cs-coral);
+    outline-offset: 2px;
+}
+
+.cs-phone-screen img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.cs-phone-card figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cs-phone-tags {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+}
+
+.cs-phone-tag { color: var(--cs-coral-text); }
+.cs-phone-hint { color: var(--cs-text-3); }
+
+.cs-phone-card .cs-flow-desc {
+    margin-top: 0;
+}
+
+/* ── Impact & résultats : deux chiffres en noir, un résultat qualitatif ── */
+.cs-results {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+
+.cs-result {
+    border-radius: 16px;
+    padding: clamp(24px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cs-result--ink {
+    background: var(--cs-ink);
+    color: var(--cs-cream);
+}
+
+.cs-result--paper {
+    background: var(--cs-paper);
+    border: 1px solid var(--cs-border);
+}
+
+.cs-result-num {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.cs-result-num .cs-steps-arrow {
+    font-size: .55em;
+}
+
+.cs-result-unit {
+    font-size: .5em;
+    color: var(--cs-coral-on-ink);
+}
+
+.cs-track--on-ink {
+    background: var(--cs-line-on-ink);
+}
+
+.cs-result--ink p {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--cs-on-ink-1);
+    text-wrap: pretty;
+}
+
+.cs-result-title {
+    font-size: clamp(28px, 2.8vw, 38px);
+    line-height: 1.05;
+}
+
+.cs-result--paper p {
+    line-height: 1.6;
+    color: var(--cs-text-4);
+    text-wrap: pretty;
+}
+
+/* ── Rétrospective : libellés encore plus longs (DETTE TECHNIQUE) ── */
+.cs-difficulties--xwide .cs-difficulty {
+    grid-template-columns: 130px 1fr;
+}
+
+@media (max-width: 480px) {
+    .cs-difficulties--xwide .cs-difficulty {
         grid-template-columns: 1fr;
     }
 }

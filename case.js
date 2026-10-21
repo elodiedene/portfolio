@@ -33,6 +33,19 @@
         setupTabs([...list.querySelectorAll('[role="tab"]')]);
     });
 
+    // Filtres d'écrans : atténuent les écrans hors sélection, sans les retirer du carrousel
+    document.querySelectorAll('.cs-filters').forEach((group) => {
+        const buttons = [...group.querySelectorAll('[data-filter]')];
+        const cards = [...group.parentElement.querySelectorAll('[data-tag]')];
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const tag = button.dataset.filter;
+                buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+                cards.forEach((card) => card.classList.toggle('is-dimmed', tag !== 'all' && card.dataset.tag !== tag));
+            });
+        });
+    });
+
     // Animations : rien si l'utilisateur préfère réduire les mouvements (état final affiché)
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!('IntersectionObserver' in window)) return;
