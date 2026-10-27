@@ -463,8 +463,7 @@ nav {
     grid-template-columns: 1.1fr 1fr;
     grid-template-areas:
         "meta meta"
-        "title desc"
-        "status .";
+        "title desc";
     column-gap: 2.5rem;
     align-items: center;
     background: #fff;
@@ -472,6 +471,14 @@ nav {
     border-radius: 20px;
     padding: 2.5rem 3rem;
     margin-top: 1.5rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-side:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
 }
 
 .project-side-meta {
@@ -487,17 +494,6 @@ nav {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: var(--text-muted);
-}
-
-.project-side-badge {
-    grid-area: status;
-    justify-self: start;
-    margin-top: 1rem;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    border-radius: 100px;
-    padding: 0.2rem 0.7rem;
-    font-size: 0.68rem;
 }
 
 .project-side-title {
@@ -1832,7 +1828,6 @@ footer p {
         grid-template-areas:
             "meta"
             "title"
-            "status"
             "desc";
         gap: 1.25rem;
         padding: 2rem 1.5rem;
