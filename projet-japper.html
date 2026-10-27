@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japper — Elodie Dené</title>
+    <title>Jappr — Elodie Dené</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="page-case">
 
     <!-- Navigation -->
     <nav>
@@ -25,292 +25,411 @@
         </ul>
     </nav>
 
-    <!-- Header -->
-    <header class="case-header">
-        <a href="index.html" class="link back">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Retour
-        </a>
-        <div class="case-tags">
-            <span class="badge">SIDE PROJECT · IA · SAAS B2B</span>
-        </div>
-        <h1>Donner plus de liberté aux éducateurs canins</h1>
-        <div class="case-meta">
-            <div class="meta-item">
-                <span class="meta-label">Projet</span>
-                <p>Japper</p>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">Rôle</span>
-                <p>Product Designer</p>
-            </div>
-            <div class="meta-item">
-                <span class="meta-label">Année</span>
-                <p>2026</p>
-            </div>
-        </div>
-    </header>
+    <main>
 
-    <!-- Content -->
-    <article class="case-content">
-
-        <!-- ════ Contexte & Objectifs ════ -->
-        <div class="case-section case-intro">
-            <div class="case-intro-text">
-                <span class="section-title case-intro-label">01 — Contexte &amp; Objectifs</span>
-                <h2 class="case-intro-title">Moins d'administratif, plus de <em>terrain</em>.</h2>
-                <p>Caroline est éducatrice canine indépendante. Elle jongle entre ses séances sur le terrain, le suivi de ses élèves, la relance des impayés et la gestion de ses factures — le tout avec un carnet, WhatsApp et un tableau Excel. Japper est un CRM SaaS conçu pour centraliser toute cette gestion et lui rendre du temps.</p>
+        <!-- ════ Hero ════ -->
+        <section class="cs-hero cs-wrap">
+            <a href="index.html" class="cs-back" data-reveal>← Retour</a>
+            <div class="cs-hero-eyebrow" data-reveal>SIDE PROJECT · SAAS B2B · DESIGN SYSTEM · DATA</div>
+            <h1 class="cs-h1" data-reveal>Construire Jappr sur deux fondations&nbsp;: un design system et un plan de tracking</h1>
+            <div class="cs-meta" data-reveal>
+                <span>PROJET — <span class="cs-meta-value">Jappr</span></span>
+                <span>RÔLE — <span class="cs-meta-value">Product Designer</span></span>
+                <span>ANNÉE — <span class="cs-meta-value">2026</span></span>
+                <span>STATUT — <span class="cs-meta-value">En cours</span></span>
             </div>
-            <div class="case-intro-goals">
-                <span class="case-intro-goals-label">Objectifs</span>
-                <ol>
-                    <li><span>01</span>Centraliser les informations élèves et propriétaires</li>
-                    <li><span>02</span>Faciliter le suivi des paiements et des impayés</li>
-                    <li><span>03</span>Réduire le temps consacré à l'administration</li>
-                </ol>
-            </div>
-        </div>
+        </section>
 
-        <!-- ════ Discovery ════ -->
-        <div class="case-section">
-            <h2>Discovery</h2>
-            <h3>État des lieux</h3>
-            <p>Des entretiens menés avec plusieurs éducatrices canines indépendantes ont mis en lumière un quotidien morcelé : l'information est partout, et nulle part à la fois.</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-big-num">3+</span>
-                    <p class="stat-label">Outils utilisés en parallèle (WhatsApp, Excel, papier)</p>
+        <!-- ════ Contexte & objectifs ════ -->
+        <section class="cs-band cs-section">
+            <div class="cs-wrap cs-grid cs-grid--420 cs-context">
+                <div class="cs-context-text" data-reveal>
+                    <h2 class="cs-eyebrow">01 — CONTEXTE &amp; OBJECTIFS</h2>
+                    <p class="cs-context-p">Caroline est éducatrice canine indépendante. Elle jongle entre ses séances sur le terrain, le suivi de ses élèves, la relance des impayés et ses factures, avec un carnet, WhatsApp, Google Agenda et un tableau Excel.</p>
+                    <p class="cs-context-p">Jappr est un CRM SaaS qui centralise cette gestion. Une app pour l'éducateur, une app pour ses clients. <strong>Pour aller vite sans perdre en cohérence, j'ai posé deux fondations dès le départ&nbsp;: un design system et un plan de tracking.</strong></p>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-big-num">~2h</span>
-                    <p class="stat-label">Par semaine consacrées à la gestion administrative</p>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-big-num">1/2</span>
-                    <p class="stat-label">Déclarent avoir des impayés non suivis régulièrement</p>
+                <div class="cs-objectives" data-reveal>
+                    <div class="cs-label">OBJECTIFS</div>
+                    <ol class="cs-objectives-list">
+                        <li><span class="cs-num">01</span><span>Centraliser élèves, séances et ventes</span></li>
+                        <li><span class="cs-num">02</span><span>Concevoir vite, avec l'IA, sans dette visuelle</span></li>
+                        <li><span class="cs-num">03</span><span>Mesurer l'usage réel dès les premiers utilisateurs</span></li>
+                    </ol>
                 </div>
             </div>
-            <div class="insights-band">
-                <h3 class="insights-band-title">Insights</h3>
-                <div class="insights-list">
-                    <div class="insight-item">
-                        <span class="insight-num">01</span>
-                        <div class="insight-body">
-                            <p class="card-title">L'information sur un élève est introuvable en moins de 30 secondes</p>
-                            <p class="insight-desc">Retrouver l'historique d'un chien, son propriétaire ou sa dernière facture nécessite de fouiller dans plusieurs supports, ce qui génère une perte de temps et un risque d'erreur à chaque séance.</p>
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <span class="insight-num">02</span>
-                        <div class="insight-body">
-                            <p class="card-title">Les impayés sont une source de gêne et d'oubli</p>
-                            <p class="insight-desc">Sans système de suivi dédié, relancer un propriétaire pour un règlement est inconfortable et souvent oublié. Les impayés s'accumulent silencieusement.</p>
-                        </div>
-                    </div>
-                    <div class="insight-item">
-                        <span class="insight-num">03</span>
-                        <div class="insight-body">
-                            <p class="card-title">Le manque de visibilité sur le planning crée des oublis</p>
-                            <p class="insight-desc">Sans vue consolidée des cours à venir, les éducatrices s'appuient sur leur mémoire ou des notifications WhatsApp — un système fragile dès que l'activité s'intensifie.</p>
-                        </div>
+        </section>
+
+        <!-- ════ Discovery & décisions ════ -->
+        <section class="cs-wrap cs-section">
+            <h2 class="cs-eyebrow" data-reveal>02 — DISCOVERY</h2>
+            <h3 class="cs-h3" data-reveal>Un quotidien morcelé</h3>
+            <p class="cs-lead" data-reveal>Des entretiens avec plusieurs éducatrices canines indépendantes&nbsp;: l'information est partout, et nulle part à la fois.</p>
+            <div class="cs-grid cs-grid--420 cs-grid--gap16">
+                <article class="cs-finding" data-reveal>
+                    <header class="cs-finding-head">
+                        <h4 class="cs-finding-title">Insights</h4>
+                        <span class="cs-finding-meta">ENTRETIENS · ÉDUCATRICES INDÉPENDANTES</span>
+                    </header>
+                    <ul class="cs-finding-list">
+                        <li><span class="cs-finding-code">I1</span><p>Se faire connaître reste difficile. Les clients arrivent surtout par le bouche-à-oreille, et même avec un site ou un compte Instagram, la visibilité ne suit pas.</p></li>
+                        <li><span class="cs-finding-code">I2</span><p>Les séances débordent et s'enchaînent à domicile&nbsp;: le temps prévu ne suffit pas et le trajet jusqu'au rendez-vous suivant devient un casse-tête.</p></li>
+                        <li><span class="cs-finding-code">I3</span><p>Le compte rendu se bricole&nbsp;: notes sur le téléphone, envoi par mail à soi-même, puis copier-coller dans Word. L'historique du chien reste dispersé.</p></li>
+                        <li><span class="cs-finding-code">I4</span><p>Factures, relances d'impayés et confirmations de rendez-vous se gèrent seule, à la main, sans comptable.</p></li>
+                        <li><span class="cs-finding-code">I5</span><p>Les ateliers collectifs, comme une balade en forêt à 15, s'organisent dans WhatsApp&nbsp;: il faut relancer chacun, et on ne sait plus qui a dit oui ou non.</p></li>
+                    </ul>
+                </article>
+                <article class="cs-finding" data-reveal>
+                    <header class="cs-finding-head">
+                        <h4 class="cs-finding-title">Ce qu'elles nous disent</h4>
+                        <span class="cs-finding-meta">DÉCLARATIF</span>
+                    </header>
+                    <ul class="cs-finding-list cs-finding-list--stats">
+                        <li><span class="cs-jp-stat">2h</span><p>pour une séance facturée 1h&nbsp;: les questions de fin de séance font déborder le créneau</p></li>
+                        <li><span class="cs-jp-stat">2h30</span><p>pour un bilan comportemental, contre 45&nbsp;min à 1h pour une séance classique</p></li>
+                        <li><span class="cs-jp-stat">30&nbsp;min</span><p>de trajet maximum toléré entre deux rendez-vous à domicile</p></li>
+                        <li><span class="cs-jp-stat">60&nbsp;km</span><p>pour le déplacement le plus lointain, compensé par des frais kilométriques</p></li>
+                        <li><span class="cs-jp-stat">3&nbsp;outils</span><p>(téléphone, mail, Word) pour rédiger un seul compte rendu</p></li>
+                        <li><span class="cs-jp-stat">4&nbsp;moyens</span><p>de paiement (CB, chèque, virement, espèces), suivis et relancés à la main</p></li>
+                    </ul>
+                </article>
+            </div>
+
+            <h3 class="cs-h3 cs-h3--sub" data-reveal>Décisions clés</h3>
+            <div class="cs-tabs" role="tablist" aria-label="Décisions clés" data-reveal>
+                <button type="button" class="cs-tab" role="tab" id="cs-tab-1" aria-controls="cs-dec-1" aria-selected="true"><span class="cs-tab-num">01</span>Rendre l'éducateur visible</button>
+                <button type="button" class="cs-tab" role="tab" id="cs-tab-2" aria-controls="cs-dec-2" aria-selected="false" tabindex="-1"><span class="cs-tab-num">02</span>Prioriser l'urgence du jour</button>
+                <button type="button" class="cs-tab" role="tab" id="cs-tab-3" aria-controls="cs-dec-3" aria-selected="false" tabindex="-1"><span class="cs-tab-num">03</span>Adapter les créneaux au trajet</button>
+                <button type="button" class="cs-tab" role="tab" id="cs-tab-4" aria-controls="cs-dec-4" aria-selected="false" tabindex="-1"><span class="cs-tab-num">04</span>Organiser les ateliers collectifs</button>
+                <button type="button" class="cs-tab" role="tab" id="cs-tab-5" aria-controls="cs-dec-5" aria-selected="false" tabindex="-1"><span class="cs-tab-num">05</span>Une fiche élève unifiée</button>
+                <button type="button" class="cs-tab" role="tab" id="cs-tab-6" aria-controls="cs-dec-6" aria-selected="false" tabindex="-1"><span class="cs-tab-num">06</span>Distinguer séances et bilans</button>
+                <button type="button" class="cs-tab" role="tab" id="cs-tab-7" aria-controls="cs-dec-7" aria-selected="false" tabindex="-1"><span class="cs-tab-num">07</span>Structurer la fiche comportementale</button>
+            </div>
+            <div class="cs-dec-panels" data-reveal>
+                <div class="cs-dec" id="cs-dec-1" role="tabpanel" aria-labelledby="cs-tab-1" tabindex="0">
+                    <div class="cs-dec-source">Source : <span>→ I1</span></div>
+                    <div class="cs-grid cs-grid--260">
+                        <div class="cs-dec-part cs-dec-part--avant"><div class="cs-dec-label">AVANT</div><p>Les éducatrices dépendent du bouche-à-oreille. Même avec un site ou un compte Instagram, elles peinent à être trouvées par les propriétaires près de chez elles.</p></div>
+                        <div class="cs-dec-part cs-dec-part--decision"><div class="cs-dec-label">→ DÉCISION</div><p>Un profil visible dans l'app client, où chaque éducateur est référencé&nbsp;: présentation, spécialités et disponibilités. Le propriétaire trouve un éducateur et envoie une demande de réservation.</p></div>
+                        <div class="cs-dec-part cs-dec-part--impact"><div class="cs-dec-label">→ IMPACT ATTENDU</div><p>De nouveaux clients sans effort de communication, et des demandes qui arrivent directement dans le tableau de bord.</p></div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- ════ Idéation ════ -->
-        <div class="case-section">
-            <h2>Idéation</h2>
-            <h3>Objectifs produit</h3>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">01</span>
-                    <p class="objective-text">Une source de vérité unique pour chaque élève</p>
+                <div class="cs-dec" id="cs-dec-2" role="tabpanel" aria-labelledby="cs-tab-2" tabindex="0">
+                    <div class="cs-dec-source">Source : <span>→ I4</span></div>
+                    <div class="cs-grid cs-grid--260">
+                        <div class="cs-dec-part cs-dec-part--avant"><div class="cs-dec-label">AVANT</div><p>Les tableaux de bord classiques affichent toutes les données à égalité, sans distinguer l'urgent de ce qui peut attendre.</p></div>
+                        <div class="cs-dec-part cs-dec-part--decision"><div class="cs-dec-label">→ DÉCISION</div><p>Un tableau de bord organisé autour du jour&nbsp;: demandes de réservation, cours prévus, paiements en attente.</p></div>
+                        <div class="cs-dec-part cs-dec-part--impact"><div class="cs-dec-label">→ IMPACT ATTENDU</div><p>L'éducatrice ouvre l'app le matin et sait immédiatement quoi faire.</p></div>
+                    </div>
                 </div>
-                <div class="objective-item">
-                    <span class="objective-number">02</span>
-                    <p class="objective-text">Rendre l'urgence du quotidien immédiatement visible</p>
+                <div class="cs-dec" id="cs-dec-3" role="tabpanel" aria-labelledby="cs-tab-3" tabindex="0">
+                    <div class="cs-dec-source">Source : <span>→ I2</span></div>
+                    <div class="cs-grid cs-grid--260">
+                        <div class="cs-dec-part cs-dec-part--avant"><div class="cs-dec-label">AVANT</div><p>Les séances se font à domicile. Entre deux rendez-vous, l'éducatrice estime le trajet de tête et ajoute un temps tampon fixe, qui ne suffit plus dès qu'une séance déborde.</p></div>
+                        <div class="cs-dec-part cs-dec-part--decision"><div class="cs-dec-label">→ DÉCISION</div><p>Calculer automatiquement le temps de trajet entre l'adresse de départ et l'adresse du rendez-vous, et adapter les créneaux proposés en conséquence.</p></div>
+                        <div class="cs-dec-part cs-dec-part--impact"><div class="cs-dec-label">→ IMPACT ATTENDU</div><p>Plus de rendez-vous impossibles à tenir ni de retards en chaîne&nbsp;: l'éducatrice planifie sans rien calculer.</p></div>
+                    </div>
                 </div>
-                <div class="objective-item">
-                    <span class="objective-number">03</span>
-                    <p class="objective-text">Zéro friction pour enregistrer une séance ou une facture</p>
+                <div class="cs-dec" id="cs-dec-4" role="tabpanel" aria-labelledby="cs-tab-4" tabindex="0">
+                    <div class="cs-dec-source">Source : <span>→ I5</span></div>
+                    <div class="cs-grid cs-grid--260">
+                        <div class="cs-dec-part cs-dec-part--avant"><div class="cs-dec-label">AVANT</div><p>Un atelier collectif s'organise dans un groupe WhatsApp. Il faut relancer les participants un par un, et la liste de qui vient se perd dans les messages.</p></div>
+                        <div class="cs-dec-part cs-dec-part--decision"><div class="cs-dec-label">→ DÉCISION</div><p>Une fonctionnalité de création et de gestion d'ateliers&nbsp;: l'éducatrice crée le créneau et fixe le nombre de places, puis chaque participant invité confirme sa présence par e-mail.</p></div>
+                        <div class="cs-dec-part cs-dec-part--impact"><div class="cs-dec-label">→ IMPACT ATTENDU</div><p>Plus de relances à la main ni de doute sur qui vient&nbsp;: la liste des participants est toujours à jour.</p></div>
+                    </div>
                 </div>
-            </div>
-            <h3>Objectifs business</h3>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">01</span>
-                    <p class="objective-text">Convaincre des indépendants sans budget IT</p>
+                <div class="cs-dec" id="cs-dec-5" role="tabpanel" aria-labelledby="cs-tab-5" tabindex="0">
+                    <div class="cs-dec-source">Source : <span>→ I3</span></div>
+                    <div class="cs-grid cs-grid--260">
+                        <div class="cs-dec-part cs-dec-part--avant"><div class="cs-dec-label">AVANT</div><p>Coordonnées, historique des séances et factures d'un chien répartis entre plusieurs outils.</p></div>
+                        <div class="cs-dec-part cs-dec-part--decision"><div class="cs-dec-label">→ DÉCISION</div><p>Une fiche élève qui réunit le chien, son propriétaire, l'historique des cours, les documents et les ventes.</p></div>
+                        <div class="cs-dec-part cs-dec-part--impact"><div class="cs-dec-label">→ IMPACT ATTENDU</div><p>Toute l'information d'un élève en moins de 10 secondes.</p></div>
+                    </div>
                 </div>
-                <div class="objective-item">
-                    <span class="objective-number">02</span>
-                    <p class="objective-text">Valeur perçue dès la première session</p>
+                <div class="cs-dec" id="cs-dec-6" role="tabpanel" aria-labelledby="cs-tab-6" tabindex="0">
+                    <div class="cs-dec-source">Source : <span>→ Entretiens</span></div>
+                    <div class="cs-grid cs-grid--260">
+                        <div class="cs-dec-part cs-dec-part--avant"><div class="cs-dec-label">AVANT</div><p>Une séance de suivi et un bilan comportemental n'ont pas le même objectif, mais aucun outil ne les distingue.</p></div>
+                        <div class="cs-dec-part cs-dec-part--decision"><div class="cs-dec-label">→ DÉCISION</div><p>Des types de cours distincts (séance classique, bilan comportemental, atelier collectif), visibles partout dans l'app.</p></div>
+                        <div class="cs-dec-part cs-dec-part--impact"><div class="cs-dec-label">→ IMPACT ATTENDU</div><p>Un historique lisible d'un coup d'œil.</p></div>
+                    </div>
                 </div>
-                <div class="objective-item">
-                    <span class="objective-number">03</span>
-                    <p class="objective-text">Poser les bases d'un modèle freemium / abonnement mensuel</p>
-                </div>
-            </div>
-            <div class="decisions-band">
-                <h3 class="decisions-band-title">Décisions clés</h3>
-                <div class="decisions-grid">
-                    <article class="decision-card">
-                        <div class="decision-card-head">
-                            <span class="badge">Décision</span>
-                            <span class="decision-card-num">01</span>
-                        </div>
-                        <h4 class="decision-card-title">Prioriser l'urgence du jour</h4>
-                        <div class="decision-card-part decision-card-part--avant">
-                            <span class="decision-card-label">Avant</span>
-                            <span class="decision-card-text">Un tableau de bord générique sans priorité. Les dashboards classiques affichent toutes les données à égalité, sans distinguer ce qui est urgent de ce qui peut attendre.</span>
-                        </div>
-                        <div class="decision-card-part">
-                            <span class="decision-card-label">Décision</span>
-                            <span class="decision-card-text">Structurer le tableau de bord autour de l'urgence du jour : cours à venir en haut, paiements à vérifier et impayés directement accessibles.</span>
-                        </div>
-                        <div class="decision-card-part decision-card-part--impact">
-                            <span class="decision-card-label">Impact attendu</span>
-                            <span class="decision-card-text">L'éducatrice ouvre l'app le matin et sait immédiatement ce qu'elle doit faire — sans chercher.</span>
-                        </div>
-                    </article>
-
-                    <article class="decision-card">
-                        <div class="decision-card-head">
-                            <span class="badge">Décision</span>
-                            <span class="decision-card-num">02</span>
-                        </div>
-                        <h4 class="decision-card-title">Une fiche élève unifiée</h4>
-                        <div class="decision-card-part decision-card-part--avant">
-                            <span class="decision-card-label">Avant</span>
-                            <span class="decision-card-text">Les infos d'un élève réparties sur plusieurs supports. Retrouver les coordonnées du propriétaire, l'historique des séances et les factures d'un chien impose de naviguer entre plusieurs outils.</span>
-                        </div>
-                        <div class="decision-card-part">
-                            <span class="decision-card-label">Décision</span>
-                            <span class="decision-card-text">Créer une fiche élève unifiée regroupant les infos du chien, du propriétaire, l'historique complet des cours et la liste des factures sur une seule page.</span>
-                        </div>
-                        <div class="decision-card-part decision-card-part--impact">
-                            <span class="decision-card-label">Impact attendu</span>
-                            <span class="decision-card-text">Accès à toute l'information d'un élève en moins de 10 secondes, depuis n'importe quel appareil.</span>
-                        </div>
-                    </article>
-
-                    <article class="decision-card">
-                        <div class="decision-card-head">
-                            <span class="badge">Décision</span>
-                            <span class="decision-card-num">03</span>
-                        </div>
-                        <h4 class="decision-card-title">Distinguer séances et bilans</h4>
-                        <div class="decision-card-part decision-card-part--avant">
-                            <span class="decision-card-label">Avant</span>
-                            <span class="decision-card-text">Tous les cours traités de la même façon. Une séance de suivi et un bilan comportemental initial ont des objectifs très différents, mais aucun outil ne les distingue.</span>
-                        </div>
-                        <div class="decision-card-part">
-                            <span class="decision-card-label">Décision</span>
-                            <span class="decision-card-text">Introduire deux types de cours — Séance et Bilan — avec des badges visuels distincts pour qualifier immédiatement le contexte d'une intervention.</span>
-                        </div>
-                        <div class="decision-card-part decision-card-part--impact">
-                            <span class="decision-card-label">Impact attendu</span>
-                            <span class="decision-card-text">Meilleure lisibilité de l'historique et fondation pour de futures fonctionnalités IA (suggestions de notes selon le type de cours).</span>
-                        </div>
-                    </article>
-
-                    <article class="decision-card">
-                        <div class="decision-card-head">
-                            <span class="badge">Décision</span>
-                            <span class="decision-card-num">04</span>
-                        </div>
-                        <h4 class="decision-card-title">Structurer la fiche comportementale</h4>
-                        <div class="decision-card-part decision-card-part--avant">
-                            <span class="decision-card-label">Avant</span>
-                            <span class="decision-card-text">La fiche d'information comportementale sur papier ou dans les notes du téléphone. Les informations collectées lors d'un premier bilan (âge, comportements problématiques, historique) sont stockées de façon non structurée et introuvables lors des séances suivantes.</span>
-                        </div>
-                        <div class="decision-card-part">
-                            <span class="decision-card-label">Décision</span>
-                            <span class="decision-card-text">Intégrer une fiche d'informations structurée dans la fiche élève, avec des champs dédiés au chien et à son comportement, accessible et modifiable à tout moment.</span>
-                        </div>
-                        <div class="decision-card-part decision-card-part--impact">
-                            <span class="decision-card-label">Impact attendu</span>
-                            <span class="decision-card-text">Préparer le terrain pour une IA capable de générer des suggestions de compte-rendu de séance basées sur le profil comportemental du chien.</span>
-                        </div>
-                    </article>
+                <div class="cs-dec" id="cs-dec-7" role="tabpanel" aria-labelledby="cs-tab-7" tabindex="0">
+                    <div class="cs-dec-source">Source : <span>→ I3</span></div>
+                    <div class="cs-grid cs-grid--260">
+                        <div class="cs-dec-part cs-dec-part--avant"><div class="cs-dec-label">AVANT</div><p>Les informations du premier bilan (âge, comportements, historique) restent sur papier ou dans les notes du téléphone.</p></div>
+                        <div class="cs-dec-part cs-dec-part--decision"><div class="cs-dec-label">→ DÉCISION</div><p>Des modèles de fiche d'information, créés une fois puis appliqués à chaque client.</p></div>
+                        <div class="cs-dec-part cs-dec-part--impact"><div class="cs-dec-label">→ IMPACT ATTENDU</div><p>Des données structurées, réutilisables à chaque séance.</p></div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="flow-band">
-                <h3 class="flow-band-title">Prototype</h3>
-                <div class="flow-scroll">
-                    <article class="flow-card">
-                        <img src="images/japper-dashboard.png" alt="Tableau de bord Japper">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Tableau de bord — Vue du quotidien</p>
-                                <p class="flow-card-desc">Les cours à venir sont mis en avant, suivis des paiements à vérifier et des impayés. L'essentiel d'un coup d'œil.</p>
+        <!-- ════ Design system ════ -->
+        <section class="cs-band cs-section">
+            <div class="cs-wrap">
+                <h2 class="cs-eyebrow" data-reveal>03 — DESIGN SYSTEM</h2>
+                <h3 class="cs-h3" data-reveal>Des tokens avant les écrans</h3>
+                <p class="cs-lead" data-reveal>Deux apps, une seule designer et beaucoup d'écrans générés avec l'IA&nbsp;: sans règles partagées, l'interface aurait dérivé en quelques semaines. J'ai donc commencé par les fondations.</p>
+
+                <!-- Architecture des tokens -->
+                <div class="cs-card cs-card--lg cs-tokens" data-reveal>
+                    <div class="cs-card-label">Trois niveaux de variables Figma, chacun avec son rôle&nbsp;:</div>
+                    <div class="cs-tokens-head" aria-hidden="true">
+                        <span>PRIMITIVE · <em>la valeur</em></span>
+                        <span>SÉMANTIQUE · <em>l'intention</em></span>
+                        <span>COMPOSANT · <em>l'usage</em></span>
+                    </div>
+                    <ul class="cs-tokens-list">
+                        <li class="cs-tokens-row">
+                            <span class="cs-tokens-cell"><span class="cs-tokens-swatch" style="--sw:#2f48bd"></span><code>#2F48BD</code></span>
+                            <span class="cs-tokens-arrow" aria-hidden="true">→</span>
+                            <span class="cs-tokens-cell"><code>color/action/default/rest</code></span>
+                            <span class="cs-tokens-arrow" aria-hidden="true">→</span>
+                            <span class="cs-tokens-cell cs-tokens-use">Fond du bouton primary</span>
+                        </li>
+                        <li class="cs-tokens-row">
+                            <span class="cs-tokens-cell"><span class="cs-tokens-swatch" style="--sw:#933533"></span><code>#933533</code></span>
+                            <span class="cs-tokens-arrow" aria-hidden="true">→</span>
+                            <span class="cs-tokens-cell"><code>color/action/danger/rest</code><code>color/border/error</code></span>
+                            <span class="cs-tokens-arrow" aria-hidden="true">→</span>
+                            <span class="cs-tokens-cell cs-tokens-use">Bouton danger · bordure d'un champ en erreur</span>
+                        </li>
+                        <li class="cs-tokens-row">
+                            <span class="cs-tokens-cell"><span class="cs-tokens-space" aria-hidden="true"></span><code>space/4 = 16&nbsp;px</code></span>
+                            <span class="cs-tokens-arrow" aria-hidden="true">→</span>
+                            <span class="cs-tokens-cell"><code>space/inset/medium</code></span>
+                            <span class="cs-tokens-arrow" aria-hidden="true">→</span>
+                            <span class="cs-tokens-cell cs-tokens-use">Padding vertical du bouton large</span>
+                        </li>
+                    </ul>
+                    <p class="cs-tokens-note">Une même primitive peut servir plusieurs intentions&nbsp;: le rouge sert à la fois l'action destructive et l'erreur de saisie. Les composants ne référencent que des tokens sémantiques. Changer une couleur de la palette ne touche donc à aucun composant.</p>
+                </div>
+
+                <!-- Fondations -->
+                <div class="cs-grid cs-grid--260 cs-ds-foundations">
+                    <div class="cs-card cs-hypo" data-reveal>
+                        <span class="cs-tag">TYPOGRAPHIE</span>
+                        <h4>Une échelle à deux vitesses</h4>
+                        <p>En Inter. Ratio d'environ 1,125 pour les petites tailles, qui restent lisibles, et 1,2 pour les titres (18 → 22 → 26 → 32), qui ont besoin de contraste.</p>
+                    </div>
+                    <div class="cs-card cs-hypo" data-reveal>
+                        <span class="cs-tag">ESPACEMENTS</span>
+                        <h4>Inset, stack, inline</h4>
+                        <p>Les espacements sémantiques disent où ils s'appliquent&nbsp;: à l'intérieur d'un composant, entre deux blocs empilés ou entre deux éléments en ligne.</p>
+                    </div>
+                    <div class="cs-card cs-hypo" data-reveal>
+                        <span class="cs-tag">MISE EN PAGE</span>
+                        <h4>Trois breakpoints, pas de grille</h4>
+                        <p>Desktop first (≥&nbsp;1200, 768–1199, &lt;&nbsp;768&nbsp;px). Pas de colonnes&nbsp;: de l'auto layout avec un conteneur de 1120&nbsp;px et des marges de 16, 32 ou 48&nbsp;px, toutes issues des tokens.</p>
+                    </div>
+                </div>
+
+                <!-- Composants -->
+                <h3 class="cs-h3 cs-h3--sub" data-reveal>Premiers composants&nbsp;: boutons et champs</h3>
+                <p class="cs-body cs-ds-intro" data-reveal>Les atomes d'abord. Chaque composant expose des propriétés plutôt qu'une liste de variantes&nbsp;: le bouton combine <code>hierarchy</code>, <code>intent</code>, <code>size</code> et <code>disabled</code>, soit 18 variantes. Ci-dessous, ils sont recodés en HTML avec les mêmes tokens.</p>
+
+                <div class="cs-grid cs-grid--460 cs-grid--gap16">
+                    <figure class="cs-specimen" data-reveal>
+                        <div class="cs-specimen-head"><span class="cs-card-label">BUTTON · HIERARCHY × INTENT</span><span class="cs-finding-meta">18 VARIANTES</span></div>
+                        <div class="cs-specimen-stage jp">
+                            <div class="jp-matrix">
+                                <span></span><span class="jp-axis">primary</span><span class="jp-axis">secondary</span>
+                                <span class="jp-axis">default</span>
+                                <span class="jp-btn">Enregistrer</span>
+                                <span class="jp-btn jp-btn--secondary">Annuler</span>
+                                <span class="jp-axis">danger</span>
+                                <span class="jp-btn jp-btn--danger">Supprimer</span>
+                                <span class="jp-btn jp-btn--secondary jp-btn--danger">Supprimer</span>
+                                <span class="jp-axis">disabled</span>
+                                <span class="jp-btn jp-btn--disabled">Enregistrer</span>
+                                <span class="jp-btn jp-btn--disabled">Annuler</span>
                             </div>
-                            <span class="flow-card-num">01</span>
-                        </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/japper-eleves.png" alt="Liste des élèves Japper">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Liste des élèves — Recherche et filtres</p>
-                                <p class="flow-card-desc">Tous les chiens et leurs propriétaires en un seul endroit, avec recherche rapide et accès direct à la fiche.</p>
+                            <div class="jp-sizes">
+                                <span class="jp-size"><span class="jp-btn jp-btn--lg">Large</span><span class="jp-axis">56&nbsp;px</span></span>
+                                <span class="jp-size"><span class="jp-btn">Medium</span><span class="jp-axis">48&nbsp;px</span></span>
+                                <span class="jp-size"><span class="jp-btn jp-btn--sm">Small</span><span class="jp-axis">40&nbsp;px</span></span>
                             </div>
-                            <span class="flow-card-num">02</span>
                         </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/japper-eleve.png" alt="Fiche élève Japper">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Fiche élève — Infos, cours et factures réunis</p>
-                                <p class="flow-card-desc">Toutes les informations d'un élève sur une page : coordonnées, historique des cours (Bilan / Séance) et suivi de facturation.</p>
+                        <figcaption>Le rendu désactivé est identique en primary et en secondary&nbsp;: une action indisponible n'a plus de hiérarchie.</figcaption>
+                    </figure>
+
+                    <figure class="cs-specimen" data-reveal>
+                        <div class="cs-specimen-head"><span class="cs-card-label">TEXT FIELD · STATE</span><span class="cs-finding-meta">7 ÉTATS × 3 CHAMPS</span></div>
+                        <div class="cs-specimen-stage jp">
+                            <div class="jp-fields">
+                                <div class="jp-field"><span class="jp-label">Nom du chien</span><span class="jp-input jp-input--placeholder">Ex. Nuka</span><span class="jp-axis">default</span></div>
+                                <div class="jp-field"><span class="jp-label">Nom du chien</span><span class="jp-input jp-input--focus">Nuka<span class="jp-caret"></span></span><span class="jp-axis">focus</span></div>
+                                <div class="jp-field"><span class="jp-label">Téléphone</span><span class="jp-input jp-input--error">06 12 34</span><span class="jp-help jp-help--error">Numéro incomplet</span></div>
+                                <div class="jp-field"><span class="jp-label">Nom du chien</span><span class="jp-input jp-input--disabled">Nuka</span><span class="jp-axis">disabled</span></div>
+                                <div class="jp-field"><span class="jp-label">N° de vente</span><span class="jp-input jp-input--readonly">F-2026-0003<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2h.5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h.5Zm1.5 0h4V5a2 2 0 1 0-4 0v2Z"/></svg></span><span class="jp-axis">readOnly</span></div>
                             </div>
-                            <span class="flow-card-num">03</span>
                         </div>
-                    </article>
-                    <article class="flow-card">
-                        <img src="images/japper-fiche.png" alt="Fiche comportementale Japper">
-                        <div class="flow-card-foot">
-                            <div>
-                                <p class="flow-card-title">Fiche comportementale — Données structurées</p>
-                                <p class="flow-card-desc">Un formulaire guidé pour collecter les informations comportementales dès le premier bilan, réutilisables lors de chaque séance.</p>
-                            </div>
-                            <span class="flow-card-num">04</span>
-                        </div>
-                    </article>
+                        <figcaption>Text field, select et text area partagent les mêmes états (default, hover, focus, filled, error, disabled, readOnly). Checkbox, radio, toggle et tags complètent les atomes.</figcaption>
+                    </figure>
+                </div>
+
+                <!-- Doc d'usage pour l'IA -->
+                <div class="cs-ai-doc">
+                    <div class="cs-quali-intro" data-reveal>
+                        <h3 class="cs-h3">Une documentation écrite pour l'IA</h3>
+                        <p class="cs-body">Figma dit à quoi ressemble un bouton, pas quand l'utiliser. J'ai rédigé la doc d'usage en Markdown pour qu'un agent IA qui génère des écrans applique les mêmes règles que moi. Chaque règle tranche une décision au lieu de la laisser à l'interprétation.</p>
+                    </div>
+                    <div class="cs-grid cs-grid--420 cs-grid--gap16">
+                        <figure class="cs-doc" data-reveal>
+                            <div class="cs-doc-bar"><span class="cs-doc-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>button.md</span></div>
+<pre><code><span class="cs-doc-h"># Button</span>
+Déclenche une action : enregistrer, réserver,
+envoyer, supprimer.
+
+<span class="cs-doc-h">## Hiérarchie</span>
+- <b>primary</b> : l'action principale de la vue.
+  Un seul bouton primary par vue.
+
+<span class="cs-doc-h">## Tokens utilisés</span>
+- Fond : <span class="cs-doc-t">color/action/{intent}/rest</span>
+- Forme : <span class="cs-doc-t">radius/pill</span>
+
+Ne jamais utiliser de valeur en dur (hex, px) :
+uniquement ces tokens.</code></pre>
+                        </figure>
+                        <ul class="cs-rules" data-reveal>
+                            <li class="cs-rule"><span class="cs-rule-mark cs-rule-mark--no" aria-label="À éviter">✕</span><p>Deux boutons primary côte à côte.</p></li>
+                            <li class="cs-rule"><span class="cs-rule-mark cs-rule-mark--no" aria-label="À éviter">✕</span><p>Un bouton danger grisé. S'il est indisponible, on le masque ou on explique au clic pourquoi l'action est bloquée.</p></li>
+                            <li class="cs-rule"><span class="cs-rule-mark cs-rule-mark--no" aria-label="À éviter">✕</span><p>Désactiver le bouton d'envoi d'un formulaire incomplet. On le laisse actif et on affiche les erreurs sur les champs.</p></li>
+                            <li class="cs-rule"><span class="cs-rule-mark" aria-label="À faire">✓</span><p>Un libellé qui dit l'action&nbsp;: «&nbsp;Réserver la séance&nbsp;», pas «&nbsp;OK&nbsp;». Le small (40&nbsp;px) passe sous la zone tactile de 44&nbsp;px&nbsp;: jamais pour l'action principale.</p></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- ════ Écrans clés ════ -->
+        <section class="cs-flow-section">
+            <div class="cs-wrap cs-flow-head">
+                <div data-reveal>
+                    <h3 class="cs-h3">Le système appliqué</h3>
+                    <p class="cs-body">L'app éducateur, construite avec ces composants et ces tokens.</p>
+                </div>
+                <div class="cs-flow-hint">3 écrans · faire défiler →</div>
+            </div>
+            <div class="cs-flow" role="region" aria-label="Écrans de l'app éducateur, 3 écrans" tabindex="0">
+                <figure class="cs-flow-card cs-flow-card--wide">
+                    <div class="cs-flow-frame"><img src="images/jappr-dashboard.jpg" width="1600" height="766" alt="Tableau de bord de Jappr : revenu du mois, nouveaux élèves, taux de présence, cours du jour, paiements en attente et premiers pas" loading="lazy" decoding="async"></div>
+                    <figcaption><span class="cs-flow-num">01</span><div><div class="cs-flow-title">Tableau de bord</div><div class="cs-flow-desc">Les chiffres du mois en haut, puis les cours du jour et les paiements en attente. Une checklist «&nbsp;Premiers pas&nbsp;» guide la prise en main.</div></div></figcaption>
+                </figure>
+                <figure class="cs-flow-card cs-flow-card--wide">
+                    <div class="cs-flow-frame"><img src="images/jappr-planification.jpg" width="1600" height="766" alt="Modale de planification d'un cours : élève, type de cours, durée, date, créneaux disponibles, lieu et note" loading="lazy" decoding="async"></div>
+                    <figcaption><span class="cs-flow-num">02</span><div><div class="cs-flow-title">Planifier un cours</div><div class="cs-flow-desc">Les créneaux disponibles tiennent compte du trajet jusqu'au domicile de l'élève. Un seul bouton primary dans la modale.</div></div></figcaption>
+                </figure>
+                <figure class="cs-flow-card cs-flow-card--wide">
+                    <div class="cs-flow-frame"><img src="images/jappr-workshops.jpg" width="1600" height="766" alt="Modale de création d'un atelier collectif : nom, durée, date, lieu et nombre de places" loading="lazy" decoding="async"></div>
+                    <figcaption><span class="cs-flow-num">03</span><div><div class="cs-flow-title">Créer un atelier collectif</div><div class="cs-flow-desc">L'éducatrice crée le créneau et fixe le nombre de places. Chaque participant confirme sa présence par e-mail, et l'atelier est complet une fois les places prises.</div></div></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ════ Data ════ -->
+        <section class="cs-band cs-section">
+            <div class="cs-wrap">
+                <h2 class="cs-eyebrow" data-reveal>04 — DATA</h2>
+                <h3 class="cs-h3" data-reveal>Un plan de tracking pensé avant le lancement</h3>
+                <p class="cs-lead cs-lead--wide" data-reveal>Pour savoir si Jappr fait vraiment gagner du temps, il faut pouvoir le mesurer dès le premier utilisateur. J'ai donc écrit le plan de tracking en même temps que les écrans.</p>
+
+                <div class="cs-grid cs-grid--420 cs-grid--gap16 cs-tracking">
+                    <div class="cs-tracking-text" data-reveal>
+                        <div class="cs-label">STRUCTURE &amp; NOMMAGE</div>
+                        <p class="cs-body">16 événements, envoyés à Amplitude côté serveur. Tous suivent la même convention&nbsp;: <code>objet_action</code>, en anglais, en snake_case, avec un verbe au participe passé (<code>session_planned</code>, <code>sale_created</code>, <code>booking_requested</code>).</p>
+                        <p class="cs-body">L'objet range chaque événement dans un domaine métier&nbsp;: séance, vente, réservation, client, document. Le verbe au passé rappelle qu'un événement décrit un fait accompli&nbsp;: il part une fois l'action confirmée par le serveur, pas au clic.</p>
+                        <p class="cs-body">Chaque événement est documenté dans Amplitude avec son déclencheur et sa source&nbsp;: une action de l'éducateur, une action du client dans son app, ou un traitement automatique. Par exemple, <code>session_completed</code> part à l'heure de fin de la séance et <code>sale_overdue</code> quand une vente reste impayée 14&nbsp;jours.</p>
+                        <p class="cs-body">Dans Figma, un composant <code>tag-tracking</code> (action ou automatique) annote les écrans&nbsp;: le plan de tracking se lit au même endroit que le design.</p>
+                    </div>
+
+                    <div class="cs-card cs-card--lg cs-events" data-reveal>
+                        <div class="cs-card-label">Les 16 événements, par domaine&nbsp;:</div>
+                        <div class="cs-events-legend">
+                            <span><i class="cs-ev-dot"></i>Action éducateur</span>
+                            <span><i class="cs-ev-dot cs-ev-dot--client"></i>Action client</span>
+                            <span><i class="cs-ev-dot cs-ev-dot--auto"></i>Automatique</span>
+                        </div>
+                        <dl class="cs-events-list">
+                            <div class="cs-events-group">
+                                <dt>Compte</dt>
+                                <dd><code class="cs-ev">trainer_signed_up</code><code class="cs-ev">onboarding_step_completed</code></dd>
+                            </div>
+                            <div class="cs-events-group">
+                                <dt>Clients</dt>
+                                <dd><code class="cs-ev cs-ev--auto">client_added</code><code class="cs-ev cs-ev--client">client_account_activated</code><code class="cs-ev">info_template_created</code><code class="cs-ev">info_template_used</code></dd>
+                            </div>
+                            <div class="cs-events-group">
+                                <dt>Séances</dt>
+                                <dd><code class="cs-ev">session_planned</code><code class="cs-ev">session_cancelled</code><code class="cs-ev cs-ev--auto">session_completed</code><code class="cs-ev">session_report_sent</code><code class="cs-ev">workshop_created</code></dd>
+                            </div>
+                            <div class="cs-events-group">
+                                <dt>Réservations</dt>
+                                <dd><code class="cs-ev cs-ev--client">booking_requested</code><code class="cs-ev">booking_responded</code></dd>
+                            </div>
+                            <div class="cs-events-group">
+                                <dt>Ventes</dt>
+                                <dd><code class="cs-ev cs-ev--auto">sale_created</code><code class="cs-ev cs-ev--auto">sale_overdue</code></dd>
+                            </div>
+                            <div class="cs-events-group">
+                                <dt>Documents</dt>
+                                <dd><code class="cs-ev">document_sent</code></dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+
+                <h3 class="cs-h3 cs-h3--sub" data-reveal>Analyse</h3>
+                <div class="cs-grid cs-grid--420 cs-grid--gap16">
+                    <div class="cs-card cs-card--lg cs-funnel cs-funnel--pending" data-reveal>
+                        <div class="cs-wip-head"><span class="cs-card-label">AMPLITUDE · FUNNEL D'ACTIVATION</span><span class="cs-wip-tag">EN COURS</span></div>
+                        <div class="cs-funnel-row">
+                            <div class="cs-funnel-head"><span>Inscription</span><span class="cs-mono">trainer_signed_up</span></div>
+                            <div class="cs-track"></div>
+                        </div>
+                        <div class="cs-funnel-row">
+                            <div class="cs-funnel-head"><span>Premier élève ajouté</span><span class="cs-mono">client_added</span></div>
+                            <div class="cs-track"></div>
+                        </div>
+                        <div class="cs-funnel-row">
+                            <div class="cs-funnel-head"><span>Premier cours planifié</span><span class="cs-mono">session_planned</span></div>
+                            <div class="cs-track"></div>
+                        </div>
+                        <div class="cs-funnel-row">
+                            <div class="cs-funnel-head"><span>Première vente</span><span class="cs-mono">sale_created</span></div>
+                            <div class="cs-track"></div>
+                        </div>
+                        <p class="cs-small">Les premières données arrivent. Les taux de conversion entre chaque étape seront publiés ici.</p>
+                    </div>
+                    <div class="cs-card cs-card--lg cs-hypo cs-wip-card" data-reveal>
+                        <div class="cs-wip-head"><span class="cs-tag">SQL</span><span class="cs-wip-tag">À VENIR</span></div>
+                        <h4>Aller au-delà des funnels</h4>
+                        <p>Croiser les événements Amplitude avec les données de la base, pour répondre aux questions qu'un outil d'analytics ne couvre pas seul. Cette partie sera mise à jour avec les premières requêtes et ce qu'elles m'ont appris.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- ════ Et après ════ -->
-        <div class="case-section">
-            <h2>Et après</h2>
-            <p>Japper a été conçu avec une couche de données structurée dès le départ, pour préparer l'intégration progressive de l'IA. Les prochaines itérations visent à réduire encore davantage le temps de saisie et à anticiper les besoins de l'éducatrice.</p>
-            <div class="objectives-grid">
-                <div class="objective-item">
-                    <span class="objective-number">IA</span>
-                    <p class="objective-text">Génération automatique de compte-rendus de séance à partir du profil comportemental du chien</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">📱</span>
-                    <p class="objective-text">Application mobile pour saisir une séance directement depuis le terrain</p>
-                </div>
-                <div class="objective-item">
-                    <span class="objective-number">✉</span>
-                    <p class="objective-text">Rappels automatiques par email aux propriétaires pour les impayés et les prochains rendez-vous</p>
-                </div>
+        <section class="cs-wrap cs-section">
+            <h2 class="cs-eyebrow" data-reveal>05 — ET APRÈS</h2>
+            <h3 class="cs-h3" data-reveal>Prochaines étapes</h3>
+            <div class="cs-learnings cs-next" data-reveal>
+                <div class="cs-learning"><div class="cs-learning-head"><span class="cs-learning-num">01</span><span class="cs-learning-title">Compléter le design system.</span></div><p>Documenter chaque composant pour l'IA, comme le bouton, pour que chaque écran généré respecte les mêmes règles.</p></div>
+                <div class="cs-learning"><div class="cs-learning-head"><span class="cs-learning-num">02</span><span class="cs-learning-title">Construire les tableaux de bord.</span></div><p>Après le funnel d'activation, suivre la rétention et l'adoption des fonctionnalités clés dans Amplitude.</p></div>
+                <div class="cs-learning"><div class="cs-learning-head"><span class="cs-learning-num">03</span><span class="cs-learning-title">Laisser la data orienter le design.</span></div><p>Confronter les décisions clés aux usages réels et itérer là où les chiffres le demandent.</p></div>
             </div>
-        </div>
+        </section>
 
-    </article>
+    </main>
 
     <!-- Back to top -->
     <a href="#" class="back-to-top" id="backToTop" aria-label="Remonter en haut">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 11L8 5L13 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-
     <script>
+        // Back to top
         const btn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             btn.classList.toggle('visible', window.scrollY > 300);
@@ -320,8 +439,8 @@
     <!-- Projet suivant + footer -->
     <section class="cta">
         <a href="projet-onboarding.html" class="cta-inner next-project">
-            <span class="next-project-label">Projet suivant · 01</span>
-            <h2 class="cta-title">Repenser l'onboarding grâce aux <em>données produit</em></h2>
+            <span class="next-project-label">PROJET SUIVANT · 01 →</span>
+            <h2 class="cta-title">Faire passer de 40&nbsp;% à 52&nbsp;% les utilisateurs<br>en usage soutenu</h2>
         </a>
         <footer class="cta-footer">
             <div class="cta-footer-inner">
@@ -331,5 +450,6 @@
     </section>
 
     <script src="nav.js"></script>
+    <script src="case.js"></script>
 </body>
 </html>

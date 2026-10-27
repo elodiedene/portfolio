@@ -3790,3 +3790,603 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
+/* ════════════════════════════════════════════════════════════
+   Composants cs- ajoutés avec la page Jappr (tokens, specimen de
+   composants, doc d'usage, plan de tracking, encarts « en cours »).
+   ════════════════════════════════════════════════════════════ */
+.page-case code {
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: .82em;
+}
+
+.cs-body + .cs-body {
+    margin-top: 16px;
+}
+
+.cs-lead--wide {
+    max-width: 60ch;
+}
+
+/* ── Discovery : chiffres déclaratifs dans une carte de constats (chiffre au-dessus, phrase en dessous) ── */
+.cs-finding-list--stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    column-gap: 24px;
+}
+
+.cs-finding-list--stats li {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cs-jp-stat {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--cs-coral-text);
+    font-variant-numeric: lining-nums;
+}
+
+/* ── Architecture des tokens ── */
+.cs-tokens-head,
+.cs-tokens-row {
+    display: grid;
+    grid-template-columns: 1fr 24px 1.3fr 24px 1fr;
+    gap: 12px;
+    align-items: center;
+}
+
+.cs-tokens-head {
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    color: var(--cs-coral-text);
+    padding-bottom: 12px;
+}
+
+.cs-tokens-head span:nth-child(2) { grid-column: 3; }
+.cs-tokens-head span:nth-child(3) { grid-column: 5; }
+
+.cs-tokens-head em {
+    font-style: normal;
+    color: var(--cs-text-4);
+}
+
+.cs-tokens-list {
+    list-style: none;
+}
+
+.cs-tokens-row {
+    padding: 16px 0;
+    border-top: 1px solid var(--cs-border);
+}
+
+.cs-tokens-cell {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+    font-size: 15px;
+}
+
+.cs-tokens-cell code {
+    background: var(--cs-cream);
+    border: 1px solid var(--cs-border);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 13px;
+}
+
+.cs-tokens-use {
+    color: var(--cs-text-1);
+}
+
+.cs-tokens-swatch {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--sw);
+    flex-shrink: 0;
+}
+
+.cs-tokens-space {
+    width: 16px;
+    height: 22px;
+    background: repeating-linear-gradient(45deg, var(--cs-coral-light) 0 2px, transparent 2px 5px);
+    border-inline: 1px solid var(--cs-coral);
+    flex-shrink: 0;
+}
+
+.cs-tokens-arrow {
+    color: var(--cs-coral);
+    text-align: center;
+}
+
+.cs-tokens-note {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--cs-border);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--cs-text-3);
+}
+
+@media (max-width: 720px) {
+    .cs-tokens-head {
+        display: none;
+    }
+    .cs-tokens-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    .cs-tokens-arrow {
+        text-align: left;
+        line-height: 1;
+        transform: rotate(90deg);
+        width: max-content;
+    }
+}
+
+.cs-ds-foundations {
+    margin-top: 16px;
+}
+
+.cs-ds-intro {
+    margin-bottom: 32px;
+}
+
+/* ── Specimen : composants Jappr recodés avec leurs tokens ── */
+.cs-specimen {
+    display: flex;
+    flex-direction: column;
+    background: var(--cs-paper);
+    border: 1px solid var(--cs-border);
+    border-radius: 16px;
+    padding: clamp(24px, 3vw, 32px);
+}
+
+.cs-specimen-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px 12px;
+    flex-wrap: wrap;
+}
+
+.cs-specimen-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    background: #fff;
+    border: 1px solid var(--cs-border);
+    border-radius: 12px;
+    padding: 28px 20px;
+}
+
+.cs-specimen figcaption {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--cs-text-3);
+    text-wrap: pretty;
+}
+
+/* Tokens sémantiques Jappr (valeurs résolues depuis Figma) */
+.jp {
+    --color-action-default-rest: #2f48bd;
+    --color-action-danger-rest: #933533;
+    --color-action-subtle-default-rest: #eff0fc;
+    --color-action-subtle-danger-rest: #ffeded;
+    --color-action-disabled: #f0f1f4;
+    --color-text-default: #24252f;
+    --color-text-on-action: #fff;
+    --color-text-on-action-subtle: #24252f;
+    --color-text-subtlest: #7c83a2;
+    --color-text-disabled: #979db6;
+    --color-border-default: #979db6;
+    --color-border-hover: #2f48bd;
+    --color-border-error: #933533;
+    --color-border-disabled: #b3b8cc;
+    --color-background-danger-subtlest: #ffeded;
+    --space-inset-xsmall: 8px;
+    --space-inset-small: 12px;
+    --space-inset-medium: 16px;
+    --space-inset-large: 20px;
+    --space-inset-2xlarge: 28px;
+    --radius-control: 8px;
+    --radius-pill: 9999px;
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--color-text-default);
+}
+
+.jp-axis {
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 11px;
+    color: var(--cs-text-5);
+}
+
+.jp-matrix {
+    display: grid;
+    grid-template-columns: auto repeat(2, max-content);
+    gap: 12px 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.jp-matrix > .jp-axis:nth-child(-n+3) {
+    text-align: center;
+}
+
+.jp-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 16px;
+    line-height: 24px;
+    padding: var(--space-inset-small) var(--space-inset-large);
+    border-radius: var(--radius-pill);
+    background: var(--color-action-default-rest);
+    color: var(--color-text-on-action);
+}
+
+.jp-btn--danger {
+    background: var(--color-action-danger-rest);
+}
+
+.jp-btn--secondary {
+    background: var(--color-action-subtle-default-rest);
+    color: var(--color-text-on-action-subtle);
+}
+
+.jp-btn--secondary.jp-btn--danger {
+    background: var(--color-action-subtle-danger-rest);
+}
+
+.jp-btn--disabled {
+    background: var(--color-action-disabled);
+    color: var(--color-text-disabled);
+}
+
+.jp-btn--lg { padding: var(--space-inset-medium) var(--space-inset-2xlarge); }
+.jp-btn--sm { padding: var(--space-inset-xsmall) var(--space-inset-medium); }
+
+.jp-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 16px 20px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--cs-border);
+}
+
+.jp-size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.jp-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px 16px;
+}
+
+.jp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.jp-label {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.jp-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 48px;
+    padding: var(--space-inset-small) var(--space-inset-medium);
+    border: 1px solid var(--color-border-default);
+    border-radius: var(--radius-control);
+    background: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    box-shadow: 0 1px 3px #24252f1a, 0 1px 2px -1px #24252f1a;
+}
+
+.jp-input--placeholder { color: var(--color-text-subtlest); }
+
+.jp-input--focus {
+    justify-content: flex-start;
+    gap: 0;
+    border-color: var(--color-border-hover);
+    box-shadow: 0 0 0 1px var(--color-border-hover);
+}
+
+.jp-caret {
+    width: 1px;
+    height: 20px;
+    margin-left: 1px;
+    background: var(--color-text-default);
+    animation: jp-blink 1s steps(1) infinite;
+}
+
+@keyframes jp-blink {
+    50% { opacity: 0; }
+}
+
+.jp-input--error {
+    border-color: var(--color-border-error);
+    background: var(--color-background-danger-subtlest);
+}
+
+.jp-input--disabled {
+    border-color: var(--color-border-disabled);
+    background: var(--color-action-disabled);
+    color: var(--color-text-disabled);
+    box-shadow: none;
+}
+
+.jp-input--readonly svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--color-text-default);
+    flex-shrink: 0;
+}
+
+.jp-help {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.jp-help--error { color: var(--color-border-error); }
+
+@media (prefers-reduced-motion: reduce) {
+    .jp-caret { animation: none; }
+}
+
+/* ── Doc d'usage écrite pour l'IA ── */
+.cs-ai-doc {
+    margin-top: clamp(56px, 8vw, 96px);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.cs-doc {
+    background: var(--cs-ink);
+    border-radius: 16px;
+    overflow: hidden;
+    color: var(--cs-on-ink-1);
+}
+
+.cs-doc-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--cs-line-on-ink);
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    color: var(--cs-label-on-ink);
+}
+
+.cs-doc-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.cs-doc-dots i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--cs-line-on-ink);
+}
+
+.cs-doc pre {
+    margin: 0;
+    padding: 24px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.cs-doc pre code {
+    font-size: inherit;
+}
+
+.cs-doc b {
+    font-weight: 500;
+    color: var(--cs-cream);
+}
+
+.cs-doc-h { color: var(--cs-coral-on-ink); }
+.cs-doc-t { color: var(--cs-cream); }
+
+.cs-rules {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.cs-rule {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-top: 1px solid var(--cs-border);
+}
+
+.cs-rule:last-child {
+    border-bottom: 1px solid var(--cs-border);
+}
+
+.cs-rule p {
+    font-size: 16px;
+    line-height: 1.55;
+    text-wrap: pretty;
+}
+
+.cs-rule-mark {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 12px;
+    background: var(--cs-ink);
+    color: var(--cs-cream);
+}
+
+.cs-rule-mark--no {
+    background: var(--cs-coral-pale);
+    color: var(--cs-coral-deep);
+}
+
+/* ── Encarts « en cours » (sections à compléter plus tard) ── */
+.cs-wip-tag {
+    flex-shrink: 0;
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: .05em;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--cs-coral-pale);
+    color: var(--cs-coral-deep);
+}
+
+.cs-wip-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.cs-wip-head .cs-card-label {
+    margin-bottom: 0;
+}
+
+.cs-wip-card {
+    border-style: dashed;
+}
+
+.cs-funnel--pending .cs-track {
+    background: repeating-linear-gradient(90deg, var(--cs-track) 0 8px, transparent 8px 12px);
+}
+
+.cs-funnel--pending .cs-funnel-head .cs-mono {
+    font-size: 12px;
+    color: var(--cs-text-4);
+}
+
+
+/* ── Plan de tracking ── */
+.cs-tracking {
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+}
+
+.cs-tracking-text .cs-body {
+    font-size: 17px;
+}
+
+.cs-events-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 13px;
+    color: var(--cs-text-3);
+    margin-bottom: 8px;
+}
+
+.cs-events-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cs-ev-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background: var(--cs-ink);
+}
+
+.cs-ev-dot--client { background: var(--cs-coral); }
+.cs-ev-dot--auto { background: transparent; border: 1.5px dashed var(--cs-text-4); }
+
+.cs-events-group {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    padding: 14px 0;
+    border-top: 1px solid var(--cs-border);
+}
+
+.cs-events-group dt {
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    color: var(--cs-text-4);
+    padding-top: 6px;
+}
+
+.cs-events-group dd {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.page-case .cs-ev {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--cs-ink);
+    color: var(--cs-cream);
+}
+
+.page-case .cs-ev--client {
+    background: var(--cs-coral);
+    color: var(--cs-ink);
+}
+
+.page-case .cs-ev--auto {
+    background: transparent;
+    color: var(--cs-ink);
+    border: 1px dashed var(--cs-text-4);
+}
+
+@media (max-width: 480px) {
+    .cs-events-group {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    .cs-events-group dt {
+        padding-top: 0;
+    }
+}
+
+/* ── Écrans desktop plus larges que les flows mobiles ── */
+.cs-flow-card--wide {
+    flex-basis: min(86vw, 720px);
+}
+
+.cs-flow-card--wide .cs-flow-frame {
+    border: 1px solid var(--cs-border);
+}
+
+/* ── Et après : les cartes côte à côte ── */
+.cs-next {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    margin-top: 32px;
+}
