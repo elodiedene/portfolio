@@ -16,3 +16,12 @@
     document.addEventListener('click', (e) => !nav.contains(e.target) && setOpen(false));
     window.matchMedia('(max-width: 768px)').addEventListener('change', () => setOpen(false));
 })();
+
+// Bouton « retour en haut » : visible après 300 px de défilement
+(() => {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+    const update = () => btn.classList.toggle('visible', window.scrollY > 300);
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+})();
