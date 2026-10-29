@@ -443,18 +443,22 @@ nav {
 }
 
 /* Side project (pleine largeur) */
+/* Visuel à gauche, texte centré verticalement à droite */
 .project-side {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-rows: 1fr auto auto auto 1fr;
     grid-template-areas:
-        "meta meta"
-        "title desc";
+        "visual ."
+        "visual meta"
+        "visual title"
+        "visual desc"
+        "visual .";
     column-gap: 2.5rem;
-    align-items: center;
     background: #fff;
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 2.5rem 3rem;
+    padding: 1.25rem 3rem 1.25rem 1.25rem;
     margin-top: 1.5rem;
     text-decoration: none;
     color: var(--text);
@@ -481,8 +485,13 @@ nav {
     color: var(--text-muted);
 }
 
+.project-side-visual {
+    grid-area: visual;
+}
+
 .project-side-title {
     grid-area: title;
+    margin-bottom: 0.75rem;
     font-family: "Playfair Display", serif;
     font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 500;
@@ -1292,12 +1301,24 @@ footer p {
     }
     .project-side {
         grid-template-columns: 1fr;
+        grid-template-rows: none;
         grid-template-areas:
+            "visual"
             "meta"
             "title"
             "desc";
-        gap: 1.25rem;
-        padding: 2rem 1.5rem;
+        padding: 1.25rem;
+    }
+    .project-side-visual {
+        margin-bottom: 1.5rem;
+    }
+    .project-side-meta,
+    .project-side-title,
+    .project-side-desc {
+        padding-inline: 0.5rem;
+    }
+    .project-side-desc {
+        padding-bottom: 0.5rem;
     }
     .about-content {
         grid-template-columns: 1fr;
