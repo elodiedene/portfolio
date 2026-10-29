@@ -3797,6 +3797,12 @@ footer p {
     }
 }
 
+/* Libellé au-dessus du texte, quelle que soit la largeur. */
+.cs-difficulties--stacked .cs-difficulty {
+    grid-template-columns: 1fr;
+    gap: 6px;
+}
+
 /* ════════════════════════════════════════════════════════════
    Composants cs- ajoutés avec la page Jappr (tokens, specimen de
    composants, doc d'usage, plan de tracking, encarts « en cours »).
