@@ -852,89 +852,198 @@ footer p {
     line-height: 1.4;
 }
 
-/* ── Flow en cards : bandeau beige + scroll horizontal (comme les témoignages) ── */
+/* ── Benchmark (projet authoring) : matrice de pastilles, détail au survol ou au tap ── */
 .cmp {
     --cmp-bg: #efeadd;
     --cmp-accent: #ae4c32;
     --cmp-text: #4a4540;
     --cmp-muted: #6e6961;
     --cmp-line: rgba(74, 69, 64, 0.14);
-    --cmp-col1: 220px;
     font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     color: var(--cmp-text);
     background: var(--cmp-bg);
     border-radius: 24px;
-    padding: 0px;
+    padding: 12px 24px 24px;
     margin: 32px 0;
 }
 
-.cmp-scroll {
-    overflow-x: auto;
-    border-radius: 16px;
-    -webkit-overflow-scrolling: touch;
-}
-
-.cmp table {
-    border-collapse: separate;
-    border-spacing: 0;
+.cmp-matrix {
     width: 100%;
-    min-width: 980px;
+    border-collapse: collapse;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
-.cmp th,
-.cmp td {
-    padding: 16px 20px;
-    text-align: left;
-    vertical-align: top;
+.cmp-matrix th,
+.cmp-matrix td {
+    padding: 10px 8px;
     border-bottom: 1px solid var(--cmp-line);
+    vertical-align: middle;
 }
 
-.cmp tbody tr:last-child th,
-.cmp tbody tr:last-child td {
+.cmp-matrix tbody tr:last-child > * {
     border-bottom: 0;
 }
 
-.cmp thead th {
-    font-size: 14px;
+.cmp-matrix thead th {
     font-weight: 600;
-    letter-spacing: 0;
-    line-height: 1.5;
     color: var(--cmp-accent);
-    padding-top: 24px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--cmp-line);
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 14px;
+    width: 14%;
 }
 
-.cmp thead th:first-child {
-    font-size: 14px;
+.cmp-matrix thead th:first-child {
     font-weight: 500;
     color: var(--cmp-muted);
-    letter-spacing: 0;
+    text-align: left;
+    width: auto;
 }
 
-.cmp tbody th {
+.cmp-matrix tbody th {
+    font-weight: 500;
+    text-align: left;
+    padding-left: 14px;
+    position: relative;
+}
+
+.cmp-matrix td {
+    text-align: center;
+}
+
+/* Critères retenus (B1–B3) : trait corail et code */
+.cmp-matrix tr.is-key th {
     font-weight: 600;
-    color: var(--cmp-text);
-    width: var(--cmp-col1);
-    min-width: var(--cmp-col1);
+    color: var(--cs-ink, #120f0d);
 }
 
-.cmp td {
-    font-weight: 400;
-}
-
-.cmp td.no {
-    color: var(--cmp-muted);
-}
-
-.cmp thead th:first-child,
-.cmp tbody th {
-    position: sticky;
+.cmp-matrix tr.is-key th::before {
+    content: "";
+    position: absolute;
     left: 0;
-    z-index: 1;
-    background: var(--cmp-bg);
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    border-radius: 2px;
+    background: var(--cmp-accent);
+}
+
+.cmp-key {
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--cmp-accent);
+    margin-left: 8px;
+}
+
+.cmp-short {
+    display: none;
+}
+
+/* Pastilles : pleine = oui, demi = partiel, cercle vide = non */
+.cmp-dot {
+    --dot: 16px;
+    display: inline-block;
+    width: var(--dot);
+    height: var(--dot);
+    padding: 0;
+    border: 2px solid var(--cmp-text);
+    border-radius: 50%;
+    background: transparent;
+    vertical-align: middle;
+}
+
+button.cmp-dot {
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Zone de tap élargie sans agrandir la pastille */
+button.cmp-dot::after {
+    content: "";
+    position: absolute;
+    inset: -12px;
+}
+
+.cmp-dot--yes {
+    background: var(--cmp-text);
+}
+
+.cmp-dot--part {
+    background: linear-gradient(90deg, var(--cmp-text) 50%, transparent 50%);
+}
+
+.cmp-dot--no {
+    border-color: rgba(74, 69, 64, 0.35);
+}
+
+button.cmp-dot:hover,
+button.cmp-dot.is-active {
+    transform: scale(1.25);
+}
+
+button.cmp-dot.is-active {
+    box-shadow: 0 0 0 3px var(--cmp-bg), 0 0 0 5px var(--cmp-accent);
+}
+
+button.cmp-dot:focus-visible {
+    outline: 2px solid var(--cmp-accent);
+    outline-offset: 4px;
+}
+
+.cmp-foot {
+    border-top: 1px solid var(--cmp-line);
+    padding-top: 16px;
+    margin-top: 4px;
+}
+
+.cmp-legend {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-size: 13px;
+    color: var(--cmp-muted);
+    margin: 0 0 12px;
+    padding: 0;
+}
+
+.cmp-legend li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cmp-legend .cmp-dot {
+    --dot: 12px;
+}
+
+.cmp-legend .cmp-key {
+    margin-left: 0;
+}
+
+.cmp-detail {
+    min-height: 3em; /* évite que la page saute quand le détail change */
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cmp-detail-hint {
+    color: var(--cmp-muted);
+    font-style: italic;
+}
+
+.cmp-detail-label {
+    display: block;
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cmp-accent);
+    margin-bottom: 2px;
 }
 
 .about-page {
@@ -1353,14 +1462,35 @@ footer p {
 
 @media (max-width: 720px) {
     .cmp {
-        --cmp-col1: 150px;
+        padding: 4px 14px 18px;
+        border-radius: 20px;
     }
-    .cmp th,
-    .cmp td {
-        padding: 14px 16px;
+    .cmp-matrix {
+        font-size: 13px;
     }
-    .cmp thead th {
-        font-size: 15px;
+    .cmp-matrix th,
+    .cmp-matrix td {
+        padding: 9px 2px;
+    }
+    .cmp-matrix tbody th {
+        padding-left: 10px;
+    }
+    .cmp-matrix thead th {
+        width: 40px;
+        font-size: 12px;
+    }
+    .cmp-long {
+        display: none;
+    }
+    .cmp-short {
+        display: inline;
+    }
+    .cmp-key {
+        display: block;
+        margin: 2px 0 0;
+    }
+    .cmp-legend .cmp-key {
+        display: inline;
     }
 }
 
@@ -1958,11 +2088,6 @@ footer p {
 .cs-tabs.is-accordion {
     flex-direction: column;
     flex-wrap: nowrap;
-}
-
-.is-accordion .cs-tab,
-.is-accordion .cs-principle {
-    scroll-margin-top: 88px; /* sous la nav fixe */
 }
 
 .is-accordion .cs-tab {

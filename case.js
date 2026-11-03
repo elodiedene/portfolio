@@ -4,7 +4,6 @@
     // Chaque groupe (décisions clés, principes de conception) fonctionne indépendamment.
     // En mobile, le groupe devient un accordéon : chaque panneau s'ouvre sous sa ligne et se replie.
     const accordionMq = window.matchMedia('(max-width: 768px)');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     function setupTabs(list) {
         const tabs = [...list.querySelectorAll('[role="tab"]')];
@@ -46,7 +45,7 @@
                     panelsHome.appendChild(panels[i]);
                 }
             });
-            if (!accordion && current < 0) current = 0;
+            current = accordion ? -1 : Math.max(current, 0); // accordéon : tout replié par défaut
             render();
         }
 
@@ -60,7 +59,6 @@
             tab.addEventListener('click', () => {
                 if (!accordion) return select(i);
                 select(current === i ? -1 : i);
-                if (current === i) tab.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
             });
             tab.addEventListener('keydown', (e) => {
                 if (accordion) return;
@@ -93,6 +91,25 @@
                 cards.forEach((card) => card.classList.toggle('is-dimmed', tag !== 'all' && card.dataset.tag !== tag));
                 if (accordionMq.matches && carousel) carousel.scrollTo({ left: 0 });
             });
+        });
+    });
+
+    // Benchmark en pastilles : le détail de la pastille survolée ou touchée s'affiche sous la matrice
+    document.querySelectorAll('.cmp').forEach((cmp) => {
+        const detail = cmp.querySelector('.cmp-detail');
+        const dots = [...cmp.querySelectorAll('button.cmp-dot')];
+        function show(dot) {
+            dots.forEach((d) => d.classList.toggle('is-active', d === dot));
+            const criterion = dot.closest('tr').querySelector('th').firstChild.textContent;
+            const label = document.createElement('span');
+            label.className = 'cmp-detail-label';
+            label.textContent = `${dot.dataset.tool} · ${criterion}`;
+            detail.replaceChildren(label, dot.dataset.detail);
+        }
+        dots.forEach((dot) => {
+            dot.addEventListener('click', () => show(dot));
+            dot.addEventListener('mouseenter', () => show(dot));
+            dot.addEventListener('focus', () => show(dot));
         });
     });
 

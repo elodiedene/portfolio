@@ -91,97 +91,98 @@
             <h3 class="cs-h3 cs-h3--sub" data-reveal>Benchmark</h3>
             <p class="cs-lead" data-reveal>J’ai réalisé un benchmark de différents outils qui proposent un équivalent au Track changes (suivi des modifications).</p>
             <section class="cmp" aria-label="Comparatif du suivi des modifications : Google Docs, Microsoft Word, Confluence et WordPress" data-reveal>
-                <div class="cmp-scroll" tabindex="0">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">Critère</th>
-                                <th scope="col">Google Docs</th>
-                                <th scope="col">Microsoft Word</th>
-                                <th scope="col">Confluence</th>
-                                <th scope="col">WordPress</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Mode suggestion</th>
-                                <td>Oui, mode «&nbsp;Suggestion&nbsp;»</td>
-                                <td>Oui, «&nbsp;Suivi des modifications&nbsp;»</td>
-                                <td class="no">Non</td>
-                                <td class="no">Non</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Marquage inline des changements</th>
-                                <td>Oui&nbsp;: ajouts et suppressions colorés par auteur</td>
-                                <td>Oui&nbsp;: ajouts soulignés, suppressions barrées, couleur par relecteur</td>
-                                <td class="no">Non, seulement dans la vue de comparaison</td>
-                                <td class="no">Non, seulement dans la vue de comparaison</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Suivi des changements de mise en forme</th>
-                                <td>Oui (affiché dans les bulles de la marge)</td>
-                                <td>Oui, le plus complet, y compris les déplacements de texte</td>
-                                <td class="no">Non</td>
-                                <td class="no">Non</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Accepter / refuser</th>
-                                <td>Oui, un par un ou tout d’un coup</td>
-                                <td>Oui, un par un, par relecteur ou tout</td>
-                                <td class="no">Non (on restaure une version entière)</td>
-                                <td class="no">Non (on restaure une révision entière)</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Commentaires</th>
-                                <td>Oui&nbsp;: fils de discussion, résolution, assignation</td>
-                                <td>Oui&nbsp;: réponses possibles, volet de relecture</td>
-                                <td>Oui&nbsp;: commentaires de page et commentaires inline sur une sélection de texte</td>
-                                <td class="no">Non en natif</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Attribution par auteur</th>
-                                <td>Oui, couleur par personne</td>
-                                <td>Oui, couleur par relecteur</td>
-                                <td>Oui dans l’historique des versions</td>
-                                <td>Oui dans la liste des révisions</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Historique de versions + restauration</th>
-                                <td>Oui, avec versions nommables</td>
-                                <td>Limité (versions via OneDrive / SharePoint)</td>
-                                <td>Oui, versions numérotées, restauration, commentaire de version</td>
-                                <td>Oui, révisions automatiques et restauration</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Comparaison de deux versions</th>
-                                <td class="no">Non en natif (historique coloré par contributeur)</td>
-                                <td>Oui, «&nbsp;Comparer&nbsp;» et «&nbsp;Combiner&nbsp;» des documents</td>
-                                <td>Oui, vert pour les ajouts, rouge pour les suppressions</td>
-                                <td>Oui, curseur de comparaison, deux colonnes avec surlignage</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Édition collaborative en temps réel</th>
-                                <td>Oui, très fluide</td>
-                                <td>Partiel (moins robuste avec le suivi activé)</td>
-                                <td>Oui</td>
-                                <td class="no">Non (verrou&nbsp;: un seul éditeur à la fois)</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Contrôle des droits</th>
-                                <td>Éditeur / Commentateur / Lecteur</td>
-                                <td>Verrouillage du suivi par mot de passe, protection du document</td>
-                                <td>Droits par espace et par page</td>
-                                <td>Rôles WordPress (auteur, éditeur, etc.)</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Notifications</th>
-                                <td>Oui (e-mail sur commentaires et mentions)</td>
-                                <td>Limitées</td>
-                                <td>Oui (suivre une page, mentions)</td>
-                                <td>Limitées en natif</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <table class="cmp-matrix">
+                    <thead>
+                        <tr><th scope="col">Critère</th><th scope="col"><span class="cmp-long">Google Docs</span><span class="cmp-short" aria-hidden="true">Docs</span></th><th scope="col"><span class="cmp-long">Microsoft Word</span><span class="cmp-short" aria-hidden="true">Word</span></th><th scope="col"><span class="cmp-long">Confluence</span><span class="cmp-short" aria-hidden="true">Confl.</span></th><th scope="col"><span class="cmp-long">WordPress</span><span class="cmp-short" aria-hidden="true">WP</span></th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="is-key">
+                            <th scope="row">Mode suggestion<span class="cmp-key">B1</span></th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Oui, mode «&nbsp;Suggestion&nbsp;»" aria-label="Google Docs, Mode suggestion : Oui, mode « Suggestion »"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Microsoft Word" data-detail="Oui, «&nbsp;Suivi des modifications&nbsp;»" aria-label="Microsoft Word, Mode suggestion : Oui, « Suivi des modifications »"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="Confluence" data-detail="Non" aria-label="Confluence, Mode suggestion : Non"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="WordPress" data-detail="Non" aria-label="WordPress, Mode suggestion : Non"></button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Marquage inline des changements</th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Oui&nbsp;: ajouts et suppressions colorés par auteur" aria-label="Google Docs, Marquage inline des changements : Oui : ajouts et suppressions colorés par auteur"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Microsoft Word" data-detail="Oui&nbsp;: ajouts soulignés, suppressions barrées, couleur par relecteur" aria-label="Microsoft Word, Marquage inline des changements : Oui : ajouts soulignés, suppressions barrées, couleur par relecteur"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="Confluence" data-detail="Non, seulement dans la vue de comparaison" aria-label="Confluence, Marquage inline des changements : Non, seulement dans la vue de comparaison"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="WordPress" data-detail="Non, seulement dans la vue de comparaison" aria-label="WordPress, Marquage inline des changements : Non, seulement dans la vue de comparaison"></button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Suivi des changements de mise en forme</th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Oui (affiché dans les bulles de la marge)" aria-label="Google Docs, Suivi des changements de mise en forme : Oui (affiché dans les bulles de la marge)"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Microsoft Word" data-detail="Oui, le plus complet, y compris les déplacements de texte" aria-label="Microsoft Word, Suivi des changements de mise en forme : Oui, le plus complet, y compris les déplacements de texte"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="Confluence" data-detail="Non" aria-label="Confluence, Suivi des changements de mise en forme : Non"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="WordPress" data-detail="Non" aria-label="WordPress, Suivi des changements de mise en forme : Non"></button></td>
+                        </tr>
+                        <tr class="is-key">
+                            <th scope="row">Accepter / refuser<span class="cmp-key">B1</span></th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Oui, un par un ou tout d’un coup" aria-label="Google Docs, Accepter / refuser : Oui, un par un ou tout d’un coup"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Microsoft Word" data-detail="Oui, un par un, par relecteur ou tout" aria-label="Microsoft Word, Accepter / refuser : Oui, un par un, par relecteur ou tout"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="Confluence" data-detail="Non (on restaure une version entière)" aria-label="Confluence, Accepter / refuser : Non (on restaure une version entière)"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="WordPress" data-detail="Non (on restaure une révision entière)" aria-label="WordPress, Accepter / refuser : Non (on restaure une révision entière)"></button></td>
+                        </tr>
+                        <tr class="is-key">
+                            <th scope="row">Commentaires<span class="cmp-key">B2</span></th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Oui&nbsp;: fils de discussion, résolution, assignation" aria-label="Google Docs, Commentaires : Oui : fils de discussion, résolution, assignation"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Microsoft Word" data-detail="Oui&nbsp;: réponses possibles, volet de relecture" aria-label="Microsoft Word, Commentaires : Oui : réponses possibles, volet de relecture"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Confluence" data-detail="Oui&nbsp;: commentaires de page et commentaires inline sur une sélection de texte" aria-label="Confluence, Commentaires : Oui : commentaires de page et commentaires inline sur une sélection de texte"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="WordPress" data-detail="Non en natif" aria-label="WordPress, Commentaires : Non en natif"></button></td>
+                        </tr>
+                        <tr class="is-key">
+                            <th scope="row">Attribution par auteur<span class="cmp-key">B3</span></th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Oui, couleur par personne" aria-label="Google Docs, Attribution par auteur : Oui, couleur par personne"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Microsoft Word" data-detail="Oui, couleur par relecteur" aria-label="Microsoft Word, Attribution par auteur : Oui, couleur par relecteur"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Confluence" data-detail="Oui dans l’historique des versions" aria-label="Confluence, Attribution par auteur : Oui dans l’historique des versions"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="WordPress" data-detail="Oui dans la liste des révisions" aria-label="WordPress, Attribution par auteur : Oui dans la liste des révisions"></button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Historique de versions + restauration</th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Oui, avec versions nommables" aria-label="Google Docs, Historique de versions + restauration : Oui, avec versions nommables"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--part" data-tool="Microsoft Word" data-detail="Limité (versions via OneDrive / SharePoint)" aria-label="Microsoft Word, Historique de versions + restauration : Limité (versions via OneDrive / SharePoint)"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Confluence" data-detail="Oui, versions numérotées, restauration, commentaire de version" aria-label="Confluence, Historique de versions + restauration : Oui, versions numérotées, restauration, commentaire de version"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="WordPress" data-detail="Oui, révisions automatiques et restauration" aria-label="WordPress, Historique de versions + restauration : Oui, révisions automatiques et restauration"></button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Comparaison de deux versions</th>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="Google Docs" data-detail="Non en natif (historique coloré par contributeur)" aria-label="Google Docs, Comparaison de deux versions : Non en natif (historique coloré par contributeur)"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Microsoft Word" data-detail="Oui, «&nbsp;Comparer&nbsp;» et «&nbsp;Combiner&nbsp;» des documents" aria-label="Microsoft Word, Comparaison de deux versions : Oui, « Comparer » et « Combiner » des documents"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Confluence" data-detail="Oui, vert pour les ajouts, rouge pour les suppressions" aria-label="Confluence, Comparaison de deux versions : Oui, vert pour les ajouts, rouge pour les suppressions"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="WordPress" data-detail="Oui, curseur de comparaison, deux colonnes avec surlignage" aria-label="WordPress, Comparaison de deux versions : Oui, curseur de comparaison, deux colonnes avec surlignage"></button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Édition collaborative en temps réel</th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Oui, très fluide" aria-label="Google Docs, Édition collaborative en temps réel : Oui, très fluide"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--part" data-tool="Microsoft Word" data-detail="Partiel (moins robuste avec le suivi activé)" aria-label="Microsoft Word, Édition collaborative en temps réel : Partiel (moins robuste avec le suivi activé)"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Confluence" data-detail="Oui" aria-label="Confluence, Édition collaborative en temps réel : Oui"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--no" data-tool="WordPress" data-detail="Non (verrou&nbsp;: un seul éditeur à la fois)" aria-label="WordPress, Édition collaborative en temps réel : Non (verrou : un seul éditeur à la fois)"></button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Contrôle des droits</th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Éditeur / Commentateur / Lecteur" aria-label="Google Docs, Contrôle des droits : Éditeur / Commentateur / Lecteur"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--part" data-tool="Microsoft Word" data-detail="Verrouillage du suivi par mot de passe, protection du document" aria-label="Microsoft Word, Contrôle des droits : Verrouillage du suivi par mot de passe, protection du document"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Confluence" data-detail="Droits par espace et par page" aria-label="Confluence, Contrôle des droits : Droits par espace et par page"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="WordPress" data-detail="Rôles WordPress (auteur, éditeur, etc.)" aria-label="WordPress, Contrôle des droits : Rôles WordPress (auteur, éditeur, etc.)"></button></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Notifications</th>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Google Docs" data-detail="Oui (e-mail sur commentaires et mentions)" aria-label="Google Docs, Notifications : Oui (e-mail sur commentaires et mentions)"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--part" data-tool="Microsoft Word" data-detail="Limitées" aria-label="Microsoft Word, Notifications : Limitées"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--yes" data-tool="Confluence" data-detail="Oui (suivre une page, mentions)" aria-label="Confluence, Notifications : Oui (suivre une page, mentions)"></button></td>
+                            <td><button type="button" class="cmp-dot cmp-dot--part" data-tool="WordPress" data-detail="Limitées en natif" aria-label="WordPress, Notifications : Limitées en natif"></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="cmp-foot">
+                    <ul class="cmp-legend" aria-label="Légende">
+                        <li><span class="cmp-dot cmp-dot--yes"></span>Oui</li>
+                        <li><span class="cmp-dot cmp-dot--part"></span>Partiel</li>
+                        <li><span class="cmp-dot cmp-dot--no"></span>Non</li>
+                        <li><span class="cmp-key">B1</span>Critère retenu</li>
+                    </ul>
+                    <p class="cmp-detail"><span class="cmp-detail-hint">Survolez ou touchez une pastille pour lire le détail.</span></p>
                 </div>
             </section>
 
