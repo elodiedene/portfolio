@@ -2,46 +2,96 @@
 (() => {
     // Onglets : un seul panneau visible, le premier par défaut ; sans JS, tous restent visibles.
     // Chaque groupe (décisions clés, principes de conception) fonctionne indépendamment.
-    function setupTabs(tabs) {
-        function select(tab, focus) {
-            tabs.forEach((t) => {
-                const on = t === tab;
-                t.setAttribute('aria-selected', String(on));
-                t.tabIndex = on ? 0 : -1;
-                document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    // En mobile, le groupe devient un accordéon : chaque panneau s'ouvre sous sa ligne et se replie.
+    const accordionMq = window.matchMedia('(max-width: 768px)');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function setupTabs(list) {
+        const tabs = [...list.querySelectorAll('[role="tab"]')];
+        if (!tabs.length) return;
+        const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+        const panelsHome = panels[0].parentElement;
+        let current = 0; // onglet sélectionné, ou panneau ouvert en accordéon (-1 : tout replié)
+        let accordion = false;
+
+        function render() {
+            tabs.forEach((t, i) => {
+                const on = i === current;
+                panels[i].hidden = !on;
+                if (accordion) {
+                    t.setAttribute('aria-expanded', String(on));
+                    t.tabIndex = 0;
+                } else {
+                    t.setAttribute('aria-selected', String(on));
+                    t.tabIndex = on ? 0 : -1;
+                }
             });
-            if (focus) tab.focus();
+        }
+
+        // Accordéon : chaque panneau est déplacé juste après sa ligne ; on le remet en place sinon
+        function setMode() {
+            accordion = accordionMq.matches;
+            list.classList.toggle('is-accordion', accordion);
+            list.setAttribute('role', accordion ? 'group' : 'tablist');
+            tabs.forEach((t, i) => {
+                if (accordion) {
+                    t.removeAttribute('role');
+                    t.removeAttribute('aria-selected');
+                    panels[i].setAttribute('role', 'region');
+                    t.after(panels[i]);
+                } else {
+                    t.setAttribute('role', 'tab');
+                    t.removeAttribute('aria-expanded');
+                    panels[i].setAttribute('role', 'tabpanel');
+                    panelsHome.appendChild(panels[i]);
+                }
+            });
+            if (!accordion && current < 0) current = 0;
+            render();
+        }
+
+        function select(i, focus) {
+            current = i;
+            render();
+            if (focus) tabs[i].focus();
         }
 
         tabs.forEach((tab, i) => {
-            tab.addEventListener('click', () => select(tab));
+            tab.addEventListener('click', () => {
+                if (!accordion) return select(i);
+                select(current === i ? -1 : i);
+                if (current === i) tab.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+            });
             tab.addEventListener('keydown', (e) => {
+                if (accordion) return;
                 const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
                 if (step) {
                     e.preventDefault();
-                    select(tabs[(i + step + tabs.length) % tabs.length], true);
+                    select((i + step + tabs.length) % tabs.length, true);
                 } else if (e.key === 'Home' || e.key === 'End') {
                     e.preventDefault();
-                    select(tabs[e.key === 'Home' ? 0 : tabs.length - 1], true);
+                    select(e.key === 'Home' ? 0 : tabs.length - 1, true);
                 }
             });
         });
-        if (tabs.length) select(tabs[0]);
+        accordionMq.addEventListener('change', setMode);
+        setMode();
     }
 
-    document.querySelectorAll('[role="tablist"]').forEach((list) => {
-        setupTabs([...list.querySelectorAll('[role="tab"]')]);
-    });
+    document.querySelectorAll('[role="tablist"]').forEach(setupTabs);
 
     // Filtres d'écrans : atténuent les écrans hors sélection, sans les retirer du carrousel
+    // (en mobile, le CSS les masque : on revient alors au début du carrousel)
     document.querySelectorAll('.cs-filters').forEach((group) => {
         const buttons = [...group.querySelectorAll('[data-filter]')];
+        const carousel = group.parentElement.querySelector('.cs-flow');
         const cards = [...group.parentElement.querySelectorAll('[data-tag]')];
         buttons.forEach((button) => {
             button.addEventListener('click', () => {
                 const tag = button.dataset.filter;
                 buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
                 cards.forEach((card) => card.classList.toggle('is-dimmed', tag !== 'all' && card.dataset.tag !== tag));
+                if (accordionMq.matches && carousel) carousel.scrollTo({ left: 0 });
             });
         });
     });

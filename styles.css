@@ -1299,17 +1299,14 @@ footer p {
         border-radius: 4px;
         background: var(--accent);
     }
+    /* Empilé en flux normal : dans une grille, Safari calcule la largeur du visuel
+       (aspect-ratio) à partir de sa hauteur et le fait déborder de la card */
     .project-side {
-        grid-template-columns: 1fr;
-        grid-template-rows: none;
-        grid-template-areas:
-            "visual"
-            "meta"
-            "title"
-            "desc";
+        display: block;
         padding: 1.25rem;
     }
     .project-side-visual {
+        width: 100%;
         margin-bottom: 1.5rem;
     }
     .project-side-meta,
@@ -1935,7 +1932,8 @@ footer p {
     transition: background .25s, color .25s, border-color .25s;
 }
 
-.cs-tab[aria-selected="true"] {
+.cs-tab[aria-selected="true"],
+.cs-tab[aria-expanded="true"] {
     background: var(--cs-ink);
     border-color: var(--cs-ink);
     color: var(--cs-cream);
@@ -1954,6 +1952,46 @@ footer p {
 
 .cs-dec + .cs-dec {
     margin-top: 32px;
+}
+
+/* Mobile (case.js) : les onglets deviennent un accordéon, chaque panneau s'ouvre sous sa ligne */
+.cs-tabs.is-accordion {
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.is-accordion .cs-tab,
+.is-accordion .cs-principle {
+    scroll-margin-top: 88px; /* sous la nav fixe */
+}
+
+.is-accordion .cs-tab {
+    width: 100%;
+}
+
+.is-accordion .cs-tab::after {
+    content: "+";
+    margin-left: auto;
+    padding-left: 12px;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.is-accordion .cs-tab[aria-expanded="true"]::after {
+    content: "−";
+}
+
+.is-accordion .cs-dec {
+    margin-bottom: 16px;
+}
+
+.is-accordion .cs-dec-source {
+    margin-top: 8px;
+}
+
+.cs-dec-panels:empty,
+.cs-principle-panels:empty {
+    display: none;
 }
 
 .cs-dec:focus-visible {
@@ -2640,6 +2678,28 @@ footer p {
     opacity: 1;
 }
 
+.is-accordion .cs-principle-arrow {
+    opacity: 1;
+    transition: transform .25s;
+}
+
+.is-accordion .cs-principle[aria-expanded="true"] {
+    color: var(--cs-coral-dark);
+}
+
+.is-accordion .cs-principle[aria-expanded="true"] .cs-principle-arrow {
+    transform: rotate(90deg);
+}
+
+.is-accordion .cs-principle-detail {
+    margin: 0 0 16px;
+}
+
+/* Le titre est déjà sur la ligne ouverte juste au-dessus */
+.is-accordion .cs-principle-detail-title {
+    display: none;
+}
+
 .cs-principle-panels {
     position: sticky;
     top: 96px; /* sous la nav fixe */
@@ -2879,6 +2939,19 @@ footer p {
     line-height: 1.1;
 }
 
+@media (max-width: 768px) {
+    .cs-measure {
+        grid-template-columns: 1fr;
+    }
+    .cs-measure-item:first-child {
+        border-top: 0;
+        padding-top: 0;
+    }
+    .cs-measure-item:last-child {
+        padding-bottom: 0;
+    }
+}
+
 .cs-measure-item p {
     font-size: 15px;
     line-height: 1.55;
@@ -3000,6 +3073,18 @@ footer p {
     padding: 0 10px;
 }
 
+/* Mobile : 15 % est trop étroit pour le libellé, la part « carte » prend au moins sa largeur */
+@media (max-width: 480px) {
+    .cs-stat-part--liste {
+        flex: 1 1 auto;
+    }
+    .cs-stat-part--carte {
+        flex: 0 0 auto;
+        min-width: max-content;
+        padding: 0 8px;
+    }
+}
+
 /* ── Experience journey map : cadre large, image entière ── */
 .cs-artefact-frame--wide {
     aspect-ratio: 16 / 7;
@@ -3116,6 +3201,13 @@ footer p {
 /* Le filtre atténue les écrans hors sélection sans les retirer : le carrousel reste stable */
 .cs-phone-card.is-dimmed {
     opacity: .25;
+}
+
+/* Mobile : les écrans hors sélection disparaissent, pour ne pas avoir à les faire défiler */
+@media (max-width: 768px) {
+    .cs-phone-card.is-dimmed {
+        display: none;
+    }
 }
 
 .cs-phone {
@@ -3513,6 +3605,32 @@ footer p {
 .jp-btn--lg { padding: var(--space-inset-medium) var(--space-inset-2xlarge); }
 .jp-btn--sm { padding: var(--space-inset-xsmall) var(--space-inset-medium); }
 
+/* Mobile : en-têtes primary / secondary sur deux colonnes, chaque état en intitulé
+   pleine largeur au-dessus de ses deux boutons */
+@media (max-width: 480px) {
+    .cs-specimen-stage {
+        padding: 24px 12px;
+    }
+    .jp-matrix {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 12px;
+        justify-items: center;
+        width: 100%;
+    }
+    .jp-matrix > span:first-child {
+        display: none;
+    }
+    .jp-matrix > .jp-axis:nth-child(n+4) {
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-top: 8px;
+    }
+    .jp-matrix .jp-btn {
+        font-size: 14px;
+        padding-inline: 14px;
+    }
+}
+
 .jp-sizes {
     display: flex;
     flex-wrap: wrap;
@@ -3703,13 +3821,13 @@ footer p {
     height: 24px;
     border-radius: 50%;
     font-size: 12px;
-    background: var(--cs-ink);
-    color: var(--cs-cream);
+    font-weight: 700;
+    background: #2e7d4f;
+    color: #fff;
 }
 
 .cs-rule-mark--no {
-    background: var(--cs-coral-pale);
-    color: var(--cs-coral-deep);
+    background: var(--cs-coral-dark);
 }
 
 /* ── Encarts « en cours » (sections à compléter plus tard) ── */
