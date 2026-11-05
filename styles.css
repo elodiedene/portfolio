@@ -241,6 +241,15 @@ nav {
     color: var(--accent);
 }
 
+.hero-lead {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.2rem, 1.7vw, 1.35rem);
+    line-height: 1.5;
+    color: var(--text);
+    max-width: 900px;
+    margin-top: 1.75rem;
+}
+
 .hero-actions {
     display: flex;
     align-items: center;
