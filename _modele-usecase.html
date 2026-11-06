@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Modèle : à dupliquer en usecase-nom.html. Retirer le noindex sur la copie. -->
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Titre du use case] — Elodie Dené</title>
+    <meta name="description" content="[Une phrase : le problème et ce que j’ai fait.]">
+    <link rel="icon" href="images/Logo.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="[Titre du use case] — Elodie Dené">
+    <meta property="og:description" content="[Une phrase : le problème et ce que j’ai fait.]">
+    <meta property="og:url" content="https://elodie-dene.fr/usecase-xxx.html">
+    <meta property="og:image" content="https://elodie-dene.fr/images/usecase-xxx/partage.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:image:alt" content="Écrans du projet : [titre]">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-case">
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-logo"><img src="images/Logo.svg" alt="Logo Elodie Dené" class="nav-logo-img">Elodie Dené</a>
+        <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="projets.html">Projets</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="elodie-dene-cv.pdf" target="_blank" rel="noopener">Mon CV</a></li>
+            <li><a href="https://www.linkedin.com/in/elodiedene/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ════ Hero ════ -->
+        <section class="cs-hero cs-wrap">
+            <a href="projets.html" class="cs-back" data-reveal>← Tous les projets</a>
+            <div class="cs-hero-eyebrow" data-reveal>USE CASE · [TYPE DE PRODUIT] · [ENTREPRISE]</div>
+            <h1 class="cs-h1" data-reveal>[Titre orienté résultat]</h1>
+            <div class="cs-meta" data-reveal>
+                <span>ENTREPRISE — <span class="cs-meta-value">[Entreprise]</span></span>
+                <span>RÔLE — <span class="cs-meta-value">Product Designer</span></span>
+                <span>ANNÉE — <span class="cs-meta-value">[Année]</span></span>
+                <span>DURÉE — <span class="cs-meta-value">[2 semaines]</span></span>
+            </div>
+        </section>
+
+        <!-- ════ Problème ════ -->
+        <section class="cs-band cs-section">
+            <div class="cs-wrap cs-grid cs-grid--420 cs-context">
+                <div class="cs-context-text" data-reveal>
+                    <h2 class="cs-eyebrow">01 — LE PROBLÈME</h2>
+                    <p class="cs-context-p">[Deux ou trois phrases : qui sont les utilisateurs, ce qui coince, pourquoi c’est important pour l’entreprise.]</p>
+                </div>
+                <div class="cs-objectives" data-reveal>
+                    <div class="cs-label">OBJECTIF</div>
+                    <ol class="cs-objectives-list">
+                        <li><span class="cs-num">01</span><span>[L’objectif principal, en une ligne]</span></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════ Ce que j'ai fait ════ -->
+        <section class="cs-wrap cs-section">
+            <h2 class="cs-eyebrow" data-reveal>02 — CE QUE J’AI FAIT</h2>
+            <h3 class="cs-h3" data-reveal>[La démarche en une phrase]</h3>
+            <div class="cs-grid cs-grid--260 cs-ds-foundations">
+                <div class="cs-card cs-hypo" data-reveal>
+                    <span class="cs-tag">ÉTAPE 01</span>
+                    <h4>[Comprendre]</h4>
+                    <p>[Méthode et ce qu’elle a appris : données, entretiens, audit…]</p>
+                </div>
+                <div class="cs-card cs-hypo" data-reveal>
+                    <span class="cs-tag">ÉTAPE 02</span>
+                    <h4>[Décider]</h4>
+                    <p>[La décision de design clé et pourquoi.]</p>
+                </div>
+                <div class="cs-card cs-hypo" data-reveal>
+                    <span class="cs-tag">ÉTAPE 03</span>
+                    <h4>[Livrer]</h4>
+                    <p>[Ce qui a été livré, avec qui.]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════ Écrans (2 ou 3) ════ -->
+        <section class="cs-flow-section">
+            <div class="cs-wrap cs-flow-head">
+                <div data-reveal>
+                    <h3 class="cs-h3">[Le résultat à l’écran]</h3>
+                </div>
+            </div>
+            <div class="cs-flow" role="region" aria-label="Écrans du projet" tabindex="0">
+                <figure class="cs-flow-card cs-flow-card--wide">
+                    <div class="cs-flow-frame"><img src="images/usecase-xxx/ecran-1.jpg" width="1600" height="775" alt="[Description de l’écran]" loading="lazy" decoding="async"></div>
+                    <figcaption><span class="cs-flow-num">01</span><div><div class="cs-flow-title">[Nom de l’écran]</div><div class="cs-flow-desc">[Ce qu’il faut y voir.]</div></div></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ════ Résultat ════ -->
+        <section class="cs-band cs-section">
+            <div class="cs-wrap">
+                <h2 class="cs-eyebrow" data-reveal>03 — RÉSULTAT</h2>
+                <div class="cs-grid cs-grid--260" data-reveal>
+                    <div class="cs-dec-part cs-dec-part--avant"><div class="cs-dec-label">AVANT</div><p>[La situation de départ.]</p></div>
+                    <div class="cs-dec-part cs-dec-part--decision"><div class="cs-dec-label">→ APRÈS</div><p>[Ce qui a changé.]</p></div>
+                    <div class="cs-dec-part cs-dec-part--impact"><div class="cs-dec-label">→ IMPACT</div><p>[Un chiffre si possible, sinon un retour concret.]</p></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Remonter en haut">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 11L8 5L13 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <!-- Projet suivant + footer -->
+    <section class="cta">
+        <a href="projets.html" class="cta-inner next-project">
+            <span class="next-project-label">TOUS LES PROJETS →</span>
+            <h2 class="cta-title">Voir les autres <br>études de cas et use cases</h2>
+        </a>
+        <footer class="cta-footer">
+            <div class="cta-footer-inner">
+                <p>© 2026 Elodie Dené</p>
+            </div>
+        </footer>
+    </section>
+
+    <script src="nav.js"></script>
+    <script src="case.js"></script>
+</body>
+</html>

@@ -451,73 +451,23 @@ nav {
     color: var(--accent-text);
 }
 
-/* Side project (pleine largeur) */
-/* Visuel à gauche, texte centré verticalement à droite */
-.project-side {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    grid-template-rows: 1fr auto auto auto 1fr;
-    grid-template-areas:
-        "visual ."
-        "visual meta"
-        "visual title"
-        "visual desc"
-        "visual .";
-    column-gap: 2.5rem;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 1.25rem 3rem 1.25rem 1.25rem;
-    margin-top: 1.5rem;
-    text-decoration: none;
-    color: var(--text);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-side:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
-}
-
-.project-side-meta {
-    grid-area: meta;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-.project-side-visual {
-    grid-area: visual;
-}
-
-.project-side-title {
-    grid-area: title;
-    margin-bottom: 0.75rem;
-    font-family: "Playfair Display", serif;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    font-weight: 500;
-    line-height: 1.2;
-    color: var(--text);
-}
-
-.project-side-title em {
-    font-style: italic;
-    color: var(--accent);
-}
-
-.project-side-desc {
-    grid-area: desc;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    line-height: 1.7;
+/* Nombre impair de projets : la dernière card prend toute la largeur,
+   visuel à gauche et texte à droite */
+@media (min-width: 769px) {
+    .projects-grid > .project-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+        align-items: center;
+        column-gap: 2.5rem;
+        padding-right: 3rem;
+    }
+    .projects-grid > .project-card:last-child:nth-child(odd) .project-card-body {
+        padding: 0.5rem 0;
+    }
+    .projects-grid > .project-card:last-child:nth-child(odd) .project-card-results {
+        margin-top: 0.5rem;
+    }
 }
 
 .about-content {
@@ -1416,24 +1366,6 @@ button.cmp-dot:focus-visible {
         width: 20px;
         border-radius: 4px;
         background: var(--accent);
-    }
-    /* Empilé en flux normal : dans une grille, Safari calcule la largeur du visuel
-       (aspect-ratio) à partir de sa hauteur et le fait déborder de la card */
-    .project-side {
-        display: block;
-        padding: 1.25rem;
-    }
-    .project-side-visual {
-        width: 100%;
-        margin-bottom: 1.5rem;
-    }
-    .project-side-meta,
-    .project-side-title,
-    .project-side-desc {
-        padding-inline: 0.5rem;
-    }
-    .project-side-desc {
-        padding-bottom: 0.5rem;
     }
     .about-content {
         grid-template-columns: 1fr;
@@ -4099,4 +4031,226 @@ button.cmp-dot:focus-visible {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     margin-top: 32px;
+}
+
+/* ── Jappr : workflow design → code, en quatre étapes ── */
+.cs-pipeline {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    margin-top: 32px;
+}
+
+.cs-pipe {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+    border: 1px solid var(--cs-border);
+    border-radius: 16px;
+    background: var(--cs-paper);
+}
+
+/* Flèche dans la gouttière vers l'étape suivante */
+.cs-pipe:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    transform: translateY(-50%);
+    color: var(--cs-coral-text);
+    font-size: 16px;
+}
+
+.cs-pipe-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--cs-text-4);
+}
+
+.cs-pipe-num {
+    color: var(--cs-coral-text);
+}
+
+.cs-pipe-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-top: 6px;
+}
+
+.cs-pipe-tool {
+    align-self: flex-start;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--cs-border);
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    color: var(--cs-text-3);
+}
+
+.cs-pipe p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--cs-text-3);
+}
+
+/* L'étape du développeur, en encre : c'est là que se fait le passage de relais */
+.cs-pipe--dev {
+    background: var(--cs-ink);
+    border-color: var(--cs-ink);
+    color: var(--cs-cream);
+}
+
+.cs-pipe--dev .cs-pipe-top {
+    color: var(--cs-on-ink-2);
+}
+
+.cs-pipe--dev .cs-pipe-num {
+    color: var(--cs-coral-on-ink);
+}
+
+.cs-pipe--dev .cs-pipe-tool {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--cs-on-ink-2);
+}
+
+.cs-pipe--dev p {
+    color: var(--cs-on-ink-2);
+}
+
+@media (max-width: 1000px) {
+    .cs-pipeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .cs-pipe:nth-child(2)::after {
+        content: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .cs-pipeline {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .cs-pipe:not(:last-child)::after {
+        content: "↓";
+        top: auto;
+        bottom: -21px;
+        right: auto;
+        left: 32px;
+        transform: none;
+    }
+}
+
+/* ── Page « Tous les projets » ── */
+.projects--page {
+    padding: 2.5rem 0 4rem;
+}
+
+.projects--page .back {
+    margin-bottom: 1.5rem;
+}
+
+.projects-group-title {
+    margin: 2.5rem 0 1rem;
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.projects-group-title:first-of-type {
+    margin-top: 0;
+}
+
+.projects-group-intro {
+    margin: -0.25rem 0 1.25rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* Use cases : cards compactes, visuel à gauche */
+.projects-minis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.project-mini {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: center;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-mini:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+}
+
+.project-mini-visual {
+    border-radius: 10px;
+}
+
+.project-mini-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.project-mini-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+.project-mini-title em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.project-mini-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+    .projects-minis {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-mini {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Lien discret vers la page « Tous les projets », sous la grille de la home */
+.projects-all {
+    margin-top: 1.75rem;
+}
+
+@media (max-width: 768px) {
+    .projects-all {
+        margin-top: 1.25rem;
+    }
 }

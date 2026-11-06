@@ -41,7 +41,7 @@
         <!-- ════ Hero ════ -->
         <section class="cs-hero cs-wrap">
             <a href="index.html#work" class="cs-back" data-reveal>← Retour</a>
-            <div class="cs-hero-eyebrow" data-reveal>SIDE PROJECT · IA · SAAS B2B · DESIGN SYSTEM · DATA</div>
+            <div class="cs-hero-eyebrow" data-reveal>IA · SAAS B2B · DESIGN SYSTEM · DATA</div>
             <h1 class="cs-h1" data-reveal>Donner plus de liberté aux éducateurs canins</h1>
             <div class="cs-meta" data-reveal>
                 <span>PROJET — <span class="cs-meta-value">Jappr</span></span>
@@ -355,10 +355,53 @@ uniquement ces tokens.</code></pre>
             </div>
         </section>
 
-        <!-- ════ Data ════ -->
+        <!-- ════ Design → code ════ -->
         <section class="cs-band cs-section">
             <div class="cs-wrap">
-                <h2 class="cs-eyebrow" data-reveal>04 — DATA</h2>
+                <h2 class="cs-eyebrow" data-reveal>04 — DESIGN → CODE</h2>
+                <h3 class="cs-h3" data-reveal>Je code le front, le dev branche le back</h3>
+                <p class="cs-lead cs-lead--wide" data-reveal>Chez Fifty, l’écart entre la maquette et le produit livré se creusait à chaque mise en production&nbsp;: je concevais dans Figma, un développeur réinterprétait. Sur Jappr, j’ai supprimé cette traduction. Je code moi-même le front avec Claude Code, et ce que reçoit le développeur back, c’est une issue liée à un commit, pas une maquette.</p>
+
+                <ol class="cs-pipeline" data-reveal>
+                    <li class="cs-pipe">
+                        <div class="cs-pipe-top"><span class="cs-pipe-num">01</span><span class="cs-pipe-who">MOI</span></div>
+                        <h4 class="cs-pipe-title">Coder le front</h4>
+                        <span class="cs-pipe-tool">Claude Code · HTML, CSS, JS</span>
+                        <p>En HTML, CSS et JavaScript, sans framework. Claude Code lit les tokens et la doc Markdown des composants&nbsp;: chaque écran respecte le design system.</p>
+                    </li>
+                    <li class="cs-pipe">
+                        <div class="cs-pipe-top"><span class="cs-pipe-num">02</span><span class="cs-pipe-who">MOI</span></div>
+                        <h4 class="cs-pipe-title">Mettre à jour les specs</h4>
+                        <span class="cs-pipe-tool">Specs de la feature</span>
+                        <p>Les specs de la fonctionnalité suivent le code&nbsp;: ce qui est écrit correspond toujours à ce qui est livré.</p>
+                    </li>
+                    <li class="cs-pipe">
+                        <div class="cs-pipe-top"><span class="cs-pipe-num">03</span><span class="cs-pipe-who">MOI</span></div>
+                        <h4 class="cs-pipe-title">Commiter et ouvrir une issue</h4>
+                        <span class="cs-pipe-tool">Git · GitHub</span>
+                        <p>Je commite dans le repo du front, puis j’ouvre une issue GitHub liée au commit.</p>
+                    </li>
+                    <li class="cs-pipe cs-pipe--dev">
+                        <div class="cs-pipe-top"><span class="cs-pipe-num">04</span><span class="cs-pipe-who">DEV BACK</span></div>
+                        <h4 class="cs-pipe-title">Brancher le back</h4>
+                        <span class="cs-pipe-tool">API · base de données</span>
+                        <p>Le développeur récupère l’issue et relie le front au back&nbsp;: vraies données et événements de tracking côté serveur.</p>
+                    </li>
+                </ol>
+
+                <h3 class="cs-h3 cs-h3--sub" data-reveal>Ce que ça change</h3>
+                <div class="cs-grid cs-grid--260" data-reveal>
+                    <div class="cs-dec-part cs-dec-part--avant"><div class="cs-dec-label">AVANT · CHEZ FIFTY</div><p>La maquette faisait référence, le code en était une interprétation. Les écarts se découvraient en recette, et chaque correction relançait un aller-retour entre design et développement.</p></div>
+                    <div class="cs-dec-part cs-dec-part--decision"><div class="cs-dec-label">→ SUR JAPPR</div><p>Le front livré est celui que j’ai conçu. Une correction d’interface, je la fais directement dans le code, sans capture annotée ni aller-retour.</p></div>
+                    <div class="cs-dec-part cs-dec-part--impact"><div class="cs-dec-label">→ À L’ÉCHELLE</div><p>Les règles vivent dans les tokens et dans la doc lue par l’IA&nbsp;: chaque nouvel écran les respecte sans que je repasse derrière. Le développeur se concentre sur ce qui ne se voit pas.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════ Data ════ -->
+        <section class="cs-section">
+            <div class="cs-wrap">
+                <h2 class="cs-eyebrow" data-reveal>05 — DATA</h2>
                 <h3 class="cs-h3" data-reveal>Un plan de tracking pensé avant le lancement</h3>
                 <p class="cs-lead cs-lead--wide" data-reveal>Pour savoir si Jappr fait vraiment gagner du temps, il faut pouvoir le mesurer dès le premier utilisateur. J’ai donc écrit le plan de tracking en même temps que les écrans.</p>
 
@@ -439,13 +482,15 @@ uniquement ces tokens.</code></pre>
         </section>
 
         <!-- ════ Et après ════ -->
-        <section class="cs-wrap cs-section">
-            <h2 class="cs-eyebrow" data-reveal>05 — ET APRÈS</h2>
+        <section class="cs-band cs-section">
+            <div class="cs-wrap">
+            <h2 class="cs-eyebrow" data-reveal>06 — ET APRÈS</h2>
             <h3 class="cs-h3" data-reveal>Prochaines étapes</h3>
             <div class="cs-learnings cs-next" data-reveal>
                 <div class="cs-learning"><div class="cs-learning-head"><span class="cs-learning-num">01</span><span class="cs-learning-title">Compléter le design system.</span></div><p>Documenter chaque composant pour l’IA, comme le bouton, pour que chaque écran généré respecte les mêmes règles.</p></div>
                 <div class="cs-learning"><div class="cs-learning-head"><span class="cs-learning-num">02</span><span class="cs-learning-title">Construire les tableaux de bord.</span></div><p>Après le funnel d’activation, suivre la rétention et l’adoption des fonctionnalités clés dans Amplitude.</p></div>
                 <div class="cs-learning"><div class="cs-learning-head"><span class="cs-learning-num">03</span><span class="cs-learning-title">Laisser la data orienter le design.</span></div><p>Confronter les décisions clés aux usages réels et itérer là où les chiffres le demandent.</p></div>
+            </div>
             </div>
         </section>
 
@@ -458,9 +503,9 @@ uniquement ces tokens.</code></pre>
 
     <!-- Projet suivant + footer -->
     <section class="cta">
-        <a href="projet-onboarding.html" class="cta-inner next-project">
-            <span class="next-project-label">PROJET SUIVANT · 01 →</span>
-            <h2 class="cta-title">Faire passer de 40&nbsp;% à 52&nbsp;% les utilisateurs <br>en usage soutenu</h2>
+        <a href="projet-recrutement.html" class="cta-inner next-project">
+            <span class="next-project-label">PROJET SUIVANT · 03 →</span>
+            <h2 class="cta-title">Guider des recruteurs <br>dans un outil métier dense</h2>
         </a>
         <footer class="cta-footer">
             <div class="cta-footer-inner">
