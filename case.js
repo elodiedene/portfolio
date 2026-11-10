@@ -113,6 +113,22 @@
         });
     });
 
+    // Maquettes longues : l'indication « faire défiler » disparaît dès qu'on défile,
+    // le dégradé du bas disparaît en fin de page, et rien ne s'affiche si la maquette tient dans le cadre
+    document.querySelectorAll('.cs-scrollshot').forEach((frame) => {
+        const area = frame.querySelector('.cs-scrollshot-area');
+        const update = () => {
+            const max = area.scrollHeight - area.clientHeight;
+            frame.classList.toggle('is-static', max < 8);
+            frame.classList.toggle('is-scrolled', area.scrollTop > 8);
+            frame.classList.toggle('is-end', area.scrollTop >= max - 8);
+        };
+        area.addEventListener('scroll', update, { passive: true });
+        area.querySelectorAll('img').forEach((img) => img.addEventListener('load', update));
+        window.addEventListener('resize', update);
+        update();
+    });
+
     // Animations : rien si l'utilisateur préfère réduire les mouvements (état final affiché)
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!('IntersectionObserver' in window)) return;

@@ -1453,6 +1453,8 @@ button.cmp-dot:focus-visible {
     --cs-coral-on-ink: #f47d67;
     --cs-coral-light: #ecac9b;
     --cs-coral-pale: #ffdbd1;
+    --cs-green-pale: #e4f1e7;  /* fond « Impact attendu » des décisions clés */
+    --cs-green-deep: #2a6444;  /* libellé sur --cs-green-pale : 6:1 */
     --cs-on-ink-1: #d4ccc4;
     --cs-on-ink-2: #cac3bb;
     --cs-line-on-ink: #2e2a27;
@@ -2106,10 +2108,10 @@ button.cmp-dot:focus-visible {
 .cs-dec-part--decision .cs-dec-label { color: var(--cs-coral-on-ink); }
 
 .cs-dec-part--impact {
-    background: var(--cs-coral-pale);
+    background: var(--cs-green-pale);
 }
 
-.cs-dec-part--impact .cs-dec-label { color: var(--cs-coral-deep); }
+.cs-dec-part--impact .cs-dec-label { color: var(--cs-green-deep); }
 
 /* ── Impact & résultats ── */
 .cs-impact {
@@ -4018,6 +4020,76 @@ button.cmp-dot:focus-visible {
 
 .cs-flow-card--wide .cs-flow-frame {
     border: 1px solid var(--cs-border);
+}
+
+/* ── Maquettes très longues : le cadre garde un format écran et défile à l'intérieur ── */
+.cs-scrollshot {
+    position: relative;
+}
+
+.cs-scrollshot-area {
+    aspect-ratio: 1440 / 1024;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    border-radius: inherit;
+}
+
+.cs-scrollshot-area:focus-visible {
+    outline: 2px solid var(--cs-coral);
+    outline-offset: -2px;
+}
+
+/* Dégradé en bas du cadre : on devine que la page continue */
+.cs-scrollshot::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 96px;
+    background: linear-gradient(to bottom, rgba(18, 15, 13, 0), rgba(18, 15, 13, .18));
+    pointer-events: none;
+    transition: opacity .3s var(--cs-ease);
+}
+
+.cs-scrollshot-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--cs-ink);
+    color: #fff;
+    font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    font-size: 12px;
+    letter-spacing: .04em;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: opacity .3s var(--cs-ease);
+}
+
+.cs-scrollshot-arrow {
+    display: inline-block;
+    animation: cs-scrollshot-nudge 1.6s var(--cs-ease) infinite;
+}
+
+@keyframes cs-scrollshot-nudge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(3px); }
+}
+
+/* Une fois que l'utilisateur a commencé à défiler, l'indication disparaît ; le dégradé disparaît en bas de page */
+.cs-scrollshot.is-scrolled .cs-scrollshot-hint,
+.cs-scrollshot.is-static .cs-scrollshot-hint,
+.cs-scrollshot.is-end::after,
+.cs-scrollshot.is-static::after {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cs-scrollshot-arrow { animation: none; }
 }
 
 /* ── Et après : les cartes côte à côte ── */
