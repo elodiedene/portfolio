@@ -4320,3 +4320,69 @@ button.cmp-dot:focus-visible {
         margin-top: 1.25rem;
     }
 }
+
+/* ── Bandeau de consentement (Hotjar) ── */
+.consent-banner {
+    position: fixed;
+    left: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1000;
+    max-width: 420px;
+    padding: 1.25rem 1.5rem;
+    background: var(--card-cream);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(30, 26, 23, 0.14);
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+
+.consent-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.consent-btn {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: 1.5px solid var(--text);
+    border-radius: 100px;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.consent-btn:hover,
+.consent-btn:focus-visible {
+    color: var(--accent-text);
+    border-color: var(--accent);
+}
+
+.consent-link {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.consent-link:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .consent-banner {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        max-width: none;
+    }
+}
