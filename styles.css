@@ -2017,7 +2017,9 @@ button.cmp-dot:focus-visible {
     opacity: .7;
 }
 
-.cs-dec + .cs-dec {
+/* Tous les panneaux, y compris le premier : même espace sous les onglets
+   (les panneaux masqués comptent pour « + », donc 02 à 04 avaient seuls cette marge) */
+.cs-dec-panels > .cs-dec {
     margin-top: 32px;
 }
 
